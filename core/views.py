@@ -111,7 +111,7 @@ def new_client(request):
     form = ClientUrlForm(request.POST or None)
     if request.method == "POST" and form.is_valid():
         try:
-            client = services.sync_client(form.cleaned_data["url"], form.cleaned_data["limit"])
+            client = services.sync_client(form.cleaned_data["url"])
             messages.success(request, f"Datos de {client.name} importados y guardados correctamente.")
             return redirect(_report_url(client.pk))
         except Exception as error:

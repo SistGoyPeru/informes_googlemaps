@@ -148,8 +148,8 @@ class DashboardTests(TestCase):
     def test_new_client_form(self):
         url = "https://www.google.com/maps/place/Otro+Local/data=!1s0x2:0xdef"
         with patch("core.views.services.sync_client", return_value=self.client_obj) as sync:
-            response = self.client.post(reverse("new_client"), {"url": url, "limit": 200})
-        sync.assert_called_once_with(url, 200)
+            response = self.client.post(reverse("new_client"), {"url": url})
+        sync.assert_called_once_with(url)
         self.assertRedirects(response, reverse("client_report", args=[self.client_obj.pk]) + "?vista=total")
 
     def test_normalize_url_adds_hl(self):
@@ -177,6 +177,6 @@ class DashboardTests(TestCase):
              patch("core.services.maps_scraper.scrape_basic", return_value={}), \
              patch("core.services.maps_scraper.scrape_reviews", return_value=[]), \
              patch("core.services.save_snapshot"):
-            url, _, _ = services.scrape_client(short, 10)
+            url, _, _ = services.scrape_client(short)
         self.assertIn("google.com/maps/place", url)
         self.assertIn("hl=es", url)

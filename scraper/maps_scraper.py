@@ -279,7 +279,7 @@ def _parse_review_card(card):
     }
 
 
-def scrape_reviews(url=DEFAULT_URL, user_data_dir=None, limit=100, wait_seconds=180, headless=False):
+def scrape_reviews(url=DEFAULT_URL, user_data_dir=None, wait_seconds=180, headless=False):
     profile = Path(user_data_dir) if user_data_dir else DATA_DIR / "chrome_profile"
     profile.mkdir(parents=True, exist_ok=True)
     collected = {}
@@ -322,7 +322,7 @@ def scrape_reviews(url=DEFAULT_URL, user_data_dir=None, limit=100, wait_seconds=
 
             seen_ids = set()
             stale = 0
-            for _ in range(140):
+            while True:
                 ids = page.evaluate(
                     "() => [...document.querySelectorAll('div.jftiEf[data-review-id]')].map(e => e.getAttribute('data-review-id'))"
                 ) or []
@@ -334,10 +334,8 @@ def scrape_reviews(url=DEFAULT_URL, user_data_dir=None, limit=100, wait_seconds=
                     if row["text"] or row["author"] or row["rating"]:
                         row["review_id"] = review_id
                         collected[review_id] = row
-                if len(collected) >= limit:
-                    break
                 stale = 0 if fresh else stale + 1
-                if stale >= 8:
+                if stale >= 25:
                     break
                 page.evaluate(
                     "() => { const es=[...document.querySelectorAll('*')].filter(e => e.scrollHeight>e.clientHeight+50 && ['auto','scroll'].includes(getComputedStyle(e).overflowY)); es.forEach(e => e.scrollTop=e.scrollHeight); window.scrollBy(0,2000); }"
@@ -351,7 +349,7 @@ def scrape_reviews(url=DEFAULT_URL, user_data_dir=None, limit=100, wait_seconds=
             except PlaywrightError:
                 pass
 
-    return list(collected.values())[:limit]
+    return list(collected.values())
 
 
 def save_basic(data, path=None):
@@ -426,14 +424,12 @@ def main():
         print(str(save_basic(data)))
         print(json.dumps(data, ensure_ascii=False, indent=2))
     elif command in ("reviews", "reviews-headless"):
-        values = [value for value in sys.argv[2:] if value.isdigit()]
-        limit = int(values[0]) if values else 100
-        rows = scrape_reviews(limit=limit, headless=command == "reviews-headless")
+        rows = scrape_reviews(headless=command == "reviews-headless")
         merged = {}
         for row in load_reviews() + rows:
             key = row.get("review_id") or (row.get("author"), row.get("text"), row.get("date"))
             merged[key] = row
-        rows = list(merged.values())[:limit]
+        rows = list(merged.values())
         print(str(save_reviews(rows)))
         print(f"{len(rows)} reseñas guardadas")
     elif command == "export":
@@ -441,7 +437,7 @@ def main():
         for target in targets:
             print(str(target))
     else:
-        raise SystemExit("Uso: python -m scraper.maps_scraper basic|reviews|reviews-headless|export [limit]")
+        raise SystemExit("Uso: python -m scraper.maps_scraper basic|reviews|reviews-headless|export")
 
 
 if __name__ == "__main__":

@@ -52,10 +52,10 @@ def normalize_url(value):
     return urlunparse(parsed._replace(query=urlencode(query)))
 
 
-def scrape_client(url, limit=500):
+def scrape_client(url):
     url = normalize_url(resolve_maps_url(url))
     place = maps_scraper.scrape_basic(url, headless=True)
-    reviews = maps_scraper.scrape_reviews(url, limit=limit, headless=False, wait_seconds=180)
+    reviews = maps_scraper.scrape_reviews(url, headless=False, wait_seconds=180)
     return url, place, reviews
 
 
@@ -103,8 +103,8 @@ def save_snapshot(client, place, reviews):
     return folder
 
 
-def sync_client(url, limit=500):
-    url, place, reviews = scrape_client(url, limit)
+def sync_client(url):
+    url, place, reviews = scrape_client(url)
     place_id = place.get("place_id") or maps_scraper.fallback_key(url)
     defaults = {
         "name": place.get("name") or "Cliente Google Maps",
@@ -143,5 +143,5 @@ def sync_client(url, limit=500):
     return client
 
 
-def refresh_client(client, limit=500):
-    return sync_client(client.source_url, limit)
+def refresh_client(client):
+    return sync_client(client.source_url)
