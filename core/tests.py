@@ -62,6 +62,7 @@ class DashboardTests(TestCase):
         self.assertContains(response, "Cómo leer este informe")
         self.assertContains(response, "Reportes PDF profesionales")
         self.assertContains(response, "Ficha para enviar por correo")
+        self.assertContains(response, "Descargar TXT para correo")
         self.assertNotIn("faltan días", response.content.decode("utf-8"))
 
     def test_incomplete_current_month_is_excluded(self):
@@ -108,6 +109,15 @@ class DashboardTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response["Content-Type"], "application/pdf")
         self.assertTrue(b"%PDF" in b"".join(response.streaming_content)[:1024])
+
+    def test_email_brief_txt(self):
+        response = self.client.get(reverse("export_brief_txt", args=[self.client_obj.pk]))
+        self.assertEqual(response.status_code, 200)
+        self.assertIn("text/plain", response["Content-Type"])
+        content = response.content.decode("utf-8")
+        self.assertIn("ASUNTO:", content)
+        self.assertIn("COMENTARIO SUGERIDO PARA EL ARCHIVO:", content)
+        self.assertIn(self.client_obj.name, content)
 
     def test_pdf_general_year_month_and_package(self):
         for query in ({}, {"anio": self.year}, {"mes": self.month}):

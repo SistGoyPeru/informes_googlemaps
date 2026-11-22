@@ -2,7 +2,7 @@ from datetime import datetime
 from urllib.parse import urlencode
 
 from django.contrib import messages
-from django.http import FileResponse, Http404
+from django.http import FileResponse, Http404, HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 
@@ -199,6 +199,7 @@ def client_report(request, pk):
     pdf_base = reverse("export_pdf", args=[pk])
     brief_period = f"?mes={month}" if vista in ("mes", "semana", "dia") and month else (f"?anio={year}" if vista == "anio" and year else "")
     brief_pdf_url = reverse("export_brief", args=[pk]) + brief_period
+    brief_txt_url = reverse("export_brief_txt", args=[pk]) + brief_period
     brief = briefs.email_brief(
         client,
         raw_frame,
@@ -267,6 +268,7 @@ def client_report(request, pk):
         "pdf_package_url": reverse("export_pdf_package", args=[pk]),
         "brief": brief,
         "brief_pdf_url": brief_pdf_url,
+        "brief_txt_url": brief_txt_url,
         "pdf_years": pdf_years,
         "pdf_months": pdf_months,
         "csv_resumen": reverse("export_csv", args=[pk]) + "?tipo=resumen",
@@ -293,6 +295,22 @@ def export_brief(request, pk):
     raw_frame = analytics.enrich(analytics.to_frame(client.reviews.all()))
     path = reports.export_brief(client, raw_frame, month, year)
     return FileResponse(path.open("rb"), as_attachment=True, filename=path.name, content_type="application/pdf")
+
+
+def export_brief_txt(request, pk):
+    client = get_object_or_404(Client, pk=pk)
+    month = request.GET.get("mes") or None
+    year = request.GET.get("anio") or None
+    frame = analytics.enrich(analytics.to_frame(client.reviews.all()))
+    data = briefs.email_brief(client, frame, month, year)
+    content = (
+        f"ASUNTO:\n{data['subject']}\n\n"
+        f"COMENTARIO SUGERIDO PARA EL ARCHIVO:\n{data['comment']}\n\n"
+        f"CUERPO COMPLETO PARA COPIAR:\n{data['body']}\n"
+    )
+    response = HttpResponse(content, content_type="text/plain; charset=utf-8")
+    response["Content-Disposition"] = f'attachment; filename="ficha_correo_cliente_{pk}.txt"'
+    return response
 
 
 def export_pdf(request, pk):
