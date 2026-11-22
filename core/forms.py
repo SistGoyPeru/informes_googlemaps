@@ -5,7 +5,7 @@ class ClientUrlForm(forms.Form):
     url = forms.URLField(
         label="URL de Google Maps",
         widget=forms.URLInput(attrs={"placeholder": "https://www.google.com/maps/place/...", "class": "url-input"}),
-        help_text="Pega la URL completa del local y extraeremos reseñas, fotos, notas y contacto.",
+        help_text="Pega la URL completa o el link corto de Google Maps y extraeremos reseñas, fotos, notas y contacto.",
     )
     limit = forms.IntegerField(
         label="Máximo de reseñas",

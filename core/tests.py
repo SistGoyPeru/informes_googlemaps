@@ -156,3 +156,27 @@ class DashboardTests(TestCase):
         normalized = services.normalize_url("https://www.google.com/maps/place/Local+Prueba")
         self.assertIn("hl=es", normalized)
         self.assertIn("google.com/maps/place", normalized)
+
+    def test_normalize_url_accepts_short_maps_link(self):
+        normalized = services.normalize_url("https://maps.app.goo.gl/ahRZFdiMikNKeyyBA")
+        self.assertIn("maps.app.goo.gl", normalized)
+        self.assertIn("hl=es", normalized)
+
+    def test_resolve_maps_url_follows_google_redirect(self):
+        short = "https://maps.app.goo.gl/ahRZFdiMikNKeyyBA"
+        long_url = "https://www.google.com/maps/place/Loom's/data=!1s0x12a49384281f7a1b:0x10c79d277a2756dc"
+        with patch("core.services.urlopen") as opener:
+            opener.return_value.__enter__.return_value.geturl.return_value = long_url
+            resolved = services.resolve_maps_url(short)
+        self.assertEqual(resolved, long_url)
+
+    def test_scrape_client_normalizes_resolved_short_link(self):
+        short = "https://maps.app.goo.gl/ahRZFdiMikNKeyyBA"
+        long_url = "https://www.google.com/maps/place/Loom's/data=!1s0x12a49384281f7a1b:0x10c79d277a2756dc"
+        with patch("core.services.resolve_maps_url", return_value=long_url), \
+             patch("core.services.maps_scraper.scrape_basic", return_value={}), \
+             patch("core.services.maps_scraper.scrape_reviews", return_value=[]), \
+             patch("core.services.save_snapshot"):
+            url, _, _ = services.scrape_client(short, 10)
+        self.assertIn("google.com/maps/place", url)
+        self.assertIn("hl=es", url)

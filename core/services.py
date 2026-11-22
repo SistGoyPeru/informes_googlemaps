@@ -2,7 +2,9 @@ import csv
 import json
 from datetime import datetime
 from pathlib import Path
+from urllib.error import URLError
 from urllib.parse import parse_qsl, urlencode, urlparse, urlunparse
+from urllib.request import Request, urlopen
 
 from django.utils import timezone
 from django.utils.text import slugify
@@ -16,6 +18,22 @@ BASE_DIR = Path(__file__).resolve().parents[1]
 DATA_DIR = BASE_DIR / "data"
 
 
+def _is_google_short(url):
+    host = urlparse(url or "").netloc.lower()
+    return host == "goo.gl" or host.endswith(".goo.gl")
+
+
+def resolve_maps_url(url):
+    if not _is_google_short(url):
+        return url
+    request = Request(url, headers={"User-Agent": "Mozilla/5.0"})
+    try:
+        with urlopen(request, timeout=20) as response:
+            return response.geturl() or url
+    except (URLError, OSError):
+        return url
+
+
 def normalize_url(value):
     url = (value or "").strip()
     if not url:
@@ -26,7 +44,7 @@ def normalize_url(value):
     host = parsed.netloc.lower()
     path = parsed.path.lower()
     maps_place = "google." in host and "maps" in path
-    maps_short = host.endswith("goo.gl") and "/maps" in path
+    maps_short = _is_google_short(url)
     if not maps_place and not maps_short:
         raise ValueError("La URL debe ser de Google Maps.")
     query = dict(parse_qsl(parsed.query, keep_blank_values=True))
@@ -35,7 +53,7 @@ def normalize_url(value):
 
 
 def scrape_client(url, limit=500):
-    url = normalize_url(url)
+    url = normalize_url(resolve_maps_url(url))
     place = maps_scraper.scrape_basic(url, headless=True)
     reviews = maps_scraper.scrape_reviews(url, limit=limit, headless=False, wait_seconds=180)
     return url, place, reviews
