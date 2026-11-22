@@ -144,89 +144,93 @@ def _rating_counts(page):
 
 
 def scrape_basic(url=DEFAULT_URL, headless=True):
-    profile = DATA_DIR / "chrome_profile"
+    profile = DATA_DIR / "chrome_profile_basic"
     profile.mkdir(parents=True, exist_ok=True)
     with sync_playwright() as playwright:
         context = playwright.chromium.launch_persistent_context(str(profile), **_context_options(headless))
-        page = context.pages[0] if context.pages else context.new_page()
-        page.goto(url, wait_until="domcontentloaded", timeout=60000)
-        _handle_consent(page)
-        page.wait_for_selector("[role='img'][aria-label*='estrella']", timeout=30000)
-        page.wait_for_timeout(7000)
-
-        name = page.title().replace(" - Google Maps", "").strip()
-        rating_label = page.locator("[role='img'][aria-label*='estrella']").first.get_attribute("aria-label")
-        address = ""
-        phone = ""
-        hours = ""
-        category = ""
-
-        address_locator = page.locator("button[aria-label^='Dirección:']")
-        if address_locator.count():
-            address = _clean(address_locator.first.get_attribute("aria-label")).removeprefix("Dirección:").strip()
-        phone_locator = page.locator("button[aria-label^='Teléfono:']")
-        if phone_locator.count():
-            phone = _clean(phone_locator.first.get_attribute("aria-label")).removeprefix("Teléfono:").strip()
-        hours_locator = page.locator("button[aria-label*='Copiar el horario']")
-        if hours_locator.count():
-            hours = _clean(hours_locator.first.get_attribute("aria-label")).replace(", Copiar el horario", "")
-
-        for button in page.locator("button").all():
-            text = _clean(button.inner_text())
-            if text in {"Hamburguesería", "Restaurante", "Cafetería", "Bar", "Pizzería", "Comida rápida"}:
-                category = text
-                break
-
-        photos = []
-        for image in page.locator("img[src*='lh3.googleusercontent.com']").all():
-            src = image.get_attribute("src") or ""
-            if src and src not in photos:
-                photos.append(src)
-
-        body_text = page.locator("body").inner_text()
-        login_required = _login_required(page)
-        rating_counts = _rating_counts(page)
-        review_total = sum(rating_counts.values())
-        if not review_total:
-            total_match = re.search(r"(\d+)\s+reseñas", body_text)
-            review_total = int(total_match.group(1)) if total_match else 0
-
-        photo_total = 0
-        owner_photos = 0
         try:
-            see_photos = page.get_by_role("button", name="Ver fotos")
-            if see_photos.count():
-                see_photos.first.click()
-                page.wait_for_timeout(5000)
-                photo_total = _count_photos(page)
-                owner_tab = page.locator("[aria-label='Del propietario']")
-                if owner_tab.count():
-                    owner_tab.first.click()
-                    page.wait_for_timeout(4000)
-                    owner_photos = _count_photos(page)
-        except PlaywrightError:
-            pass
-        context.close()
+            page = context.pages[0] if context.pages else context.new_page()
+            page.goto(url, wait_until="domcontentloaded", timeout=60000)
+            _handle_consent(page)
+            page.wait_for_selector("[role='img'][aria-label*='estrella']", timeout=30000)
+            page.wait_for_timeout(7000)
 
-    place_id = place_id_from_maps_url(url) or fallback_key(url)
+            name = page.title().replace(" - Google Maps", "").strip()
+            rating_label = page.locator("[role='img'][aria-label*='estrella']").first.get_attribute("aria-label")
+            address = ""
+            phone = ""
+            hours = ""
+            category = ""
 
-    return {
-        "name": name,
-        "place_id": place_id,
-        "category": category,
-        "rating": _parse_rating(rating_label),
-        "address": address,
-        "phone": phone,
-        "hours": hours,
-        "login_required": login_required,
-        "review_total": review_total,
-        "rating_counts": rating_counts,
-        "photo_total": photo_total,
-        "owner_photos": owner_photos,
-        "customer_photos": max(photo_total - owner_photos, 0),
-        "source_url": url,
-        "photos": photos,
-    }
+            address_locator = page.locator("button[aria-label^='Dirección:']")
+            if address_locator.count():
+                address = _clean(address_locator.first.get_attribute("aria-label")).removeprefix("Dirección:").strip()
+            phone_locator = page.locator("button[aria-label^='Teléfono:']")
+            if phone_locator.count():
+                phone = _clean(phone_locator.first.get_attribute("aria-label")).removeprefix("Teléfono:").strip()
+            hours_locator = page.locator("button[aria-label*='Copiar el horario']")
+            if hours_locator.count():
+                hours = _clean(hours_locator.first.get_attribute("aria-label")).replace(", Copiar el horario", "")
+
+            for button in page.locator("button").all():
+                text = _clean(button.inner_text())
+                if text in {"Hamburguesería", "Restaurante", "Cafetería", "Bar", "Pizzería", "Comida rápida"}:
+                    category = text
+                    break
+
+            photos = []
+            for image in page.locator("img[src*='lh3.googleusercontent.com']").all():
+                src = image.get_attribute("src") or ""
+                if src and src not in photos:
+                    photos.append(src)
+
+            body_text = page.locator("body").inner_text()
+            login_required = _login_required(page)
+            rating_counts = _rating_counts(page)
+            review_total = sum(rating_counts.values())
+            if not review_total:
+                total_match = re.search(r"(\d+)\s+reseñas", body_text)
+                review_total = int(total_match.group(1)) if total_match else 0
+
+            photo_total = 0
+            owner_photos = 0
+            try:
+                see_photos = page.get_by_role("button", name="Ver fotos")
+                if see_photos.count():
+                    see_photos.first.click()
+                    page.wait_for_timeout(5000)
+                    photo_total = _count_photos(page)
+                    owner_tab = page.locator("[aria-label='Del propietario']")
+                    if owner_tab.count():
+                        owner_tab.first.click()
+                        page.wait_for_timeout(4000)
+                        owner_photos = _count_photos(page)
+            except PlaywrightError:
+                pass
+
+            place_id = place_id_from_maps_url(url) or fallback_key(url)
+            return {
+                "name": name,
+                "place_id": place_id,
+                "category": category,
+                "rating": _parse_rating(rating_label),
+                "address": address,
+                "phone": phone,
+                "hours": hours,
+                "login_required": login_required,
+                "review_total": review_total,
+                "rating_counts": rating_counts,
+                "photo_total": photo_total,
+                "owner_photos": owner_photos,
+                "customer_photos": max(photo_total - owner_photos, 0),
+                "source_url": url,
+                "photos": photos,
+            }
+        finally:
+            try:
+                context.close()
+            except PlaywrightError:
+                pass
 
 
 def _parse_review_card(card):
