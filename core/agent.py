@@ -1,15 +1,4 @@
-import json
-import os
-from urllib.request import Request, urlopen
-
 from . import analytics, insights
-
-SYSTEM_PROMPT = (
-    "Eres un analista de reputación para negocios locales en Google Maps. "
-    "Responde en español, con tono profesional y directo. Usa solo los datos del contexto. "
-    "Da una lectura breve, evidencia numérica y recomendaciones concretas con responsable, plazo y KPI. "
-    "No inventes datos. Si falta información, dilo y propón cómo obtenerla."
-)
 
 
 def _plain(value):
@@ -48,6 +37,29 @@ def _local_answer(question, context):
     strengths = context["temas_positivos"]
     risks = context["temas_criticos"]
 
+    if any(word in query for word in ("gratis", "sin costo", "sin coste", "precio", "pagar", "api de pago")):
+        return (
+            "Sí. Este agente es gratuito: analiza las reseñas guardadas y responde sin APIs de pago ni claves externas. "
+            "Puedes pedirle un plan, críticas, reseñas, captación o contenido las veces que quieras."
+        )
+
+    if any(word in query for word in ("plan", "30 dias", "30 días", "estrategia", "acciones", "qué hacer", "que hacer")):
+        steps = [
+            f"{index}) {item['phase']}: {item['move']} KPI: {item['kpi']}."
+            for index, item in enumerate(strategies, 1)
+        ]
+        return (
+            "Plan gratuito con los datos del informe: " + " ".join(steps)
+            if steps else "Primero importa el histórico completo; después el agente propondrá el plan por fases."
+        )
+
+    if any(word in query for word in ("presupuesto", "barato", "coste cero", "costo cero", "bajo costo")):
+        return (
+            "Empieza con tres acciones de coste cero: responder el 100% de las críticas en 24 h, "
+            "pedir la reseña al entregar el servicio con un guion de 10 segundos y publicar una foto semanal. "
+            f"Solo con eso apuntas a {growth[0].get('kpi', '2-3 reseñas/día') if growth else 'más reseñas y mejor media'}."
+        )
+
     if any(word in query for word in ("captar", "cliente nuevo", "adquisicion", "adquisición", "venta")):
         play = growth[1] if len(growth) > 1 else {}
         tactics = "; ".join(play.get("tactics", [])[:3])
@@ -84,14 +96,14 @@ def _local_answer(question, context):
         )
 
     if any(word in query for word in ("mes", "tendencia", "evolucion", "evolución", "periodo")):
-        monthly = diagnosis.get("score", {})
+        score = diagnosis.get("score", {})
         return (
             f"En el histórico analizado hay {kpis['total']} reseñas, media {kpis['average']:.2f}★ y "
-            f"{kpis['positive_rate']:.1f}% de clientes satisfechos. Índice de reputación: {monthly.get('label', 'sin datos')}. "
+            f"{kpis['positive_rate']:.1f}% de clientes satisfechos. Índice de reputación: {score.get('label', 'sin datos')}. "
             "La lectura mensual conviene contrastarla con el mes comparable del año anterior antes de decidir cambios fuertes."
         )
 
-    if any(word in query for word in ("foto", "visual", "contenido")):
+    if any(word in query for word in ("foto", "visual", "contenido", "publicar")):
         return (
             f"El negocio tiene {context.get('fotos_clientes', 'varias')} fotos de clientes. "
             "Publica una foto semanal del plato o servicio mejor valorado y pide una foto al pedir la reseña. "
@@ -108,41 +120,7 @@ def _local_answer(question, context):
     )
 
 
-def _remote_answer(question, context):
-    api_key = os.environ.get("OPENAI_API_KEY")
-    if not api_key:
-        return None
-    model = os.environ.get("OPENAI_MODEL", "gpt-4o-mini")
-    endpoint = os.environ.get("OPENAI_API_URL", "https://api.openai.com/v1/chat/completions")
-    payload = {
-        "model": model,
-        "messages": [
-            {"role": "system", "content": SYSTEM_PROMPT},
-            {
-                "role": "user",
-                "content": f"Pregunta del usuario: {question}\n\nContexto de datos:\n{json.dumps(context, ensure_ascii=False)}",
-            },
-        ],
-        "temperature": 0.3,
-    }
-    request = Request(
-        endpoint,
-        data=json.dumps(payload).encode("utf-8"),
-        headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
-        method="POST",
-    )
-    try:
-        with urlopen(request, timeout=25) as response:
-            body = json.loads(response.read().decode("utf-8"))
-        return body["choices"][0]["message"]["content"].strip()
-    except Exception:
-        return None
-
-
 def answer_client_question(client, question):
     context = client_context(client)
     context["fotos_clientes"] = client.customer_photos
-    remote = _remote_answer(question, context)
-    if remote:
-        return remote, "ia"
     return _local_answer(question, context), "local"

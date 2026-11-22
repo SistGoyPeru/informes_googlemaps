@@ -104,17 +104,19 @@
 
 <section class="panel">
   <input type="hidden" id="ia-csrf" value="{{ csrf_token }}">
-  <div class="section-head"><h2>Agente IA de análisis</h2><span id="ia-source">Análisis basado en datos guardados</span></div>
-  <p class="muted">Pregunta lo que necesites para decidir: reseñas, captación, críticas, respuesta a clientes o fotografías.</p>
+  <div class="section-head"><h2>Agente IA gratuito</h2><span id="ia-source">Sin APIs de pago · datos guardados</span></div>
+  <p class="muted">Pregunta gratis lo que necesites para decidir: reseñas, captación, críticas, respuesta a clientes o fotografías.</p>
   <div class="actions">
     <button class="chip" type="button" onclick="askAgent('¿Cómo consigo más valoraciones positivas?')">Más valoraciones</button>
     <button class="chip" type="button" onclick="askAgent('¿Cómo capto clientes nuevos en mi zona?')">Captar clientes</button>
     <button class="chip" type="button" onclick="askAgent('¿Qué críticas debo atender primero?')">Críticas</button>
     <button class="chip" type="button" onclick="askAgent('¿Qué fotos y contenido publico?')">Contenido</button>
+    <button class="chip" type="button" onclick="askAgent('Dame un plan de 30 días')">Plan gratis</button>
+    <button class="chip" type="button" onclick="askAgent('¿Es gratis?')">¿Es gratis?</button>
   </div>
   <textarea id="ia-question" style="min-height:80px" placeholder="Ej. Dame un plan de 30 días para subir de 4,3 a 4,6 estrellas"></textarea>
   <div class="actions">
-    <button class="btn good" type="button" onclick="askAgent()">Analizar con IA</button>
+    <button class="btn good" type="button" onclick="askAgent()">Analizar gratis</button>
   </div>
   <div id="ia-answer" class="quote" style="margin-top:12px">Escribe una pregunta o elige una sugerencia para empezar.</div>
 </section>
@@ -261,6 +263,6 @@
 <script>
 function chooseVista(value){document.getElementById('id_vista').value=value;document.getElementById('filter-form').submit();}
 function copyBrief(id){var field=document.getElementById(id);field.select();document.execCommand('copy');field.setSelectionRange(0,0);}
-async function askAgent(preset){var input=document.getElementById('ia-question');var question=preset||input.value.trim();if(!question){alert('Escribe una pregunta.');return;}var answer=document.getElementById('ia-answer');answer.textContent='Analizando...';try{var response=await fetch('{{ agent_url }}',{method:'POST',headers:{'Content-Type':'application/json','X-CSRFToken':document.getElementById('ia-csrf').value},body:JSON.stringify({question:question})});var data=await response.json();if(!response.ok){throw new Error(data.error||'No se pudo analizar');}answer.textContent=data.answer;document.getElementById('ia-source').textContent=data.source==='ia'?'Respuesta con modelo externo':'Análisis local con datos guardados';}catch(error){answer.textContent='No se pudo completar: '+error.message;}}
+async function askAgent(preset){var input=document.getElementById('ia-question');var question=preset||input.value.trim();if(!question){alert('Escribe una pregunta.');return;}var answer=document.getElementById('ia-answer');answer.textContent='Analizando...';try{var response=await fetch('{{ agent_url }}',{method:'POST',headers:{'Content-Type':'application/json','X-CSRFToken':document.getElementById('ia-csrf').value},body:JSON.stringify({question:question})});var data=await response.json();if(!response.ok){throw new Error(data.error||'No se pudo analizar');}answer.textContent=data.answer;document.getElementById('ia-source').textContent='Agente gratuito · datos guardados';}catch(error){answer.textContent='No se pudo completar: '+error.message;}}
 </script>
 {% endblock %}

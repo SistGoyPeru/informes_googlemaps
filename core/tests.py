@@ -82,12 +82,17 @@ class DashboardTests(TestCase):
         self.assertEqual(country, "España")
         self.assertEqual(zone, "Barcelona")
 
-    def test_ai_agent_gives_local_analysis(self):
-        with patch("core.agent._remote_answer", return_value=None):
-            answer, source = agent.answer_client_question(self.client_obj, "¿Cómo consigo más valoraciones positivas?")
+    def test_ai_agent_gives_free_local_analysis(self):
+        answer, source = agent.answer_client_question(self.client_obj, "¿Cómo consigo más valoraciones positivas?")
         self.assertEqual(source, "local")
         self.assertIn("valoraciones positivas", answer)
         self.assertIn("KPI", answer)
+
+    def test_ai_agent_free_answer(self):
+        answer, source = agent.answer_client_question(self.client_obj, "¿Es gratis?")
+        self.assertEqual(source, "local")
+        self.assertIn("gratuito", answer)
+        self.assertIn("sin APIs de pago", answer)
 
     def test_ai_agent_endpoint(self):
         url = reverse("agent_answer", args=[self.client_obj.pk])
@@ -105,7 +110,8 @@ class DashboardTests(TestCase):
         self.assertContains(response, "2. Fortalezas comprobadas")
         self.assertContains(response, "4. Estrategia y plan de acción")
         self.assertContains(response, "Motor de crecimiento")
-        self.assertContains(response, "Agente IA de análisis")
+        self.assertContains(response, "Agente IA gratuito")
+        self.assertContains(response, "Sin APIs de pago")
         self.assertContains(response, "Cómo leer este informe")
         self.assertContains(response, "Reportes PDF profesionales")
         self.assertContains(response, "Ficha para enviar por correo")
