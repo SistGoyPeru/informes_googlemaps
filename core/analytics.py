@@ -261,6 +261,123 @@ def verbatims(frame, positive, limit=4):
     return rows
 
 
+def previous_month(month):
+    try:
+        year, number = (int(part) for part in str(month).split("-"))
+    except (TypeError, ValueError):
+        return month
+    number -= 1
+    if number == 0:
+        year -= 1
+        number = 12
+    return f"{year:04d}-{number:02d}"
+
+
+def period_comparison(frame, month=None, year=None):
+    if frame.empty:
+        return {"label": "Sin datos", "rows": [], "has_previous": False}
+    if month:
+        current_key = month
+        previous_key = previous_month(month)
+        current_label = month_label(current_key)
+        previous_label = month_label(previous_key)
+        current = frame[frame["mes"] == current_key]
+        previous = frame[frame["mes"] == previous_key]
+    elif year:
+        current_label = f"Año {year}"
+        previous_label = f"Año {int(year) - 1}"
+        current = frame[frame["anio"] == int(year)]
+        previous = frame[frame["anio"] == int(year) - 1]
+    else:
+        current_key = last_complete_month()
+        previous_key = previous_month(current_key)
+        current_label = f"Último mes cerrado · {month_label(current_key)}"
+        previous_label = month_label(previous_key)
+        current = frame[frame["mes"] == current_key]
+        previous = frame[frame["mes"] == previous_key]
+
+    now = reputation_kpis(current)
+    before = reputation_kpis(previous)
+
+    def fmt(value, decimals=1, suffix=""):
+        return "—" if value is None else f"{value:.{decimals}f}{suffix}"
+
+    def delta(key, decimals=1, suffix=""):
+        if not before.get("total"):
+            return "—"
+        change = now[key] - before[key]
+        sign = "+" if change > 0 else ""
+        return f"{sign}{change:.{decimals}f}{suffix}"
+
+    rows = [
+        {"Indicador": "Rating medio", "Actual": fmt(now["average"], 2, "★"), "Anterior": fmt(before["average"], 2, "★") if before["total"] else "—", "Cambio": delta("average", 2)},
+        {"Indicador": "Reseñas", "Actual": str(now["total"]), "Anterior": str(before["total"]) if before["total"] else "—", "Cambio": delta("total", 0)},
+        {"Indicador": "Satisfacción", "Actual": fmt(now["satisfaction"], 1, "%"), "Anterior": fmt(before["satisfaction"], 1, "%") if before["total"] else "—", "Cambio": delta("satisfaction", 1, " pp")},
+        {"Indicador": "Excelencia 5★", "Actual": fmt(now["five_rate"], 1, "%"), "Anterior": fmt(before["five_rate"], 1, "%") if before["total"] else "—", "Cambio": delta("five_rate", 1, " pp")},
+        {"Indicador": "Incidencias 1-2★", "Actual": fmt(now["negative_rate"], 1, "%"), "Anterior": fmt(before["negative_rate"], 1, "%") if before["total"] else "—", "Cambio": delta("negative_rate", 1, " pp")},
+        {"Indicador": "Respuestas", "Actual": fmt(now["response_rate"], 1, "%"), "Anterior": fmt(before["response_rate"], 1, "%") if before["total"] else "—", "Cambio": delta("response_rate", 1, " pp")},
+    ]
+    return {"label": f"{current_label} vs {previous_label}", "rows": rows, "has_previous": bool(before["total"])}
+
+
+def photo_audit(client):
+    owner = int(getattr(client, "owner_photos", 0) or 0)
+    customer = int(getattr(client, "customer_photos", 0) or 0)
+    total = int(getattr(client, "photo_total", 0) or 0) or owner + customer
+    share = customer / total * 100 if total else 0.0
+    goal = max(0, 100 - customer)
+    status = "Buena prueba social" if customer >= 100 else ("En construcción" if customer >= 30 else "Poca prueba social")
+    return {
+        "status": status,
+        "rows": [
+            {"Métrica": "Fotos totales", "Valor": str(total), "Lectura": "Volumen visual disponible en la ficha"},
+            {"Métrica": "Fotos de clientes", "Valor": str(customer), "Lectura": "Prueba social real, genera más confianza"},
+            {"Métrica": "Fotos del propietario", "Valor": str(owner), "Lectura": "Control visual del local y productos"},
+            {"Métrica": "Participación clientes", "Valor": f"{share:.1f}%", "Lectura": "Objetivo recomendado: más del 60%"},
+            {"Métrica": "Fotos para llegar a 100", "Valor": str(goal), "Lectura": "Meta de prueba social del informe"},
+            {"Métrica": "Estado", "Valor": status, "Lectura": "Se actualiza con cada extracción"},
+        ],
+    }
+
+
+def _peer_value(item, field):
+    if isinstance(item, dict):
+        return item.get(field)
+    return getattr(item, field, None)
+
+
+def benchmark(client, peers):
+    peers = list(peers or [])
+    if not peers:
+        return {"label": "Sin comparables", "rows": []}
+    ratings = [float(_peer_value(item, "rating") or 0) for item in peers]
+    volumes = [int(_peer_value(item, "review_total") or 0) for item in peers]
+    photos = [int(_peer_value(item, "customer_photos") or 0) for item in peers]
+    averages = [
+        sum(ratings) / len(ratings),
+        sum(volumes) / len(volumes),
+        sum(photos) / len(photos),
+    ]
+    current = [
+        float(getattr(client, "rating", 0) or 0),
+        int(getattr(client, "review_total", 0) or 0),
+        int(getattr(client, "customer_photos", 0) or 0),
+    ]
+    labels = ["Rating Google", "Reseñas totales", "Fotos de clientes"]
+    rows = []
+    for index, label in enumerate(labels):
+        difference = current[index] - averages[index]
+        sign = "+" if difference > 0 else ""
+        decimals = 2 if index == 0 else 0
+        rows.append({
+            "Métrica": label,
+            "Este local": f"{current[index]:.{decimals}f}" if index == 0 else str(current[index]),
+            "Promedio cartera": f"{averages[index]:.{decimals}f}" if index == 0 else f"{averages[index]:.0f}",
+            "Diferencia": f"{sign}{difference:.{decimals}f}" if difference else "0",
+        })
+    return {"label": f"Cartera guardada · {len(peers)} locales", "rows": rows}
+
+
 def records(table):
     table = table.copy()
     for column in table.columns:

@@ -8,7 +8,7 @@ from django.urls import reverse
 from django.utils import timezone
 from reportlab.lib import colors
 
-from . import analytics, briefs, reports, services
+from . import analytics, briefs, insights, reports, services
 from .models import Client, Review
 
 
@@ -161,6 +161,37 @@ class DashboardTests(TestCase):
         normalized = services.normalize_url("https://maps.app.goo.gl/ahRZFdiMikNKeyyBA")
         self.assertIn("maps.app.goo.gl", normalized)
         self.assertIn("hl=es", normalized)
+
+    def test_pdf_report_enrichments(self):
+        previous = analytics.previous_month(self.month)
+        year, number = (int(part) for part in previous.split("-"))
+        Review.objects.create(
+            client=self.client_obj,
+            review_id="previous",
+            author="Mes anterior",
+            rating=4,
+            date=date(year, number, 6),
+            text="Buen servicio pero hubo espera.",
+        )
+        frame = analytics.report_frame(self.client_obj.reviews.all())
+        comparison = analytics.period_comparison(frame, month=self.month)
+        self.assertTrue(comparison["has_previous"])
+        self.assertEqual(comparison["rows"][0]["Indicador"], "Rating medio")
+        self.assertNotEqual(comparison["rows"][1]["Anterior"], "—")
+
+        photos = analytics.photo_audit(self.client_obj)
+        self.assertEqual(photos["rows"][1]["Valor"], "157")
+        self.assertIn(" prueba", photos["status"])
+
+        benchmark = analytics.benchmark(self.client_obj, [{"name": "Otro", "rating": 4.0, "review_total": 100, "customer_photos": 20}])
+        self.assertEqual(benchmark["label"], "Cartera guardada · 1 locales")
+        self.assertEqual(benchmark["rows"][0]["Diferencia"], "+0.50")
+
+        actions = insights.client_diagnosis(frame, self.client_obj)["actions"]
+        self.assertTrue(actions)
+        for action in actions:
+            for field in ("owner", "deadline", "impact", "effort"):
+                self.assertIn(field, action)
 
     def test_resolve_maps_url_follows_google_redirect(self):
         short = "https://maps.app.goo.gl/ahRZFdiMikNKeyyBA"

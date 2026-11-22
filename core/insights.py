@@ -57,7 +57,11 @@ def client_diagnosis(frame, client=None):
             "headline": "Todavía no hay reseñas con fecha válida.",
             "strengths": ["La ficha ya está conectada a Google Maps."],
             "risks": ["Faltan reseñas procesadas para generar conclusiones."],
-            "actions": [{"priority": "Alta", "title": "Actualizar datos", "detail": "Pulsa Actualizar datos para traer el histórico completo."}],
+            "actions": [{
+                "priority": "Alta", "title": "Actualizar datos",
+                "detail": "Pulsa Actualizar datos para traer el histórico completo.",
+                "owner": "Administrador", "deadline": "Hoy", "impact": "Alta", "effort": "Bajo", "kpi": "Histórico disponible",
+            }],
         }
 
     strengths = []
@@ -97,6 +101,10 @@ def client_diagnosis(frame, client=None):
             "priority": "Alta",
             "title": "Responder en 24 h a 1-3★",
             "detail": "Disculpa concreta, solución privada y seguimiento. Objetivo: 100% de negativas contestadas.",
+            "owner": "Atención al cliente",
+            "deadline": "24 h",
+            "impact": "Alta",
+            "effort": "Bajo",
             "kpi": f"De {kpis['negative_response_rate']:.1f}% a 100%",
         })
     if kpis["negative_rate"] > 6:
@@ -104,13 +112,21 @@ def client_diagnosis(frame, client=None):
             "priority": "Alta",
             "title": "Contener incidencias",
             "detail": "Revisar esperas, errores de pedido y raciones en los días con peor rating.",
+            "owner": "Cocina y sala",
+            "deadline": "7 días",
+            "impact": "Alta",
+            "effort": "Medio",
             "kpi": f"De {kpis['negative']} a menos del 8%",
         })
     if kpis["five_rate"] < 80:
         actions.append({
             "priority": "Media",
             "title": "Subir la excelencia",
-            "detail": "Checklist de salida de cocina, saludo obligatorio y revisión de tiempos enhora punta.",
+            "detail": "Checklist de salida de cocina, saludo obligatorio y revisión de tiempos en hora punta.",
+            "owner": "Responsable de operaciones",
+            "deadline": "30 días",
+            "impact": "Media",
+            "effort": "Medio",
             "kpi": f"De {kpis['five_rate']:.1f}% a 80% de 5★",
         })
     actions.append({
@@ -122,6 +138,10 @@ def client_diagnosis(frame, client=None):
             if low_volume else
             "QR en mesa para pedir reseña y foto; destacar los platos más valorados en la respuesta del propietario."
         ),
+        "owner": "Todo el equipo",
+        "deadline": "Diario",
+        "impact": "Alta",
+        "effort": "Bajo",
         "kpi": f"De {recent_per_day:.1f} a 2-3 reseñas/día" if low_volume else "+20 fotos y +30 reseñas al mes",
     })
 

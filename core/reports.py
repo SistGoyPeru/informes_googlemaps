@@ -17,7 +17,7 @@ from reportlab.lib.utils import ImageReader
 from reportlab.platypus import Image, KeepTogether, PageBreak, Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
 
 from . import analytics, charts, briefs, insights
-from .models import Review
+from .models import Client, Review
 
 BASE_DIR = Path(__file__).resolve().parents[1]
 LOGO = BASE_DIR / "static" / "assets" / "logo.jpg"
@@ -204,16 +204,76 @@ def _kpi_table(kpis, score):
     return table
 
 
+def _status_badge(score, styles):
+    color = colors.HexColor(score.get("color", "#64748B"))
+    table = Table([[
+        _para("ESTADO GENERAL", styles["white"]),
+        _para(f"{score['score']:.0f}/100 · {score['label']}", styles["white"]),
+    ]], colWidths=[45 * mm, 131 * mm])
+    table.setStyle(TableStyle([
+        ("BACKGROUND", (0, 0), (-1, -1), color),
+        ("LEFTPADDING", (0, 0), (-1, -1), 8),
+        ("RIGHTPADDING", (0, 0), (-1, -1), 8),
+        ("TOPPADDING", (0, 0), (-1, -1), 7),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 7),
+    ]))
+    return table
+
+
+def _benchmark_table(client):
+    peers = Client.objects.exclude(pk=client.pk)
+    if client.category:
+        by_category = peers.filter(category=client.category)
+        if by_category.exists():
+            peers = by_category
+            label = f"Compañeros de {client.category}"
+        else:
+            label = "Cartera guardada"
+    else:
+        label = "Cartera guardada"
+    result = analytics.benchmark(client, peers)
+    if result["label"] != "Sin comparables":
+        result["label"] = label
+    return result
+
+
+def _methodology_table(client, frame, period):
+    styles = _styles()
+    rows = [
+        {"Tema": "Fuente", "Detalle": "Google Maps · ficha pública del local"},
+        {"Tema": "URL analizada", "Detalle": client.source_url},
+        {"Tema": "Periodo", "Detalle": period},
+        {"Tema": "Muestra", "Detalle": f"{len(frame)} reseñas con fecha y valoración válidas"},
+        {"Tema": "Última extracción", "Detalle": client.last_scraped.strftime("%d/%m/%Y %H:%M") if client.last_scraped else "Sin fecha"},
+        {"Tema": "Regla de cierre", "Detalle": f"Mes incompleto excluido · último mes cerrado {analytics.month_label(analytics.last_complete_month())}"},
+        {"Tema": "Temas", "Detalle": "Clasificación por palabras clave sobre el texto literal de las reseñas"},
+        {"Tema": "Benchmark", "Detalle": "Promedio de la cartera guardada en este programa, no de todo Google Maps"},
+        {"Tema": "Limitación", "Detalle": "Reseñas sin fecha válida no entran en series temporales; el texto se resume sin alterar su sentido"},
+    ]
+    return _table(rows, styles, col_widths=[32 * mm, 144 * mm])
+
+
 def _recommendation_table(actions, styles):
     rows = [
         [_para(action.get("priority", ""), styles["small"]),
          _para(action.get("title", ""), styles["small"]),
          _para(action.get("detail", ""), styles["small"]),
+         _para(action.get("owner", "Responsable"), styles["small"]),
+         _para(action.get("deadline", "Por definir"), styles["small"]),
+         _para(f"{action.get('impact', 'Media')} / {action.get('effort', 'Medio')}", styles["small"]),
          _para(action.get("kpi", ""), styles["small"])]
         for action in actions
     ]
-    data = [[_para("Prioridad", styles["table_header"]), _para("Acción", styles["table_header"]), _para("Cómo hacerlo", styles["table_header"]), _para("KPI objetivo", styles["table_header"])]] + rows
-    table = Table(data, colWidths=[18 * mm, 40 * mm, 80 * mm, 38 * mm], repeatRows=1)
+    data = [[
+        _para("Prioridad", styles["table_header"]),
+        _para("Acción", styles["table_header"]),
+        _para("Cómo hacerlo", styles["table_header"]),
+        _para("Responsable", styles["table_header"]),
+        _para("Plazo", styles["table_header"]),
+        _para("Impacto / esfuerzo", styles["table_header"]),
+        _para("KPI objetivo", styles["table_header"]),
+    ]] + rows
+    table = Table(data, colWidths=[14 * mm, 27 * mm, 52 * mm, 20 * mm, 16 * mm, 23 * mm, 24 * mm], repeatRows=1)
     table.setStyle(TableStyle([
         ("BACKGROUND", (0, 0), (-1, 0), NAVY),
         ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
@@ -354,6 +414,9 @@ def export_pdf(client, frame, month=None, year=None, filename=None):
     diagnosis = insights.client_diagnosis(subset, client)
     notes = insights.chart_notes(kind, chart_source, subset, kpis)
     themes = analytics.themes(subset)
+    comparison = analytics.period_comparison(frame, month, year)
+    photos = analytics.photo_audit(client)
+    benchmark = _benchmark_table(client)
 
     root = _client_folder(client)
     subdir = {"mensual": "pdf_mensuales", "anual": "pdf_anuales", "general": "general"}[kind]
@@ -365,38 +428,65 @@ def export_pdf(client, frame, month=None, year=None, filename=None):
     path = folder / filename
 
     story = [
-        Spacer(1, 4),
+        Spacer(1, 8),
+        _para(BRAND, styles["subtitle"]),
         _para(title, styles["title"]),
-        _para(f"{client.name} · Generado el {datetime.now().strftime('%d/%m/%Y %H:%M')} · Fuente: Google Maps", styles["subtitle"]),
+        _para(f"{client.name} · {period}", styles["subtitle"]),
+        _status_badge(score, styles),
+        Spacer(1, 8),
         _profile_table(client),
         Spacer(1, 8),
-        _para("1. Cómo leer este informe", styles["h2"]),
-        _para("Mire primero el rating y la satisfacción. Después vea cuántos clientes dan 5 estrellas y cuántas incidencias aparecen. "
-              "El gráfico de satisfechos vs incidencias resume el estado del negocio en un solo vistazo.", styles["body"]),
-        Spacer(1, 4),
-        _glossary_table(styles),
-        Spacer(1, 8),
-        _para("2. Resumen ejecutivo", styles["h2"]),
+        _para("Lectura rápida", styles["h2"]),
         _para(diagnosis["headline"], styles["body"]),
         Spacer(1, 4),
         _kpi_table(kpis, score),
         Spacer(1, 8),
-        _para("3. Lo bueno y lo que hay que corregir", styles["h2"]),
-        _para("Lo que funciona", styles["h3"]),
+        _para(f"Generado el {datetime.now().strftime('%d/%m/%Y %H:%M')} · Fuente: Google Maps · Preparado por {AUTHOR}", styles["small"]),
+        PageBreak(),
+        _para("1. Resumen ejecutivo", styles["h2"]),
+        _para("Qué pasó", styles["h3"]),
     ]
+    for item in _talk_script(diagnosis, kpis, styles):
+        story.append(item)
+    story.append(Spacer(1, 6))
+    story.append(_para(f"Comparativa · {comparison['label']}", styles["h3"]))
+    story.append(_table(comparison["rows"], styles, col_widths=[42 * mm, 38 * mm, 42 * mm, 54 * mm]))
+    if not comparison["has_previous"]:
+        story.append(_para("No hay periodo anterior con datos; la comparativa se activará al acumular otro mes o año cerrado.", styles["note"]))
+
+    story.append(Spacer(1, 8))
+    story.append(_para("2. Lo bueno y lo que hay que corregir", styles["h2"]))
+    story.append(_para("Lo que funciona", styles["h3"]))
     for item in diagnosis["strengths"][:4]:
         story.append(_para(item, styles["good"]))
     story.append(_para("Lo que frena el crecimiento", styles["h3"]))
     for item in diagnosis["risks"][:4]:
         story.append(_para(item, styles["bad"]))
-    story.append(_para(f"Lo que destacaron: {themes['good_text']}", styles["body"]))
-    story.append(_para(f"Lo que hay que corregir: {themes['bad_text']}", styles["bad"]))
-    story.append(Spacer(1, 8))
-    story.append(_para("4. Guion para explicarlo al cliente", styles["h2"]))
-    for item in _talk_script(diagnosis, kpis, styles):
-        story.append(item)
+    story.append(Spacer(1, 4))
+    story.append(_para("Temas recurrentes detectados en el texto literal", styles["h3"]))
+    theme_rows = []
+    for item in themes["good"]:
+        theme_rows.append({"Tipo": "Fortaleza", "Tema": item["label"], "Veces": str(item["count"]), "Acción sugerida": "Reforzar en respuestas y contenido visual."})
+    for item in themes["bad"]:
+        theme_rows.append({"Tipo": "Incidencia", "Tema": item["label"], "Veces": str(item["count"]), "Acción sugerida": item["action"].capitalize() + "."})
+    story.append(_table(theme_rows, styles, col_widths=[24 * mm, 52 * mm, 16 * mm, 84 * mm]))
+    story.append(_para(f"Fortalezas: {themes['good_text']}", styles["good"]))
+    story.append(_para(f"Incidencias: {themes['bad_text']}", styles["bad"]))
 
-    story.append(_para("5. Gráficos con lectura", styles["h2"]))
+    story.append(Spacer(1, 8))
+    story.append(_para("3. Fotos y benchmark", styles["h2"]))
+    story.append(_para("Prueba social en la ficha", styles["h3"]))
+    story.append(_table(photos["rows"], styles, col_widths=[40 * mm, 24 * mm, 112 * mm]))
+    story.append(Spacer(1, 5))
+    story.append(_para(f"Comparativa · {benchmark['label']}", styles["h3"]))
+    story.append(_table(benchmark["rows"], styles, col_widths=[50 * mm, 36 * mm, 46 * mm, 44 * mm]))
+    if not benchmark["rows"]:
+        story.append(_para("Aún no hay otros clientes guardados para comparar. Al importar más locales aparecerá el promedio de la cartera.", styles["note"]))
+    else:
+        story.append(_para("El benchmark usa solo la cartera de este programa; no representa a todos los competidores de Google Maps.", styles["note"]))
+
+    story.append(Spacer(1, 8))
+    story.append(_para("4. Gráficos con lectura", styles["h2"]))
     if kind in ("general", "anual"):
         story.append(_chart_block("Evolución mensual", charts.monthly(chart_source), notes["monthly"], styles))
         story.append(_chart_block("Días de la semana", charts.weekday(chart_source), notes["weekday"], styles))
@@ -408,7 +498,7 @@ def export_pdf(client, frame, month=None, year=None, filename=None):
         story.append(_chart_block("Actividad diaria", charts.daily(subset), notes["daily"], styles))
 
     story.append(PageBreak())
-    story.append(_para("6. Análisis temporal", styles["h2"]))
+    story.append(_para("5. Análisis temporal", styles["h2"]))
     if kind == "mensual":
         story.append(_para("Resumen semanal", styles["h3"]))
         story.append(_table(analytics.records(analytics.weekly_table(subset)), styles))
@@ -423,7 +513,7 @@ def export_pdf(client, frame, month=None, year=None, filename=None):
         story.append(_table(analytics.records(analytics.yearly_table(frame)), styles))
 
     story.append(Spacer(1, 8))
-    story.append(_para("7. Comentarios verificables", styles["h2"]))
+    story.append(_para("6. Comentarios verificables", styles["h2"]))
     for item in analytics.verbatims(subset, True):
         story.append(_para(f"{item['date']} · {item['author']} · {item['rating']}★", styles["h3"]))
         story.append(_para(item["text"], styles["good"]))
@@ -433,8 +523,16 @@ def export_pdf(client, frame, month=None, year=None, filename=None):
         story.append(_para(item["text"], styles["bad"]))
 
     story.append(Spacer(1, 8))
-    story.append(_para("8. Plan de mejora recomendado", styles["h2"]))
+    story.append(_para("7. Plan de mejora recomendado", styles["h2"]))
+    story.append(_para("Cada acción tiene responsable, plazo, impacto/esfuerzo y una métrica de control.", styles["body"]))
     story.append(_recommendation_table(diagnosis["actions"], styles))
+
+    story.append(Spacer(1, 8))
+    story.append(_para("8. Trazabilidad y anexos", styles["h2"]))
+    story.append(_methodology_table(client, frame, period))
+    story.append(Spacer(1, 6))
+    story.append(_para("Glosario de KPIs", styles["h3"]))
+    story.append(_glossary_table(styles))
 
     story.append(Spacer(1, 10))
     story.append(_para("9. Cierre comercial", styles["h2"]))
