@@ -237,13 +237,16 @@ def themes(frame):
     return {
         "good": good,
         "bad": bad,
-        "good_text": ", ".join(f"{item['label']} ({item['count']})" for item in good) or "sin comentarios suficientes",
-        "bad_text": ", ".join(f"{item['label']} ({item['count']})" for item in bad) or "sin incidencias textuales destacables",
-        "strength": f"Al cliente le gusta especialmente: {good[0]['label'].lower()}." if good else "No aparece un motivo claro en los comentarios de este periodo.",
+        "good_text": ", ".join(f"{item['label']} ({item['count']} menciones)" for item in good) or "sin comentarios con texto suficiente",
+        "bad_text": ", ".join(f"{item['label']} ({item['count']} menciones)" for item in bad) or "sin patrones críticos en el texto",
+        "strength": (
+            f"El cliente valora especialmente {good[0]['label'].lower()} ({good[0]['count']} menciones). "
+            "Conviene repetirlo en las respuestas y en el contenido visual de la ficha."
+        ) if good else "No aparece un motivo claro en los comentarios de este periodo.",
         "correction": (
-            f"Hay que corregir: {', '.join(item['label'].lower() for item in bad[:2])} → "
-            + "; ".join(item["action"] for item in bad[:2]) + "."
-        ) if bad else "No hay incidencias textuales destacables; mantener el nivel actual.",
+            f"El patrón a corregir es {bad[0]['label'].lower()} ({bad[0]['count']} menciones): "
+            f"{bad[0]['action']}."
+        ) if bad else "No hay patrones críticos en el texto; la prioridad es sostener el nivel actual.",
     }
 
 

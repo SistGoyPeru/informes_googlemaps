@@ -27,44 +27,60 @@ def email_brief(client, frame, month=None, year=None):
 
     if kpis["total"]:
         summary = (
-            f"{client.name} tiene un rating medio de {kpis['average']:.2f}★, "
-            f"un {kpis['positive_rate']:.1f}% de clientes satisfechos y {kpis['negative']} incidencias de 1-2★. "
-            f"El índice de reputación es {score['score']:.0f}/100 ({score['label'].lower()})."
+            f"La ficha de {client.name} muestra un rating medio de {kpis['average']:.2f}★ y un "
+            f"{kpis['positive_rate']:.1f}% de clientes satisfechos. El índice de reputación es "
+            f"{score['score']:.0f}/100 ({score['label'].lower()}); hay {kpis['negative']} opiniones críticas "
+            "que conviene convertir en mejoras visibles."
         )
         focus = (
-            f"El punto fuerte es que {strength.lower()} "
-            f"La oportunidad más rápida es {action['title'].lower()}: {action['detail']}"
+            f"El activo más fuerte es que {strength.lower()} "
+            f"La palanca más rápida es {action['title'].lower()}: {action['detail']} "
+            "Conviene medir el resultado durante los próximos 30 días."
         )
     else:
         summary = f"Todavía no hay reseñas válidas procesadas para {client.name} en el periodo seleccionado."
         focus = "El siguiente paso es importar el histórico completo desde la ficha de Google Maps."
 
-    subject = f"Informe de reputación Google Maps · {client.name} · {period}"
+    subject = f"Análisis de reputación Google Maps · {client.name} · {period}"
     comment = (
-        f"Adjunto el informe de reputación de {client.name} ({period}). Incluye rating real, satisfechos vs incidencias, "
-        "comentarios verificables y un plan de mejora con acciones concretas. "
-        "Si te parece, lo revisamos juntos y definimos el siguiente paso."
+        f"Adjunto el análisis de reputación de {client.name} ({period}). Incluye rating real, composición de opiniones, "
+        "comentarios verificables y un plan de acción con responsables y métricas. "
+        "Si te parece, lo revisamos juntos y cerramos el plan del próximo mes."
     ).strip()
+    strategy_lines = [
+        f"- {item['phase']}: {item['objective']} KPI: {item['kpi']}."
+        for item in diagnosis.get("strategies", [])
+    ]
+    growth_lines = [
+        f"- {item['title']}: {'; '.join(item['tactics'][:2])} KPI: {item['kpi']}."
+        for item in diagnosis.get("growth", [])
+    ]
     body_lines = [
-        f"Hola,",
+        "Hola,",
         "",
-        f"Te adjunto la ficha y los informes de reputación de {client.name} con datos reales de Google Maps ({period}).",
+        f"Te adjunto el análisis de reputación de {client.name} con datos reales de Google Maps ({period}).",
         "",
         summary,
         "",
         focus,
         "",
-        f"Ritmo de reseñas: {rhythm['recent_per_day']:.1f} al día en los últimos 30 días. Respuestas: {kpis['response_rate']:.1f}% del total y {kpis['negative_response_rate']:.1f}% de las incidencias.",
+        f"Ritmo de opiniones: {rhythm['recent_per_day']:.1f} al día en los últimos 30 días. Respuestas: {kpis['response_rate']:.1f}% del total y {kpis['negative_response_rate']:.1f}% de las críticas.",
+        "",
+        "Estrategia recomendada:",
+    ] + strategy_lines + [
+        "",
+        "Motor de crecimiento:",
+    ] + growth_lines + [
         "",
         "Qué encontrarás en el archivo:",
         "- Informe general histórico.",
         "- Informe por año.",
         "- Informe mensual de cada mes.",
-        "- Gráficos explicados y plan de mejora en cada PDF.",
+        "- Gráficos explicados, estrategia de 90 días, motor de crecimiento y plan de acción en cada PDF.",
         "",
         "Si quieres, lo revisamos en 10 minutos y dejamos cerrado el plan del próximo mes.",
         "",
-        f"Un saludo,",
+        "Un saludo,",
         AUTHOR,
         f"WhatsApp: {WHATSAPP} · {WHATSAPP_URL}",
         f"Email: {EMAIL}",
@@ -79,4 +95,6 @@ def email_brief(client, frame, month=None, year=None):
         "focus": focus,
         "action_title": action["title"],
         "action_detail": action["detail"],
+        "strategies": diagnosis.get("strategies", []),
+        "growth": diagnosis.get("growth", []),
     }

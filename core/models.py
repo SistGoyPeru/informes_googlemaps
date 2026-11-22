@@ -12,6 +12,8 @@ class Client(models.Model):
     owner_photos = models.PositiveIntegerField(default=0)
     customer_photos = models.PositiveIntegerField(default=0)
     address = models.TextField(blank=True)
+    country = models.CharField(max_length=80, blank=True, default="")
+    zone = models.CharField(max_length=120, blank=True, default="")
     phone = models.CharField(max_length=120, blank=True)
     hours = models.TextField(blank=True)
     rating_counts = models.JSONField(default=dict, blank=True)

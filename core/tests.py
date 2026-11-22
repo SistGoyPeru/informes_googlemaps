@@ -1,3 +1,4 @@
+import json
 import zipfile
 from datetime import date, datetime
 from io import BytesIO
@@ -8,7 +9,7 @@ from django.urls import reverse
 from django.utils import timezone
 from reportlab.lib import colors
 
-from . import analytics, briefs, insights, reports, services
+from . import agent, analytics, briefs, insights, reports, services
 from .models import Client, Review
 
 
@@ -54,12 +55,57 @@ class DashboardTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "Ranking de clientes")
         self.assertContains(response, "KPIs que recomiendo vigilar")
+        self.assertContains(response, "Clientes por país y zona")
+
+    def test_home_groups_clients_by_country_and_zone(self):
+        Client.objects.create(
+            name="Local Lima",
+            source_url="https://www.google.com/maps/place/Lima/data=!1s0x2:0xlima",
+            place_id="ChIJLima001",
+            country="Perú",
+            zone="Lima",
+        )
+        response = self.client.get(reverse("home"))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "Sin país")
+        self.assertContains(response, "Sin zona")
+        self.assertContains(response, "Perú")
+        self.assertContains(response, "Lima")
+        self.assertEqual(response.context["country_count"], 2)
+        self.assertEqual(response.context["zone_count"], 2)
+
+    def test_infer_location_from_address(self):
+        country, zone = services.infer_location(
+            "Carrer de Mallorca, 123, 08008 Barcelona, España",
+            "https://www.google.com/maps/place/Barcelona",
+        )
+        self.assertEqual(country, "España")
+        self.assertEqual(zone, "Barcelona")
+
+    def test_ai_agent_gives_local_analysis(self):
+        with patch("core.agent._remote_answer", return_value=None):
+            answer, source = agent.answer_client_question(self.client_obj, "¿Cómo consigo más valoraciones positivas?")
+        self.assertEqual(source, "local")
+        self.assertIn("valoraciones positivas", answer)
+        self.assertIn("KPI", answer)
+
+    def test_ai_agent_endpoint(self):
+        url = reverse("agent_answer", args=[self.client_obj.pk])
+        with patch("core.views.agent.answer_client_question", return_value=("Respuesta de prueba", "local")) as mocked:
+            response = self.client.post(url, data=json.dumps({"question": "Dame ideas"}), content_type="application/json")
+        mocked.assert_called_once()
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.json()["answer"], "Respuesta de prueba")
+        self.assertIn("no-store", response["Cache-Control"])
 
     def test_report_filters_by_month(self):
         response = self.client.get(reverse("client_report", args=[self.client_obj.pk]), {"vista": "mes", "month": self.month})
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "Desglose semanal")
-        self.assertContains(response, "2. Lo que funciona")
+        self.assertContains(response, "2. Fortalezas comprobadas")
+        self.assertContains(response, "4. Estrategia y plan de acción")
+        self.assertContains(response, "Motor de crecimiento")
+        self.assertContains(response, "Agente IA de análisis")
         self.assertContains(response, "Cómo leer este informe")
         self.assertContains(response, "Reportes PDF profesionales")
         self.assertContains(response, "Ficha para enviar por correo")
@@ -128,6 +174,8 @@ class DashboardTests(TestCase):
         self.assertEqual(table._cellvalues[0][0].style.textColor, colors.white)
         actions = reports._recommendation_table([{"priority": "Alta", "title": "Acción", "detail": "Detalle", "kpi": "KPI"}], styles)
         self.assertEqual(actions._cellvalues[0][0].style.textColor, colors.white)
+        growth = reports._growth_table([{"title": "Palanca", "objective": "Objetivo", "tactics": ["Táctica"], "kpi": "KPI", "owner": "Equipo", "deadline": "30 días"}], styles)
+        self.assertEqual(growth._cellvalues[0][0].style.textColor, colors.white)
 
     def test_pdf_general_year_month_and_package(self):
         for query in ({}, {"anio": self.year}, {"mes": self.month}):
@@ -150,8 +198,8 @@ class DashboardTests(TestCase):
     def test_new_client_form(self):
         url = "https://www.google.com/maps/place/Otro+Local/data=!1s0x2:0xdef"
         with patch("core.views.services.sync_client", return_value=self.client_obj) as sync:
-            response = self.client.post(reverse("new_client"), {"url": url})
-        sync.assert_called_once_with(url)
+            response = self.client.post(reverse("new_client"), {"url": url, "country": "España", "zone": "Barcelona"})
+        sync.assert_called_once_with(url, country="España", zone="Barcelona")
         self.assertRedirects(response, reverse("client_report", args=[self.client_obj.pk]) + "?vista=total")
 
     def test_normalize_url_adds_hl(self):
@@ -189,11 +237,16 @@ class DashboardTests(TestCase):
         self.assertEqual(benchmark["label"], "Cartera guardada · 1 locales")
         self.assertEqual(benchmark["rows"][0]["Diferencia"], "+0.50")
 
-        actions = insights.client_diagnosis(frame, self.client_obj)["actions"]
+        diagnosis = insights.client_diagnosis(frame, self.client_obj)
+        actions = diagnosis["actions"]
         self.assertTrue(actions)
         for action in actions:
             for field in ("owner", "deadline", "impact", "effort"):
                 self.assertIn(field, action)
+        self.assertEqual(len(diagnosis["strategies"]), 3)
+        self.assertTrue(all({"phase", "objective", "move", "kpi"} <= set(item) for item in diagnosis["strategies"]))
+        self.assertEqual(len(diagnosis["growth"]), 2)
+        self.assertTrue(all({"title", "objective", "tactics", "kpi"} <= set(item) for item in diagnosis["growth"]))
 
     def test_resolve_maps_url_follows_google_redirect(self):
         short = "https://maps.app.goo.gl/ahRZFdiMikNKeyyBA"

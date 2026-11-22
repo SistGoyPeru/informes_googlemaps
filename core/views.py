@@ -1,12 +1,13 @@
+import json
 from time import time
 from urllib.parse import urlencode
 
 from django.contrib import messages
-from django.http import FileResponse, Http404, HttpResponse
+from django.http import FileResponse, Http404, HttpResponse, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 
-from . import analytics, briefs, charts, insights, reports, services
+from . import agent, analytics, briefs, charts, insights, reports, services
 from .forms import ClientUrlForm
 from .models import Client, Review
 
@@ -77,6 +78,8 @@ def _portfolio_context():
             "name": item.name,
             "url": _report_url(item.pk),
             "place_id": item.place_id,
+            "country": item.country or "Sin país",
+            "zone": item.zone or "Sin zona",
             "average": kpis["average"],
             "score": score["score"],
             "label": score["label"],
@@ -94,6 +97,36 @@ def _portfolio_context():
     rows.sort(key=lambda item: (-item["score"], -item["average"], -item["total"]))
     for position, row in enumerate(rows, 1):
         row["rank"] = position
+
+    grouped = {}
+    for row in rows:
+        grouped.setdefault(row["country"], {}).setdefault(row["zone"], []).append(row)
+
+    def group_summary(items):
+        total = sum(item["total"] for item in items)
+        average = sum(item["average"] * item["total"] for item in items) / total if total else 0
+        return {
+            "clients": len(items),
+            "reviews": total,
+            "average": average,
+        }
+
+    locations = []
+    for country in sorted(grouped):
+        zones = []
+        for zone in sorted(grouped[country]):
+            zone_rows = grouped[country][zone]
+            zones.append({
+                "name": zone,
+                "rows": zone_rows,
+                "summary": group_summary(zone_rows),
+            })
+        locations.append({
+            "name": country,
+            "zones": zones,
+            "summary": group_summary([row for zone in zones for row in zone["rows"]]),
+        })
+
     frame = analytics.report_frame(Review.objects.all())
     kpis = analytics.reputation_kpis(frame)
     score = insights.scorecard(kpis)
@@ -107,6 +140,9 @@ def _portfolio_context():
     ]
     return {
         "rows": rows,
+        "locations": locations,
+        "country_count": len(locations),
+        "zone_count": sum(len(item["zones"]) for item in locations),
         "portfolio_kpis": kpis,
         "portfolio_score": score,
         "ranking_chart": charts.client_ranking(rows),
@@ -120,11 +156,30 @@ def home(request):
     return render(request, "core/dashboard.html", _portfolio_context())
 
 
+def agent_answer(request, pk):
+    if request.method != "POST":
+        raise Http404("Solo se permite POST.")
+    try:
+        payload = json.loads(request.body.decode("utf-8") or "{}")
+    except (ValueError, UnicodeDecodeError):
+        payload = {}
+    question = str(payload.get("question") or "").strip()[:600]
+    if not question:
+        return _no_cache(JsonResponse({"error": "Escribe una pregunta."}, status=400))
+    client = get_object_or_404(Client, pk=pk)
+    answer, source = agent.answer_client_question(client, question)
+    return _no_cache(JsonResponse({"answer": answer, "source": source}))
+
+
 def new_client(request):
     form = ClientUrlForm(request.POST or None)
     if request.method == "POST" and form.is_valid():
         try:
-            client = services.sync_client(form.cleaned_data["url"])
+            client = services.sync_client(
+                form.cleaned_data["url"],
+                country=form.cleaned_data["country"],
+                zone=form.cleaned_data["zone"],
+            )
             messages.success(request, f"Datos de {client.name} importados y guardados correctamente.")
             return redirect(_report_url(client.pk))
         except Exception as error:
@@ -287,6 +342,7 @@ def client_report(request, pk):
         "pdf_months": pdf_months,
         "csv_resumen": _stamped(reverse("export_csv", args=[pk]) + "?tipo=resumen"),
         "csv_resenas": _stamped(reverse("export_csv", args=[pk]) + "?tipo=resenas"),
+        "agent_url": reverse("agent_answer", args=[pk]),
     }
     return render(request, "core/report.html", context)
 

@@ -1,5 +1,6 @@
 import csv
 import json
+import re
 from datetime import datetime
 from pathlib import Path
 from urllib.error import URLError
@@ -16,6 +17,60 @@ from .models import Client, Review
 
 BASE_DIR = Path(__file__).resolve().parents[1]
 DATA_DIR = BASE_DIR / "data"
+
+COUNTRY_ALIASES = {
+    "España": ("españa", "espana", "spain"),
+    "Perú": ("perú", "peru"),
+    "México": ("méxico", "mexico"),
+    "Colombia": ("colombia",),
+    "Argentina": ("argentina",),
+    "Chile": ("chile",),
+    "Ecuador": ("ecuador",),
+    "Bolivia": ("bolivia",),
+    "Uruguay": ("uruguay",),
+    "Paraguay": ("paraguay",),
+    "Venezuela": ("venezuela",),
+    "Costa Rica": ("costa rica",),
+    "Guatemala": ("guatemala",),
+    "Panamá": ("panamá", "panama"),
+    "República Dominicana": ("republica dominicana", "república dominicana"),
+    "Portugal": ("portugal",),
+    "Estados Unidos": ("estados unidos", "united states", "eeuu"),
+}
+
+COUNTRY_TLDS = {
+    "es": "España", "pe": "Perú", "mx": "México", "co": "Colombia",
+    "ar": "Argentina", "cl": "Chile", "ec": "Ecuador", "bo": "Bolivia",
+    "uy": "Uruguay", "py": "Paraguay", "ve": "Venezuela", "cr": "Costa Rica",
+    "gt": "Guatemala", "pa": "Panamá", "do": "República Dominicana",
+    "pt": "Portugal", "us": "Estados Unidos",
+}
+
+
+def _clean_zone_part(part):
+    return re.sub(r"^\d{4,6}[-\s]+", "", part.strip()).strip(" .-")
+
+
+def infer_location(address="", source_url=""):
+    text = (address or "").lower()
+    netloc = urlparse(source_url or "").netloc.lower().split(":")[0]
+    country = "Sin país"
+    for name, aliases in COUNTRY_ALIASES.items():
+        if any(alias in text for alias in aliases):
+            country = name
+            break
+    if country == "Sin país":
+        for tld, name in COUNTRY_TLDS.items():
+            if netloc.endswith(f".{tld}"):
+                country = name
+                break
+
+    parts = [_clean_zone_part(part) for part in (address or "").split(",")]
+    parts = [part for part in parts if part]
+    country_aliases = tuple(alias for aliases in COUNTRY_ALIASES.values() for alias in aliases)
+    parts = [part for part in parts if not any(alias in part.lower() for alias in country_aliases)]
+    zone = parts[-1] if parts else "Sin zona"
+    return country, zone
 
 
 def _is_google_short(url):
@@ -79,6 +134,8 @@ def save_snapshot(client, place, reviews):
         "owner_photos": client.owner_photos,
         "customer_photos": client.customer_photos,
         "address": client.address,
+        "country": client.country,
+        "zone": client.zone,
         "phone": client.phone,
         "hours": client.hours,
         "source_url": client.source_url,
@@ -103,7 +160,7 @@ def save_snapshot(client, place, reviews):
     return folder
 
 
-def sync_client(url):
+def sync_client(url, country="", zone=""):
     url, place, reviews = scrape_client(url)
     place_id = place.get("place_id") or maps_scraper.fallback_key(url)
     defaults = {
@@ -116,6 +173,8 @@ def sync_client(url):
         "owner_photos": int(place.get("owner_photos") or 0),
         "customer_photos": int(place.get("customer_photos") or 0),
         "address": place.get("address", ""),
+        "country": country or "",
+        "zone": zone or "",
         "phone": place.get("phone", ""),
         "hours": place.get("hours", ""),
         "rating_counts": place.get("rating_counts") or {},
@@ -123,6 +182,10 @@ def sync_client(url):
         "login_required": bool(place.get("login_required")),
         "last_scraped": timezone.now(),
     }
+    existing = Client.objects.filter(place_id=place_id).first()
+    inferred_country, inferred_zone = infer_location(defaults["address"], url)
+    defaults["country"] = country or (existing.country if existing and existing.country else inferred_country)
+    defaults["zone"] = zone or (existing.zone if existing and existing.zone else inferred_zone)
     client, _ = Client.objects.update_or_create(place_id=place_id, defaults=defaults)
     for row in reviews:
         review_id = row.get("review_id") or maps_scraper.fallback_key(

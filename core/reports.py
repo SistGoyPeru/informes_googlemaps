@@ -288,13 +288,75 @@ def _recommendation_table(actions, styles):
     return table
 
 
+def _strategy_table(strategies, styles):
+    rows = [
+        [_para(item.get("phase", ""), styles["small"]),
+         _para(item.get("objective", ""), styles["small"]),
+         _para(item.get("move", ""), styles["small"]),
+         _para(item.get("kpi", ""), styles["small"])]
+        for item in strategies
+    ]
+    data = [[
+        _para("Fase", styles["table_header"]),
+        _para("Objetivo", styles["table_header"]),
+        _para("Movimiento recomendado", styles["table_header"]),
+        _para("Métrica", styles["table_header"]),
+    ]] + rows
+    table = Table(data, colWidths=[28 * mm, 48 * mm, 66 * mm, 34 * mm], repeatRows=1)
+    table.setStyle(TableStyle([
+        ("BACKGROUND", (0, 0), (-1, 0), NAVY),
+        ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
+        ("GRID", (0, 0), (-1, -1), 0.4, GRID),
+        ("ROWBACKGROUNDS", (0, 1), (-1, -1), [colors.white, colors.HexColor("#F5F8FC")]),
+        ("VALIGN", (0, 0), (-1, -1), "TOP"),
+        ("LEFTPADDING", (0, 0), (-1, -1), 4),
+        ("RIGHTPADDING", (0, 0), (-1, -1), 4),
+        ("TOPPADDING", (0, 0), (-1, -1), 4),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
+    ]))
+    return table
+
+
+def _growth_table(growth, styles):
+    rows = []
+    for item in growth:
+        tactics = "\n".join(f"• {escape(tactic)}" for tactic in item.get("tactics", []))
+        rows.append([
+            _para(escape(item.get("title", "")), styles["small"]),
+            _para(escape(item.get("objective", "")), styles["small"]),
+            _para(tactics, styles["small"]),
+            _para(escape(item.get("kpi", "")), styles["small"]),
+            _para(f"{escape(item.get('owner', ''))}<br/>{escape(item.get('deadline', ''))}", styles["small"]),
+        ])
+    data = [[
+        _para("Palanca", styles["table_header"]),
+        _para("Objetivo", styles["table_header"]),
+        _para("Tácticas", styles["table_header"]),
+        _para("Métrica", styles["table_header"]),
+        _para("Responsable", styles["table_header"]),
+    ]] + rows
+    table = Table(data, colWidths=[26 * mm, 36 * mm, 68 * mm, 30 * mm, 26 * mm], repeatRows=1)
+    table.setStyle(TableStyle([
+        ("BACKGROUND", (0, 0), (-1, 0), BLUE),
+        ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
+        ("GRID", (0, 0), (-1, -1), 0.4, GRID),
+        ("ROWBACKGROUNDS", (0, 1), (-1, -1), [colors.white, colors.HexColor("#F5F8FC")]),
+        ("VALIGN", (0, 0), (-1, -1), "TOP"),
+        ("LEFTPADDING", (0, 0), (-1, -1), 4),
+        ("RIGHTPADDING", (0, 0), (-1, -1), 4),
+        ("TOPPADDING", (0, 0), (-1, -1), 4),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
+    ]))
+    return table
+
+
 def _glossary_table(styles):
     rows = [
         {"KPI": "Rating medio", "Qué significa": "Nota de 1 a 5 estrellas que ve el cliente en Google", "Por qué importa": "Es la primera impresión del negocio"},
         {"KPI": "Satisfacción", "Qué significa": "El rating convertido a porcentaje; 4,5★ son 90%", "Por qué importa": "Permite comparar meses aunque cambie el volumen"},
         {"KPI": "Excelencia 5★", "Qué significa": "Porcentaje de clientes que dan la máxima nota", "Por qué importa": "Mide clientes encantados, no solo conformes"},
         {"KPI": "Saldo neto", "Qué significa": "Positivas (4-5★) menos incidencias (1-2★)", "Por qué importa": "Resume si la reputación suma o pierde confianza"},
-        {"KPI": "Respuesta a 1-2★", "Qué significa": "Porcentaje de reseñas negativas contestadas", "Por qué importa": "Es la acción más rápida para recuperar cliente"},
+        {"KPI": "Respuesta a 1-2★", "Qué significa": "Porcentaje de opiniones críticas contestadas", "Por qué importa": "Es la acción más rápida para recuperar confianza"},
         {"KPI": "Ritmo de reseñas", "Qué significa": "Reseñas nuevas por día en los últimos 30 días", "Por qué importa": "Sin entradas nuevas, la ficha pierde frescura"},
     ]
     return _table(rows, styles, col_widths=[34 * mm, 80 * mm, 62 * mm])
@@ -302,14 +364,19 @@ def _glossary_table(styles):
 
 def _talk_script(diagnosis, kpis, styles):
     actions = diagnosis.get("actions", [])
+    strategies = diagnosis.get("strategies", [])
+    strengths = diagnosis.get("strengths", [])
+    risks = diagnosis.get("risks", [])
     return [
-        _para("Paso 1 · Qué pasó", styles["h3"]),
+        _para("Paso 1 · Lectura del periodo", styles["h3"]),
         _para(diagnosis["headline"], styles["body"]),
-        _para("Paso 2 · Por qué pasó", styles["h3"]),
-        _para(f"Las reseñas positivas se concentran en {diagnosis.get('strengths', ['el servicio'])[0].lower()} " if diagnosis.get("strengths") else "No hay suficientes comentarios para explicar la causa. ", styles["body"]),
-        _para(f"Las incidencias y la baja respuesta explican la parte débil: se contesta el {kpis['negative_response_rate']:.1f}% de los comentarios de 1-2★.", styles["body"]),
-        _para("Paso 3 · Qué hacemos ahora", styles["h3"]),
-        _para(actions[0]["detail"] if actions else "Mantener el nivel actual y revisar el informe del próximo mes.", styles["body"]),
+        _para("Paso 2 · Evidencia", styles["h3"]),
+        _para(strengths[0] if strengths else "Aún no hay evidencia suficiente en los comentarios.", styles["body"]),
+        _para(risks[0] if risks else f"La respuesta a opiniones críticas es del {kpis['negative_response_rate']:.1f}%.", styles["body"]),
+        _para("Paso 3 · Decisión", styles["h3"]),
+        _para(strategies[0]["move"] if strategies else (actions[0]["detail"] if actions else "Mantener el nivel actual y revisar el informe del próximo mes."), styles["body"]),
+        _para("Paso 4 · Cómo lo medimos", styles["h3"]),
+        _para(strategies[0]["kpi"] if strategies else "Revisar el informe del próximo mes.", styles["body"]),
     ]
 
 
@@ -455,15 +522,15 @@ def export_pdf(client, frame, month=None, year=None, filename=None):
         story.append(_para("No hay periodo anterior con datos; la comparativa se activará al acumular otro mes o año cerrado.", styles["note"]))
 
     story.append(Spacer(1, 8))
-    story.append(_para("2. Lo bueno y lo que hay que corregir", styles["h2"]))
-    story.append(_para("Lo que funciona", styles["h3"]))
+    story.append(_para("2. Fortalezas y prioridades de mejora", styles["h2"]))
+    story.append(_para("Lo que ya está funcionando", styles["h3"]))
     for item in diagnosis["strengths"][:4]:
         story.append(_para(item, styles["good"]))
-    story.append(_para("Lo que frena el crecimiento", styles["h3"]))
+    story.append(_para("Prioridades de mejora", styles["h3"]))
     for item in diagnosis["risks"][:4]:
         story.append(_para(item, styles["bad"]))
     story.append(Spacer(1, 4))
-    story.append(_para("Temas recurrentes detectados en el texto literal", styles["h3"]))
+    story.append(_para("Temas que aparecen en las reseñas", styles["h3"]))
     theme_rows = []
     for item in themes["good"]:
         theme_rows.append({"Tipo": "Fortaleza", "Tema": item["label"], "Veces": str(item["count"]), "Acción sugerida": "Reforzar en respuestas y contenido visual."})
@@ -517,14 +584,19 @@ def export_pdf(client, frame, month=None, year=None, filename=None):
     for item in analytics.verbatims(subset, True):
         story.append(_para(f"{item['date']} · {item['author']} · {item['rating']}★", styles["h3"]))
         story.append(_para(item["text"], styles["good"]))
-    story.append(_para("Incidencias a atender", styles["h3"]))
+    story.append(_para("Reseñas críticas a atender", styles["h3"]))
     for item in analytics.verbatims(subset, False):
         story.append(_para(f"{item['date']} · {item['author']} · {item['rating']}★", styles["h3"]))
         story.append(_para(item["text"], styles["bad"]))
 
     story.append(Spacer(1, 8))
-    story.append(_para("7. Plan de mejora recomendado", styles["h2"]))
-    story.append(_para("Cada acción tiene responsable, plazo, impacto/esfuerzo y una métrica de control.", styles["body"]))
+    story.append(_para("7. Estrategia y plan de acción", styles["h2"]))
+    story.append(_para("La estrategia ordena el esfuerzo en tres fases; el plan baja cada fase a tareas con responsable y plazo.", styles["body"]))
+    story.append(_strategy_table(diagnosis.get("strategies", []), styles))
+    story.append(Spacer(1, 8))
+    story.append(_para("Motor de crecimiento · reseñas y captación", styles["h3"]))
+    story.append(_growth_table(diagnosis.get("growth", []), styles))
+    story.append(Spacer(1, 6))
     story.append(_recommendation_table(diagnosis["actions"], styles))
 
     story.append(Spacer(1, 8))
@@ -535,7 +607,7 @@ def export_pdf(client, frame, month=None, year=None, filename=None):
     story.append(_glossary_table(styles))
 
     story.append(Spacer(1, 10))
-    story.append(_para("9. Cierre comercial", styles["h2"]))
+    story.append(_para("9. Próximo paso", styles["h2"]))
     cta = Table([[
         _para("Este informe se actualiza, no se rehace", styles["white"]),
         _para(f"La URL y el histórico quedan guardados. Siguiente paso: {WHATSAPP_URL} · {EMAIL}", styles["white"]),

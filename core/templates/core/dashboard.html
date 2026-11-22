@@ -9,7 +9,7 @@
       <div>
         <div class="eyebrow">Panel principal de cartera</div>
         <h1>Ranking de clientes y reputación</h1>
-        <p>{{ total_clients }} clientes conectados · Datos actualizados de Google Maps</p>
+        <p>{{ total_clients }} clientes conectados · {{ country_count }} países · {{ zone_count }} zonas · Datos actualizados de Google Maps</p>
       </div>
     </div>
     <div class="score-box">
@@ -25,6 +25,8 @@
 
 <section class="grid cards">
   <div class="kpi"><small>Clientes</small><strong>{{ total_clients }}</strong><span>Fichas conectadas</span></div>
+  <div class="kpi"><small>Países</small><strong>{{ country_count }}</strong><span>Mercados activos</span></div>
+  <div class="kpi"><small>Zonas</small><strong>{{ zone_count }}</strong><span>Ciudades o distritos</span></div>
   <div class="kpi"><small>Rating global</small><strong>{{ portfolio_kpis.average|floatformat:2 }}★</strong><span>Sobre 5 estrellas</span></div>
   <div class="kpi good"><small>Satisfacción</small><strong>{{ portfolio_kpis.satisfaction|floatformat:1 }}%</strong><span>Rating convertido</span></div>
   <div class="kpi good"><small>Excelencia 5★</small><strong>{{ portfolio_kpis.five_rate|floatformat:1 }}%</strong><span>{{ portfolio_kpis.five }} reseñas</span></div>
@@ -35,7 +37,46 @@
 </section>
 
 <section class="panel">
-  <div class="section-head"><h2>1. Ranking de clientes</h2><span>Ordenado por índice de reputación</span></div>
+  <div class="section-head"><h2>1. Clientes por país y zona</h2><span>{{ country_count }} países · {{ zone_count }} zonas</span></div>
+  {% for country in locations %}
+    <div style="margin-top:16px">
+      <div class="section-head">
+        <strong style="font-size:16px">{{ country.name }}</strong>
+        <span>{{ country.summary.clients }} clientes · {{ country.summary.reviews }} reseñas · {{ country.summary.average|floatformat:2 }}★</span>
+      </div>
+      {% for zone in country.zones %}
+        <div style="margin:10px 0 16px">
+          <div class="section-head">
+            <strong>{{ zone.name }}</strong>
+            <span>{{ zone.summary.clients }} clientes · {{ zone.summary.average|floatformat:2 }}★</span>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>#</th><th>Cliente</th><th>Rating</th><th>Índice</th><th>Reseñas</th><th>Acción</th></tr></thead>
+              <tbody>
+                {% for row in zone.rows %}
+                <tr>
+                  <td><strong>{{ row.rank }}</strong></td>
+                  <td><strong>{{ row.name }}</strong><br><span class="muted">{{ row.category|default:"Google Maps" }}</span></td>
+                  <td><strong>{{ row.average|floatformat:2 }}★</strong></td>
+                  <td><span class="pill" style="background:{{ row.color }}22;color:{{ row.color }}">{{ row.score|floatformat:0 }} · {{ row.label }}</span></td>
+                  <td>{{ row.total }}</td>
+                  <td><a class="btn" href="{{ row.url }}">Ver informe</a></td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% empty %}
+    <p class="muted">Todavía no hay clientes. Pega la URL del primero.</p>
+  {% endfor %}
+</section>
+
+<section class="panel">
+  <div class="section-head"><h2>2. Ranking de clientes</h2><span>Ordenado por índice de reputación</span></div>
   {% if ranking_chart %}<div class="chart-card"><img src="data:image/png;base64,{{ ranking_chart }}" alt="Ranking de rating por cliente"></div>{% endif %}
   <div class="table-wrap" style="margin-top:14px">
     <table>
@@ -65,7 +106,7 @@
 </section>
 
 <section class="panel">
-  <div class="section-head"><h2>2. KPIs que recomiendo vigilar</h2><span>Qué significan y por qué importan</span></div>
+  <div class="section-head"><h2>3. KPIs que recomiendo vigilar</h2><span>Qué significan y por qué importan</span></div>
   <div class="grid cards">
     {% for item in guide %}
       <div class="kpi"><small>{{ item.name }}</small><strong style="font-size:13px;line-height:1.3">{{ item.name }}</strong><span>{{ item.why }}</span></div>
@@ -75,7 +116,7 @@
 
 <section class="cta-band">
   <h2>Convierte el ranking en una conversación de venta</h2>
-  <p>Muestra al cliente dónde está, qué le frena y qué acción concreta le vas a entregar este mes.</p>
+  <p>Muestra al cliente dónde está, qué oportunidades tiene y qué acción concreta le vas a entregar este mes.</p>
   <a class="btn good" href="{{ new_client_url }}">Añadir otro cliente</a>
 </section>
 {% endblock %}

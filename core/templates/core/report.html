@@ -33,7 +33,7 @@
   <ol class="list-clean">
     <li><strong>Rating medio:</strong> la nota de 1 a 5 estrellas que ve cualquiera en Google. Cuanto más alta, mejor.</li>
     <li><strong>Satisfacción:</strong> el mismo rating en porcentaje. 4,5★ significa 90% de clientes contentos.</li>
-    <li><strong>Incidencias:</strong> reseñas de 1-2★. No son muchas, pero son las que más daño hacen si no se responden.</li>
+    <li><strong>Opiniones críticas:</strong> reseñas de 1-2★. Pocas, pero son las que más influyen si no reciben respuesta.</li>
     <li><strong>Respuesta del propietario:</strong> demuestra que hay una persona detrás. Responder rápido recupera confianza.</li>
     <li><strong>Ritmo de reseñas:</strong> cuántas reseñas nuevas entran al día. Sin ritmo, el perfil se enfría.</li>
   </ol>
@@ -102,27 +102,70 @@
   <div class="kpi"><small>Histórico</small><strong>{{ client_kpis.total }}</strong><span>Reseñas guardadas</span></div>
 </section>
 
+<section class="panel">
+  <input type="hidden" id="ia-csrf" value="{{ csrf_token }}">
+  <div class="section-head"><h2>Agente IA de análisis</h2><span id="ia-source">Análisis basado en datos guardados</span></div>
+  <p class="muted">Pregunta lo que necesites para decidir: reseñas, captación, críticas, respuesta a clientes o fotografías.</p>
+  <div class="actions">
+    <button class="chip" type="button" onclick="askAgent('¿Cómo consigo más valoraciones positivas?')">Más valoraciones</button>
+    <button class="chip" type="button" onclick="askAgent('¿Cómo capto clientes nuevos en mi zona?')">Captar clientes</button>
+    <button class="chip" type="button" onclick="askAgent('¿Qué críticas debo atender primero?')">Críticas</button>
+    <button class="chip" type="button" onclick="askAgent('¿Qué fotos y contenido publico?')">Contenido</button>
+  </div>
+  <textarea id="ia-question" style="min-height:80px" placeholder="Ej. Dame un plan de 30 días para subir de 4,3 a 4,6 estrellas"></textarea>
+  <div class="actions">
+    <button class="btn good" type="button" onclick="askAgent()">Analizar con IA</button>
+  </div>
+  <div id="ia-answer" class="quote" style="margin-top:12px">Escribe una pregunta o elige una sugerencia para empezar.</div>
+</section>
+
 <section class="grid two">
   <div class="panel good-panel">
-    <div class="section-head"><h2>2. Lo que funciona</h2><span class="pill good">Fortalezas</span></div>
+    <div class="section-head"><h2>2. Fortalezas comprobadas</h2><span class="pill good">Evidencia</span></div>
     <ul class="list-clean">{% for item in diagnosis.strengths %}<li>{{ item }}</li>{% endfor %}</ul>
     <p class="muted" style="margin-bottom:0"><strong>Lo que gusta:</strong> {{ themes.strength }}</p>
   </div>
   <div class="panel bad-panel">
-    <div class="section-head"><h2>3. Lo que frena el crecimiento</h2><span class="pill bad">Riesgos</span></div>
+    <div class="section-head"><h2>3. Prioridades de mejora</h2><span class="pill bad">Riesgos</span></div>
     <ul class="list-clean">{% for item in diagnosis.risks %}<li>{{ item }}</li>{% endfor %}</ul>
     <p class="muted" style="margin-bottom:0"><strong>Corregir:</strong> {{ themes.correction }}</p>
   </div>
 </section>
 
 <section class="panel">
-  <div class="section-head"><h2>4. Plan de mejora de 30 días</h2><span>Acciones priorizadas</span></div>
+  <div class="section-head"><h2>4. Estrategia y plan de acción</h2><span>De la lectura a la ejecución</span></div>
+  <div class="grid three">
+    {% for strategy in diagnosis.strategies %}
+      <div class="action">
+        <span class="pill warn">{{ strategy.phase }}</span>
+        <strong>{{ strategy.objective }}</strong>
+        <p>{{ strategy.move }}</p>
+        <p><b>KPI:</b> {{ strategy.kpi }}</p>
+      </div>
+    {% endfor %}
+  </div>
+  <h3 style="margin-top:14px">Motor de crecimiento · reseñas y captación</h3>
+  <div class="grid two">
+    {% for play in diagnosis.growth %}
+      <div class="action">
+        <span class="pill good">{{ play.title }}</span>
+        <strong>{{ play.objective }}</strong>
+        <ul>
+          {% for tactic in play.tactics %}<li>{{ tactic }}</li>{% endfor %}
+        </ul>
+        <p><b>KPI:</b> {{ play.kpi }}</p>
+        <p><b>Responsable:</b> {{ play.owner }} · <b>Plazo:</b> {{ play.deadline }}</p>
+      </div>
+    {% endfor %}
+  </div>
+  <h3 style="margin-top:14px">Acciones priorizadas</h3>
   <div class="grid three">
     {% for action in diagnosis.actions %}
       <div class="action {{ action.priority|lower }}">
         <span class="pill {% if action.priority == 'Alta' %}bad{% elif action.priority == 'Media' %}warn{% else %}good{% endif %}">{{ action.priority }}</span>
         <strong>{{ action.title }}</strong>
         <p>{{ action.detail }}</p>
+        <p><b>Responsable:</b> {{ action.owner }} · <b>Plazo:</b> {{ action.deadline }}</p>
         <p><b>KPI:</b> {{ action.kpi }}</p>
       </div>
     {% endfor %}
@@ -161,7 +204,7 @@
     {% for quote in positive_quotes %}<div class="quote"><strong>{{ quote.date }} · {{ quote.author }} · {{ quote.rating }}★</strong><br>{{ quote.text }}</div>{% empty %}<p class="muted">Sin comentarios positivos con texto.</p>{% endfor %}
   </div>
   <div class="panel">
-    <div class="section-head"><h2>9. Lo que hay que corregir</h2><span>Incidencias reales</span></div>
+    <div class="section-head"><h2>9. Reseñas críticas a atender</h2><span>Evidencia real</span></div>
     {% for quote in negative_quotes %}<div class="quote"><strong>{{ quote.date }} · {{ quote.author }} · {{ quote.rating }}★</strong><br>{{ quote.text }}</div>{% empty %}<p class="muted">Sin incidencias con texto.</p>{% endfor %}
   </div>
 </section>
@@ -218,5 +261,6 @@
 <script>
 function chooseVista(value){document.getElementById('id_vista').value=value;document.getElementById('filter-form').submit();}
 function copyBrief(id){var field=document.getElementById(id);field.select();document.execCommand('copy');field.setSelectionRange(0,0);}
+async function askAgent(preset){var input=document.getElementById('ia-question');var question=preset||input.value.trim();if(!question){alert('Escribe una pregunta.');return;}var answer=document.getElementById('ia-answer');answer.textContent='Analizando...';try{var response=await fetch('{{ agent_url }}',{method:'POST',headers:{'Content-Type':'application/json','X-CSRFToken':document.getElementById('ia-csrf').value},body:JSON.stringify({question:question})});var data=await response.json();if(!response.ok){throw new Error(data.error||'No se pudo analizar');}answer.textContent=data.answer;document.getElementById('ia-source').textContent=data.source==='ia'?'Respuesta con modelo externo':'Análisis local con datos guardados';}catch(error){answer.textContent='No se pudo completar: '+error.message;}}
 </script>
 {% endblock %}

@@ -43,6 +43,76 @@ def scorecard(kpis):
     return {"score": score, "label": label, "color": color}
 
 
+def growth_playbook(kpis, themes, low_volume, recent_per_day):
+    strength = themes["good"][0] if themes.get("good") else None
+    return [
+        {
+            "title": "Más valoraciones positivas",
+            "objective": "Aumentar el volumen de reseñas y repetir los motivos que mejor valora el cliente.",
+            "tactics": [
+                "Pedir la opinión en el momento de mayor satisfacción: al entregar el plato o al cerrar el servicio.",
+                "QR en mesa, ticket y mostrador que abra directamente el formulario de reseñas de Google.",
+                "Guion de 10 segundos del equipo: si todo salió bien, invitar a dejar una reseña sin presionar.",
+                (
+                    f"Repetir en las respuestas públicas el motivo mejor valorado: {strength['label'].lower()}."
+                    if strength else "Repetir en las respuestas públicas los puntos fuertes detectados en el informe."
+                ),
+                "Responder en 24 h: las positivas refuerzan la relación y las críticas evitan pérdida de confianza.",
+            ],
+            "kpi": f"De {recent_per_day:.1f} a 2-3 reseñas/día y mantener 80% de 5★",
+            "owner": "Atención al cliente",
+            "deadline": "30 días",
+        },
+        {
+            "title": "Captar clientes nuevos",
+            "objective": "Convertir la ficha de Google Maps en un canal de adquisición medible.",
+            "tactics": [
+                "Publicar una foto semanal de platos destacados y una novedad por semana en la ficha.",
+                "Completar categoría, horario, menú, atributos y foto de portada con términos de la zona.",
+                "Usar las mejores reseñas como contenido: citar el motivo mejor valorado en publicaciones y redes.",
+                "Añadir enlace de WhatsApp con mensaje predefinido y contabilizar consultas cada semana.",
+                "Acuerdos locales con gimnasios, talleres, hoteles u oficinas cercanas con cupón canjeable y seguimiento.",
+            ],
+            "kpi": "+20% de visitas a la ficha y +15 consultas por WhatsApp en 30 días",
+            "owner": "Marketing y administración",
+            "deadline": "30 días",
+        },
+    ]
+
+
+def _strategies(kpis, themes, low_volume):
+    top = themes["bad"][0] if themes.get("bad") else None
+    return [
+        {
+            "phase": "0-7 días · Contención",
+            "objective": "Que ninguna opinión crítica quede sin respuesta visible para futuros clientes.",
+            "move": "Responder en 24 h, llevar la solución a privado y cerrar con un mensaje breve y concreto.",
+            "kpi": f"De {kpis['negative_response_rate']:.1f}% a 100% de 1-2★ contestadas",
+        },
+        {
+            "phase": "8-30 días · Corrección",
+            "objective": (
+                f"Reducir la causa más repetida: {top['label'].lower()}."
+                if top else "Mantener la operación estable y evitar nuevas desviaciones."
+            ),
+            "move": (
+                f"{top['action'].capitalize()}. Revisar el efecto con una comparación semanal de menciones."
+                if top else "Reforzar checklist de salida, saludo y control de tiempos en hora punta."
+            ),
+            "kpi": f"Reducir a la mitad las {top['count']} menciones detectadas" if top else "Sostener 4★ o más en el 90% de las opiniones",
+        },
+        {
+            "phase": "31-90 días · Crecimiento",
+            "objective": "Convertir la satisfacción en prueba social y en un flujo estable de nuevas opiniones.",
+            "move": (
+                "QR en mesa y entregapedidos, guion de 10 segundos del equipo y petición de foto del plato."
+                if low_volume else "QR permanente, fotos destacadas y respuesta pública que refuerce los platos mejor valorados."
+            ),
+            "kpi": "2-3 reseñas/día y +20 fotos al mes" if low_volume else "+30 reseñas y +20 fotos en 30 días",
+        },
+    ]
+
+
 def client_diagnosis(frame, client=None):
     kpis = analytics.reputation_kpis(frame)
     themes = analytics.themes(frame)
@@ -51,78 +121,112 @@ def client_diagnosis(frame, client=None):
     median_daily = rhythm["median_daily"]
     recent_per_day = rhythm["recent_per_day"]
     low_volume = rhythm["low_volume"]
+    name = client.name if client else "la ficha"
+
     if not kpis.get("total"):
         return {
             "score": score,
-            "headline": "Todavía no hay reseñas con fecha válida.",
-            "strengths": ["La ficha ya está conectada a Google Maps."],
-            "risks": ["Faltan reseñas procesadas para generar conclusiones."],
+            "headline": "Todavía no hay reseñas con fecha válida para analizar.",
+            "strengths": ["La ficha ya está conectada a Google Maps; la base del análisis está lista."],
+            "risks": ["Sin reseñas procesadas no hay evidencia suficiente para dar conclusiones."],
             "actions": [{
-                "priority": "Alta", "title": "Actualizar datos",
-                "detail": "Pulsa Actualizar datos para traer el histórico completo.",
-                "owner": "Administrador", "deadline": "Hoy", "impact": "Alta", "effort": "Bajo", "kpi": "Histórico disponible",
+                "priority": "Alta",
+                "title": "Importar el histórico completo",
+                "detail": "Pulsa Actualizar datos para traer todas las reseñas con fecha y valoración válidas.",
+                "owner": "Administrador",
+                "deadline": "Hoy",
+                "impact": "Alta",
+                "effort": "Bajo",
+                "kpi": "Histórico disponible y analizable",
+            }],
+            "strategies": [{
+                "phase": "0-7 días · Arranque",
+                "objective": "Disponer de datos completos antes de dar recomendaciones.",
+                "move": "Importar el histórico, revisar fechas y confirmar que las reseñas con texto estén cargadas.",
+                "kpi": "Historial importado y listo para analizar",
+            }],
+            "growth": [{
+                "title": "Más valoraciones positivas",
+                "objective": "Preparar la captación de reseñas apenas haya datos suficientes.",
+                "tactics": ["QR en mesa y mostrador.", "Guion de petición de reseña.", "Respuesta pública a cada opinión."],
+                "kpi": "Sistema listo para usar",
+                "owner": "Atención al cliente",
+                "deadline": "7 días",
+            }, {
+                "title": "Captar clientes nuevos",
+                "objective": "Tener la ficha lista para convertir visitas en consultas.",
+                "tactics": ["Fotos de portada y platos destacados.", "WhatsApp con mensaje predefinido.", "Alianzas locales cercanas."],
+                "kpi": "Ficha optimizada y enlace activo",
+                "owner": "Marketing y administración",
+                "deadline": "7 días",
             }],
         }
 
     strengths = []
     if kpis["five_rate"] >= 70:
-        strengths.append(f"El {kpis['five_rate']:.1f}% de las reseñas son 5★: la excelencia es la norma, no la excepción.")
+        strengths.append(f"La excelencia es constante: el {kpis['five_rate']:.1f}% de las opiniones son 5★ y sostienen la nota pública.")
     elif kpis["five_rate"] >= 50:
-        strengths.append(f"El {kpis['five_rate']:.1f}% de las reseñas alcanza 5★, una base sólida sobre la que trabajar.")
+        strengths.append(f"Hay una base sólida de clientes satisfechos: el {kpis['five_rate']:.1f}% otorga 5★.")
     if kpis["positive_rate"] >= 85:
-        strengths.append(f"El {kpis['positive_rate']:.1f}% de los clientes se va satisfecho (4-5★).")
+        strengths.append(f"La mayoría de quienes opinan se va conforme: {kpis['positive_rate']:.1f}% concede 4-5★.")
     for item in themes["good"][:2]:
-        strengths.append(f"{item['label']} aparece {item['count']} veces en los comentarios.")
+        strengths.append(f"{item['label']} aparece {item['count']} veces; es un argumento que conviene repetir en respuestas y fotos.")
     if client and client.customer_photos >= 100:
-        strengths.append(f"Hay {client.customer_photos} fotos de clientes: prueba social suficiente para reforzar la conversión.")
+        strengths.append(f"Las {client.customer_photos} fotos de clientes actúan como prueba social y refuerzan la conversión.")
 
     risks = []
-    if kpis["negative_response_rate"] < 50:
-        risks.append(f"Solo se responde el {kpis['negative_response_rate']:.1f}% de las reseñas de 1-2★. El cliente insatisfecho no ve una reacción.")
-    if kpis["negative_rate"] > 8:
-        risks.append(f"Las incidencias (1-2★) representan el {kpis['negative_rate']:.1f}% del total; por encima del objetivo del 8%.")
+    if kpis["negative_response_rate"] < 80:
+        risks.append(
+            f"La respuesta a opiniones críticas es el principal hueco: solo se contesta el "
+            f"{kpis['negative_response_rate']:.1f}% de las reseñas de 1-2★. Cada respuesta pendiente es una objeción visible."
+        )
+    if kpis["negative_rate"] > 6:
+        risks.append(
+            f"Las opiniones críticas representan el {kpis['negative_rate']:.1f}% del total; el objetivo es mantenerlas por debajo del 6%."
+        )
     if kpis["five_rate"] < 60:
-        risks.append(f"La excelencia cae al {kpis['five_rate']:.1f}%; hay margen claro para subir a 4,70★.")
+        risks.append(f"La excelencia cae al {kpis['five_rate']:.1f}%. El reto no es solo subir la media, sino repetir 5★ con más frecuencia.")
     if low_volume:
         risks.append(
-            f"El ritmo de reseñas es bajo: mediana de {median_daily:.1f} por día activo y "
-            f"{recent_per_day:.1f} diarias en los últimos 30 días. La ficha pierde frescura y señal de confianza."
+            f"El ritmo es bajo: {recent_per_day:.1f} opiniones al día en los últimos 30 días y mediana de "
+            f"{median_daily:.1f} por día activo. Una ficha sin entradas nuevas transmite menos confianza."
         )
     for item in themes["bad"][:2]:
-        risks.append(f"{item['label']} se repite {item['count']} veces y es una causa directa de pérdida de rating.")
+        risks.append(f"Se repite {item['label'].lower()} ({item['count']} menciones). Es una causa concreta de pérdida de rating y tiene solución operativa.")
     if not strengths:
-        strengths.append("La operación está estabilizada; no aparece un patrón crítico en los comentarios.")
+        strengths.append("La operación mantiene una base estable; no aparece un patrón crítico en los comentarios.")
     if not risks:
-        risks.append("No hay patrones críticos. El riesgo está en perder el nivel actual si se relaja la respuesta o la operación.")
+        risks.append("No aparece una alerta clara. El riesgo está en perder el nivel actual por falta de constancia.")
 
     actions = []
     if kpis["negative_response_rate"] < 80:
         actions.append({
             "priority": "Alta",
-            "title": "Responder en 24 h a 1-3★",
-            "detail": "Disculpa concreta, solución privada y seguimiento. Objetivo: 100% de negativas contestadas.",
+            "title": "Responder y cerrar reseñas críticas",
+            "detail": "Contesta en menos de 24 h con disculpa concreta, solución por privado y mensaje final cuando esté resuelto. Evita respuestas genéricas.",
             "owner": "Atención al cliente",
             "deadline": "24 h",
             "impact": "Alta",
             "effort": "Bajo",
-            "kpi": f"De {kpis['negative_response_rate']:.1f}% a 100%",
+            "kpi": f"De {kpis['negative_response_rate']:.1f}% a 100% en 15 días",
         })
-    if kpis["negative_rate"] > 6:
+    if themes["bad"]:
+        top = themes["bad"][0]
         actions.append({
-            "priority": "Alta",
-            "title": "Contener incidencias",
-            "detail": "Revisar esperas, errores de pedido y raciones en los días con peor rating.",
+            "priority": "Alta" if kpis["negative_rate"] > 6 else "Media",
+            "title": f"Corregir {top['label'].lower()}",
+            "detail": f"{top['action'].capitalize()}. Revisar el resultado en 7 días y comparar el número de menciones.",
             "owner": "Cocina y sala",
             "deadline": "7 días",
             "impact": "Alta",
             "effort": "Medio",
-            "kpi": f"De {kpis['negative']} a menos del 8%",
+            "kpi": f"Reducir {top['count']} menciones a la mitad",
         })
     if kpis["five_rate"] < 80:
         actions.append({
             "priority": "Media",
-            "title": "Subir la excelencia",
-            "detail": "Checklist de salida de cocina, saludo obligatorio y revisión de tiempos en hora punta.",
+            "title": "Repetir la experiencia 5 estrellas",
+            "detail": "Checklist de salida, saludo inicial y control de tiempos en hora punta. Registrar cada desviación en el parte diario.",
             "owner": "Responsable de operaciones",
             "deadline": "30 días",
             "impact": "Media",
@@ -131,27 +235,47 @@ def client_diagnosis(frame, client=None):
         })
     actions.append({
         "priority": "Alta" if low_volume else "Media",
-        "title": "Pedir más reseñas cada día" if low_volume else "Más prueba social",
+        "title": "Generar reseñas y fotos de forma constante" if low_volume else "Ampliar la prueba social",
         "detail": (
-            "QR en mesa y en el entregapedidos, guion de 10 segundos al cerrar el servicio y seguimiento diario del equipo. "
-            "Pedir la reseña cuando el cliente acaba de recibir el plato, sin incentivos prohibidos por Google."
+            "QR en mesa y en el entregapedidos, guion de 10 segundos al cerrar el servicio y petición de foto del plato. "
+            "Pedir la opinión justo después del servicio, sin incentivos que infrinjan las normas de Google."
             if low_volume else
-            "QR en mesa para pedir reseña y foto; destacar los platos más valorados en la respuesta del propietario."
+            "QR en mesa para pedir reseña y foto; destacar los platos mejor valorados en la respuesta del propietario."
         ),
         "owner": "Todo el equipo",
         "deadline": "Diario",
         "impact": "Alta",
         "effort": "Bajo",
-        "kpi": f"De {recent_per_day:.1f} a 2-3 reseñas/día" if low_volume else "+20 fotos y +30 reseñas al mes",
+        "kpi": f"De {recent_per_day:.1f} a 2-3 reseñas/día" if low_volume else "+30 reseñas y +20 fotos en 30 días",
+    })
+    actions.append({
+        "priority": "Media",
+        "title": "Activar captación local medible",
+        "detail": "Ficha completa con foto de portada y publicación semanal, WhatsApp con mensaje predefinido y cupón canjeable con negocios cercanos.",
+        "owner": "Marketing y administración",
+        "deadline": "30 días",
+        "impact": "Alta",
+        "effort": "Medio",
+        "kpi": "+20% de visitas a la ficha y +15 consultas por WhatsApp",
     })
 
     headline = (
-        f"Reputación {score['label'].lower()}: rating {kpis['average']:.2f}★, "
-        f"{kpis['positive_rate']:.1f}% de clientes satisfechos y {kpis['negative']} incidencias."
+        f"La reputación de {name} se mantiene en nivel {score['label'].lower()}: "
+        f"{kpis['average']:.2f}★ de media y {kpis['positive_rate']:.1f}% de clientes satisfechos. "
+        f"Hay {kpis['negative']} opiniones críticas que conviene convertir en mejoras visibles."
     )
     if low_volume:
-        headline += f" Ritmo bajo de reseñas: {recent_per_day:.1f} al día en los últimos 30 días."
-    return {"score": score, "headline": headline, "strengths": strengths, "risks": risks, "actions": actions}
+        headline += f" El ritmo de opiniones es bajo ({recent_per_day:.1f}/día en 30 días), así que falta frescura en la ficha."
+    strategies = _strategies(kpis, themes, low_volume)
+    return {
+        "score": score,
+        "headline": headline,
+        "strengths": strengths,
+        "risks": risks,
+        "actions": actions,
+        "strategies": strategies,
+        "growth": growth_playbook(kpis, themes, low_volume, recent_per_day),
+    }
 
 
 def _range_note(table, label_column):
@@ -167,25 +291,26 @@ def _range_note(table, label_column):
 
 def chart_notes(level, frame, subset, kpis):
     notes = {
-        "monthly": "Sin datos mensuales todavía.",
-        "distribution": "Sin distribución disponible.",
-        "response": "Sin respuestas registradas.",
-        "weekly": "Sin desglose semanal en este periodo.",
-        "daily": "Sin desglose diario en este periodo.",
-        "weekday": "Sin patrón semanal suficiente.",
-        "sentiment": "Sin suficientes reseñas para clasificar sentimiento.",
+        "monthly": "Aún no hay datos mensuales suficientes para mostrar tendencia.",
+        "distribution": "Aún no hay distribución de estrellas disponible.",
+        "response": "Aún no hay respuestas del propietario registradas.",
+        "weekly": "Aún no hay desglose semanal en este periodo.",
+        "daily": "Aún no hay actividad diaria suficiente en este periodo.",
+        "weekday": "Aún no hay patrón semanal suficiente.",
+        "sentiment": "Aún no hay reseñas suficientes para clasificar el sentimiento.",
     }
     if not kpis.get("total"):
         return notes
     monthly = analytics.monthly_table(frame)
-    notes["monthly"] = _range_note(monthly, "Mes") + f" El volumen total es de {kpis['total']} reseñas."
+    notes["monthly"] = _range_note(monthly, "Mes") + f" Se analizan {kpis['total']} reseñas; la lectura clave es la tendencia, no solo el volumen."
     notes["distribution"] = (
-        f"{kpis['five']} reseñas de 5★ marcan la excelencia; {kpis['negative']} reseñas de 1-2★ concentran el riesgo. "
-        f"Las 3★ y 4★ explican la zona de mejora."
+        f"Las {kpis['five']} reseñas de 5★ sostienen la reputación; las {kpis['negative']} opiniones de 1-2★ concentran el riesgo. "
+        "Las valoraciones de 3★ y 4★ marcan el margen de mejora más accesible."
     )
     notes["response"] = (
-        f"Se contesta el {kpis['response_rate']:.1f}% de todas las reseñas, pero solo el "
-        f"{kpis['negative_response_rate']:.1f}% de las negativas. Responder más a 1-2★ es la palanca de mayor impacto."
+        f"La respuesta global alcanza el {kpis['response_rate']:.1f}%, pero solo el "
+        f"{kpis['negative_response_rate']:.1f}% de las opiniones críticas recibe contestación. "
+        "Cerrar ese hueco es la palanca más rápida para recuperar confianza."
     )
     if not subset.empty:
         weekly = analytics.weekly_table(subset)
@@ -206,7 +331,7 @@ def chart_notes(level, frame, subset, kpis):
     neutral = kpis["total"] - kpis["positive"] - kpis["negative"]
     notes["sentiment"] = (
         f"De {kpis['total']} reseñas, {kpis['positive']} son clientes satisfechos (4-5★, {kpis['positive_rate']:.1f}%), "
-        f"{neutral} son neutros (3★) y {kpis['negative']} son incidencias (1-2★). "
-        "Es la forma más rápida de ver si el negocio suma confianza o pierde clientes."
+        f"{neutral} se sitúan en 3★ y {kpis['negative']} son opiniones críticas (1-2★). "
+        "Esta mezcla indica si la ficha suma confianza o está dejando escapar clientes."
     )
     return notes

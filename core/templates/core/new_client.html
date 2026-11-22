@@ -21,6 +21,18 @@
         <span class="help">{{ form.url.help_text }}</span>
         {{ form.url.errors }}
       </div>
+      <div class="field">
+        <label for="id_country">País</label>
+        {{ form.country }}
+        <span class="help">{{ form.country.help_text }}</span>
+        {{ form.country.errors }}
+      </div>
+      <div class="field">
+        <label for="id_zone">Zona</label>
+        {{ form.zone }}
+        <span class="help">{{ form.zone.help_text }}</span>
+        {{ form.zone.errors }}
+      </div>
       <button class="btn good" type="submit">Generar informe</button>
     </div>
   </form>
