@@ -1,0 +1,128 @@
+{% extends "core/base.html" %}
+{% block title %}{{ client.name }} · Informe{% endblock %}
+{% block content %}
+<section class="panel">
+  <div style="display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;align-items:flex-start">
+    <div>
+      <h1 style="margin:0 0 6px;color:#240C48">{{ client.name }}</h1>
+      <p class="muted" style="margin:0">{{ client.category }} · {{ client.address }}</p>
+      <p class="muted" style="margin:4px 0">Google: {{ client.rating|floatformat:2 }}★ · {{ client.review_total }} reseñas · {{ client.photo_total }} fotos · Actualizado {{ client.last_scraped|date:"d/m/Y H:i" }}</p>
+      <a href="{{ client.source_url }}" target="_blank" rel="noopener">Ver ficha en Google Maps</a>
+    </div>
+    <div class="actions">
+      <form method="post" action="{% url 'update_client' client.pk %}">
+        {% csrf_token %}
+        <button class="btn" type="submit">Actualizar datos</button>
+      </form>
+      <a class="btn success" href="{% url 'export_pdf' client.pk %}?mes={{ month }}">Exportar PDF</a>
+    </div>
+  </div>
+</section>
+
+<section class="panel">
+  <h2>Filtro temporal</h2>
+  <form method="get" class="filters">
+    <div class="field"><label>Año</label><select name="year" onchange="this.form.submit()">
+      {% for option in years %}<option value="{{ option }}" {% if option == year %}selected{% endif %}>{{ option }}</option>{% endfor %}
+    </select></div>
+    <div class="field"><label>Mes</label><select name="month" onchange="this.form.submit()">
+      {% for option in months %}<option value="{{ option }}" {% if option == month %}selected{% endif %}>{{ option }}</option>{% endfor %}
+    </select></div>
+    <div class="field"><label>Semana</label><select name="week" onchange="this.form.submit()">
+      <option value="">Todo el mes</option>
+      {% for option in weeks %}<option value="{{ option.number }}" {% if option.number == week %}selected{% endif %}>{{ option.label }}</option>{% endfor %}
+    </select></div>
+    <button class="btn secondary" type="submit">Aplicar</button>
+  </form>
+  <p class="muted" style="margin-bottom:0">Periodo analizado: <strong>{{ month_label }}</strong>{% if week %} · semana {{ week }}{% endif %}</p>
+</section>
+
+<section class="grid cards">
+  <div class="kpi"><small>Rating medio</small><strong>{{ kpis.average|floatformat:2 }}★</strong><span>Objetivo 4,70★</span></div>
+  <div class="kpi"><small>Satisfacción</small><strong>{{ kpis.satisfaction|floatformat:1 }}%</strong><span>Rating / 5</span></div>
+  <div class="kpi"><small>Reseñas</small><strong>{{ kpis.total }}</strong><span>En el periodo</span></div>
+  <div class="kpi"><small>Excelencia 5★</small><strong>{{ kpis.five_rate|floatformat:1 }}%</strong><span>{{ kpis.five }} reseñas</span></div>
+  <div class="kpi"><small>Positivas 4-5★</small><strong>{{ kpis.positive_rate|floatformat:1 }}%</strong><span>{{ kpis.positive }} reseñas</span></div>
+  <div class="kpi"><small>Incidencias 1-2★</small><strong style="color:#EF4444">{{ kpis.negative }}</strong><span>{{ kpis.negative_rate|floatformat:1 }}% del total</span></div>
+  <div class="kpi"><small>Saldo reputacional</small><strong style="color:#10B981">+{{ kpis.balance|floatformat:1 }}</strong><span>Puntos netos</span></div>
+  <div class="kpi"><small>Respuestas</small><strong>{{ kpis.response_rate|floatformat:1 }}%</strong><span>{{ kpis.responses }} contestadas</span></div>
+  <div class="kpi"><small>Respuesta a 1-2★</small><strong>{{ kpis.negative_response_rate|floatformat:1 }}%</strong><span>Oportunidad clave</span></div>
+  <div class="kpi"><small>Con comentario</small><strong>{{ kpis.with_text }}</strong><span>Texto disponible</span></div>
+  <div class="kpi"><small>Fotos clientes</small><strong>{{ client.customer_photos }}</strong><span>De {{ client.photo_total }} totales</span></div>
+  <div class="kpi"><small>Histórico guardado</small><strong>{{ client_kpis.total }}</strong><span>Sin volver a buscar</span></div>
+</section>
+
+<section class="panel">
+  <h2>Lectura ejecutiva</h2>
+  <div class="insight good"><strong>Lo que destacaron:</strong> {{ themes.good_text }}</div>
+  <div class="insight good"><strong>Lo que gusta:</strong> {{ themes.strength }}</div>
+  <div class="insight bad"><strong>Lo que hay que corregir:</strong> {{ themes.bad_text }}</div>
+  <div class="insight bad">{{ themes.correction }}</div>
+  <p class="muted" style="margin-bottom:0"><strong>Oportunidad comercial:</strong> solo se responde el {{ kpis.negative_response_rate|floatformat:1 }}% de las reseñas de 1-2★. Responderlas es la acción de mayor retorno reputacional.</p>
+</section>
+
+<section class="grid two">
+  <div class="panel"><h2>Evolución mensual</h2>{% if charts.monthly %}<img class="chart" src="data:image/png;base64,{{ charts.monthly }}" alt="Evolución mensual">{% endif %}</div>
+  <div class="panel"><h2>Distribución de valoraciones</h2>{% if charts.distribution %}<img class="chart" src="data:image/png;base64,{{ charts.distribution }}" alt="Distribución">{% endif %}</div>
+  <div class="panel"><h2>Semanas y días</h2>{% if charts.weekly %}<img class="chart" src="data:image/png;base64,{{ charts.weekly }}" alt="Semanas">{% endif %}</div>
+  <div class="panel"><h2>Actividad diaria</h2>{% if charts.daily %}<img class="chart" src="data:image/png;base64,{{ charts.daily }}" alt="Días">{% endif %}</div>
+  <div class="panel"><h2>Respuesta por rating</h2>{% if charts.response %}<img class="chart" src="data:image/png;base64,{{ charts.response }}" alt="Respuestas">{% endif %}</div>
+  <div class="panel"><h2>Días de la semana</h2>{% if charts.weekday %}<img class="chart" src="data:image/png;base64,{{ charts.weekday }}" alt="Días de la semana">{% endif %}</div>
+  <div class="panel" style="grid-column:1/-1"><h2>Crecimiento acumulado</h2>{% if charts.cumulative %}<img class="chart" src="data:image/png;base64,{{ charts.cumulative }}" alt="Acumulado">{% endif %}</div>
+</section>
+
+<section class="panel">
+  <h2>Resumen mensual</h2>
+  {% include "core/_table.html" with rows=monthly %}
+</section>
+
+<section class="grid two">
+  <div class="panel">
+    <h2>Resumen anual</h2>
+    {% include "core/_table.html" with rows=yearly %}
+  </div>
+  <div class="panel">
+    <h2>Resumen semanal</h2>
+    {% include "core/_table.html" with rows=weekly_table %}
+  </div>
+</section>
+
+<section class="panel">
+  <h2>Detalle diario</h2>
+  {% include "core/_table.html" with rows=daily_table %}
+</section>
+
+<section class="grid two">
+  <div class="panel">
+    <h2>Lo que destacaron · por fecha</h2>
+    {% for quote in positive_quotes %}<div class="quote"><strong>{{ quote.date }} · {{ quote.author }} · {{ quote.rating }}★</strong><br>{{ quote.text }}</div>{% empty %}<p class="muted">Sin comentarios positivos con texto.</p>{% endfor %}
+  </div>
+  <div class="panel">
+    <h2>Lo que hay que corregir · por fecha</h2>
+    {% for quote in negative_quotes %}<div class="quote"><strong>{{ quote.date }} · {{ quote.author }} · {{ quote.rating }}★</strong><br>{{ quote.text }}</div>{% empty %}<p class="muted">Sin incidencias con texto.</p>{% endfor %}
+  </div>
+</section>
+
+<section class="panel">
+  <h2>Plan de acción 30 días</h2>
+  <div class="insight bad">1. Responder en menos de 24 h todas las reseñas de 1-3★ con disculpa concreta y compensación privada.</div>
+  <div class="insight bad">2. Revisar esperas y errores de pedido en los días con peor rating.</div>
+  <div class="insight">3. Revisar raciones percibidas y añadir al menos dos opciones veganas/vegetarianas.</div>
+  <div class="insight good">4. Campaña de fotos de clientes con QR en mesa y objetivo de 4,70★.</div>
+</section>
+
+<section class="panel">
+  <h2>Exportaciones guardadas</h2>
+  <p class="muted">Los archivos se generan en <code>media/exports/</code> y también se descargan al pulsar cada botón.</p>
+  <div class="actions">
+    <a class="btn secondary" href="{% url 'export_csv' client.pk %}?tipo=resumen">CSV resumen</a>
+    <a class="btn secondary" href="{% url 'export_csv' client.pk %}?tipo=resenas">CSV reseñas</a>
+    <a class="btn secondary" href="{% url 'export_csv' client.pk %}?tipo=mensual">CSV mensual</a>
+    <a class="btn secondary" href="{% url 'export_csv' client.pk %}?tipo=anual">CSV anual</a>
+    <a class="btn secondary" href="{% url 'export_csv' client.pk %}?tipo=semanal">CSV semanal</a>
+    <a class="btn secondary" href="{% url 'export_csv' client.pk %}?tipo=diario">CSV diario</a>
+    <a class="btn success" href="{% url 'export_pdf' client.pk %}?mes={{ month }}">PDF del periodo</a>
+    <a class="btn" href="{% url 'export_pdf' client.pk %}">PDF histórico</a>
+  </div>
+</section>
+{% endblock %}

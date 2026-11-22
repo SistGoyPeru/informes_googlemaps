@@ -1,0 +1,3957 @@
+{
+  "generated_at": "2026-11-22T18:33:01",
+  "source_url": "https://www.google.com/maps/place/BURGER+NUKENZI/@41.5636477,2.0197395,19.25z/data=!4m6!3m5!1s0x12a493006f1f1801:0xd7205ae52356465b!8m2!3d41.5639303!4d2.0200143!16s%2Fg%2F11yqxd4y9s?hl=es",
+  "summary": {
+    "name": "BURGER NUKENZI",
+    "place_id": "ChIJARgfbwCTpBIRW0ZWI-VaINc",
+    "rating": 4.5,
+    "review_total": 485,
+    "reviews_exported": 485,
+    "rating_counts": {
+      "1": 44,
+      "2": 10,
+      "3": 11,
+      "4": 27,
+      "5": 393
+    },
+    "photo_total": 166,
+    "owner_photos": 9,
+    "customer_photos": 157,
+    "address": "Avinguda de Jacquard, 35, 08222 Terrassa, Barcelona",
+    "phone": "932 45 17 77",
+    "hours": "domingo, De 12:00 a 23:00",
+    "source_url": "https://www.google.com/maps/place/BURGER+NUKENZI/@41.5636477,2.0197395,19.25z/data=!4m6!3m5!1s0x12a493006f1f1801:0xd7205ae52356465b!8m2!3d41.5639303!4d2.0200143!16s%2Fg%2F11yqxd4y9s?hl=es"
+  },
+  "place": {
+    "name": "BURGER NUKENZI",
+    "place_id": "ChIJARgfbwCTpBIRW0ZWI-VaINc",
+    "category": "Hamburguesería",
+    "rating": 4.5,
+    "address": "Avinguda de Jacquard, 35, 08222 Terrassa, Barcelona",
+    "phone": "932 45 17 77",
+    "hours": "domingo, De 12:00 a 23:00",
+    "login_required": false,
+    "review_total": 485,
+    "rating_counts": {
+      "1": 44,
+      "2": 10,
+      "3": 11,
+      "4": 27,
+      "5": 393
+    },
+    "photo_total": 166,
+    "owner_photos": 9,
+    "customer_photos": 157,
+    "source_url": "https://www.google.com/maps/place/BURGER+NUKENZI/@41.5636477,2.0197395,19.25z/data=!4m6!3m5!1s0x12a493006f1f1801:0xd7205ae52356465b!8m2!3d41.5639303!4d2.0200143!16s%2Fg%2F11yqxd4y9s?hl=es",
+    "photos": [
+      "https://lh3.googleusercontent.com/grass-cs/AABkmLew-EeEgTP1DRlVyyqFhxoGpx8Upe5dzj-5jcMQad-YKO7Pn0pQ3lGmJdiY5bN6zZfcVqUuPr5JfDgFnCr9SXrKWxFbv_hcQikpPf_zcsw3_vWKIxI-roWDt7AqHNR4l9FScHsOmknQ9Hlu=w32-h32-p-k-no",
+      "https://lh3.googleusercontent.com/grass-cs/AABkmLcD-gizYAWVPtehVVs11wMLCRswr41BAQzHATq73yC1m-uSGXmsjrMhTo2A5e-dLsuH4h1Q_meiXU5S2uO8GzLWha1Iv2-TEzJGgbPb3Ah9OvCiDeFe10_gm_MAsl7k6qHHYiyF=w32-h32-p-k-no",
+      "https://lh3.googleusercontent.com/grass-cs/AABkmLeSEcBDwscKD2lTFatrJlwpSX-EILxbCd19WGbRn3BNijLDrHaRyQwiFj8dQMGpFlRunNx0_zZSe2RcF7C29maJqM1qdZ-jFnILVpLBrl2KKlHk2wvtv7jIlh-xk-viLfm3_eHy=w32-h32-p-k-no",
+      "https://lh3.googleusercontent.com/grass-cs/AABkmLew-EeEgTP1DRlVyyqFhxoGpx8Upe5dzj-5jcMQad-YKO7Pn0pQ3lGmJdiY5bN6zZfcVqUuPr5JfDgFnCr9SXrKWxFbv_hcQikpPf_zcsw3_vWKIxI-roWDt7AqHNR4l9FScHsOmknQ9Hlu=w408-h306-k-no",
+      "https://lh3.googleusercontent.com/grass-cs/AABkmLc86zUFhw2D0082ptk4awxovnXN-5uF4J7Gs9eAr-TZk-kJq_-kVaFNz6DvBLrZQbBqAvRyg6eA27BXos9y-8LQjb_uo1pDyZftPnjK5aTGWdcWMDaeB4FMp0EeIQvpfsRniAvWhYFfVvx0=w112-h112-p-k-no",
+      "https://lh3.googleusercontent.com/grass-cs/AABkmLeWr3P1hbg_FVQavQXjZlqR0agnt6x7yrYLRituQ22ASe1eLSqx9K7-F40TA0dsC8nsfW0q89UdBrs0Rj8T3w5MPyZAabW-YdE53ebRswl-e-ZBVb30LhKI-66e1bp2jlDxWNz1dDkzeHwP=w112-h112-p-k-no",
+      "https://lh3.googleusercontent.com/grass-cs/AABkmLdRzLUIhFFTd6M0uqW6nfmpIET6HudW56KVOgsfayjyAslnUxiu67Pr36p1aohW1pcHGJLaNeQWmbB3ENd2uTXhAhD0hNepFtkwefD7AKnkZ9N6eA3Y6ZyJk8Mx-Oty_AeWvxmIby9med-m=w112-h112-p-k-no",
+      "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9T0vrlQI-1LdbpO88UpPLtQ4g7O0CMhHw1mKyuFwkU3zJHX5R27STsV1VLUn7ACKAFzCBUCGcx1EutgGIQdPyAuqBKbSGldKvqhDsRCtB6vvQHCe30rVNS2046JFbial5lkzJYLrq510NHn=w397-h298-k-no",
+      "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9SfrM-L2czA-b17iDqRBbfJbT2jj9fUF24foOg4BQ4Se-vvHUdldwI4n6t2bTekrzNsx0sDpvUQCtIhY1K62iTVGk4O4ytGwIByiZMUFWkBTmd95PzP_MYomU_rJZh2tnXkGKNZj5ZCog=w224-h298-k-no",
+      "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9QkuptWnqfWhdHuAPzeaEIIngiyJ4cU9O9G8R5gwtvlo8fGXSCsZfqHE_9CtcRh8D3JlIwU1EjaFHBHM04gZvOuWz4oQ38SUQD1cV5wvHUJ2tiTZzqYJY1LINtS5f-vQWl02rYr58lWvcQi=w224-h398-k-no",
+      "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9TOI_lS49BGGajTApdl5fQyvh9RbWLGB2CLEqaunqAz-4RNIT5-KHlMcm8XI-23i74soRrK3v3NTVJUl1H4nRtDob0xVo_Cjqc5GgAUZHa111WKchidaxb7EngerR-XnY4KcKeiqmeRTxfU=w224-h298-k-no",
+      "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9SFh-Ag0isngpoPxbHaylhY5cR6GndFd0YuZKY2rwZg7m2W3NcdkQbOYfLsh9ayh2grgFwl0cK01qrmebUjgNhkMhbqpsyRwJn8VW8RXSFd7lTsgacqdPf26HsW48Va9xBP3UaOqixAj2g=w224-h398-k-no",
+      "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Saddbl9MDotfLW1pP8YE_HpLjEwpH_M1skUPeAyepKC-lY-vShZ7kZkWVwWU9tpftsvOttw9s3830jEe0tjF7ZDg2ZacxAC9A388ExOJnXYvGCCBxbKdgD_JVxnesMxdFr-kxl=w397-h298-k-no",
+      "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9SG8jTnI_2zedUpXNU6vjoM7gkqNelZqg2vVGmU5RYnZrFDiimWGgvtqlEBlNoruquww16MBOk9IgHDFUtUt233PGQY8HrLSyAWrkvcLqrHOsjiPr2wvMVrUR0S95g36pf_ttZ9hJVaAeP9=w250-h298-k-no",
+      "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9RTAuTdnNuFvcx7g2hklobeLTX-Nezx0VZ1zPOnpACC5u1P6LaMGIOKRSRNAdaeNHECFbhJjatYgbv8oAfQZ1m7uxv8MxZCsz69_BEhGxmb2FmI3VTypg1j0qMuOcADCXMzDuNBTtnsiqva=w224-h298-k-no",
+      "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Qoc-4AeCBLoBuKWBrA5cATPd9IMcA8S7CIqJYazLmfaZt_39yDA0LO4HrTHkgFVZPxtfgBgUBqPJyVP1lwZzGBa9PUEL0pXvhdSYmn4alZjHcSZeUxy_HFEgun-xLePWoPUmZDwRq7gBk=w224-h298-k-no",
+      "https://lh3.googleusercontent.com/a/ACg8ocLAIFoOdgRe-kzB0M5MASEVUJGR3GI1NkDWQotErDEWt5OZiX4W=w36-h36-p-rp-mo-br100",
+      "https://lh3.googleusercontent.com/a-/ALV-UjUuzXq4OKHdF5jIEoRR9pTRrQuKR4E44sleJrUyO177mPjfpPRrnw=w36-h36-p-rp-mo-br100",
+      "https://lh3.googleusercontent.com/a-/ALV-UjXDWyc2VPsgb6gSO4NANMpN7QxmjHKr-TavdknL_a22mUNlPT4=w36-h36-p-rp-mo-ba12-br100",
+      "https://lh3.googleusercontent.com/a/ACg8ocIOqK6EVuye0pzjBcOygGU1YgA6j4SB2wSJ_M3Tr6e3xCzDhQ=w36-h36-p-rp-mo-br100",
+      "https://lh3.googleusercontent.com/grass-cs/AABkmLexJN-LifNWZIQ9Px4FhK-4khpY7IMY274_5HLdT0IvaAt0v1JmnNrI3rlOL-6IfaqmDrYWNMZ-ewUNSmTh3WPmfPsQKVF51umvhcGU0MZp1yBFqq7Xn5kRC6ZOrBasLxznpZ4G5w=w156-h114-p-k-no",
+      "https://lh3.googleusercontent.com/grass-cs/AABkmLcImKRJUTEfirNIuVHAuaY0GekErDqu0mgln5xL5Z69W5Qt_UN3ftc_aocEHMN-IU8Fw5QRRJvzYmF3ScOQVonAfc5ckOB588yv4A_NbhJuMYVDUVUWIRei1xEE6mj3mRvY4UD4VxyzKMYZ=w156-h114-p-k-no",
+      "https://lh3.googleusercontent.com/grass-cs/AABkmLceCPFtXwrEvSdKwRtLwf_PmmWHflgHJIo6iNZzd5mbUhEg-wjuawN5YhgwcJmmLzoz2Jm0BxcYuTTswIZzzSlAGYaBcvAD2iz8bA6JH0ub2lm3lKo2PZVeMKJM3m_XKddOIUDpjrTWi6VX=w156-h114-p-k-no",
+      "https://lh3.googleusercontent.com/grass-cs/AABkmLefACV5m30LXJYezNNN9c_8gEiYP67V1ixfifGbBOR3KmgAmR5_Uy5mDqh_Okav37VQ798DFmWUQhRUVGQ6BBtGdMeplM_SFwh9nNhOJk3E3ps05CY7nDdbpM4mJ7_dMUQTmyE=w156-h114-p-k-no",
+      "https://lh3.googleusercontent.com/grass-cs/AABkmLc5uB6lJk_KfjfzrDpyLWteneLmNa4cd9S5hpX7IhTD-CjPgoGeo9rx3QYN6YyrcO5deFz1-RLJJp_HiagvROLx_4wO9JSEPG4wW_WWDW4vpQSu28Y12x2Wr-5gNsgBnFOEyPAPpPMH5BM=w156-h114-p-k-no",
+      "https://lh3.googleusercontent.com/ogw/AF2bZygB21tVU4BPBTmkNBM1RVvxRi9h3rp8X5ytKQGgL94I7TM=s32-c-mo"
+    ]
+  },
+  "reviews": [
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25wb1YwdDVWRU5SVnkxa2RGcEZjMGhHWW01elNrRRAB",
+      "author": "Alex Goyzueta",
+      "rating": "5.0",
+      "date": "2026-11-22",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25NM1lUaEdkRjlIYTNOcU5rcFRUamhtY25SQlpsRRAB",
+      "author": "Steven Cendales",
+      "rating": "5.0",
+      "date": "2026-11-08",
+      "text": "Todo muy rico, excelente atención... Sitio agradable y limpio.",
+      "owner_response": "¡Muchas gracias por tu valoración! ⭐ Nos alegra mucho saber que has tenido una buena experiencia con nosotros. ¡Esperamos verte de nuevo pronto en BURGER NUKENZI! 🍔❤️…"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25oYVJuTTBRMFZGTlZOM1ZtWlZXV2hvTkZZeWVHYxAB",
+      "author": "Keiko Mendoza",
+      "rating": "4.0",
+      "date": "2026-11-01",
+      "text": "El lugar está muy bien decorado, la comida está buna, me pedí un menú de Hamburguesa de pollo crujiente, el pollo cocido y jugoso, y parece que no pero llena bien. La atención también fue muy buena, y creo que es buen lugar calidad precio.",
+      "owner_response": "¡Muchas gracias por tu comentario! 🍔 Nos encanta saber que te han gustado nuestras hamburguesas. Trabajamos cada día para ofreceros lo mejor. ¡Hasta la próxima! 😊…"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tkdlIxTmhSR2xxVEVwWlZWZFJMWFJXUzJzMGFIYxAB",
+      "author": "Axx Xxa",
+      "rating": "5.0",
+      "date": "2026-08-24",
+      "text": "Sitio muy limpio ,los doc chicos son muy simpáticos ,atentos y cocinan muy bien calidad precio es estupendo , te gastas más o menos que en un McDonald's 9 burger King pero la calidad es otro nivel.el pan de las hamburguesas te lo hacen al momento y es casero",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2poUFRGSjFiM3BaVDJ4eFUwOVNSa3hzVUZkUGRGRRAB",
+      "author": "miguel urrea rodriguez",
+      "rating": "5.0",
+      "date": "2026-09-23",
+      "text": "Lo mejor que he comido,te lo preparan el momento,ambiente super limpio,decoración genial y muy peor muy buena atención......lo recomiendo tienen muy buena carta.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2trNE5sVTBWbGM0VmtoalpsOUpWR05NVUVsV2FHYxAB",
+      "author": "Christopher Abreu",
+      "rating": "5.0",
+      "date": "2026-11-01",
+      "text": "Soy nuevo en el barrio, y caminando por aquí se me apeteció una hamburguesa así que mire este local que tiene buena reputación y la verdad que muy buen precio! La hamburguesa que pedí es la Nukenzi, y muy buen! El pan súper suave y rico, se…",
+      "owner_response": "¡Muchísimas gracias por tu reseña y por confiar en nosotros! ❤️ Nos alegra mucho saber que has disfrutado de nuestra hamburguesa Nukenzi, nuestros pinchos y nuestra salsa especial. Nos encanta tener nuevos vecinos que descubren nuestra… Más"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tKblowVnpNMU14UWxWRVFXRkVablI1V0hOeU4yYxAB",
+      "author": "Rocío Rivas",
+      "rating": "5.0",
+      "date": "2026-11-08",
+      "text": "Esta buena 👍 👌 todo se prepara al momento los pincho delicioso 😋 Su atención muy amable ,lugar limpio y agradable…",
+      "owner_response": "¡Muchas gracias por tu apoyo y por confiar en BURGER NUKENZI! ❤️ ¡Esperamos verte pronto!"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25WbFNucDVkVzA1VEZaV1YwNDRSbWMyVXpoU2RWRRAB",
+      "author": "Sol Nuñez Orihuela",
+      "rating": "5.0",
+      "date": "2026-08-24",
+      "text": "La comida estaba deliciosa, el mejor pollo frito de Terrassa, las hamburguesas son las mejores y la atención es muy buena.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tsdGRFWnlaekZST0RsR1pTMXpaM1V6Um5JMFgwRRAB",
+      "author": "Daniela Arevalo",
+      "rating": "5.0",
+      "date": "2026-10-23",
+      "text": "Estaba súper bonito y la comida 10 de 10 para nada ay susidat y está todo tranquilo",
+      "owner_response": "¡Muchas gracias por tu comentario! 🍔 Nos encanta saber que te han gustado nuestras hamburguesas. Trabajamos cada día para ofreceros lo mejor. ¡Hasta la próxima! 😊…"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2s5RVQzaGhNa0p1YW5KNFVWbzNXVmt3V0ZrNVpHYxAB",
+      "author": "Daniel Darius",
+      "rating": "5.0",
+      "date": "2026-11-15",
+      "text": "Buenísimo el mejor sitio para comer en familia y unas alitas espectaculares",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2poQ2VFMXpNMFZ3UVc1bE0xUmlWVk00UzNkVU1HYxAB",
+      "author": "Karen Ruiz",
+      "rating": "5.0",
+      "date": "2026-08-24",
+      "text": "La comida muy rica, los mochis salados de queso una pasada, el personal muy amable. Fui con mi bebé y se preocuparon por si el aire acondicionado estaba bien❤️",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xneWJHSkhRWE10V210UWFtWmxNa2xTY20wdFpHYxAB",
+      "author": "Mery Mery",
+      "rating": "5.0",
+      "date": "2026-11-15",
+      "text": "Fenial de lo mejor que he probado y la atención fantástica y tiene bebida recargable increíble todo",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xsMU1VbEVZbEl4VDA1ZlJIZGxNalI2VEdWSlJuYxAB",
+      "author": "PopUp Outlet Terrassa",
+      "rating": "5.0",
+      "date": "2026-08-24",
+      "text": "Comida muy buena, nada que ver con las cadenas rapidas. Servicio de 10, muy simpaticos todos y amables…",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2kxM1pYZ3lUVkpaTlZsaldGaFRZWFpyY1hCb05WRRAB",
+      "author": "Marco Sanchez",
+      "rating": "5.0",
+      "date": "2026-10-23",
+      "text": "Me causaba duda en entrar pero valió la pena todo está muy rico las bebidas en general el restaurante muy bonito buena atención está súper recomendado.",
+      "owner_response": "¡Muchas gracias por tu apoyo y por confiar en BURGER NUKENZI! ❤️ ¡Esperamos verte pronto!"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pNeVNVcFlWV05FUldRelVIUklRbWwyYWxCV2IzYxAB",
+      "author": "Elena Rodríguez Trujillo",
+      "rating": "5.0",
+      "date": "2026-08-24",
+      "text": "Todo está riquísimo desde que lo conocemos ya no vamos a los restaurantes de comida rápida ya que en este las de pollo es un trozo de pollo de verdad rebozado y la ternera muy buena también. Nos encantó el pan ya que es diferente a todo lo…",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2s1emEwWkphRXhKWmxRdFVWUjVNMlZHWDJwVldFRRAB",
+      "author": "Hermy",
+      "rating": "5.0",
+      "date": "2026-06-25",
+      "text": "Hamburguesas muy buenas, pollo crugiente buenisimo! Exelente atención, buenos precios, lavabos impecables. Mejor q ir a McDonald's kfc o Popeye's definitivamente mejor calidad! 100% recomendado.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21wVE1uRkxOMVJWWmtkNk4zbzFXbVZVUVROcFRsRRAB",
+      "author": "Cynthia Angel",
+      "rating": "5.0",
+      "date": "2026-07-25",
+      "text": "Las hamburguesas están buenísimas! ya he ido dos veces a cenar y unas cuantas a por los batidos, está todo muy rico 😋 el local es muy bonito y super limpio. Lo recomiendo totalmente.…",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25VdFdrZzRRelJQUms5MFpEWXdabms1VTNOZllYYxAB",
+      "author": "Eddie Ye",
+      "rating": "5.0",
+      "date": "2026-06-25",
+      "text": "Burgers espectaculares, el pan se lleva el trono, y la carne se nota que son frescas y hechas por ellos, muy recomendado",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tzMlpFbE9ZVXRITkU4eWIxQnRWM1ZuVkZCMFZXYxAB",
+      "author": "Sara Pardo",
+      "rating": "5.0",
+      "date": "2026-11-01",
+      "text": "Pasaba de casualidad y estoy feliz de haber parado aqui! La hamburguesa de pollo está buenísima! Las patatas calentitas y crujientes. El dueño es súper amable y se nota que toda la comida está hecha al momento y con amor. Lo recomendaría 100%",
+      "owner_response": "¡Muchísimas gracias por tus bonitas palabras! ❤️ Nos alegra enormemente que hayas descubierto BURGER NUKENZI por casualidad y que la experiencia haya superado tus expectativas. Preparamos cada plato al momento y con mucho cariño, por eso… Más"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21kRlltUlFRMlpVUkZKVFRtbElPRlpPVmswdGNsRRAB",
+      "author": "KELLY MARINA ALVAREZ ROA",
+      "rating": "4.0",
+      "date": "2026-09-23",
+      "text": "Bien servicio, la.comida deliciosa sin tanto condimentos, lo único fue que la maquina de bebidas ilimitadas está dañada pero del resto buen sitio",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2poTVIxaEdNR3RsTUZOWWEyOXRiSHBTVDBzd1MxRRAB",
+      "author": "Tatiana Araya",
+      "rating": "5.0",
+      "date": "2026-10-23",
+      "text": "Muy rico la verdad, me sorprendió. El pan de la hamburguesa lo hacen al momento, todo rico, las patatas crujientes. Todo correcto! Vale la pena venir. La atención muy buena. Tienen dispensador de bebidas junto con el menú y te puedes servir las veces que quieras.",
+      "owner_response": "¡Muchas gracias por tu apoyo y por confiar en BURGER NUKENZI! ❤️ ¡Esperamos verte pronto!"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xGS1RrVjJObFprY0hwTGRrZHZVVkJJVEhGMFduYxAB",
+      "author": "Elena Bahrii",
+      "rating": "5.0",
+      "date": "2026-10-23",
+      "text": "El trato y la comida son excepcionales, el crujiente del pollo y el pan de la hamburguesa incomparables! A mi peque le encanta ! Mucho mejor que lo conocido un 10 de 10!!! Volveremos sin duda",
+      "owner_response": "¡Muchas gracias por tu comentario! 🍔 Nos encanta saber que te han gustado nuestras hamburguesas. Trabajamos cada día para ofreceros lo mejor. ¡Hasta la próxima! 😊…"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21KYVkyRmhNRU56T1VWaGJFRlhUMk0zT1dOdkxWRRAB",
+      "author": "Lele Fan",
+      "rating": "5.0",
+      "date": "2026-06-25",
+      "text": "Nos ha encantado este tipo de hamburguesas, igual que las que hemos probado en China. Ambiente agradable y el servicio muy atento también. Seguramente volveremos.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tGdFVFZEVlRkpqTVV0b1RWaEJibEZPWkZST1QzYxAB",
+      "author": "Berta",
+      "rating": "5.0",
+      "date": "2026-11-15",
+      "text": "Hemos comido 3 personas, servicio excelente, personal amable, local bonito y limpio. Hamburguesas muy buenas, pan recien hecho al momento, reposicion de bebida…",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pSVFQzVnpXVmxDTUVwa2NrczBRbWwyVEZBMVlWRRAB",
+      "author": "Ale Cosme",
+      "rating": "5.0",
+      "date": "2026-10-23",
+      "text": "Local bien decorado y buen ambiente. Se nota la sublime calidad de la comida y encima a muy bien precio. El servicio fue espectacular y nos atendieron perfectamente.",
+      "owner_response": "¡Muchísimas gracias por vuestra fantástica reseña! ❤️ Nos alegra muchísimo saber que habéis disfrutado del ambiente, la calidad de nuestra comida y nuestro servicio. Trabajamos cada día con mucha ilusión para ofreceros la mejor experiencia al mejor precio. ¡Esperamos volver a veros pronto en BURGER NUKENZI! 🍔😊…"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tRMFNYWmlOV2w2UWsxa2RGQXRURVJ0VWtKbFVuYxAB",
+      "author": "Jose Reyes",
+      "rating": "5.0",
+      "date": "2026-10-23",
+      "text": "Local muy limpio la hamburguesa del menu Nukenzi está muy completa y con los nuggets quedas perfecto, la bebida es ilimitada 👍🏼…",
+      "owner_response": "¡Muchas gracias por tu comentario! 🍔 Nos encanta saber que te han gustado nuestras hamburguesas. Trabajamos cada día para ofreceros lo mejor. ¡Hasta la próxima! 😊…"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2kxc2FUbEtObGhvVWpacVowYzBTRlZWVkZwT05rRRAB",
+      "author": "andres hincapie",
+      "rating": "5.0",
+      "date": "2026-09-23",
+      "text": "Eh estado en este lugar 2 veces y puedo decir que hay muy buena experiencia. No solo el lugar y su ambiente.…",
+      "owner_response": "¡Gracias de corazón por tus palabras! ❤️ Nos alegra mucho que hayas disfrutado tanto de la comida como de nuestro servicio. ¡Será un placer volver a recibirte en BURGER NUKENZI!"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21aTFV6Qk9Ra3hZWkRZeGNtbE1aVW94VFhFeU4wRRAB",
+      "author": "Vilbhen Araujo",
+      "rating": "5.0",
+      "date": "2026-11-08",
+      "text": "Excelente sabor, la textura, muy calientetita la comida",
+      "owner_response": "¡Muchas gracias por tu apoyo y por confiar en BURGER NUKENZI! ❤️ ¡Esperamos verte pronto!"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xGYWVYVTFTVU5KWDBoTk4wNXdNVWh5YlRVNFpuYxAB",
+      "author": "Silvia Badiella",
+      "rating": "5.0",
+      "date": "2026-11-08",
+      "text": "Es un sitio de pollo frito muy bueno, sinceramente. Además, los precios son bastante económicos y siempre viene mucha cantidad. A mí siempre me sobra para el día siguiente. El pan de la hamburguesa lo hacen artesanal y se nota, es de…",
+      "owner_response": "¡Muchísimas gracias por esta reseña tan increíble! ❤️ Nos hace muchísima ilusión saber que disfrutas de nuestro pollo frito, nuestras hamburguesas con pan artesanal y nuestras patatas. Trabajamos cada día con mucho cariño para ofrecer… Más"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT205blVFdzBNRFZrUnpSSWQzQk1aa2xRT0V3emVFRRAB",
+      "author": "Gabri M",
+      "rating": "5.0",
+      "date": "2026-04-26",
+      "text": "La comida está muy bien~ He pedido un par de veces y también he venido a la tienda y la comida siempre me la han servido hecha al momento y caliente. El pollo está muy bien y jugoso, mejor que las de otros sitios en mi opinion :)",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xCTFIyNVpkRmN5U1dObU9FdzRUVnBXWm1NeU4wRRAB",
+      "author": "Javi Lopez",
+      "rating": "5.0",
+      "date": "2026-11-15",
+      "text": "Muy buen servicio son muy atentos,sitio limpio y comida recién hecha,me a sorprendido,lo recomiendo,volveré seguro.",
+      "owner_response": "¡Muchas gracias por tu apoyo y por confiar en BURGER NUKENZI! ❤️ ¡Esperamos verte pronto!"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xobFRXcHRSR1E1Ymt3MkxUWnBTMU00V1RGVVpVRRAB",
+      "author": "Ruben Bravo mula",
+      "rating": "5.0",
+      "date": "2026-11-01",
+      "text": "Todo muy bueno y los empleados super majos",
+      "owner_response": "¡Gracias de corazón por tus palabras! ❤️ Nos alegra mucho que hayas disfrutado tanto de la comida como de nuestro servicio. ¡Será un placer volver a recibirte en BURGER NUKENZI!"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25WRVZHaHBXWFV4Tm5Sek1GcHVlSHBZTjI1YUxYYxAB",
+      "author": "alexander moreira",
+      "rating": "5.0",
+      "date": "2026-09-23",
+      "text": "Muy buena la comida, 100% recomendable",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pOV2VsZERlbEJOU25sWlVXZHdVbU5NV1c1MlZFRRAB",
+      "author": "Marina Ordonez",
+      "rating": "5.0",
+      "date": "2026-07-25",
+      "text": "Deliciosa comida tuve el pollo crujiente picante y estuvo delicioso",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT204NVVYSktMVGRaYTNKa1RFUk5ZV2s0ZDNJME9FRRAB",
+      "author": "Mario Egarenc",
+      "rating": "5.0",
+      "date": "2026-07-25",
+      "text": "Gratamente sorprendido! Patatas perfectas tanto en cocción como en sal. Alitas con rebozado de 10 y pollo muy muy rico en la burger con un pan tierno que entra muy bien. Packaging también excelente. Lugar muy recomendable",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25aU1QyVkhaR1JqWjB4blpEbFZVRmxwVFc0NU5sRRAB",
+      "author": "Nicole Cane",
+      "rating": "5.0",
+      "date": "2026-08-24",
+      "text": "Buenas hamburguesas, con ingredientes de calidad y muy bien preparadas. El servicio ha sido rápido y el trato del personal excelente, siempre atentos y amables. Además, la relación calidad-precio es muy buena. El local está muy limpio, es…",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xJdGVGOXhkV3hSZVhCMVJFcEJjVVZVVG05U1FWRRAB",
+      "author": "Sandra Martín",
+      "rating": "5.0",
+      "date": "2026-09-23",
+      "text": "La comida está buenísima. El pollo casero y el pan también. Super amables. Y es muy económico para la cantidad. Recomiendo 100%",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xSWU9IRnRjRFprVjE5M2JVSlVkRlZXYlZGM1duYxAB",
+      "author": "L de Lázaro",
+      "rating": "5.0",
+      "date": "2025-12-27",
+      "text": "Hamburguesa doble correcta por el precio, con pan tierno y carne jugosa. El menú incluye patatas fritas y nuggets, cantidad generosa. El local es amplio, limpio y tranquilo, ideal para comer sin prisas. Servicio rápido y eficaz. Buena opción si estás por Les Corts y buscas algo sencillo y cumplidor.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25WWmJYSlpSelEwZVU1ZmQxQnRlR0ZVYlZSQ1JrRRAB",
+      "author": "Aldy Cafe",
+      "rating": "5.0",
+      "date": "2026-10-23",
+      "text": "Todo riquísimo, el trato muy amable y atento, además han ido bastante rápido. Las hamburguesas y las alitas muy sabrosas!…",
+      "owner_response": "¡Muchas gracias por tu apoyo y por confiar en BURGER NUKENZI! ❤️ ¡Esperamos verte pronto!"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pBM1NuVlJXRWhvZEhabE5VTTFjRmw1WDFOTWMyYxAB",
+      "author": "Carlos Díaz",
+      "rating": "5.0",
+      "date": "2026-06-25",
+      "text": "Las tiras de pollo son de las mejores que he probado: crujientes por fuera, muy jugosas por dentro y llenas de sabor. Se nota que cuidan tanto la calidad del producto como su preparación.…",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tZMWRESXRla3RZUTFCbUxYcFFhVkJ1WmtWUk5VRRAB",
+      "author": "Andrés Felipe Osorio Trujillo",
+      "rating": "5.0",
+      "date": "2026-10-23",
+      "text": "Un lugar muy agradable y con una excelente atención de su personal. La comida de muy buen sabor, la atención rápida y el sitio muy limpio y ordenado.",
+      "owner_response": "¡Muchísimas gracias por tu reseña! ❤️ Nos alegra mucho saber que has disfrutado de nuestra comida y que has valorado tan positivamente la atención de nuestro equipo, la rapidez del servicio y la limpieza del local. Trabajamos cada día para que os sintáis como en casa. ¡Esperamos verte de nuevo muy pronto en BURGER NUKENZI! 🍔😊…"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tnelp6VnZZemc1T1MxVE5GRk5Wa3BSVjBKdFVVRRAB",
+      "author": "Eduardo Agudo",
+      "rating": "5.0",
+      "date": "2026-11-15",
+      "text": "Muy buen servicio, gran atención por el personal y todo estaba delicioso",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2w5VGJtSktkVGRXZUZaNWEyVTJhQzFGUTNGWFZrRRAB",
+      "author": "Javier Sandoval",
+      "rating": "5.0",
+      "date": "2026-08-24",
+      "text": "Un lugar muy acogedor para venir la familia compartir una buena hamburguesa 🍔 menú económico para todos los bolsillos i te dan una tarjeta de puntos cada vez que vienes cuando la rellenas tienes 10€ de descuento está genial el lugar calidad precio genial muy recomendable…",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21SWVZIUmFSVVJIWlhKdmEya3dYMHAzWkdOR01uYxAB",
+      "author": "maribel_matheus matheus",
+      "rating": "5.0",
+      "date": "2026-11-08",
+      "text": "Divino todo, el pollo el mejor que hemos comido, las patatas excelentes, la atención incomparable, el sitio agradable ambiente, música relajante y económico.",
+      "owner_response": "¡Muchísimas gracias por esta maravillosa valoración! 😍 Nos hace muy felices saber que os encantaron el pollo, las patatas, la atención y el ambiente de nuestro restaurante. Trabajamos cada día con mucha ilusión para ofreceros la mejor experiencia. ¡Será un placer volver a recibiros pronto en burger nukenzi ! ❤️🍗…"
+    },
+    {
+      "review_id": "ChdDSUhNMG9nS0VJQ0FnTUNJNGUySHBBRRAB",
+      "author": "Jean Paul Franco",
+      "rating": "5.0",
+      "date": "2025-11-22",
+      "text": "Fuimos mi familia y yo anoche, el servicio rapido no esperamos mucho, local limpio y bien iluminado, los precios correctos y sobretodo la comida espectacular",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2t4b2MxZ3dka00xTm5CSlVIQk5kMkl5V21kbFRGRRAB",
+      "author": "Adrián Gamero Pedrosa",
+      "rating": "5.0",
+      "date": "2026-11-15",
+      "text": "Servicio muy bien y comida espectacular, recomiendo probar la salsa de aquí.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tSNFZESmZOR2xOYkVscVdVWjBSV2x5WkhSMk4yYxAB",
+      "author": "Remei Alvarez",
+      "rating": "5.0",
+      "date": "2026-08-24",
+      "text": "Batidos de frutas exquisitos! Mango mi favorito !! Perfecto para venir en familia a comer e incluso merendar estos batidos espectaculares !!!",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tGemQyaDZUV0pRUTJkMmNVcGhZbGhsVG5nNVZXYxAB",
+      "author": "Cristina Rendón",
+      "rating": "5.0",
+      "date": "2026-11-15",
+      "text": "Sorprendente el pan de la hamburguesa, y el pollo en su punto, crujiente y jugoso. Nos lo pensamos antes de entrar pero ahora pienso repetir.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2toME1FeEtORzlvWVhkeldHSjZVMHRUVFRCQlJWRRAB",
+      "author": "yaricel franco velasquez",
+      "rating": "5.0",
+      "date": "2026-10-25",
+      "text": "Estuvo delicioso la atención es excelente y el pollo es muy rico crujiente por fuera y muy jugoso por dentro y la relación calidad precio es lo mejor",
+      "owner_response": "¡Muchas gracias por tu comentario! 🍔 Nos encanta saber que te han gustado nuestras hamburguesas. Trabajamos cada día para ofreceros lo mejor. ¡Hasta la próxima! 😊…"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT20xVVFsTTRlWE5HYmpNNGJsUmZkVE5qWVd4ck5rRRAB",
+      "author": "grace karen reluz fernandez de Córdoba",
+      "rating": "5.0",
+      "date": "2026-10-23",
+      "text": "Lo que más aprecié primero fue la amabilidad del personal, siguiente la comida todo fresco y rico, lo tercero e importante la limpieza que se veía en el restaurante. Volveré más veces 🔝💙…",
+      "owner_response": "Muchas gracias por confiar en nosotros y me alegro que os haya gustado la comida nuestra"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21OS1gyaG1SR2swTFZGQmVYWmlaMWxMTlU5RFVuYxAB",
+      "author": "Cruz Alejandro Mata Chacin",
+      "rating": "5.0",
+      "date": "2026-11-01",
+      "text": "Excelente comida y gran atención",
+      "owner_response": "¡Gracias de corazón por tus palabras! ❤️ Nos alegra mucho que hayas disfrutado tanto de la comida como de nuestro servicio. ¡Será un placer volver a recibirte en BURGER NUKENZI!"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pRNVpWSmpiV0k1VmpkV2NEWkVSRlJHZFRaSlRrRRAB",
+      "author": "Intissar Majdoubi",
+      "rating": "5.0",
+      "date": "2026-11-15",
+      "text": "Las hamburguesas son recién echas crujientes y jugosas nos ha encantado sin duda seguiremos yendo! El personal super amable!! Gracias !!",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21wVVlsbGliMkZ5YTJ0T1l6bDFUbGRsWlV4dlkxRRAB",
+      "author": "manel castro",
+      "rating": "4.0",
+      "date": "2026-02-25",
+      "text": "Copia oriental de KFC y MC. Sin pretensiones. Cumple su fusión. Si eres apasionado de las marcas americanas es una alternativa. Poco recamable y poco criticable. El mismo estilo de comida y acabados con grafía oriental",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xoUlVtOUphRkZ6YkRkTFNGRk1WbGh6YW01MFRXYxAB",
+      "author": "ian correa",
+      "rating": "5.0",
+      "date": "2026-10-23",
+      "text": "Muy bien todo, comida de 10 y ambiente tranquilo, he ido varias veces y me sigue pareciendo un sitio buenisimo 10/10.",
+      "owner_response": "¡Muchas gracias por tu apoyo y por confiar en BURGER NUKENZI! ❤️ ¡Esperamos verte pronto!"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2padlVucFFRM1JQVDNaV1FXWkZhRmhOTW5CNGFFRRAB",
+      "author": "Sofia Menendez Rojas",
+      "rating": "5.0",
+      "date": "2026-08-24",
+      "text": "Excelente servicio me encanto la comida y las bebidas. Soy muy amenos y amables. Siempre tienen promociones.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21SclQxTkNRV2xNZVhkeVFVZE9TbGRmYzFReE5sRRAB",
+      "author": "Yisa Lagos",
+      "rating": "5.0",
+      "date": "2026-11-01",
+      "text": "Super ricas las hamburguesas el pollo y la salsa de la casa super rico hemos quedado encantados",
+      "owner_response": "¡Muchas gracias por tu comentario! 🍔 Nos encanta saber que te han gustado nuestras hamburguesas. Trabajamos cada día para ofreceros lo mejor. ¡Hasta la próxima! 😊…"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xsdVZWZDNSazFOWXpOVVFYZzRNWFIwVW1GbFZFRRAB",
+      "author": "Erika Villanueva",
+      "rating": "5.0",
+      "date": "2026-09-23",
+      "text": "Me agrada mucho el lugar , super amables, comida muy rica, atención excelente. Les recomiendo que vengan🫶🏻…",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tGNE55MTZNRzFhWlRjNGQzTTFOVXBpY1VSQ1dVRRAB",
+      "author": "jose arevalo tovar",
+      "rating": "5.0",
+      "date": "2026-10-23",
+      "text": "La comida bien rica y el servicio excelente la atención, nos gustó mucho. Volvería nuevamente.",
+      "owner_response": "¡Muchas gracias por tu apoyo y por confiar en BURGER NUKENZI! ❤️ ¡Esperamos verte pronto!"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21WUFVVWkhWWHBvYldSSVdIZ3dWazVLWDA5TVZYYxAB",
+      "author": "Alejandro Plasencia",
+      "rating": "5.0",
+      "date": "2026-09-23",
+      "text": "Muy rico, limpio y a buen precio!",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xSRFEyRnJNbEZ1T1ZGZmFrSk5WVlExVW5GTlMxRRAB",
+      "author": "skmdk skmdk",
+      "rating": "5.0",
+      "date": "2026-07-25",
+      "text": "Una experiencia excelente de principio a fin. Sin duda, una de las mejores hamburgueserías que he probado últimamente. El local está muy limpio, bien decorado y tiene un ambiente agradable, perfecto tanto para ir con amigos como para…",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xJMVUzVjBiVlZCTkRod1IyZFZRbmRHWlhJME4zYxAB",
+      "author": "Ester Diaz Cruz",
+      "rating": "5.0",
+      "date": "2026-10-23",
+      "text": "Sitio excelente, comida buenísima. Un trato genial. Volveremos sin duda. Y a domicilio también",
+      "owner_response": "¡Muchas gracias por tu apoyo y por confiar en BURGER NUKENZI! ❤️ ¡Esperamos verte pronto!"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xGMVpHMHhkMkZmU0hjMVVHZHpPRkZRZGxsSk1rRRAB",
+      "author": "Yolanda Romero",
+      "rating": "5.0",
+      "date": "2026-08-24",
+      "text": "Todo muy rico, la atención muy bien, te tratan con muchísima amabilidad que te hacen disfrutar de lo que comes y los precios bastante bueno.. lo mejor es el granizado Taro 😋…",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25ST09IbGFWWEpCUVhBMVdHRlNjM2gwUW5oUlEzYxAB",
+      "author": "Alex Mada",
+      "rating": "4.0",
+      "date": "2026-10-23",
+      "text": "Espacio muy acogedor, servicio muy amable y la comida de calidad, nada que ver con los otros restaurantes de comida rápida tan famosos. Para repetir sin duda.",
+      "owner_response": "¡Muchas gracias por tu apoyo y por confiar en BURGER NUKENZI! ❤️ ¡Esperamos verte pronto!"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xrMllVdGpVRFp4Vm1seFJFSklla0pCUnpWNE0xRRAB",
+      "author": "Susana",
+      "rating": "5.0",
+      "date": "2026-01-26",
+      "text": "Típico restaurante de comida rápida con un pan un poco diferente, más fino y ligero. El menú es muy completo, el pollo bastante sabroso. El local muy moderno. El servicio amable y rápido. Bebida ilimitada y ofertas interesantes. Relación calidad - precio excelente.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2kxU2VuYzVPVTR4U1hWNVRHdExlRTl0YjJONU9FRRAB",
+      "author": "Commergo Saavedra",
+      "rating": "5.0",
+      "date": "2026-10-23",
+      "text": "Experiencia fantástica!! Resaltó lo que comi : menú vaca dorada bonisimo!!además tienen comida para llevar!!",
+      "owner_response": "¡Muchas gracias por tu apoyo y por confiar en BURGER NUKENZI! ❤️ ¡Esperamos verte pronto!"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tFeVZVaFphamswV2tWbVVsQkVjRlJaTWpoeU9WRRAB",
+      "author": "Mabel Lozano Angarita",
+      "rating": "3.0",
+      "date": "2026-10-23",
+      "text": "El sitio agradable, limpio y cómodo. El pan delicioso, sin embargo, el pollo muy grasoso y el olor del pollo no muy agradable. El sabor aceptable. No creo que vuelva",
+      "owner_response": "Muchas gracias por compartir tu experiencia. Nos alegra saber que te han gustado el local y nuestro pan, pero sentimos mucho que el pollo no haya estado a la altura de tus expectativas. La calidad de nuestros productos es muy importante… Más"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2s1b1Z6ZHZOblJ2TWxOMFFtUXpVRXM1VmpFelQyYxAB",
+      "author": "Sory O",
+      "rating": "5.0",
+      "date": "2026-07-25",
+      "text": "¡Una experiencia excelente! Las hamburguesas (menú de 🐓 pollo) estaban deliciosas... La carne estaba en su punto, el pan suave y las patatas 🍟 crujientes. Además, la…",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21KMlYzbEdlVFZsZURkeU5uWjBTemRPV0dsalRsRRAB",
+      "author": "Mituki1985",
+      "rating": "1.0",
+      "date": "2026-02-25",
+      "text": "Sitio a evitar, aunque la atención es buena, la calidad de la comida es pesima. El surtidor de bebidas esta todo mezclado, donde pone fanta sale Sprite La hamburguesa esta servida en una especie de pan de pita que no aguanta el peso y se descuageringa toda",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21OYVFUQlZXRFZVYzA5d1JWcHJORGh3U1hNMWVGRRAB",
+      "author": "segarrita",
+      "rating": "5.0",
+      "date": "2026-11-15",
+      "text": "Buena comida y buen servicio y recomiendo venir a probar",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT20weFpYVlFaVUU0WTNST1oxSldObmR3TjBsNmVIYxAB",
+      "author": "maria paladines",
+      "rating": "5.0",
+      "date": "2026-10-23",
+      "text": "Excelente lugar para comer en familia la hamburguesas deliciosas y el mochi de queso esta super rico 😋.…",
+      "owner_response": "¡Muchas gracias por tu apoyo y por confiar en BURGER NUKENZI! ❤️ ¡Esperamos verte pronto!"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2t0YWJFbG9OV2hVUzJGaU9HeEtNa1ZSWkU1T1oyYxAB",
+      "author": "Irene Matos",
+      "rating": "5.0",
+      "date": "2026-10-23",
+      "text": "Es muy buena la hamburguesa, el pan artesanal , es un sabor único y las combinaciones hechas al gusto del cliente ,me encantó mucho ;les recomiendo degustar .",
+      "owner_response": "¡Muchas gracias por tu apoyo y por confiar en BURGER NUKENZI! ❤️ ¡Esperamos verte pronto!"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21rNExWZFBUMWh2VGtwc05qSkNTVzVhVkZCTmQyYxAB",
+      "author": "Karlos Cortes",
+      "rating": "5.0",
+      "date": "2026-10-23",
+      "text": "Estoy disfrutando ahora mismo Que locura de sabor",
+      "owner_response": "¡Muchas gracias por tu apoyo y por confiar en BURGER NUKENZI! ❤️ ¡Esperamos verte pronto!"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2swM04wVllXR05LU0d0cGNrMUdRVTlrYTJocmVGRRAB",
+      "author": "Samuel Illanes",
+      "rating": "5.0",
+      "date": "2026-10-23",
+      "text": "Muy buen servicio y comida muy buena, calidad precio!. Amables señores",
+      "owner_response": "¡Gracias de corazón por tus palabras! ❤️ Nos alegra mucho que hayas disfrutado tanto de la comida como de nuestro servicio. ¡Será un placer volver a recibirte en BURGER NUKENZI!"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2treFJqTTBNRzFJZDJ0SE0zWnZVbE5LZUhaaVgzYxAB",
+      "author": "Sarah Katherine Figueredo (Katha)",
+      "rating": "5.0",
+      "date": "2026-08-24",
+      "text": "Un hambiente agradable, para compartir en familia, amigos. La comida muy rica",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21wUlVISnZhREZ1ZFUxeWQxTnFZVlpyUmw5UFVrRRAB",
+      "author": "Katty Paola Diaz",
+      "rating": "5.0",
+      "date": "2026-07-25",
+      "text": "Nos sorprendio la limpieza y la calidad de la comida preparada al momento. El local cuenta con una higiene ejemplar, los baños son muy bonitos..Vale la pena repetir la experiencia.. Mil gracias",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pKb1JGVkNOa1pJUkV4clFtVnVMV3hmVUZVdGFrRRAB",
+      "author": "董涛",
+      "rating": "5.0",
+      "date": "2025-12-27",
+      "text": "Excelente servicio, raciones generosas y la comida es absolutamente espléndida. El ambiente del restaurante es cómodo y todo vuevo",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25remJ6RnJXVFp4YVc1NVFtZHlSVE53Y21GWWEyYxAB",
+      "author": "Fabriluigi15 oficial",
+      "rating": "5.0",
+      "date": "2026-09-23",
+      "text": "Muy bueno todo, buena comida, con buenos precios y buena atencion. Baños limpios, y gente muy maja, y ademas con musica. Recomendado.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pGM1VUUnZXa3RmVlV4c1oxRkxNMFJwZEdSakxWRRAB",
+      "author": "Cinthya Mabel Acuña",
+      "rating": "5.0",
+      "date": "2026-08-24",
+      "text": "La hamburguesa de pollo muy buena Nos pedimos menú y espectacular la verdad Sitio limpio y fresquito",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xGNlIyNWtkVEpyV25ZNVJETmhiMFIwYUdoRGNIYxAB",
+      "author": "DIANA CATALINA MAYORGA NIETO",
+      "rating": "5.0",
+      "date": "2026-09-23",
+      "text": "Mi primera visita y supero las expectativas, comida recién preparada tu puedes observar la cocina abierta, limpieza y un ambiente agradable musical etc, y los precios de los alimentos muy asequibles.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2s0NVRHNWtTVzVyV2xWalFWOXZja05yZDBkTVNIYxAB",
+      "author": "Irene Jiménez",
+      "rating": "5.0",
+      "date": "2026-09-23",
+      "text": "La primera vez q vamos a este burguer y la comida muy buena, el personal super amable y la música me encantó.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25GTGRIUkpVR1JCT0dGb2JFaElWVGs0WWxCcmRWRRAB",
+      "author": "Diana Cabarcas",
+      "rating": "5.0",
+      "date": "2026-05-26",
+      "text": "La experiencia en si muy buena ... La comida muy fresca sobre todo el pan ... Se siente que lo hacen en el momento y las alitas super ... Todo muy limpio y bien ambiente ... se recomienda el sitio... Nada que enviadiar a otros",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25wWE1tNUNOVXgxVW1ab09HMHdWR1o2V0VSWWNuYxAB",
+      "author": "Jose Mendieta",
+      "rating": "5.0",
+      "date": "2026-08-24",
+      "text": "La comida está muy buena, la hamburguesa doble muy rica, la atención excelente y el ambiente perfecto",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2t0WFdsRnNRMmxQZFVOdk9VNWhlRzQ1YmpOR00zYxAB",
+      "author": "Rocío Hinostroza Araujo",
+      "rating": "5.0",
+      "date": "2026-07-25",
+      "text": "Hemos ido ya un par de veces y la verdad que todo a sido perfecto.Los chicos que atienden son muy agradables, el pollo es recién hecho y está buenísimo, las bebidas se pueden rellenar varias veces, los menús son generosos.…",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25WQ1YwTkZNVXgwVDB4Rk5tRTVkVWhXZDJweGFGRRAB",
+      "author": "isabel perez",
+      "rating": "5.0",
+      "date": "2026-08-24",
+      "text": "Muy buen servicio las hamburguesas espectacular muy jugosas y buenísimas el trato muy bueno también os lo recomiendo probar",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21wSFdqWk1NWFZzUlc5TGVESlVSRVpaWDE5aE1FRRAB",
+      "author": "Ainoha Hernandez Maldonado",
+      "rating": "5.0",
+      "date": "2026-07-25",
+      "text": "¡¡Menudo descubrimiento!! Comida buenísima y de buena calidad, local agradable y personal super atento y simpático, nada que ver con las típicas cadenas de comida rápida, la comida a domicilio también rápida y sin errores. ¡Recomendadísimo!",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pFdFlXRm5UWFE0YW1NeVJXMUpNMWxzYW5seFNuYxAB",
+      "author": "Denis Hernandez vera",
+      "rating": "5.0",
+      "date": "2026-10-23",
+      "text": "Las alitas picantes muy buenas",
+      "owner_response": "¡Muchas gracias por tu apoyo y por confiar en BURGER NUKENZI! ❤️ ¡Esperamos verte pronto!"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT214d09HaHpkM0Y2Vm5sRldVZFFTMlJETmpSTk1tYxAB",
+      "author": "Thess",
+      "rating": "5.0",
+      "date": "2026-10-23",
+      "text": "Rápido, el chico que atiende simpático, pero para la próxima pediré la hamburguesa un pelín más hecha, que la verdad ni he caído en comentarlo. Pero bien sitio si tienes a alguien en el hospital y no sabes dónde comer.",
+      "owner_response": "¡Muchas gracias por tu reseña y por valorar tan positivamente nuestro servicio! 😊 Nos alegra saber que te atendieron rápido y que nuestro compañero fue amable. Sentimos que la hamburguesa no estuviera tan hecha como te hubiera gustado. La… Más"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT205d00xTXpVV0p1V2pOS1lrVXlTVWwxYTBGSFFrRRAB",
+      "author": "Keyla Marissa Varela Martínez",
+      "rating": "5.0",
+      "date": "2026-07-25",
+      "text": "Muy buena atención y sobre todo la comida está buenisima!! Muy recomendable",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25kNlNVSktTbEJHU3pacWRFcERjakEwWVRsVmNFRRAB",
+      "author": "Nelia Jarillo Fernandez",
+      "rating": "5.0",
+      "date": "2026-06-25",
+      "text": "Hemos estado mi pareja y yo, llegamos el por casualidad y ha sido un acierto, las comida en general riquísima y las hamburguesas en especial, muy bien calidad-precio y trato excelente. Recomendadísimo",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2s5M2RtRkhjVEZXVG1oUlJqZDZRM1JrYkVSR01sRRAB",
+      "author": "Lidia Tubau Martinez",
+      "rating": "5.0",
+      "date": "2026-07-25",
+      "text": "Comida buenisima, hamburguesas caseras , ambient trankila y trato espectacular, muy recomendable.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2sxNVJGTTVTM2xNY1MxVFlYTnJUbmxyVHpCb01YYxAB",
+      "author": "Arturo Acevedo MTZ",
+      "rating": "5.0",
+      "date": "2026-11-08",
+      "text": "Delicioso, me encantó y super buena atencion",
+      "owner_response": "¡Gracias de corazón por tus palabras! ❤️ Nos alegra mucho que hayas disfrutado tanto de la comida como de nuestro servicio. ¡Será un placer volver a recibirte en BURGER NUKENZI!"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xJM1UxTXlVRkoyTlY5UVJHeEdibnAzYURaTE9HYxAB",
+      "author": "Romina Schiaffino",
+      "rating": "1.0",
+      "date": "2026-07-25",
+      "text": "Fuimos con mi familia y pedimos 4 hamburguesas, solamente había 1 cliente más en el lugar. El primer menú se entregó enseguida y los 3 restantes aparecieron 25 minutos después……",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21RMVIyNVNlSFpWY1RKbE1tbHhhVFZSVTNsWFdIYxAB",
+      "author": "Carolina Mesa jacobo",
+      "rating": "1.0",
+      "date": "2026-10-23",
+      "text": "Lo vimos por casualidad y la verdad que muy bueno. El trato muy cercano y agradable. Repetiremos",
+      "owner_response": "¡Muchas gracias por tus amables palabras sobre nuestra comida y nuestro servicio! 😊 Nos alegra saber que tu experiencia fue buena y que te gustó el trato de nuestro equipo.… Más"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21sTVJVUlBTVmt0V0dOZllUUnRZalZKUlZKTlRuYxAB",
+      "author": "Vanesa Rodriguez",
+      "rating": "5.0",
+      "date": "2026-08-24",
+      "text": "Fuimos a última hora de la noche, pq teníamos a un familiar ingresado y nos encantó el trato hacia nosotras y el menú vaca daurada, estaba muy muy rica. Recomendable 100×100. Repetiremos..",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xWWmRtSmFiVmN4Y2w5a1VHZGtTbGRhZDFoRWFIYxAB",
+      "author": "Humberto Martinez Duque",
+      "rating": "5.0",
+      "date": "2026-10-25",
+      "text": "Excelente servicio muy buena comida 100 x100 recomendado",
+      "owner_response": "¡Muchas gracias por tu apoyo y por confiar en BURGER NUKENZI! ❤️ ¡Esperamos verte pronto!"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21GbVNsTklRbUZRYVUxQlExVndXVVpVUjNwcE5tYxAB",
+      "author": "Thiago Iván Araujo Aldiso",
+      "rating": "5.0",
+      "date": "2026-06-25",
+      "text": "Muuy buen servicio y todo muy rico y casero no como las demás cadenas de restaurantes, los recomiendo al 100%",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2w5TE1teDRjME5OTFVselNHUTVaMWR1TjJsQ1MyYxAB",
+      "author": "Tania Fdez Ramon",
+      "rating": "5.0",
+      "date": "2026-11-01",
+      "text": "Todo muy bueno!",
+      "owner_response": "¡Muchas gracias por tu apoyo y por confiar en BURGER NUKENZI! ❤️ ¡Esperamos verte pronto!"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25oa2FXbEZjemN6YXpaeVowNVZaR2xrYVZOR2FuYxAB",
+      "author": "Eva",
+      "rating": "5.0",
+      "date": "2026-08-24",
+      "text": "Probamos el menú vaca y ufff Increíble nos encantó la salsa de la hamburguesa que creo que es de elaboración propia como la que tiene para las patatas que también. Lo es y esta también tremenda. El precio es muy buen precio para el menú que ofrecen y además te dan una tarjeta que sí comes aquí 10 veces te descuentan 10€",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2s0emVXOTVWVXhGVURGS2FtOVdjMHRoVURSVWIyYxAB",
+      "author": "Keren Sanabria",
+      "rating": "5.0",
+      "date": "2026-08-24",
+      "text": "La comida es un espectáculo, delicioso todooo, la calidad, la atención me encanta en sitio!! Espectacular la comida!!..",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2taUE5uaExlREpmYmxWRldsRlZlbFJJY2pCdU0xRRAB",
+      "author": "Rafa Sanz Palma",
+      "rating": "5.0",
+      "date": "2026-07-25",
+      "text": "Comida rápida de calidad , la hamburguesa vaca dorada muy rica , viene con guarniciones de patatas fritas , nuggets y alitas de pollo rebozadas , por el mismo precio de un McDonald comida de muchísima más calidad . Muy recomendable.…",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21NMU5tRXRkakZCV0VkelVtRjRNMmxyTlU1MGFHYxAB",
+      "author": "Ricardo benitez",
+      "rating": "5.0",
+      "date": "2026-07-25",
+      "text": "Muy buenas hamburguesas, la carne estaba jugosa y con mucho sabor. Las patatas también estaban muy ricas y el servicio fue rápido. Repetiré sin duda",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tOSmJFTnNZWEJmZW5kd1RFeFFXRWhmWTJoMlRsRRAB",
+      "author": "ULIANA SERZHANT",
+      "rating": "5.0",
+      "date": "2026-08-24",
+      "text": "La comida está buena y fresca, recomiendo mucho las alitas de pollo, hamburguesa de pollo estaba deliciosa y no tenia el sabor a grasa que tienen muchos restaurantes de comida rápida. Tienen bebidas recargables lo que es un gran plus. Las chicas que me recibieron fueron muy amables y amistosas!! Volveré a ir pronto !!",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tSek1sZFdWMVZNWlVSUGNEQndRakpCY2xaRlprRRAB",
+      "author": "Javier Solares Benavides",
+      "rating": "5.0",
+      "date": "2026-07-25",
+      "text": "La mejor hamburguesa que he probado y muy jugosa, me han atendido super bien y volveré a comer aquí.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xVMlZ6WkJlVkZUVWpkWmVHTnlaSGhxTFhFMWJGRRAB",
+      "author": "naughty.v.mantis (Aiden)",
+      "rating": "5.0",
+      "date": "2026-09-23",
+      "text": "Excelente calidad por el precio que tiene! Las raciones son generosas y las hamburguesas muy jugosas! Y el lugar está muy bien climatizado, en verano se está genial! Lo recomendaría cualquier día!",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xWd05tbHBMVzVYZFcxaVNHRk9URGN4VDNKRVowRRAB",
+      "author": "júlia castells",
+      "rating": "1.0",
+      "date": "2026-03-27",
+      "text": "Buenas noches para quien las tenga porque luego de probar este sitio mi noche se hara larga, el queso es lo peor que he probado en años, un sabor que no se me olvidara en la vida, muy dificil de comer, he pagado 24€ para dejarmelo entero,…",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tFd2JFZE5YMTgzYlROdE1ESkZXRll4ZDBkVVNtYxAB",
+      "author": "safae lakzaini",
+      "rating": "5.0",
+      "date": "2026-08-24",
+      "text": "Hamburguesas diferentes y muy muy ricas!!! Todo lo que hemos probado está delicioso. El local es tranquilo y la atención es excelente.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21OQk9VaHRUa3N0WjJaa1NYSjZTMmd3T1hkMVkwRRAB",
+      "author": "Erich Iman",
+      "rating": "5.0",
+      "date": "2026-09-23",
+      "text": "Muy buen ambiente y muy buena comida, las hamburguesas 10/10 y a un precio super cómodo",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21KU1RWQnNkSFZwUlVsUFJYVTBUVFZEUm05TFpFRRAB",
+      "author": "Rafa Patino garcia",
+      "rating": "5.0",
+      "date": "2026-10-23",
+      "text": "Realmente vale mucho la pena comer aquí...el pollo está perfectamente elaborado y con un pan que hacen ellos...la bebida es infinita...toda la que quieras ( refresco)",
+      "owner_response": "¡Muchas gracias por tu apoyo y por confiar en BURGER NUKENZI! ❤️ ¡Esperamos verte pronto!"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xaa01FUnFRVU5SWlc4M04wa3RXWHA0ZG5CblEzYxAB",
+      "author": "Anthony Colombiano",
+      "rating": "5.0",
+      "date": "2026-11-08",
+      "text": "Sitiooooo muy bueno",
+      "owner_response": "¡Muchas gracias por tu apoyo y por confiar en BURGER NUKENZI! ❤️ ¡Esperamos verte pronto!"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tsa1NFWkVaVlozVUd0aE1uSkJSMWxsWjFOeGVVRRAB",
+      "author": "Patricia Pardo",
+      "rating": "5.0",
+      "date": "2026-11-01",
+      "text": "Sitio excelente, todo casero y hecho al momento y el trato es inmejorable.100% recomendable.",
+      "owner_response": "¡Muchísimas gracias por tu fantástica reseña y por recomendarnos! ❤️ Nos encanta saber que has valorado nuestra comida casera, preparada al momento, y la atención de nuestro equipo. Ponemos mucho cariño en cada detalle para ofreceros siempre la mejor experiencia. ¡Esperamos verte de nuevo muy pronto en BURGER NUKENZI! 🍔😊…"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT201UlUxcFdTMW8xVkZSdU9VSlZMVEo0ZEdSdVZFRRAB",
+      "author": "Francisco Correa Espinosa",
+      "rating": "5.0",
+      "date": "2026-10-23",
+      "text": "Ya había probado los menús de las hamburguesas de pollo rebozado y me gustaron pero las hamburguesas de ternera son otro nivel de buenas,el pan recién echo por ellos brutal y la salsa que tienen casera buenísima, repetiremos sin duda",
+      "owner_response": "¡Muchas gracias por tu apoyo y por confiar en BURGER NUKENZI! ❤️ ¡Esperamos verte pronto!"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tkNU5Ea3RTV1JGU0RGeVp6WXpTekJrVW5Sd09HYxAB",
+      "author": "Carlos Mata",
+      "rating": "1.0",
+      "date": "2026-09-23",
+      "text": "Es de los chinos, supongo que del local de alado. Mal servicio, malas contestaciones, no tienen educación y todo sucio. Comida en mal estado y como siempre sin tacto alguno",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2prMlRHUTVPSGRMWjJoMU1ERkNOM2xOWm0xR1QxRRAB",
+      "author": "Lorena Arce Benitez",
+      "rating": "5.0",
+      "date": "2026-08-24",
+      "text": "La comida como siempre buenisima y la ateción al cliente genial. 100 de 100",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2t4VE0wRk5ZMlpJT1VoeGJFaFdiSGhEWWxsSVpHYxAB",
+      "author": "Javier",
+      "rating": "5.0",
+      "date": "2026-06-25",
+      "text": "Muy buen lugar para comerse una hamburguesa, buena calidad, buen precio y el personal súper amable",
+      "owner_response": ""
+    },
+    {
+      "review_id": "ChZDSUhNMG9nS0VJQ0FnTURReV9md0N3EAE",
+      "author": "Yao Xiao",
+      "rating": "5.0",
+      "date": "2025-11-22",
+      "text": "¡Esta hamburguesería realmente me sorprendió! La carne de la hamburguesa es tierna y jugosa, y la salsa es perfecta, no demasiado grasosa, y cada bocado es satisfactorio. Las patatas fritas también estaban crujientes y no demasiado saladas.…",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xSQlltcHhjM1J0YldFMU1qSkZabFozVmkxMVJVRRAB",
+      "author": "Ivan Rey",
+      "rating": "5.0",
+      "date": "2026-08-24",
+      "text": "Veníamos de vacaciones sin nada y a la hora de comer… Íbamos a ir a un restaurante de nuestra zona, pero vimos publicidad de este sitio en el buzón. Pedimos la comida a domicilio por probar y, sorpresa… Muy agradables al teléfono, atentos…",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2paNU1rdEViMUZ6TlV4S2JHTk5RMDlXVGpJNWJYYxAB",
+      "author": "Geneva Dossantos Gómez",
+      "rating": "5.0",
+      "date": "2026-06-25",
+      "text": "Todo esta muy bueno y son todos muy amables, volveria a venir a comer, 100% recomendado",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25KcU1WOWZPV1p5WlhOUGFUbHhSbGxWWlZkRVJsRRAB",
+      "author": "Abel. Gibert",
+      "rating": "5.0",
+      "date": "2026-08-24",
+      "text": "Servicio rápido, muy atentos y calidad precio muy bien. Para volver.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pBdGMybFliVWRmZEZCSlVEVlFiMFpNT1hGSlkzYxAB",
+      "author": "mari paez castillo",
+      "rating": "5.0",
+      "date": "2026-09-23",
+      "text": "Servicio muy amable y la comida exquisita, volveremos otro dia",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2twWmFteERTMWRvWDFOVVNGZDRUVFE1ZVZwc1FrRRAB",
+      "author": "Tiramisu",
+      "rating": "5.0",
+      "date": "2026-09-23",
+      "text": "10/10, Calidad y precio espectacular, 10 euros por persona, ademas, con 4 euritos mas, te puedes pillar una cajita de 6 alitas crujientes, lo recomiendo",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xabGVIZ3Rkell0ZFdZeldVUjZkR3hWVGpZMVMyYxAB",
+      "author": "Laura Andrion",
+      "rating": "5.0",
+      "date": "2026-10-23",
+      "text": "Todo muy bien. Excelente el ambiente y la comida.",
+      "owner_response": "¡Muchas gracias por tu apoyo y por confiar en BURGER NUKENZI! ❤️ ¡Esperamos verte pronto!"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21nMFF6SlZOMFJVVkdseWEwTktOVlpOTlhWMmIzYxAB",
+      "author": "Infectious Fungi",
+      "rating": "5.0",
+      "date": "2026-08-24",
+      "text": "La salsa Nukenzi esta buenisima, buen servicio, gente amable, ambiente relajado, buena comida, bebida ilimitada.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25CMWVGaENUa0ZJZFdSSVRWYzNUREZKT1dSUVdGRRAB",
+      "author": "reshi25",
+      "rating": "5.0",
+      "date": "2026-06-25",
+      "text": "Comida muy buena, diferente a lo típico y con un ambiente muy tranquilo, además, el local tiene una estética increíble",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xwQ1VFbHpSekJFUkhoWFdtNTNZMmhxVlhsc2NHYxAB",
+      "author": "Maria alejandra Triana",
+      "rating": "5.0",
+      "date": "2026-08-24",
+      "text": "La comida muy rica y al atención 10/10 🫶🏽…",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xaRWJtWnlWVVZDTm5kdU5VWlpUMFpHT0dsbVUzYxAB",
+      "author": "Juan José Cobo",
+      "rating": "5.0",
+      "date": "2026-09-23",
+      "text": "Todo nuevo, muy limpio y servicio muy agradable, la música acompaña. He vuelto, impecable. Todo muy limpio y ordenado. El pan de 10, y las alitas bien hechas.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pKbGNFazJaMFZXWTJsSVpYVkxjVEZuZG5GSFQxRRAB",
+      "author": "Fernando Baca",
+      "rating": "5.0",
+      "date": "2026-07-25",
+      "text": "La mejor hamburguesa que mene comido menu nukenci y lansalsa nukenci Acompañado de la simpatía de esta familia",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xOMVdtd3hUM2RwZVRNd1pDMVJOMjVMTm01dFdrRRAB",
+      "author": "Iván DM",
+      "rating": "5.0",
+      "date": "2026-08-24",
+      "text": "Todo perfecto! Hamburguesas muy buenas también su salsa especial! Y muy simpáticos",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pGc1lYZFBVRUpvVTFabGFYZ3djMmh1ZDBaVVRYYxAB",
+      "author": "Gabriel Morales",
+      "rating": "5.0",
+      "date": "2026-07-25",
+      "text": "Ufff el mejor pollo frito de Terrassa. Tienen que probarlo. Pollito frito recién preparado... una maravilla.…",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tsNWVrVlNSREZEYlVGZlRHaDJabUUyUmtkRE9YYxAB",
+      "author": "Alejandro Freixas",
+      "rating": "5.0",
+      "date": "2026-09-23",
+      "text": "Lo que tiene que ser una hamburguesería: bueno, bonito y barato. 100% recomendado",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2kxdGNHZDZVV1JCVVVSZmNYaDFhMVZvTFRrM1pHYxAB",
+      "author": "Roxana Cruz",
+      "rating": "5.0",
+      "date": "2026-08-24",
+      "text": "Buenissimas todo muy delicioso mi hija se a acabado su hamburguesa",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25kUGFtOW9SRE5hVXpVdGNXWnRNVTlPWm5CTWJGRRAB",
+      "author": "jose velez mesa",
+      "rating": "5.0",
+      "date": "2026-10-23",
+      "text": "Muy bien todo, se nota que todo es casero y echo al momento.El servicio muy bien también 😊😊…",
+      "owner_response": "¡Muchas gracias por tu comentario! 🍔 Nos encanta saber que te han gustado nuestras hamburguesas. Trabajamos cada día para ofreceros lo mejor. ¡Hasta la próxima! 😊…"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21GT1RtTmpMV00wZUZJMlFYbDZNR2RrU25oeVpYYxAB",
+      "author": "elba muñoz moreno",
+      "rating": "5.0",
+      "date": "2026-05-26",
+      "text": "Comida muy buena comimos tiras hamburguesa y ensalada todo muy rico y el servicio muy bueno",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21oWlNVRm9RbWQyV1d3NVZHbGtUelpMYUZaRU9GRRAB",
+      "author": "Enrique Gonzalez Medina",
+      "rating": "5.0",
+      "date": "2026-08-24",
+      "text": "PEDI EL MENU MUY GENEROSO Y RICO ADEMAS LA BEBIDA LA PUEDES REPETIR CUANTAS VECES DESEES (REFRESCO) POR EL MISMO PRECIO .SU SALSA DE LA CASA NUKENZI MUY SABROSA. REPETIRE SIN DUDA",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pjM1RWOHpSM1ZwZDNSQ2JtaDRiRGh5TVMxVk1tYxAB",
+      "author": "Carlos Jimenez",
+      "rating": "5.0",
+      "date": "2026-10-23",
+      "text": "La comida muy buena y un buen trato al cliente",
+      "owner_response": "¡Muchas gracias por tu apoyo y por confiar en BURGER NUKENZI! ❤️ ¡Esperamos verte pronto!"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25OV2JrcGtORmxaV2w5dlVUUndSRFpPUkdVM2EyYxAB",
+      "author": "Patricia Odreg",
+      "rating": "5.0",
+      "date": "2026-06-25",
+      "text": "El sitio es muy bonito y la comida es muy buena.... Personal amable y educada",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21admFGQlhSVzgxVHpaQ1F6UjBiR1JFTFZKRFNVRRAB",
+      "author": "monica silvestre",
+      "rating": "5.0",
+      "date": "2026-10-23",
+      "text": "Recomiendo 100% Tienes refresco ilimitado y muy limpio todo 👌…",
+      "owner_response": "¡Muchas gracias por tu valoración! ⭐ Nos alegra mucho saber que has tenido una buena experiencia con nosotros. ¡Esperamos verte de nuevo pronto en BURGER NUKENZI! 🍔❤️…"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tsR09FZG5iSEJuTmxCMFJ6VjJhamwwUW14dk5tYxAB",
+      "author": "Mayka Otoya",
+      "rating": "5.0",
+      "date": "2026-08-24",
+      "text": "Muy bueno y Rico tienen una salsa de casa nuken muy rico lo recomiendo y se recarga la bebida",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pjMU4yeFZRVTFtWkhvMlVVMVJPRlZNYWxWSFVHYxAB",
+      "author": "Oscar Benito Molins",
+      "rating": "5.0",
+      "date": "2026-09-23",
+      "text": "Servicio cercano, amable y profesional. La comida muy buena.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25aRGRrTmFOREJTVVdwR2EyOVFjR2xWZG5Fd2VXYxAB",
+      "author": "Mariela Salazae",
+      "rating": "5.0",
+      "date": "2026-11-15",
+      "text": "Estupendo trato muy amable muy bien servicio",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xndE1HdEJVelZ5TldZMWRGUjVZa1pEV1c5Nk5WRRAB",
+      "author": "N YB",
+      "rating": "5.0",
+      "date": "2026-09-23",
+      "text": "Vine sin expectativas y sinceramente una sorpresa todo muy bueno. Me encantaron las alitas de pollo que tienen crujientes por fuera y súper tiernas por dentro. El KFC no se compara a esto 😂. Y para rematar la cantidad que te trae un menú es muy generosa. El wrap es gigante…",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT201emJHcExTMFkxU2xkRFUybHZVSFpTYzFCRFIxRRAB",
+      "author": "Rafael Ruiz Guitart",
+      "rating": "5.0",
+      "date": "2026-06-25",
+      "text": "Me gusta la calidad y rapidez con que preparan la Comida . Buena calidad , buen precio",
+      "owner_response": ""
+    },
+    {
+      "review_id": "ChZDSUhNMG9nS0VJQ0FnTUNvNEpDUlZ3EAE",
+      "author": "Laura Úbeda Cuspinera",
+      "rating": "4.0",
+      "date": "2025-11-22",
+      "text": "Es correcto. Parece un M-C-Do-Na-Lds de chinos, el sabor da el pego. Los menús tienen un precio correcto y no te quedas con hambre. Los nuggets olvidables.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2taSFYxSnpUVmhPVGpKd05rMVpXUzFJYkRadFJFRRAB",
+      "author": "Walter Chacon",
+      "rating": "5.0",
+      "date": "2026-09-23",
+      "text": "El lugar es hermoso limpio y la atencion es muy buena ,la comida buenísima",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21jMkxVVjZVazVHU1V4RWJUWjVNbTFZYlhSd09HYxAB",
+      "author": "Julio Benítez",
+      "rating": "5.0",
+      "date": "2026-08-24",
+      "text": "Buena comida, decoración y mucha amabilidad. Volveré",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21kNmNIbzNiWFJzYzFOU1RuaEJZVkV0Y2tWU2RrRRAB",
+      "author": "Jorge Velez",
+      "rating": "4.0",
+      "date": "2026-04-26",
+      "text": "Un sitio bastante agradable, limpio iluminado y ordenado , ideal para compartir con familia y amigos , la carta tiene varias opciones típicas de comidas rápidas y al final el producto de muy estuvo muy bueno.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT201cFVEaGlkbnBsWjNoMWMxWk9VMlJ1YlhGdmNFRRAB",
+      "author": "LIZ PEREZ",
+      "rating": "5.0",
+      "date": "2026-11-01",
+      "text": "El mejor!!! Pollo súper crujiente y buen ambiente !!!",
+      "owner_response": "¡Muchas gracias por tu apoyo y por confiar en BURGER NUKENZI! ❤️ ¡Esperamos verte pronto!"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pWeFowODVPVTVzVTFaSGRtaERSek5pT1hwVmNYYxAB",
+      "author": "Sueli Caballero",
+      "rating": "5.0",
+      "date": "2026-11-08",
+      "text": "Nos encanta todo de muy buena calidad",
+      "owner_response": "¡Muchas gracias por tu apoyo y por confiar en BURGER NUKENZI! ❤️ ¡Esperamos verte pronto!"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pGTWEyNTJXRTFLYkZnM1kzcHNPWHBWVlRaRmIzYxAB",
+      "author": "Victor Ribas Nuñez",
+      "rating": "5.0",
+      "date": "2026-07-25",
+      "text": "Super recordable, excelente calidad relación precio. Personal muy atento y amable!",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25obVdIQkpSalZhUjFGRlJIVm5jVXRTZFROU1lrRRAB",
+      "author": "angela rubio",
+      "rating": "5.0",
+      "date": "2026-08-24",
+      "text": "Una Hamburguesa diferente y muy rica , el té marcha espectacular",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25rMU5VTm9TSFJ2TUZKaFlYUm5jM1JJZVc1SGNuYxAB",
+      "author": "Nicole Abreu",
+      "rating": "5.0",
+      "date": "2026-10-23",
+      "text": "Excelente servicio, todo súper bueno y el chico muy atento.",
+      "owner_response": "¡Muchas gracias por tu apoyo y por confiar en BURGER NUKENZI! ❤️ ¡Esperamos verte pronto!"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25CV2Qyd3hhbEZuWldwcFNGUTRVMVkxVUdZNVUxRRAB",
+      "author": "Alicia",
+      "rating": "5.0",
+      "date": "2026-09-23",
+      "text": "Fantásticas hamburguesa,los chicos son muy simpáticos y amables repetiremos sin duda🤗…",
+      "owner_response": "¡Muchísimas gracias por vuestra reseña! ❤️ Nos alegra muchísimo saber que os han gustado nuestras hamburguesas y que nuestro equipo os ha hecho sentir bien atendidos. ¡Será un placer volver a recibiros pronto en BURGER NUKENZI! 🍔🤗…"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xoRFZIZEdOMmd4TFdKSVIzVm9jWGxzTm1NelZWRRAB",
+      "author": "José Vocal",
+      "rating": "5.0",
+      "date": "2026-07-25",
+      "text": "¡Un 10 de 10! Comida riquísima, servicio superatento y el lugar ideal para pasar un buen rato con amigos. ¡Repetiremos seguro!",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tweVkzSTFiRTA1Wkd0eVMwcDRRM1pLYW05SVRuYxAB",
+      "author": "Victor Lopez",
+      "rating": "5.0",
+      "date": "2026-08-24",
+      "text": "Comida estilo americano, mucho mejor que mcdonalds, kentucky.. personal muy amable",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21KNlpHWnNTME5KVmpSMGQyaGhlVnBaVlVKQldGRRAB",
+      "author": "Antonio Frigolet Tocino",
+      "rating": "4.0",
+      "date": "2026-06-25",
+      "text": "El menú Vaca Dorada está muy buena. La hamburguesa es totalmente diferente al resto de otros burguers. El trato con los clientes es correcto. Son muy amables",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25CMGNtTTVSakoyWkZoRFNsY3dOV05VU25oSVNsRRAB",
+      "author": "Andrea Martínez Cabilla",
+      "rating": "5.0",
+      "date": "2026-09-23",
+      "text": "Lo encontré por casualidad buscando donde cenar, la comida espectacular, el wrap es gigante y está delicioso, 100x100 recomendado!",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tGYVVETlVaVlZyUmtkNVV6bFNZUzFwTjBFMVVGRRAB",
+      "author": "Michael Mendoza",
+      "rating": "5.0",
+      "date": "2026-10-23",
+      "text": "La hamburguesa de pollo picante 🔥😋 muy buena!!! 100/100 las cremas 👍…",
+      "owner_response": "¡Muchas gracias por tu apoyo y por confiar en BURGER NUKENZI! ❤️ ¡Esperamos verte pronto!"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2s0MFRVMXlTMHBOWlZWRGMyTnJWV3BFZDAxM04zYxAB",
+      "author": "Sonia Vitale",
+      "rating": "5.0",
+      "date": "2026-06-25",
+      "text": "Recomendado 100% las hamburguesas son buenísimas la de pollo picante mundial y el pan divino!!",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pkNExWZ3dhMkZXVWtsR2NIZGlNblJRYlhKclNtYxAB",
+      "author": "Julian Carpintero Morcillo",
+      "rating": "5.0",
+      "date": "2026-07-25",
+      "text": "Muy agradables el dueño y su hijo y la comida estubo estupendo.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21NM1dFZDVMV3RzTjFwQmRVZHROMFJIWVU4dE5HYxAB",
+      "author": "Felipe Garcia",
+      "rating": "5.0",
+      "date": "2026-10-23",
+      "text": "A sido mi primera vez en este lugar y me ha sorprendido gratamente. Sin duda volveremos!!",
+      "owner_response": "¡Muchas gracias por tu apoyo y por confiar en BURGER NUKENZI! ❤️ ¡Esperamos verte pronto!"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tGS2JERmlURFJVVFcxZmRVMUlhMnBNVFMxRWVrRRAB",
+      "author": "Claudia D",
+      "rating": "5.0",
+      "date": "2026-07-25",
+      "text": "Calidad precio, muy buena! Nada que envidiar a las grandes cadenas. Muy bueno!",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2twZlFrZGhiMFF6ZWxCMFltYzNURGxhUVU1NUxXYxAB",
+      "author": "Javieralejandroac camaleón Alvarezcedeño",
+      "rating": "5.0",
+      "date": "2026-10-23",
+      "text": "Ambiente tranquilo y muy buen servicio.",
+      "owner_response": "¡Muchas gracias por tu apoyo y por confiar en BURGER NUKENZI! ❤️ ¡Esperamos verte pronto!"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tFMFJtOUhUWFZMWjNaalJWOTNZV3BNZVU5WlpuYxAB",
+      "author": "Felipe Sanchez",
+      "rating": "5.0",
+      "date": "2026-08-24",
+      "text": "Hamburguesas muy ricas buen servicio y precios buenos !!!",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21SbldrcHRTV041UTBaUE5WTk1RVkZQYVdzeWJuYxAB",
+      "author": "CARLOS QUIROS “JUAN”",
+      "rating": "5.0",
+      "date": "2026-06-25",
+      "text": "El domingo día 19 de abril fui a comer por primera vez con mi hijo y voy a repetir. El menú Pollo Crujiente, fue fantástico y súper exquisito. Y los chinos que te sirven son muy educados y simpático. Es recomendable",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xkRU5EQnhXVFZRV1ZGM1FVeHBWSE5ZVWxaMFNYYxAB",
+      "author": "José maria Terrer núñez",
+      "rating": "5.0",
+      "date": "2026-09-23",
+      "text": "Muy buen sitio, calidad-precio excelente",
+      "owner_response": "¡Muchas gracias por tu apoyo y por confiar en BURGER NUKENZI! ❤️ ¡Esperamos verte pronto!"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21WeE5WbzNUMkZTZVVWNFl6ZExiRjlvUWpaT1EwRRAB",
+      "author": "Derekk Martínez Maridueña",
+      "rating": "5.0",
+      "date": "2026-06-25",
+      "text": "Atención fenomenal , buena conducta Comida súper buena y rápida Gente muy agradable",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21Wd1UyMVNkM2xwU1hvMU1XcDFZekIyWkRkUVVXYxAB",
+      "author": "Juanjo Conde",
+      "rating": "5.0",
+      "date": "2026-08-24",
+      "text": "Primera vez que vengo, me he llevado una buena sorpresa con los batidos de frutas granizados! Perfectos para estos dias de calor y poner un poco de dulzura !",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21sQ2JXeExablIyYjBOMU5HcDBPVXhHWkdoS2EzYxAB",
+      "author": "Rosa Diaz cruz",
+      "rating": "5.0",
+      "date": "2026-10-23",
+      "text": "Muy buena comida y el trato excepcional",
+      "owner_response": "¡Muchas gracias por tu apoyo y por confiar en BURGER NUKENZI! ❤️ ¡Esperamos verte pronto!"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT201cWVFSmxObTF2UmtwblpteHplVFl5VW5SMWMzYxAB",
+      "author": "Lau Guzman",
+      "rating": "4.0",
+      "date": "2026-06-25",
+      "text": "La atención muy buena el chico que nos atendió.exelente pero hace mucho calor dentro tanto uno como cliente como los trabajadores yo creo que se muere uno del calor dentro yes inhumano haber si ponen aire por qué son aire no dan ganas de volver y menos en verano.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT20xV2NFaEJlbmhoWDI5aGFuQlpOWGRTUW01S1NYYxAB",
+      "author": "Pacmanfn",
+      "rating": "5.0",
+      "date": "2026-08-24",
+      "text": "Muy bueno todo, la hamburguesa de vaca mí favorita.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xkTFRFUmliVGN0YWpSUGNEbFdkM2t6U0ZOWU5uYxAB",
+      "author": "Jorge Lopez",
+      "rating": "5.0",
+      "date": "2026-06-25",
+      "text": "Todo perfecto, la comida muy buena, servicio excelente y todo muy limpio repetiremos Recomendable",
+      "owner_response": ""
+    },
+    {
+      "review_id": "ChZDSUhNMG9nS0VJQ0FnTURRbW95bGFREAE",
+      "author": "fernan julia",
+      "rating": "5.0",
+      "date": "2025-11-22",
+      "text": "Los camareros son muy amables y el sabor es muy bueno. La piel de la hamburguesa es diferente a todas las hamburguesas que he comido. Es una gran experiencia.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2swdFUxRmxVbFpzWWtJM1NUWkZNVkIyVG5rMmRuYxAB",
+      "author": "Joan Tellez",
+      "rating": "5.0",
+      "date": "2026-08-24",
+      "text": "Un restaurante y un servicio genial,e innovador",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pkRWEzUXhjbVp3TTJwcExYSnRSa1JaZUY5NmVGRRAB",
+      "author": "Lizy Guiselle",
+      "rating": "5.0",
+      "date": "2026-07-25",
+      "text": "Muy rico todo, y fueron muy amables en todo momento, muchas gracias:))",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xoSmJFWmhNME5RZVdRMFRGTlRVVlJGUkhBM1VsRRAB",
+      "author": "Teresa Revert Rusiñol",
+      "rating": "5.0",
+      "date": "2026-07-25",
+      "text": "Todo perfecto.Raciones grandes y buena calidad.El trato del personal muy correcto.Volvere seguro,recomendable 100x100",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25odVJFRnVYMFpKZG1KMlNqRjVkSGhpWTFsSFFtYxAB",
+      "author": "Diego Cerro",
+      "rating": "5.0",
+      "date": "2026-04-26",
+      "text": "Todo muy bueno, trato agradable y muy limpio. Y si os gusta el picante, aprovechar 😃 Lo recomiendo 💯x💯…",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25JellXeFlPR0ZUWVdWdE5FbDNiVFl3UWpkTmVtYxAB",
+      "author": "Lia Medran",
+      "rating": "5.0",
+      "date": "2026-06-25",
+      "text": "todo riquísimo súper amables y todo muy limpio",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2t4NE1UaFllRGt0WTNCS1RqSllXVzlzVHkxNVlYYxAB",
+      "author": "Gerardo Moreno",
+      "rating": "5.0",
+      "date": "2026-04-26",
+      "text": "Llegamos por casualidad y nos encantó, relación calidad precio, de las mejores, tanto la hamburguesa como el pollo estaban muy bueno y los Nuggets se nota que es pechuga de pollo de verdad.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2twU2FFRlpZelJuYkdsbFJXTTRibVZaTm1SUVRrRRAB",
+      "author": "Juan Carrillo",
+      "rating": "5.0",
+      "date": "2026-08-24",
+      "text": "Sitio muy bueno y excelente camareros",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21odVkwcFZOSEZGV1V4c2FYZ3hkQzFPYkhOamRVRRAB",
+      "author": "María antonia chevez morales",
+      "rating": "5.0",
+      "date": "2026-07-25",
+      "text": "De lo mejor que he comido y el pollo es excelente",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xWamFGSnBUV0ZwWXpSNE9HVlJWWFphYjB0bGExRRAB",
+      "author": "Javier J. Valencia Martínez",
+      "rating": "4.0",
+      "date": "2026-04-26",
+      "text": "Buena comida, un sabor diferente para las hamburguesas. El servicio fue amable, pero bastante lento para ser los únicos que estábamos en el local. El sitio es amplio y luminoso, pero lo tenían con cajas por el suelo, quizá por razón de causa mayor (tampoco es que me moleste especialmente).",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pOM1VuVnpSREIwTWw5R1RGbDBlbFEwYm5aalRFRRAB",
+      "author": "androxus04",
+      "rating": "5.0",
+      "date": "2026-08-24",
+      "text": "Puuff como estava la saltiss nukenzi i la hamburguesita de lujo iré otra vez encantado",
+      "owner_response": ""
+    },
+    {
+      "review_id": "ChdDSUhNMG9nS0VJQ0FnTUNvcHVISGd3RRAB",
+      "author": "Stephi Azañedo",
+      "rating": "4.0",
+      "date": "2025-11-22",
+      "text": "Pedí por Uber y la verdad me ha sorprendido. Pedí una hamburguesa, el pollo es estilo kfc, el rebozado era bueno y con buen sabor, el tipo de pan y la salsa de dentro estaban buenas, las patatas también están bien, pongo 4 estrellas porque también pedí alitas y estaban un poco crudas por dentro. Volvería a repetir",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tzdE5IQlVlRWRyWnpSd0xVcGxWaTFXWkVrelVXYxAB",
+      "author": "Katy Ayala",
+      "rating": "4.0",
+      "date": "2026-09-23",
+      "text": "Pedimos granizados y estaban muy buenos y la atención fue muy cordial",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pkVmMwSldNMkUzU21GYWR6TjFlbVl3TkZSdGFVRRAB",
+      "author": "Anthony Sulbaran Suárez",
+      "rating": "5.0",
+      "date": "2026-09-23",
+      "text": "Excelente servicio, muy buena la atención y rapidez, 100% recomendado",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25oeE5rbE1WMlZxVGpsMWJtbzJURU5qV0ZKeGMyYxAB",
+      "author": "Maria José Lorenzo",
+      "rating": "5.0",
+      "date": "2026-06-25",
+      "text": "Sitio limpio tranquilo con excelente servicio y comida Repetire",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2t0UU16bEVNRTkxZUV3NVFtVlpZV3c0ZEhaNU9YYxAB",
+      "author": "Caroline Fahrenheit",
+      "rating": "5.0",
+      "date": "2026-08-24",
+      "text": "Amo!! Es mi lugar preferido ❤️, son muy amables 🥰🥰…",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xab1JVWnNXRTVuUWpOMFMzRkRURkpFTUdwMFNVRRAB",
+      "author": "Adriana Loaiza",
+      "rating": "5.0",
+      "date": "2026-08-24",
+      "text": "Muy buena la comida, limpio, buen servicio 👍😁…",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xKcU5FbFpWM2R5TFhORU1rNVdRbUpHYlUxS01IYxAB",
+      "author": "Stiven Rosero Rodallega",
+      "rating": "5.0",
+      "date": "2026-09-23",
+      "text": "Comida muy rica y muy limpio todo",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25KMFYxZEZaakl0VFc5clQxY3lkazFMYmpSS1VVRRAB",
+      "author": "Patricio Alejandro Alfaro Rodriguez",
+      "rating": "5.0",
+      "date": "2026-07-25",
+      "text": "Muy buenas hamburguesas de ternera quedé saciado con el menú🤌😎…",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tsVllqaFhURlpHZUZOWGFUWk5lbGhrWVZKRVlrRRAB",
+      "author": "Rostiseria Santi&Eva",
+      "rating": "5.0",
+      "date": "2026-05-26",
+      "text": "Todo lo que probamos nos gustó! Hamburguesas, tiras de pollo, ensalada las papas fritas y la chinita muy simpática!",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2s1d2NsOTFVMjU2Wm5KaU9FWnZTVGswTmtFNVowRRAB",
+      "author": "黑先生",
+      "rating": "5.0",
+      "date": "2026-06-25",
+      "text": "he venido tres veces y todo muy bien, me gusta mucho el sabor y todo",
+      "owner_response": ""
+    },
+    {
+      "review_id": "ChdDSUhNMG9nS0VPcTQ5ZHpQeEpuYWdBRRAB",
+      "author": "fabiana oliveira",
+      "rating": "4.0",
+      "date": "2025-11-22",
+      "text": "Mi primera vez en el local, primera impresión es que hay poca variedad en el menú, sin embargo lo que ofrecen es clásico así que fue sencillo escoger. El menú es muy completo ya que no solo incluye hamburguesa+ bebida+patatas sino alitas o…",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xWWmFtTnJjbE01YW14YU4yNVRUVlIzWDA1U09XYxAB",
+      "author": "Paquita Portillo Gonzalez",
+      "rating": "5.0",
+      "date": "2026-05-26",
+      "text": "Me han encantado las hamburguesas! Y su calidad muy buena Y sobretodo el trato del personal 😃…",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pkc2MwRjVkRmg1Vkdod09GTXdlQzB0WVVkWlFYYxAB",
+      "author": "nhi yen",
+      "rating": "5.0",
+      "date": "2026-09-23",
+      "text": "Muy rico, y el personal es muy amable.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21sYWVUTjJSVTQ0Ym1wdFZGbFpVeTFEWmpKMFExRRAB",
+      "author": "Maria Madero",
+      "rating": "5.0",
+      "date": "2026-04-26",
+      "text": "Buenísimo, amabilidad y calma, a buen precio.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25CZlZuaDZWakJPV0Mxd09YVXpiRFJwWDB0bFluYxAB",
+      "author": "Kleiver Moreira",
+      "rating": "5.0",
+      "date": "2026-09-23",
+      "text": "Muy buen atención y buena comida",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21WdFUwZHNTbEUwWDFkNkxUVlFWMUZZU1dobk5sRRAB",
+      "author": "Picho PachoVZ3",
+      "rating": "5.0",
+      "date": "2026-01-26",
+      "text": "Muy buen servicio y comida rica a buen precio. Nos vamos muy felices y con ganas de volver",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pKa1NWRXlTelZ6V1RVd1dWQkNkSEZKVWpoTU1FRRAB",
+      "author": "Richard skibidi",
+      "rating": "5.0",
+      "date": "2026-07-25",
+      "text": "La comida estaba buenísima y el atmósfera también",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tSVlZHcEpaM0JHTFZCSGNsVlJjRXBZWWpWVWMwRRAB",
+      "author": "Guillem Berga",
+      "rating": "3.0",
+      "date": "2026-02-25",
+      "text": "Comida abundante pero de calidad un poco justa, el pollo frito estilo KFC seco y con mucho rebozado... Las hamburguesas mejor. El servicio es bueno y el local está muy bien.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25GRWJsbGtibkpsTTBab2FIbDBkSE0xWjJ0UlIwRRAB",
+      "author": "Yohanna nattali Canto paredes",
+      "rating": "5.0",
+      "date": "2026-10-25",
+      "text": "Nos gustaron mucho las alitas y la salsa nukenzi 🤤🤤🤤…",
+      "owner_response": "¡Muchas gracias por tu comentario! 🍔 Nos encanta saber que te han gustado nuestras hamburguesas. Trabajamos cada día para ofreceros lo mejor. ¡Hasta la próxima! 😊…"
+    },
+    {
+      "review_id": "ChdDSUhNMG9nS0VJQ0FnTURRaHZIYmx3RRAB",
+      "author": "Weizhen Ye",
+      "rating": "5.0",
+      "date": "2025-11-22",
+      "text": "Esta hamburguesería acaba de abrir. Su sabor es muy innovador, diferente a cualquier hamburguesa que hayamos probado antes, ¡pero está riquísima!!!",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25CYWJWbFVhMHRZVDJWVFgyTlhkMFkxUTNGVlIzYxAB",
+      "author": "Fran Sánchez",
+      "rating": "5.0",
+      "date": "2026-06-25",
+      "text": "Hemos pedido hamburguesas de pollo y era un trozo de muslo de pollo. Era jugoso. Repetiremos",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xSNE9XUllTMDVhV2t0WE9FNUtaVzR4ZFdrd2VGRRAB",
+      "author": "Noa Jiménez",
+      "rating": "5.0",
+      "date": "2026-06-25",
+      "text": "Muy bueno todo me encanta",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tsUU5uZG1VM0k0YW5oWVNHMTFZa3h6ZVhSNWEyYxAB",
+      "author": "Daniel Gomez",
+      "rating": "4.0",
+      "date": "2026-07-25",
+      "text": "estaban buenas, aunque el pan podría mejorar. el sitio es acogedor.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21SSlRsRXlRMFZqTjFZdFVYSnBiR3AwY1VaMWRIYxAB",
+      "author": "Alejandra León",
+      "rating": "5.0",
+      "date": "2026-08-24",
+      "text": "Atienden muy amablemente. La comida muy buena.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21keVVWWmZSRlF6UkZSaVdWUjZZME0zYVhORE1GRRAB",
+      "author": "Alex Bichito",
+      "rating": "5.0",
+      "date": "2026-07-25",
+      "text": "Es muy buen sitio sobreto con amigos y compañeros",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2s4NFdHRjJlblJLY0hCSFJqSXlVVkJzVW1nMGJHYxAB",
+      "author": "Eneverika92",
+      "rating": "5.0",
+      "date": "2026-08-24",
+      "text": "Todo genial, hemos salido muy contentos con todo. Repetiremos!",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21SM2JIVmtVVXhuZERVNVVVZE1ibGcxUjBkc1VGRRAB",
+      "author": "Eduard Casanovas Ferran",
+      "rating": "5.0",
+      "date": "2026-07-25",
+      "text": "Siempre que venimos a Nukenzi es un éxito, se come y se bebe, buena cantidad, calidad mejor que otros fast-food. Ambiente y trato mas que decente. Además controlan de kanji's y hanzi's, y nos ha leído los tatuajes! Repetiremos seguro otro día",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tkNmJGTmFXbk4wZGxabVpWSjJYekZaWDJKd2EwRRAB",
+      "author": "Eric Romero",
+      "rating": "5.0",
+      "date": "2026-06-25",
+      "text": "Muy bueno y a buen precio. Debería ser más conocido",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pkQ1oyWjZlbkU1VEcxcU5tVlNNRmxZVEV4cE9YYxAB",
+      "author": "Balaj Zubair Bajwa",
+      "rating": "3.0",
+      "date": "2025-11-22",
+      "text": "La hamburguesa un 7/10 Patatas 7/10 (Mucha sal) Alitas 6/10 tenia aceite mas que normal",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT214Q09XMHpUM0JNV2pkUWFXMTJNRXhJUWpsclUyYxAB",
+      "author": "Lluna Pinuaga",
+      "rating": "5.0",
+      "date": "2026-03-27",
+      "text": "Calidad - precio excelente! El menú te viene con una hamburguesa de pollo, patatas bebida y dos alitas. Están muy buenas, las hamburguesas tienen un toque diferente con el bollo estilo chino, y el pollo súper crujiente! Repetiremos seguro 😍…",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT214Uk9YaEJTMUJYVVZCTFdrWkJNVUYzVUZWZldHYxAB",
+      "author": "Victor Martin Sanchez",
+      "rating": "2.0",
+      "date": "2026-05-26",
+      "text": "poca educación y poca abundancia y trato muy pésima y lento, ni un Hola y ni Adiós.. pedí un menú de siempre, y vez de 3 alitas, me pone 2,",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2taV01XbG5ZemhrVTJGMlUzZDNaa1JmTVdWelduYxAB",
+      "author": "Pablo Salas",
+      "rating": "1.0",
+      "date": "2026-01-26",
+      "text": "El sitio ha quedado muy bien decorado y la atencion es excelente pero alguien me explica porque hay un menu que se llama vaca dorada y las hamburguesas son de cerdo? aparte que las patatas nos las trajeron frias",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xSVlZUbG9UeTF2VVRSMWNrZFhjek5VUVVaRGFuYxAB",
+      "author": "Loli Segura",
+      "rating": "5.0",
+      "date": "2025-12-27",
+      "text": "Buen ambiente, buena comida.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xsWFduRTROMFJ0UWxvd1ZVVnlSMXBETlZaUExXYxAB",
+      "author": "Maximiliano Prieto",
+      "rating": "5.0",
+      "date": "2025-12-27",
+      "text": "Excelente servicio, el mejor pollo y patatas fritas que hemos comido en Terrassa, el lugar limpio cálido y sus empleados muy agradables. 10/10",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xodFlVcE5TRlpYWDA4M2NrdE9hRkJRUVVkRE1uYxAB",
+      "author": "杨小聪",
+      "rating": "5.0",
+      "date": "2025-12-27",
+      "text": "que rico ,me encanta lo de picante.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xSaGFVWjNRa3BCVWxKSU1GTnplRnBOVG5OUWEyYxAB",
+      "author": "Romina",
+      "rating": "5.0",
+      "date": "2026-07-25",
+      "text": "Comida y precio muy buenos! Volveremos!",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xaSGREbDJURmt0WkY5VWFqUlFWVVZxYVRCTWJWRRAB",
+      "author": "Isa Portillo",
+      "rating": "5.0",
+      "date": "2026-05-26",
+      "text": "Muy amable, comida muy buena y muy agusto, me a encantado",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21RMU1HWnZTRXhKU25GeFgzZEhZMFl4ZVRWV01VRRAB",
+      "author": "Cindy Bonilla",
+      "rating": "5.0",
+      "date": "2026-02-25",
+      "text": "Súper recomendado, la comida riquísima y el lugar muy limpio y buen ambiente, en definitiva volveré",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2t4VWVYcHllVUpuVEU1eVRFeDBSbTB6T1VWc2RsRRAB",
+      "author": "silvainma",
+      "rating": "4.0",
+      "date": "2026-09-23",
+      "text": "Rápida y buena. Pollo 100%",
+      "owner_response": "¡Muchas gracias por tu apoyo y por confiar en BURGER NUKENZI! ❤️ ¡Esperamos verte pronto!"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xaRk5HcDZPRGN0T1dSMk5Ua3hZbTltTUV0cmRXYxAB",
+      "author": "Antonio Giancarlo",
+      "rating": "5.0",
+      "date": "2026-08-24",
+      "text": "Muy bueno, me gustó 😃…",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pWbGJ6Qk5ibnBZWWtaUFJuUjNNMGhrTlZGS1JuYxAB",
+      "author": "silvilade sv",
+      "rating": "5.0",
+      "date": "2026-07-25",
+      "text": "Muy bueno todos precio razonable.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pCelZ6Qk1USEZtU2pOcFFXMTROMEZtYVhRd1YwRRAB",
+      "author": "Luke Henson",
+      "rating": "5.0",
+      "date": "2026-11-01",
+      "text": "Estava todo muy bueno",
+      "owner_response": "¡Muchas gracias por tu apoyo y por confiar en BURGER NUKENZI! ❤️ ¡Esperamos verte pronto!"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT205cFF6VnBZVmMxV1RGb2ExbHhOVkZUVW1nMFZsRRAB",
+      "author": "Mauricio Jafet Mendoza Reyes",
+      "rating": "1.0",
+      "date": "2026-06-25",
+      "text": "El pollo crudo, ponen al cajero/a y no entiende lo que hablas y te ponen lo que ellos quieren y las piezas que quieran cambiaron de precio a todo y hay que fijarse en lo que comes porque salen pelos",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tWNVNtRlBUWFZFTlUxdmJWUk9jRTlPVERVMVpsRRAB",
+      "author": "M",
+      "rating": "5.0",
+      "date": "2026-01-26",
+      "text": "Muy amables y excelente relación calidad/precio, todo sabroso y su pan hecho por ellos genial, mejor que cualquier hamburguesería de cadena mayorista.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21oS2RHdEdSVTFvT0RaalFqbFRaR1pxWTBSblVWRRAB",
+      "author": "A. Jose Villanueva",
+      "rating": "5.0",
+      "date": "2026-11-15",
+      "text": "Todo muy bueno!!",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xGNFpuSk5aMXBJU2xsT01tcGFaRXhmYWpsRU5WRRAB",
+      "author": "Nelson González",
+      "rating": "5.0",
+      "date": "2026-08-24",
+      "text": "Buena comida y muy tranquilo",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2s1aVdGUlZXVXRyVFhsbk0zQTFVemRCVFU4dFQxRRAB",
+      "author": "Dori Gomez",
+      "rating": "5.0",
+      "date": "2026-04-26",
+      "text": "El pan recien hecho y las hamburguesas que cada una tiene una forma, te dá el sabor de lo casero! Está riquisimo, siempre que puedo me acerco y ademas muy asequible, menú de hamburguesa, bebida, patatas y alitas por 11 euros",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xjMFVYQTVXVWRuV2w5NGRreDJUV2REVVdSWE1sRRAB",
+      "author": "Victor",
+      "rating": "5.0",
+      "date": "2026-08-24",
+      "text": "Excelente servicio y un ambiente agradable",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2s1VFgzVkpPVEJzV0hGaVJsOXRXWFJwTmt0ZlYzYxAB",
+      "author": "Angie Suzette Lobo",
+      "rating": "5.0",
+      "date": "2026-01-26",
+      "text": "Fui el otro día con mi madre y comimos el combo de pollo. La verdad está buenísimo y el lugar es super limpio y tranquilo además de bonito :)",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25sWk9IaFNkakJxYkdOdmNETm1lVVU0VmxSWGVVRRAB",
+      "author": "Levi Boghian",
+      "rating": "5.0",
+      "date": "2026-11-15",
+      "text": "servicio profesional y comida de calidad",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pock5WaGxNMkpFWTBJMVJIQXdaMDlWTlRWbWJrRRAB",
+      "author": "Laura viviana Videla",
+      "rating": "5.0",
+      "date": "2026-02-25",
+      "text": "El pan algo espectacular!!!!! Las hamburguesas, la verdad me encantaron un 10 el servicio. La camarera muy amable!!! Felicitaciones al cocinaro !!!",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2taVmFVaDZkVlJsYVd4TlUzY3lhVmswU3kxRUxYYxAB",
+      "author": "Cathy Crespo Molina",
+      "rating": "3.0",
+      "date": "2026-08-24",
+      "text": "Nse pero me he comido una hamburguesa y estoy con vómito",
+      "owner_response": "Buenas tardes Cathy, sentimos mucho que te hayas puesto mal después de comer con nosotros... Porfavor contactanos por privado, para poder comunicarnos mejor y entender lo que pasó.… Más"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25ZNFZIcDVOVXA0UW1SRlZYQlpWalpLWVdSVVUzYxAB",
+      "author": "bucuo",
+      "rating": "1.0",
+      "date": "2026-02-25",
+      "text": "las alitas de oferta 12pico eso son alitas de malo eso es porque se vende con oferta😅…",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pKdlRWTjFibHBhTVc5RldUQnVZbGhrTWpKMlluYxAB",
+      "author": "Wayward3",
+      "rating": "1.0",
+      "date": "2026-05-26",
+      "text": "Una camarera china joven en el mostrador tiene una actitud pésima y se pasa todo el tiempo charlando con otro camarero. Además, tardan muchísimo en servir la comida; a menudo hay que esperar más de 40 minutos. ¡¡No lo recomiendo en absoluto!!",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21OUVdIcE5TRTlDV1ZaUFR6QlZSMmRFUm10bU5VRRAB",
+      "author": "Cristhian Cabarcas C.",
+      "rating": "5.0",
+      "date": "2026-09-23",
+      "text": "Seguiremos volviendo. Nos encanta",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tSTFJEWktSbVZ5Y1VNd1VrMDNaSFZ1UmxWMFUzYxAB",
+      "author": "nicolas torres",
+      "rating": "2.0",
+      "date": "2025-11-22",
+      "text": "Exelente local atención y comida ...lo único es que la chica más joven mientras te prepara el pedido para llevasr, se va comiendo tus patatas... Lo veo muy mal, falta de igiene por su parte",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pCNWVVcGlkSEppYTNscGMwNWhjVFJmY1RGeVdXYxAB",
+      "author": "Isabel MF",
+      "rating": "3.0",
+      "date": "2026-03-27",
+      "text": "El personal muy amable y el ambiente tranquilo y limpio. A mejorar: el pan de las hamburguesas era demasiado fino, se rompe enseguida. El pollo no tenía mal sabor ( hay quien le guste más o menos) pero eran trozos…",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xwMVgyaGtURXRrZVVWM1NuTllTMFJCVmxCRGRuYxAB",
+      "author": "Josue Montano",
+      "rating": "5.0",
+      "date": "2026-02-25",
+      "text": "Hola soy una persona sorda, tenia una primera vez por eso , buena comida y es buena rica hamburguesa doble carne . Además bebida repetir cualquier .…",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT20xNWEzVTJUWGt4VVRsdmJtUTRaazEwTUdWbVoyYxAB",
+      "author": "LAURA OLIVA DIONIS",
+      "rating": "5.0",
+      "date": "2026-09-23",
+      "text": "💯en el trato 💯servicios 💯limpieza…",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21Kck5YbDRZblZ3YVVjeFMybFZabWRKTUdORU9XYxAB",
+      "author": "Victor Esanu",
+      "rating": "5.0",
+      "date": "2025-12-27",
+      "text": "Muy chulo el sitio y gran inauguración, el servicio de 10. La que más destaco son las hamburguesas, están increíbles, repetiré.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xWbmQybFhTVkYwZVVGWVVHSTNVSG8xU2s5UU9WRRAB",
+      "author": "Sergio Calatayud",
+      "rating": "5.0",
+      "date": "2025-12-27",
+      "text": "Servicio súper bueno y la comida espectacular. Sin duda repetiremos. 😊…",
+      "owner_response": ""
+    },
+    {
+      "review_id": "ChdDSUhNMG9nS0VJQ0FnTUR3OU43YW1nRRAB",
+      "author": "FISH LITTLE",
+      "rating": "1.0",
+      "date": "2025-11-22",
+      "text": "Con su calidad de menú 9.65€, me parece muy caro. Está todo lleno de aceite… muy grasoso. Encima las bebidas no son recargables aunque comes en el restaurante. El hamburguesa solo viene un mini trozo de pollo…no es muy recomendable!",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21aelQwWm9hVEV0YmpRNWJGRlhlamQ1TlVkM1lrRRAB",
+      "author": "Nahuel Costa",
+      "rating": "5.0",
+      "date": "2026-01-26",
+      "text": "Muy buena atención por parte de las niñas y el niño, las hamburguesas muy ricas, súper rápido, 100% recomendable",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xOVlFtaHdWRTVhTVdwSk5EQmpSa3BLUVhGdVdsRRAB",
+      "author": "Carlos Pacheco",
+      "rating": "5.0",
+      "date": "2026-09-23",
+      "text": "Excelente servicio y calidad",
+      "owner_response": "¡Muchas gracias por tu apoyo y por confiar en BURGER NUKENZI! ❤️ ¡Esperamos verte pronto!"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xWSVpHMUdSbXd0TnpBelozaGtNWEpFTkZSb1RrRRAB",
+      "author": "Miriam",
+      "rating": "5.0",
+      "date": "2026-02-25",
+      "text": "Increíble!!! Muy buena comida i buena decoración los camareros son muy educados 5 estrellas",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xkQlMybHVhakJ4TlZSeFMzSnJaamRrVVcxck1sRRAB",
+      "author": "Esteffany Sanchez",
+      "rating": "5.0",
+      "date": "2026-02-25",
+      "text": "Muy buen sabor , hamburguesa naturales , grandes , las alitas picantes las mejores",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tvNFdsVnFha0Y0VUMwMmQxbFJibFE0ZWw5b01FRRAB",
+      "author": "Carlos",
+      "rating": "5.0",
+      "date": "2026-04-26",
+      "text": "La burger dorada duble buenísima. Y me quedé hasta lleno, yooo? Raro en mí.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "ChdDSUhNMG9nS0VJQ0FnTUNZcE91TF9RRRAB",
+      "author": "Cristhian Arboleda Sánchez",
+      "rating": "5.0",
+      "date": "2025-11-22",
+      "text": "Me ha sorprendido este local, el sabor de la hamburguesa es increíble, mucha cantidad con el menú, realmente llena y el precio es acorde a lo que te sirven. Muy ordenado y limpio.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "ChdDSUhNMG9nS0VJQ0FnTUNJamE2VnJnRRAB",
+      "author": "David Zhou",
+      "rating": "5.0",
+      "date": "2025-11-22",
+      "text": "Nukenzi no solo ofrece hamburguesas increíbles, sino que también tiene uno de los mejores pollos fritos que he probado. Crujiente por fuera, jugoso por dentro y con un sabor espectacular. Cada bocado es una explosión de sabor.…",
+      "owner_response": ""
+    },
+    {
+      "review_id": "ChdDSUhNMG9nS0VJQ0FnTUN3dE5uVDB3RRAB",
+      "author": "Nicolás Occhipintti",
+      "rating": "5.0",
+      "date": "2025-11-22",
+      "text": "Excelente atención al público de las personas que trabajan acá, la comida para mí gusto demasiado rico y muy buen precio, el local limpio y cabe resaltar nuevamente la atención, muy recomendable!!!!!",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2t0dWFWcExUME5QWW05WkxXMUxVWGRvT1ZRdGVWRRAB",
+      "author": "Ezequiel Cappella",
+      "rating": "4.0",
+      "date": "2026-06-25",
+      "text": "Normal a precio caro por lo que fue la hamburguesa",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xSRVV6RldiMmxPUkhodk4xQjJlRk5qUVU1T1pHYxAB",
+      "author": "Estrella R.F",
+      "rating": "5.0",
+      "date": "2026-08-24",
+      "text": "Una buena experiencia, pensamos volver",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21WVlZHRk5jekpKYzFWSE1sUmFMWGxCVW01aWIzYxAB",
+      "author": "Tatiana Rúa Castillo",
+      "rating": "5.0",
+      "date": "2026-07-25",
+      "text": "Muy bueno todo",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xSd2NHcElSV05PTmpNM2EwWjViRmRzV2taWGVIYxAB",
+      "author": "Darifox",
+      "rating": "5.0",
+      "date": "2026-10-23",
+      "text": "La burguer con piña espectacular!!!!",
+      "owner_response": "¡Muchas gracias por tu comentario! 🍔 Nos encanta saber que te han gustado nuestras hamburguesas. Trabajamos cada día para ofreceros lo mejor. ¡Hasta la próxima! 😊…"
+    },
+    {
+      "review_id": "ChdDSUhNMG9nS0VJQ0FnTURJeXZHSl9nRRAB",
+      "author": "Alberto Gutierrez",
+      "rating": "5.0",
+      "date": "2025-11-22",
+      "text": "Excelente sabor exquisitas el pan de la hamburguesa rico y suave . el pollo jugoso y muy buen gusto recomendado 100% y a muy buen precio",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xOTlRFdHBSM2hPYWpseFFYZHdSMHBEUmxORGFVRRAB",
+      "author": "Camilo GONZÁLEZ",
+      "rating": "5.0",
+      "date": "2026-01-26",
+      "text": "Muy buena comida , muy buen precio y sitio acogedor, volveremos!!😋…",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pKTlp6SnpPVzFmTlhwME5uUnBkVFZNUkhoNVVuYxAB",
+      "author": "Pablo Quiros",
+      "rating": "4.0",
+      "date": "2026-04-26",
+      "text": "Muy rico soy mini juan carlos jejeje 😍…",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xRNVNuaFBPVkExWTBwWVdVRm5iV3RhVURsMVYzYxAB",
+      "author": "daniel Bonilla Bobi",
+      "rating": "5.0",
+      "date": "2026-08-24",
+      "text": "Muy bueno lo recomiendo",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2kxMGEwSTVibmt3Y25GSlNIUkhNM1pVUlZodFQwRRAB",
+      "author": "Javi Delgado",
+      "rating": "5.0",
+      "date": "2026-01-26",
+      "text": "La comida muy buena, ambiente tranquilo y relajado.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2psVGFsQXdabkkwVTJ4NlRWaDJOSFo2VlVOdFFuYxAB",
+      "author": "Daniel Orellana Reynado",
+      "rating": "5.0",
+      "date": "2026-08-24",
+      "text": "Excelente servicio y comida",
+      "owner_response": ""
+    },
+    {
+      "review_id": "ChZDSUhNMG9nS0VNMldpS3lHanRmZEdREAE",
+      "author": "Stormx1119",
+      "rating": "1.0",
+      "date": "2025-11-22",
+      "text": "Muy Malo estaba todo asqueroso además las que trabajan no entienden mucho lo que se les dice, caro i encima tardan en traer tu comida, aparte las patatas negras tipo caducadas i las hamburguesas de pollo lo peor",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25sMFFqRTFYMnA0TldoaE5YSjNPRmQ2VEhWM1VFRRAB",
+      "author": "M Remei Mani Martínez",
+      "rating": "3.0",
+      "date": "2026-03-27",
+      "text": "El sitio no está mal. Aunque un pelín caro para lo que se ofrece. Me gustó el pan, porque no era muy grueso. Pero me gustaría destacar (y ya se lo comenté a la camarera) que es imprescindible que salgan todos los ingredientes…",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT20wdGJGZHROak5JTURaaE0zbGZjR2d3ZVVWQ1RWRRAB",
+      "author": "Leidy Arias Sanchez",
+      "rating": "5.0",
+      "date": "2026-09-23",
+      "text": "Está muy bueno ,",
+      "owner_response": "¡Muchas gracias por tu apoyo y por confiar en BURGER NUKENZI! ❤️ ¡Esperamos verte pronto!"
+    },
+    {
+      "review_id": "ChZDSUhNMG9nS0VJQ0FnTUN3OHRUSkt3EAE",
+      "author": "Nacho Castro Rodríguez",
+      "rating": "5.0",
+      "date": "2025-11-22",
+      "text": "Sitio muy limpio y bonito, muy buen pollo rebozado y precios competitivos. Recomiendo que lo probéis.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xSb2JEZEZkMkpwYkhCTU5ISllVR1JvT1ZOUlYxRRAB",
+      "author": "Jonas Ramirez",
+      "rating": "5.0",
+      "date": "2025-11-22",
+      "text": "Nos a sorprendido para bien, muy rico, buen pan y el punto del pollo ideal, espacioso y buen ambiente",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT20xRk9FNXhSRGRqZEZkdE0xSlNSVVpoTkdOelZFRRAB",
+      "author": "Daniel G",
+      "rating": "5.0",
+      "date": "2026-01-26",
+      "text": "Las hamburguesas y el pollo están bastante bien, buen precio también",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT205TVRrTjJSbEpWWDBoMk9HUkVXRVppYTJkS1drRRAB",
+      "author": "Rafa Moral",
+      "rating": "5.0",
+      "date": "2026-08-24",
+      "text": "Muy buenas hamburguesas",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xKM2VWSTRWVkV6VlZGYVVXOUpTRWR4ZG05NVYyYxAB",
+      "author": "Natalia alderete",
+      "rating": "5.0",
+      "date": "2026-01-26",
+      "text": "Muy rico todo, se nota que lo hacen al momento!",
+      "owner_response": ""
+    },
+    {
+      "review_id": "ChdDSUhNMG9nS0VJR1IwX2lFNnAySXVnRRAB",
+      "author": "Alan Bouju",
+      "rating": "4.0",
+      "date": "2025-11-22",
+      "text": "Muy buena comida, el menú muy completo, con patatas + bebida + nuggets por un muy buen precio. Sitio muy tranquilo y los trabajadores agradables y educados. Lo unico de lo que me podría quejar esque tardaron 30 minutos en entregar el pedido. Lo recomiendo, pero deberían tardar menos en hacer la comida!",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT201MFEweHRkM1ZyUmxsVlYyNUtVemg1WWxoNVRHYxAB",
+      "author": "Jhon Loor Andrade",
+      "rating": "5.0",
+      "date": "2026-01-26",
+      "text": "Sitio muy bueno para ir a comer o cenar",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25sdU1HeE9WMEUxWjJSMlVXTk9SRXc0U0VOM1MyYxAB",
+      "author": "Xavi Cid",
+      "rating": "5.0",
+      "date": "2026-09-23",
+      "text": "Espectacular el pollo",
+      "owner_response": ""
+    },
+    {
+      "review_id": "ChZDSUhNMG9nS0VJQ0FnTUNJMzdMN1pnEAE",
+      "author": "Katherine Contreras",
+      "rating": "5.0",
+      "date": "2025-11-22",
+      "text": "Muy buen lugar para comer, otra opción a los tradicionales kfc y Popeyes . Totalmente recomendado.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21FdGMwSkZNRTVqWms5TVJrNVZUbkZEVlVsRU1uYxAB",
+      "author": "Carmen Ve",
+      "rating": "5.0",
+      "date": "2025-11-22",
+      "text": "El pollo rebozado y las hamburguesas están muy buenas . Hemos estado muy tranquilos . Volveremos más veces :)",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21ZeWFtcEtja1Z6UlhSdFFUWlJTM04wY1daMWMxRRAB",
+      "author": "Harol David Diazgranados Polanco",
+      "rating": "5.0",
+      "date": "2025-11-22",
+      "text": "Ayer fui por un too good to go y me dieron un cubo de pollo y paratas muy bueno",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tSQmMydHJRMHBKYUU1UWJXTmpOa000WTJaUWMzYxAB",
+      "author": "Mar Laia “MaxTutoriales”",
+      "rating": "1.0",
+      "date": "2026-02-25",
+      "text": "Haber la comida es súper supera poca por el precio que piden, y además cuando compras hamburguesa y alitas y pides mayonesa. Es que te dan una, son super super ratas.…",
+      "owner_response": ""
+    },
+    {
+      "review_id": "ChZDSUhNMG9nS0VJQ0FnTUNvc2VYNk5REAE",
+      "author": "Naho",
+      "rating": "5.0",
+      "date": "2025-11-22",
+      "text": "Me pedí un menú vaca dorada y he de decir que estaba espectacular la hamburguesa, muy jugosa y con un sabor muy bueno",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tZelQyNTBkRWhOZVVsSGJuUkNSbXhRVmtKd09YYxAB",
+      "author": "Carla Lara",
+      "rating": "5.0",
+      "date": "2026-03-27",
+      "text": "Me gustó, satifacieron mi hambre :3 sigan así",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25SR2F6Qk1ZbU5MUkVWWWVVbG1ia3M0ZGt4MFNtYxAB",
+      "author": "Maria Mendez",
+      "rating": "5.0",
+      "date": "2026-01-26",
+      "text": "Hemos comida muy bien delicioso",
+      "owner_response": ""
+    },
+    {
+      "review_id": "ChZDSUhNMG9nS0VKVGNnS0NoMGNyWFhnEAE",
+      "author": "Elizabeth Morales rodriguez",
+      "rating": "5.0",
+      "date": "2025-11-22",
+      "text": "Las alitas buenazas y jugosas ,las patatas también,la atención muy cordial y amable,solo falta q hagan delivery. Igual serán mis engreidos",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2toNmNqRkRiR013VXpkT05sbHdSRzFPUW5jNFMwRRAB",
+      "author": "Xiimara Estrada",
+      "rating": "5.0",
+      "date": "2026-07-25",
+      "text": "Me encantado la verdad 👍…",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT201aFpscHJWVlJxVm1odVUyOXVlRlJ2VWxNNVYxRRAB",
+      "author": "Marc Bettosini",
+      "rating": "5.0",
+      "date": "2025-11-22",
+      "text": "Relación calidad precio es excelente. Quejarse por pagar 9.65 y que te venga una hamburguesa, 3 alitas, patas, salsa y una bebida es simplemente un muy buen precio.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2t0TlltMVViRzlyT0Rab1FYRXpabGw1WkZFMmVWRRAB",
+      "author": "Gaston Pons",
+      "rating": "5.0",
+      "date": "2025-12-27",
+      "text": "Agustín, muy amable con nosotros. Fui con mí pareja y al no haber sitio, nos dijo que volvamos en minutos que nos esperaba con un sitio.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT201NlNYbEhWRXBZVG5rd2RqaEpWRUZtVUVoVWJXYxAB",
+      "author": "mi mimi",
+      "rating": "5.0",
+      "date": "2025-11-22",
+      "text": "La decoración me encantó, muy estilo industrial con detalles modernos. Ideal para llevar también. Pedí por teléfono y en 15 minutos ya lo tenían listo.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "ChdDSUhNMG9nS0VJQ0FnTURvNnZqcjNnRRAB",
+      "author": "German Mesa Monfil",
+      "rating": "2.0",
+      "date": "2025-11-22",
+      "text": "La comida esta buena, pero el servicio bastante corto, son muy lentos, se venden como una hamburgueseria fast food, pero el corto personal en sala por no decir nulo y la falta de equipo de cocina hace que la espera sea interminable. Os…",
+      "owner_response": ""
+    },
+    {
+      "review_id": "ChdDSUhNMG9nS0VPanh2TGFscm92QTBRRRAB",
+      "author": "Dayana Forero",
+      "rating": "2.0",
+      "date": "2025-11-22",
+      "text": "La comida está bien en cuanto precio y sabor, pero si estás con mucha hambre mejor ve a otro lado, ya que para pedir, un menú simple de hamburguesa con bebida y patatas se demoran 30minutos largos. Luego tienes que esperar otra media hora…",
+      "owner_response": ""
+    },
+    {
+      "review_id": "ChdDSUhNMG9nS0VJQ0FnTURRNXMyVWdnRRAB",
+      "author": "Tiago Guidi",
+      "rating": "5.0",
+      "date": "2025-11-22",
+      "text": "Hamburguesa deliciosa. Ambiente inmejorable. Recien abierto, merece la visita.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2twVVpYZHNXVVZUVERsYVowcE5WMU5SVEZOT1RVRRAB",
+      "author": "Javier García",
+      "rating": "4.0",
+      "date": "2026-02-25",
+      "text": "De cantidad generoso. Las patatas frías y la hamburguesa un poco llena de \"ternillas\" (trozos duros). Por lo demás. Correcto.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25kWWJXdEhWbWxMYzFrd1IwVTRUSFpzUldoNFVGRRAB",
+      "author": "Diego Adolfo Sánchez Martinez",
+      "rating": "5.0",
+      "date": "2026-10-23",
+      "text": "Muy bueno!",
+      "owner_response": "¡Muchas gracias por tu valoración! ⭐ Nos alegra mucho saber que has tenido una buena experiencia con nosotros. ¡Esperamos verte de nuevo pronto en BURGER NUKENZI! 🍔❤️…"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21JNFV5MW5aWE5yZDBoS1REUmhkV3M0TlU0elNtYxAB",
+      "author": "Danilo Caiser",
+      "rating": "5.0",
+      "date": "2026-01-26",
+      "text": "Fuimos a las 11 con mi pareja y el niño nos dijo que cambiaba el aceite en 15 minutos y nos atendía y así fue, las hamburguesas de pollo las mejores de Barcelona, super recomendable",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xCTE5tdzNhMWxyYURaYVgwdG5ObTlsZDFaUlozYxAB",
+      "author": "gael",
+      "rating": "5.0",
+      "date": "2026-01-26",
+      "text": "El único pequeñisimo detalle que le puedes sacar es el tiempo que tardan en servir (almenos el dia que fuí) por lo demás 10/10",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25kT1oxZDBTM2xpV1dSYVppMVVVVzV0ZERsck4zYxAB",
+      "author": "Albert T.",
+      "rating": "4.0",
+      "date": "2025-11-22",
+      "text": "Las hamburguesas las hacen ellos. Yo he probado la hamburguesa 🍔 doble de ternera. Estaba ×MUY buena, es que te pones a comparar las chorradas que te venden por ahí y aquí se nota que por lo menos la hacen ellos.…",
+      "owner_response": ""
+    },
+    {
+      "review_id": "ChdDSUhNMG9nS0VJQ0FnTURReDduQ3pBRRAB",
+      "author": "Xela 2008",
+      "rating": "5.0",
+      "date": "2025-11-22",
+      "text": "La verdad que una experiència inoblidable todo muy bueno 100 x 100 sitios recomendados para ir.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25wd2EwVldTRGhxUW04NE1WUkpOWGRzYWxKaVZXYxAB",
+      "author": "Elisabet Ruiz",
+      "rating": "2.0",
+      "date": "2025-12-27",
+      "text": "Sitio muy chulo y decorado, pero en el tema carta no hay opción vegana y vegetariana. Las patatas no cuentan como opción >////<",
+      "owner_response": ""
+    },
+    {
+      "review_id": "ChZDSUhNMG9nS0VJQ0FnTURvN2RMTGNnEAE",
+      "author": "Carlota CB",
+      "rating": "1.0",
+      "date": "2025-11-22",
+      "text": "tardan mucho la verdad para ser un sitio de comida rapida te miran con mirada cansada no vale nada una verguenza los gatos que salen de la cocina no vuelvo a venir mas!",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2taNU0yUmZSeTFNZFVrMGRqaFJSR3RHTUV0NlRGRRAB",
+      "author": "Sandra Romero",
+      "rating": "5.0",
+      "date": "2026-08-24",
+      "text": "Bueno y un buen servicio y muy limpio lo recomiendo",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tvNE4wZGliMEpKUVZkdU1WTlBaek5yUTFsUk1WRRAB",
+      "author": "David Arustamyan Khachaturov",
+      "rating": "5.0",
+      "date": "2026-05-26",
+      "text": "¡La doble dorada esta muy buena!",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21jMk5XTk5Tek13VjE5bE1VWlJORWxDVWpSaWFXYxAB",
+      "author": "Paolo Sona",
+      "rating": "1.0",
+      "date": "2026-06-25",
+      "text": "no son amables ni dicen \"Hola\"",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pWcWNrUXRSazUwZWtoblYwOVJhVnBZYUhaUVpGRRAB",
+      "author": "Yai",
+      "rating": "5.0",
+      "date": "2026-09-23",
+      "text": "💯 servicio. 💯 limpieza. 💯 trato 💯 rapidez…",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21GZk4xZHFaa1ZQTWpSdmJXOU9lbmxrYW1sMldXYxAB",
+      "author": "FERMIN ALVARADO",
+      "rating": "5.0",
+      "date": "2026-01-26",
+      "text": "La hamburguesa estaba buenísimo",
+      "owner_response": ""
+    },
+    {
+      "review_id": "ChZDSUhNMG9nS0VJQ0FnTURJZzc2R1l3EAE",
+      "author": "Benjamin C",
+      "rating": "5.0",
+      "date": "2025-11-22",
+      "text": "Nuevo tienda Pollo picante pfffffff una bomba Muy rica muy bien gracias A la proxima",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21wcU9EbGtkRzlFUTBwc1NXdFdXWEppTUU1TVdFRRAB",
+      "author": "Liz Alviarez",
+      "rating": "5.0",
+      "date": "2026-09-23",
+      "text": "Excelente atención",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pSQk5qTmxTbFpFY2poa1ZqVm5MV3B3WDJOc1pVRRAB",
+      "author": "Marc Delgado Cases",
+      "rating": "5.0",
+      "date": "2026-08-24",
+      "text": "Todo muy bueno",
+      "owner_response": ""
+    },
+    {
+      "review_id": "ChdDSUhNMG9nS0VJQ0FnTUNvNnJHOTNnRRAB",
+      "author": "钟加军",
+      "rating": "5.0",
+      "date": "2025-11-22",
+      "text": "Precios justos para lo que ofrecen. Se nota que usan ingredientes buenos",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21oMlpFWnpVRTFFZUd4WmEyUmpUVmxwWTA5RVQzYxAB",
+      "author": "Frank",
+      "rating": "2.0",
+      "date": "2025-11-22",
+      "text": "Depende de quien te atienda el grado de amabilidad varía. Pedí menú: Un precio asequible para la cantidad de comida que viene, pero lo pedí de Vaca Dorada y la cantidad ingente de cheddar me pasó factura toda la noche.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pCaVZFdHRNM2wxZGsxWFNuRklZVmc0U2tsTU9HYxAB",
+      "author": "Argimiro Agudo Martinez",
+      "rating": "1.0",
+      "date": "2026-02-25",
+      "text": "mui caro para lo simpre que son las hamburgesas,es una hamburgeseria comercial",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21GNVRqaEdWVlZJYWxGR2JVNWlVMngxTVRSTWVWRRAB",
+      "author": "Anas Benazzouz",
+      "rating": "5.0",
+      "date": "2025-11-22",
+      "text": "La comida esta buenísima 😍…",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25odlMyODJZM3B2TUhkbmRGb3djbUpzVWxCWlRXYxAB",
+      "author": "Alexandre Soler",
+      "rating": "1.0",
+      "date": "2025-11-22",
+      "text": "Extremadamente lentos, media hora para dos hamburguesas de fast food",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pkSGVHTlpiRU13ZEdOQ1puTnVOVmhtTlhsWWRHYxAB",
+      "author": "Noemi Vallejos",
+      "rating": "5.0",
+      "date": "2026-11-01",
+      "text": "Muy bueno",
+      "owner_response": "¡Muchas gracias por tu apoyo y por confiar en BURGER NUKENZI! ❤️ ¡Esperamos verte pronto!"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21rMVgwaEhjVjlaVHpoWGVYbzFUREpZV0ZkMVkyYxAB",
+      "author": "Chaohong li",
+      "rating": "5.0",
+      "date": "2025-11-22",
+      "text": "Precio barato y comida 10/10",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xCc2RtUTJMWFJ3VlZwMU9DMXVTRXR6WTFCcmFGRRAB",
+      "author": "Victor Hidalgo",
+      "rating": "5.0",
+      "date": "2026-01-26",
+      "text": "Todo muy rico",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xGbWFIRXljbTE2TTNGbFIxRnFSMGxvUlZaQ1pHYxAB",
+      "author": "carmen wai",
+      "rating": "5.0",
+      "date": "2025-11-22",
+      "text": "Sitio pequeño pero con mucha personalidad. Me encantó.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pjM05TMXRkMjQwUVRkeGMwNUxNMjAyUkMxU2JtYxAB",
+      "author": "Claudia Andrea Soto",
+      "rating": "5.0",
+      "date": "2026-08-24",
+      "text": "Todo perfecto",
+      "owner_response": ""
+    },
+    {
+      "review_id": "ChZDSUhNMG9nS0VJQ0FnTURRNXEzcEFnEAE",
+      "author": "Lidia Bojtos",
+      "rating": "5.0",
+      "date": "2025-11-22",
+      "text": "Harto de McDonalds? La hamburguesa de Burger King te parece muy sosa? Te tengo la solución: Burger Nukenzi! 😍🤩…",
+      "owner_response": ""
+    },
+    {
+      "review_id": "ChZDSUhNMG9nS0VJQ0FnTUNJNmJ1MUdREAE",
+      "author": "Swee Chee",
+      "rating": "5.0",
+      "date": "2025-11-22",
+      "text": "Me encantó la iluminación y la estética. Se siente muy acogedor.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "ChdDSUhNMG9nS0VJQ0FnTURJLWRHQmtBRRAB",
+      "author": "TAN KAI EN",
+      "rating": "5.0",
+      "date": "2025-11-22",
+      "text": "No solo hamburguesas, también tienen opciones increíbles de entrantes. Probé los nachos y estaban brutales.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2s5aFRURjJNMlJKTVVKeVpVaE1UbWhsYzIxU2FrRRAB",
+      "author": "Francisco Ghione",
+      "rating": "5.0",
+      "date": "2025-12-27",
+      "text": "El chico argentino una máquina atendiendo! super despierto, volvería por eso",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tkd2FVRkRVMFV5TlZkNmQwUk9aV3BDZG1STlRYYxAB",
+      "author": "Roots",
+      "rating": "1.0",
+      "date": "2026-08-24",
+      "text": "No recomendable!",
+      "owner_response": "Buenas tardes! Gracias por tu comentario! Sentimos mucho que no te haya gustado la experiencia... Si quieres puedes contactar con nosotros por privado para comentarnos qué falló, lo revisaremos de inmediato!… Más"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25CT05ubFVkakZ6TlZCc1J6RmFVRkJrVEd3elpsRRAB",
+      "author": "Carles Agut",
+      "rating": "5.0",
+      "date": "2026-01-26",
+      "text": "Muy buen sitio",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25sUlFsVjZSRFUxTFZFeFRERndURmM1TlVsQ1EzYxAB",
+      "author": "Alberto Vargas Olmo",
+      "rating": "5.0",
+      "date": "2026-08-24",
+      "text": "Hay que probarlo !!",
+      "owner_response": ""
+    },
+    {
+      "review_id": "ChdDSUhNMG9nS0VOVDd4SjNGbTY2ODNRRRAB",
+      "author": "Cesar Massaguer",
+      "rating": "5.0",
+      "date": "2025-11-22",
+      "text": "Excelente en todos los sentidos, repetiré seguro!!!",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21SWWRuY3RhbVZ1ZDE5S1oyd3piR2QwUVY5cVJWRRAB",
+      "author": "tom iX",
+      "rating": "1.0",
+      "date": "2026-02-25",
+      "text": "Servicio malo, Comida mala, congelada...",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25GTlN5MVphbGxUT1hZeGFFVllhV0ZOZG1GdWIxRRAB",
+      "author": "Alex Chi",
+      "rating": "1.0",
+      "date": "2025-11-22",
+      "text": "El pollo crudo salie sangre por dentro",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21kNGNFeFZYM2t4TFMxRk5rb3pUa0Y0Tlhad2RtYxAB",
+      "author": "lluis ruiz",
+      "rating": "5.0",
+      "date": "2026-06-25",
+      "text": "Muy rico",
+      "owner_response": ""
+    },
+    {
+      "review_id": "ChZDSUhNMG9nS0VJQ0FnTURJMFllOVR3EAE",
+      "author": "Carlos Colina Ferriz",
+      "rating": "4.0",
+      "date": "2025-11-22",
+      "text": "Buena calidad precio cantidad",
+      "owner_response": ""
+    },
+    {
+      "review_id": "ChdDSUhNMG9nS0VJQ0FnTUNvbzVicHFBRRAB",
+      "author": "Jimmy Yeong",
+      "rating": "5.0",
+      "date": "2025-11-22",
+      "text": "La hamburguesa con trufa es una locura. Perfecto equilibrio de sabores.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "ChZDSUhNMG9nS0VJQ0FnTUNvZ3NHeUNBEAE",
+      "author": "全業洺",
+      "rating": "5.0",
+      "date": "2025-11-22",
+      "text": "Las salsas caseras son otro nivel. Cada una tiene su toque especial.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "ChdDSUhNMG9nS0VJQ0FnTUNvME9MUjl3RRAB",
+      "author": "Chia Kia Hui",
+      "rating": "5.0",
+      "date": "2025-11-22",
+      "text": "Los batidos son una pasada. Pedí el de Oreo y fue la mejor decisión.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pSRFpIRktVMWx0TVhOUlFWZGFTa1pDVHpFMWNuYxAB",
+      "author": "JIAJUN LI",
+      "rating": "5.0",
+      "date": "2025-12-27",
+      "text": "El mejor pollo del Terrassa",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tSd1YzaDBWbVZXVUZCbk0xY3hjbXRMVm1KVFdrRRAB",
+      "author": "Milciades Araujo",
+      "rating": "5.0",
+      "date": "2026-06-25",
+      "text": "Recomendadisimo!",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2swNGNsUlBWMk5SZGtvNVlYVnpOamcxZEhGSFdWRRAB",
+      "author": "zac eferon",
+      "rating": "5.0",
+      "date": "2026-05-26",
+      "text": "Un sitio de chill",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25OQmVEQlZVMFF5TFd0eGVuQXlZMFV4V25STFozYxAB",
+      "author": "Yassir Iddar",
+      "rating": "5.0",
+      "date": "2026-11-01",
+      "text": "Perfecto",
+      "owner_response": "¡Muchas gracias por tu valoración! ⭐ Nos alegra mucho saber que has tenido una buena experiencia con nosotros. ¡Esperamos verte de nuevo pronto en BURGER NUKENZI! 🍔❤️…"
+    },
+    {
+      "review_id": "ChZDSUhNMG9nS0VJQ0FnTUNZcXY2QklBEAE",
+      "author": "César P.",
+      "rating": "3.0",
+      "date": "2025-11-22",
+      "text": "En 2 meses cierran.....siempre vacío.....",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xjNFRVOWtTMnRKY0RsVmRtbG1WalpmUzNNMGFIYxAB",
+      "author": "Daniel Vega",
+      "rating": "4.0",
+      "date": "2025-11-22",
+      "text": "Buena Experiencia",
+      "owner_response": ""
+    },
+    {
+      "review_id": "ChZDSUhNMG9nS0VMT3g5WTNfeUl5eGRnEAE",
+      "author": "Lucas Carod",
+      "rating": "5.0",
+      "date": "2025-11-22",
+      "text": "Increíble servicio",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tGVGN6QkJibFJ4VUV0c09YcHFiMnhzTUhKTVIyYxAB",
+      "author": "Zeng",
+      "rating": "5.0",
+      "date": "2026-11-01",
+      "text": "Repetiré",
+      "owner_response": "Gracias por su reconocimiento. Su familia también pidió comida para llevar esta tarde."
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT210Wk9VcGZURnB5Y0RSSlMxRlBjMGt5YUVSWlVWRRAB",
+      "author": "Manuel De ena",
+      "rating": "5.0",
+      "date": "2026-02-25",
+      "text": "Espectacular",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pWd2JHZGFaRUU0UlROMmMyeFJPR2gzYkROa1YyYxAB",
+      "author": "Abel G",
+      "rating": "5.0",
+      "date": "2026-01-26",
+      "text": "Todo de 10",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2taNlprMXhPSE5CWlZGMlptaGZSRXN4T1cxTVVIYxAB",
+      "author": "Aldo Reyes",
+      "rating": "5.0",
+      "date": "2026-01-26",
+      "text": "Excelente",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2sxRVIydGZRV3h6V25KbWFtSXliV1ZNVDJ0UVpGRRAB",
+      "author": "Juan Llanos",
+      "rating": "5.0",
+      "date": "2026-09-23",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xwTmRrRjJORFJGTWs1emFHTTBkemhtVjFRMVgxRRAB",
+      "author": "ariadna fuste horta",
+      "rating": "5.0",
+      "date": "2026-11-22",
+      "text": "Han sido muy amables y atentos. La bebida te la pones tú hasta que te hartas, las patatas super crujientes y la hamburguesa vale mucho la pena!!!",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2s5blZWUjJNbVZIVEdoZmVIRTVUVE5CZDNwa1lXYxAB",
+      "author": "Mercedes Aldoma",
+      "rating": "5.0",
+      "date": "2026-11-21",
+      "text": "Muy buena la comida gracias por el servicio",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2toblNFMXNiakJJV1VKVmNIRlVZbTgwYkZSMVgwRRAB",
+      "author": "Joan Mocholi",
+      "rating": "5.0",
+      "date": "2026-11-21",
+      "text": "Un lugar excelente muy recomendado !",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2treU5GbEhZemgwU0cxeVZFZFZVblpVT0haeFdtYxAB",
+      "author": "Fernando Acosta Cambranis",
+      "rating": "5.0",
+      "date": "2026-11-21",
+      "text": "Comida muy buena. El servicio es amable y atento. La hamburguesa de pollo picante es deliciosa.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2toR2RWVjJWRmQ1ZDBGeFgwTkVTSFJUYlVwcE0yYxAB",
+      "author": "MERICIA López Caceres",
+      "rating": "5.0",
+      "date": "2026-11-21",
+      "text": "La comida muy buena",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2paS1RIZGZhMWhRY3psb0xWSkdVa05TT1Y5alJHYxAB",
+      "author": "NAOMY RG",
+      "rating": "5.0",
+      "date": "2026-11-20",
+      "text": "Me gusta mucho el ambiente, es muy tranquilo y la comida buenísima, el servicio y las personas os majisimas, volvería mil veces mass☺️☺️",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21rd1dUWXpNMUpITmxoVE1uWnFSSE13Y0VOUFZsRRAB",
+      "author": "NOEMI RG",
+      "rating": "5.0",
+      "date": "2026-11-20",
+      "text": "Muy bueno todo,el mejor sitio",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xaa1pESjJXV3huY0V4cVJsOVFla3RaTVRGS05HYxAB",
+      "author": "noelia pautasso franzone",
+      "rating": "5.0",
+      "date": "2026-11-19",
+      "text": "Todo perfecto. Muy recomendable!!",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2twT0xVVlhhSGRqTUdoRll6QmthV3hQV1VSdWRGRRAB",
+      "author": "paullloyd4",
+      "rating": "5.0",
+      "date": "2026-09-23",
+      "text": "¡Pollo delicioso! ¡El servicio es súper amable y atento! ¡Me encanta este lugar!",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2taWVozaGhVbXhWUkUwd1NHMXFaMEpYUlZOWlJHYxAB",
+      "author": "chirag sharma",
+      "rating": "5.0",
+      "date": "2026-10-25",
+      "text": "Probé el pollo frito y el bistec, el sabor es muy bueno, me gustó mucho, sin duda volveré.",
+      "owner_response": "¡Muchísimas gracias por tu reseña tan amable! ❤️ Nos alegra mucho saber que disfrutaste de nuestras hamburguesas y pollo frito. ¡Tu apoyo significa mucho para nosotros! ¡Esperamos verte pronto de nuevo en BURGER NUKENZI! 🍔🍗😊…"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25GblRHSndZbEZEWWxFMlNETlpaV2hMTjJaQ1oyYxAB",
+      "author": "man iakor",
+      "rating": "5.0",
+      "date": "2026-10-23",
+      "text": "Disfruté mucho mi estancia aquí. Es muy tranquilo y su bebida de matcha es deliciosa.",
+      "owner_response": "¡Muchas gracias por tu apoyo y por confiar en BURGER NUKENZI! ❤️ ¡Esperamos verte pronto!"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25KSllsSjFiVjlOVWw5eWNFTk5ZazF2TVZWNFptYxAB",
+      "author": "Sergicebrianarc",
+      "rating": "5.0",
+      "date": "2026-10-23",
+      "text": "¡Genial! Excelente relación calidad precio!! ¡Muy amables y te quedas muy harto! ¡Perfecto para ir en familia!",
+      "owner_response": "¡Muchas gracias por tu apoyo y por confiar en BURGER NUKENZI! ❤️ ¡Esperamos verte pronto!"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xGeFZXTkVaSFJPUzNkYVFWRjZZMkYwTW01alRXYxAB",
+      "author": "ye sofi",
+      "rating": "1.0",
+      "date": "2026-03-27",
+      "text": "El pollo de la hamburguesa para llevar estaba podrido y terminó en la basura. Fue horrible. La calidad no es ni de lejos tan buena como cuando abrió el restaurante. ¡Pasé hambre todo el día, y comer esto me arruinó el ánimo!",
+      "owner_response": ""
+    },
+    {
+      "review_id": "ChdDSUhNMG9nS0VJQ0FnTURJeDRtNGpRRRAB",
+      "author": "lee wdbxln",
+      "rating": "5.0",
+      "date": "2025-11-22",
+      "text": "Deliciosas hamburguesas de muslo de pollo y alitas de pollo picantes 🔥 Precios asequibles…",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2psS1lsSkhORVY0WTFjNU1YUjRNV1JLT0ZBNVoyYxAB",
+      "author": "Daybeat PR",
+      "rating": "5.0",
+      "date": "2026-10-23",
+      "text": "¡Establecimiento genial de cocina burger japonesa! El personal es amable y atento. La oferta es interesante y con elementos de fabricación propia que le dan mucho valor añadido, como el pan y la \"Salsa Nukenzi\".…",
+      "owner_response": "¡Muchas gracias por esta reseña tan completa y por valorar nuestro trabajo! ❤️ Nos hace mucha ilusión saber que has disfrutado de nuestra cocina, especialmente del pan y nuestra salsa Nukenzi, que preparamos con mucha dedicación.… Más"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tOQ2FWbFpRbVZNUVZwQmRFaElTamRvZVhoSlIxRRAB",
+      "author": "DIFUG Cobra",
+      "rating": "5.0",
+      "date": "2026-07-25",
+      "text": "Un lugar increíble. Fui con mi amigo y, literalmente, todo fue perfecto.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21GWU5taEhjbFpOWVdKUlYyeGFUa1pKT1ZkVmJVRRAB",
+      "author": "Marta - Escapades en família",
+      "rating": "5.0",
+      "date": "2026-09-23",
+      "text": "Hamburguesería de buena relación calidad precio, Bien ubicada, menú infantil completo por el precio que es y las patatas están buenas.",
+      "owner_response": "¡Muchas gracias por tu comentario! 🍔 Nos encanta saber que te han gustado nuestras hamburguesas. Trabajamos cada día para ofreceros lo mejor. ¡Hasta la próxima! 😊…"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21ZMWJqUkNRMmczVkc5V1VHMXBOMkZTVGtrMlUzYxAB",
+      "author": "Dani Ferrà Abril",
+      "rating": "5.0",
+      "date": "2026-09-23",
+      "text": "Pedimos a domicilio y la experiencia fue muy buena. Pudimos pedir por WhatsApp, fueron rápidos, la relación calidad-cantidad-precio muy bien y las hamburguesas muy sabrosas. Como punto adicional, muy contento de que si la carta está en un solo idioma, sea en catalán. ¡Y nos regalaron un imán abrelatas! Repetiremos",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21Gc1VsUkJXREZVVkZobFMwZFVPVE5ZUzFJMldrRRAB",
+      "author": "Mercè Ferrer",
+      "rating": "5.0",
+      "date": "2026-10-23",
+      "text": "Está muy bueno y ahora tienen unas bolitas de queso tremendas.",
+      "owner_response": "¡Muchas gracias por tu apoyo y por confiar en BURGER NUKENZI! ❤️ ¡Esperamos verte pronto!"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xwak1WSjRlbVpDWlVSbmRuRk1ZMGM0TmpVeU0zYxAB",
+      "author": "felipe c",
+      "rating": "1.0",
+      "date": "2025-11-22",
+      "text": "El servicio de comida de este restaurante es inconsistente. Hoy pedí por Uber y llegó en 20 minutos. Me trajeron pollo frito que parecía haber estado expuesto toda la noche: estaba seco, duro y frío. ¡Las alitas estaban podridas! ¡Deben tener pocos clientes para hacer esto!",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tOZmMyRmFSbmh5WVV4dk5qVmhRV3N4YlROWGVHYxAB",
+      "author": "Bob Bowden",
+      "rating": "4.0",
+      "date": "2025-12-27",
+      "text": "La comida es excelente, el espacio es amplio y limpio, tiene mucho que ofrecer. Desafortunadamente, es demasiado luminoso, le falta ambiente y gente. La comida estaba perfecta y el servicio fue impecable. Sin duda lo recomendaría, pero le falta algo de personalidad.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tKS04zWnFTMDFVZUhoYWJqRnpSMUpHWlY5QmVGRRAB",
+      "author": "Christopher Rose",
+      "rating": "1.0",
+      "date": "2026-05-26",
+      "text": "¡Qué rabia me da decirlo! Le di un bocado a la hamburguesa y la tiré a la basura... y eso que no soy muy exigente. ¡Qué asco!",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tKNFdEZFVOMGxsUkZCellVZGlUR2hUUVdreGJrRRAB",
+      "author": "Soda",
+      "rating": "5.0",
+      "date": "2026-07-25",
+      "text": "Una hamburguesería acogedora y buena, ambiente tranquilo",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xGellVSXRlVVk0YW04NE1ERkpkalJyY1U5bFoxRRAB",
+      "author": "Atanazy Wlka",
+      "rating": "1.0",
+      "date": "2026-03-27",
+      "text": "Una de las peores hamburgueserías en las que he comido. Literalmente, todo estaba mal. El sirope estaba crudo o rancio en algunas partes, las patatas fritas estaban empapadas en aceite rancio, el queso tenía un sabor artificial y a…",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21jd2JsSnBPVlkzZUhGYWIweE1kVFp2TUV4S2EzYxAB",
+      "author": "Miquel Castellvi Domingo",
+      "rating": "5.0",
+      "date": "2025-12-27",
+      "text": "Too good to go con cantidad. Servicio rápido y simpático y hamburguesas muy buenas",
+      "owner_response": ""
+    },
+    {
+      "review_id": "ChdDSUhNMG9nS0VJQ0FnTUN3dmF1WTRBRRAB",
+      "author": "A R",
+      "rating": "5.0",
+      "date": "2025-11-22",
+      "text": "Antes de entrar en este local, leí los comentarios y me parecía que era un sitio nuevo. El sabor de la hamburguesa me pareció bueno, el pollo estaba marinado con un toque de picante y era crujiente. Noté que algunos comentarios se…",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25sNldVcFFjVmhFV0RnMWNYRkxSbHBhTms4MFlYYxAB",
+      "author": "Catalina Bover",
+      "rating": "5.0",
+      "date": "2026-10-25",
+      "text": "Nos ha encantado!!! Buenísimo!!!",
+      "owner_response": "¡Muchas gracias por tu comentario! 🍔 Nos encanta saber que te han gustado nuestras hamburguesas. Trabajamos cada día para ofreceros lo mejor. ¡Hasta la próxima! 😊…"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tab2IwdDNUM3BPZVZSVFVqVmxTVVI1UVRaNlowRRAB",
+      "author": "Pere Bartolomé Valls",
+      "rating": "5.0",
+      "date": "2026-05-26",
+      "text": "¡Todo buenísimo y trato amable! ¡Muy buen precio!",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2psdVFYQlNUM2t3ZUVSdVJuZExMVkpWZG1rek0wRRAB",
+      "author": "yida jiang",
+      "rating": "1.0",
+      "date": "2025-11-22",
+      "text": "Este local es un poco ridículo. No sé si esta familia tiene experiencia en la cocina. He ido varias veces y la espera es de al menos media hora. Parece que esta familia fue a alguna institución en China durante unas semanas de formación y…",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tWYVVVRkdWbkpsVlhBMU1GWk1WbVJMTkdkUlJFRRAB",
+      "author": "William Ferrari",
+      "rating": "5.0",
+      "date": "2026-01-26",
+      "text": "Las hamburguesas están muy buenas; son sencillas, pero están bien hechas.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "ChdDSUhNMG9nS0VJQ0FnTUNJaUxiRDJRRRAB",
+      "author": "David Reyes",
+      "rating": "5.0",
+      "date": "2025-11-22",
+      "text": "Tomé un combo de pollo (8 piezas) con bebida y patatas. Súper bueno el pollo, atención muy amable y restaurante muy limpio. Además, nos regalaron un gorro por la peque.…",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tKSmExQlVNVzVQVTB4M1l6QkZWR2hxV21wQlZYYxAB",
+      "author": "Sonia Chaves",
+      "rating": "5.0",
+      "date": "2026-03-27",
+      "text": "Todo muy bueno, precios razonables y raciones adecuadas. El crujiente del pollo y el picante perfecto. Pedí para llevar y todo muy bien presentado y muy buen diseño del packaging. ¡Recomiendo!",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xaWE9XeHNWM0l3Tm5nNVNWSTFXVzlQVkVwa00yYxAB",
+      "author": "Goo Gem",
+      "rating": "5.0",
+      "date": "2025-11-22",
+      "text": "El mejor pollo que he probado, gente amable también VEN AQUÍ 😁😁😁👍…",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25wUWNqSlZkelJRVlZCbWMwWk9ialF5Vmw5eVlYYxAB",
+      "author": "Xavier Mestre",
+      "rating": "1.0",
+      "date": "2025-11-22",
+      "text": "El servicio malo, por no decir inexistente. Las patatas fritas totalmente frías y la hamburguesa normalita…",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tOSk0zUmpSRFU1U0hWeVFYZzFZM2xwUjBsZk1tYxAB",
+      "author": "Manhoh Tang Serradell",
+      "rating": "5.0",
+      "date": "2025-11-22",
+      "text": "Lugar tranquilo y limpio, atención amable y comida bonita. Es mejor que KFC y Mc Donald's. El precio es asequible, unos diez euros por persona, y el menú incluye hamburguesa, bebida de gorjeo, un complemento y patatas. ¡Está delicioso!",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2w5WFFqWnVZbHBOU1VGRWVsOWFXV053ZGtOVllXYxAB",
+      "author": "Miquel",
+      "rating": "2.0",
+      "date": "2025-11-22",
+      "text": "Si tienes dos o tres horas libres para esperar el pedido, estás en el sitio indicado. Único cliente en todo el local y 40 minutos por una simple hamburguesa y refresco.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "ChZDSUhNMG9nS0VONjYzc214cnZPN2ZREAE",
+      "author": "MIN",
+      "rating": "1.0",
+      "date": "2025-11-22",
+      "text": "¡Qué lento! Pedí dos menús y esperé casi una hora. ¿Acaso esto es comida rápida?",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21kU2NHOWtORU5rTmtoTVFWQjZaRXhIT1VSdlpuYxAB",
+      "author": "Lluís Rodoreda",
+      "rating": "1.0",
+      "date": "2025-11-22",
+      "text": "Una especie de McDonald's… o más bien lo que un chino imagina que es un McDonald's. No hace falta copiar lo malo, de verdad: tiene una gastronomía espectacular en su país, y no hace falta imitarla con carteles mal diseñados y menús de…",
+      "owner_response": ""
+    },
+    {
+      "review_id": "ChdDSUhNMG9nS0VJQ0FnTUNvdGVucDBBRRAB",
+      "author": "清风飞鹤",
+      "rating": "5.0",
+      "date": "2025-11-22",
+      "text": "El ambiente era limpio, ordenado y agradable. Las hamburguesas y los muslos de pollo eran únicos y muy apetitosos. Muy recomendable.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25FMmQwcFNPWHBIY1RkSVVWaFlSSFJPUVdWc0xWRRAB",
+      "author": "Laia",
+      "rating": "2.0",
+      "date": "2025-11-22",
+      "text": "Buen servicio. De la comida mala. NO PEDIR LA VACA DORADA, diarrea asegurada. (Comprobado 2/2)",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xwNU5VMTRXR1F0V21GaWIzSmhZbVkzTlZSSmQyYxAB",
+      "author": "Wenqian Pan",
+      "rating": "2.0",
+      "date": "2026-01-26",
+      "text": "La proporción de la marinada era incorrecta; estaba demasiado salada y no estaba distribuida uniformemente. Algunas partes estaban tan saladas que tenían un sabor amargo, mientras que otras estaban bien.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "ChdDSUhNMG9nS0VJM0l3dUg2eUlYODBRRRAB",
+      "author": "dylan dylan ong",
+      "rating": "5.0",
+      "date": "2025-11-22",
+      "text": "Se agradece que utilicen productos frescos y que no esté todo congelado como en otras hamburgueserías.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "ChdDSUhNMG9nS0VJQ0FnTUNvODhHRS1BRRAB",
+      "author": "万紫茄紫茄",
+      "rating": "3.0",
+      "date": "2025-11-22",
+      "text": "Pedí un Uber y esperé una hora, pero para mi decepción, el arroz llegó todavía caliente, mientras que las alitas de pollo y el tomate estaban completamente fríos. Recomendaría comer en…",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2taUGQydGlhbE5xUW5SNVgzZ3pUMDlUZWpGS1VVRRAB",
+      "author": "Sílvia C",
+      "rating": "1.0",
+      "date": "2025-11-22",
+      "text": "Fritanga pura. Hamburguesas de calidad pésima. Lavabo sucio. Servilletas que son clínex. Local con carteles con faltas de ortografía y todo en castellano, ¡no se entiende! Encima, carísimo. Parece un negocio tapadera. ¡Abstenteos!",
+      "owner_response": ""
+    },
+    {
+      "review_id": "ChdDSUhNMG9nS0VJQ0FnTURvemMtd2xRRRAB",
+      "author": "南风",
+      "rating": "1.0",
+      "date": "2025-11-22",
+      "text": "La hamburguesa casi no tiene carne, solo un trocito por fuera, y por dentro solo hay lechuga. Evita este tipo de hamburguesa.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pKUFNFMTRPV2hyV1RWSlNIZFhWekYzVEZKZmVFRRAB",
+      "author": "Yuchun Qin",
+      "rating": "5.0",
+      "date": "2026-09-23",
+      "text": "Delicioso, delicioso, delicioso",
+      "owner_response": "¡Muchas gracias por tu comentario! 🍔 Nos encanta saber que te han gustado nuestras hamburguesas. Trabajamos cada día para ofreceros lo mejor. ¡Hasta la próxima! 😊…"
+    },
+    {
+      "review_id": "ChZDSUhNMG9nS0VJQ0FnTURRc1llREtBEAE",
+      "author": "Oriol Andrés",
+      "rating": "1.0",
+      "date": "2025-11-22",
+      "text": "Todo en español en un recién abierto negocio. Es incomprensible",
+      "owner_response": ""
+    },
+    {
+      "review_id": "ChZDSUhNMG9nS0VJQ0FnTUNvMTl2Tkt3EAE",
+      "author": "Chou Crystal",
+      "rating": "5.0",
+      "date": "2025-11-22",
+      "text": "Por fin encontré la deliciosa hamburguesa de muslo de pollo frito.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "ChdDSUhNMG9nS0VJQ0FnTURRaEwzUG5BRRAB",
+      "author": "M. Junyent",
+      "rating": "1.0",
+      "date": "2025-11-22",
+      "text": "Nuevo negocio en el barrio de chinos. Poca variedad de hamburguesas y nos parecieron insípidas. En el barrio se pueden encontrar otras alternativas de mejor calidad.",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT214cFRYaE5iRzlZZFhwRmRrNXBkRFo1VUhWMmJuYxAB",
+      "author": "cenmei xu",
+      "rating": "5.0",
+      "date": "2025-11-22",
+      "text": "Muy delicioso",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2psNVltZFhiMVJIU3pBMVZrbEVkbmhqWjFwQlluYxAB",
+      "author": "Veloz_ 007",
+      "rating": "5.0",
+      "date": "2026-08-24",
+      "text": "10 d 10",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xFeU1UQnFSMmRJVDBJeWQyaE9iMVZ3TW5KSVdHYxAB",
+      "author": "kin Bill",
+      "rating": "5.0",
+      "date": "2026-10-23",
+      "text": "sabroso",
+      "owner_response": "¡Muchas gracias por tu comentario! 🍔 Nos encanta saber que te han gustado nuestras hamburguesas. Trabajamos cada día para ofreceros lo mejor. ¡Hasta la próxima! 😊…"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pKMVZIbEJhVVl5VkV4R1NEZGZVWEpVVjBrd1ZFRRAB",
+      "author": "Pau González",
+      "rating": "5.0",
+      "date": "2026-09-23",
+      "text": "ser",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2toMlRuUlJXa0pmUkhoM1ZVaFRlRVoyWmtOUllVRRAB",
+      "author": "shikui dong",
+      "rating": "5.0",
+      "date": "2026-08-24",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tvM1pEaHFZWE5SYlRORE5qaENlbFZvYm5OWmNrRRAB",
+      "author": "TOLGA ERGİN",
+      "rating": "1.0",
+      "date": "2025-11-22",
+      "text": "¡¡¡Muy maloliente!!!",
+      "owner_response": ""
+    },
+    {
+      "review_id": "ChZDSUhNMG9nS0VJQ0FnTUNJd3FlVk13EAE",
+      "author": "Anaiza Azad Shiza",
+      "rating": "1.0",
+      "date": "2025-11-22",
+      "text": "No es bueno",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2s1U1ltUXhUV2RhZEZCQ2N6Vk5UR2hmTTNWTVMxRRAB",
+      "author": "Peter Peter",
+      "rating": "5.0",
+      "date": "2026-11-15",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tjd2RqaHJjV1ZKWjFOWk1FZ3pkVlZoV2tneGNIYxAB",
+      "author": "Martí Artigas",
+      "rating": "5.0",
+      "date": "2026-11-08",
+      "text": "¡Muchas gracias por tu apoyo y por confiar en BURGER NUKENZI! ❤️ ¡Esperamos verte pronto!",
+      "owner_response": "¡Muchas gracias por tu apoyo y por confiar en BURGER NUKENZI! ❤️ ¡Esperamos verte pronto!"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2trd1pIZ3dkWFZLT1ZodVNuY3pTblJDYjNGblIzYxAB",
+      "author": "Yawen Wu",
+      "rating": "5.0",
+      "date": "2026-11-15",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21aNVJtbzNTRzl2UkUweFVGZGFUbVJCZUcxVFFrRRAB",
+      "author": "Xinyuan Xu",
+      "rating": "5.0",
+      "date": "2026-11-15",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pZelZHVkJSbUUyZG1GaWNWSXhheTFsZEVoRWFuYxAB",
+      "author": "Samuel",
+      "rating": "5.0",
+      "date": "2026-11-08",
+      "text": "¡Muchas gracias por tu apoyo y por confiar en BURGER NUKENZI! ❤️ ¡Esperamos verte pronto!",
+      "owner_response": "¡Muchas gracias por tu apoyo y por confiar en BURGER NUKENZI! ❤️ ¡Esperamos verte pronto!"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21Nd2QxOXhXVGwzTldSeGFqZzNNbmd6UTFoQ1ZXYxAB",
+      "author": "Joel Estupiñan",
+      "rating": "5.0",
+      "date": "2026-11-08",
+      "text": "¡Muchas gracias por tu apoyo y por confiar en BURGER NUKENZI! ❤️ ¡Esperamos verte pronto!",
+      "owner_response": "¡Muchas gracias por tu apoyo y por confiar en BURGER NUKENZI! ❤️ ¡Esperamos verte pronto!"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25wemNHRjJaRGd5UW1OMFJITjFUV0ZWUkZCUldsRRAB",
+      "author": "于非",
+      "rating": "5.0",
+      "date": "2026-11-08",
+      "text": "¡Muchas gracias por tu apoyo y por confiar en BURGER NUKENZI! ❤️ ¡Esperamos verte pronto!",
+      "owner_response": "¡Muchas gracias por tu apoyo y por confiar en BURGER NUKENZI! ❤️ ¡Esperamos verte pronto!"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xaYWJVUm5XVmxHVWt4VWFYWk9UMGhJWms4NGVYYxAB",
+      "author": "PolsancrisTLB",
+      "rating": "5.0",
+      "date": "2026-11-01",
+      "text": "¡Muchas gracias por tu valoración! ⭐ Nos alegra mucho saber que has tenido una buena experiencia con nosotros. ¡Esperamos verte de nuevo pronto en BURGER NUKENZI! 🍔❤️…",
+      "owner_response": "¡Muchas gracias por tu valoración! ⭐ Nos alegra mucho saber que has tenido una buena experiencia con nosotros. ¡Esperamos verte de nuevo pronto en BURGER NUKENZI! 🍔❤️…"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25SWWVYTnZZVk01WWtoMFdYbFFNMjFTYjJJMk5sRRAB",
+      "author": "Ángel Cuadrado",
+      "rating": "5.0",
+      "date": "2026-11-01",
+      "text": "¡Muchas gracias por tu valoración! ⭐ Nos alegra mucho saber que has tenido una buena experiencia con nosotros. ¡Esperamos verte de nuevo pronto en BURGER NUKENZI! 🍔❤️…",
+      "owner_response": "¡Muchas gracias por tu valoración! ⭐ Nos alegra mucho saber que has tenido una buena experiencia con nosotros. ¡Esperamos verte de nuevo pronto en BURGER NUKENZI! 🍔❤️…"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tneVJYZEhabWhGVDJGWVVrOUdUWFp4YTBSaFYwRRAB",
+      "author": "plujadellibres",
+      "rating": "5.0",
+      "date": "2026-11-01",
+      "text": "¡Muchas gracias por tu apoyo y por confiar en BURGER NUKENZI! ❤️ ¡Esperamos verte pronto!",
+      "owner_response": "¡Muchas gracias por tu apoyo y por confiar en BURGER NUKENZI! ❤️ ¡Esperamos verte pronto!"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21NNVJrdG9kMjFUWW0xR2NXNVlNSEJaT1VSMU1VRRAB",
+      "author": "lexiong Wei",
+      "rating": "5.0",
+      "date": "2026-10-25",
+      "text": "¡Muchas gracias por tu apoyo y por confiar en BURGER NUKENZI! ❤️ ¡Esperamos verte pronto!",
+      "owner_response": "¡Muchas gracias por tu apoyo y por confiar en BURGER NUKENZI! ❤️ ¡Esperamos verte pronto!"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pZNVlTMXVRelowVFdJNGRXeE1SazEwUkc0dE0wRRAB",
+      "author": "Albert Torrontera Moya",
+      "rating": "5.0",
+      "date": "2026-10-23",
+      "text": "¡Muchas gracias por tu apoyo y por confiar en BURGER NUKENZI! ❤️ ¡Esperamos verte pronto!",
+      "owner_response": "¡Muchas gracias por tu apoyo y por confiar en BURGER NUKENZI! ❤️ ¡Esperamos verte pronto!"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT205blkwSjJlbGRpZUVsVmIyTkRjMGsyZEc5WFVYYxAB",
+      "author": "J L",
+      "rating": "5.0",
+      "date": "2026-09-23",
+      "text": "¡Muchas gracias por tu apoyo y por confiar en BURGER NUKENZI! ❤️ ¡Esperamos verte pronto!",
+      "owner_response": "¡Muchas gracias por tu apoyo y por confiar en BURGER NUKENZI! ❤️ ¡Esperamos verte pronto!"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tOcWQwTndlSEF3TVU1MmNXYzFXWGhTT0hwSkxVRRAB",
+      "author": "Sandra RuiZ",
+      "rating": "5.0",
+      "date": "2026-09-23",
+      "text": "¡Muchas gracias por tu apoyo y por confiar en BURGER NUKENZI! ❤️ ¡Esperamos verte pronto!",
+      "owner_response": "¡Muchas gracias por tu apoyo y por confiar en BURGER NUKENZI! ❤️ ¡Esperamos verte pronto!"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tWaGFFSnZRbDlRUXpoS01FOXpXbkJuYkd4dlIxRRAB",
+      "author": "Lucas Nicoara",
+      "rating": "5.0",
+      "date": "2026-09-23",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25wM2RWTnJjRnBaVUU5M1puRmZWMnhMZVVWVWJVRRAB",
+      "author": "Nuria Castañe",
+      "rating": "5.0",
+      "date": "2026-09-23",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25oNVZVOXBNREJ3WlY5UWVXODJNa2hXYW0xS1FWRRAB",
+      "author": "eltatuado",
+      "rating": "5.0",
+      "date": "2026-09-23",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2sxd1lYVTBNbEp3Y0V4dVJIQjRObXR4Y0RCeFUyYxAB",
+      "author": "Alexander Cardenas",
+      "rating": "5.0",
+      "date": "2026-09-23",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT205aU5UTkJSRTl4TWtSUlJtODVVREJGYTJSdVIwRRAB",
+      "author": "Ian Gil alvarez",
+      "rating": "5.0",
+      "date": "2026-09-23",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tac2N6QXhXRlZFYm1wR2VrWjRPV3d5YVc1ME9WRRAB",
+      "author": "Irene Sanchez",
+      "rating": "5.0",
+      "date": "2026-09-23",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25Ga1FWRkJVM2t3UmpReE5HZEVWMVF6Y1ZwVVVVRRAB",
+      "author": "Antonella Lopez",
+      "rating": "5.0",
+      "date": "2026-09-23",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xSRGVFSlBNekJCWjBsa2FWRkJabkJLUlZVeVYyYxAB",
+      "author": "Jaime Barea",
+      "rating": "5.0",
+      "date": "2026-09-23",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25CQlpWZElaVlJzVEcxblIzSTBNSFJWVm5VeWVrRRAB",
+      "author": "ddwzee_",
+      "rating": "5.0",
+      "date": "2026-09-23",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2taWlNGOWlaa1Z3WVhkeFEya3lOVEpFWDA0eFRHYxAB",
+      "author": "Javi Maillo",
+      "rating": "5.0",
+      "date": "2026-09-23",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21odFQyNDBVR2RWUVZOMk1UbFNNVTFYV0ZSRE9HYxAB",
+      "author": "Hang Lin",
+      "rating": "5.0",
+      "date": "2026-08-24",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2t4cVVqSTJiamx4UVVOYVdubGFZVFJ5TFdsQ1gxRRAB",
+      "author": "Pape Sidy Samb",
+      "rating": "5.0",
+      "date": "2026-08-24",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21STFZ6RTBVWGhaUzFnd05qWmZSR0ZKWWtGemNGRRAB",
+      "author": "Henry Páez",
+      "rating": "5.0",
+      "date": "2026-08-24",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT214TlFsaHNWemxIWlhNd1NucFZSV3hPU1RKd2EyYxAB",
+      "author": "Sandra Paiva",
+      "rating": "5.0",
+      "date": "2026-08-24",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xKdE9UWjZhREJSWnpaTFNFTkNRVjlVTUVkTlZVRRAB",
+      "author": "Jowie Rossi",
+      "rating": "5.0",
+      "date": "2026-08-24",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2kxSlMxVnZaMGRxVUhoVlltTTNVbWRQZUhwb1dYYxAB",
+      "author": "Elena Velázquez",
+      "rating": "1.0",
+      "date": "2026-08-24",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xKRE5ESjJURk5KV2paa1UzUnNWVGs1UVhKeVlrRRAB",
+      "author": "Jan Gomila",
+      "rating": "5.0",
+      "date": "2026-08-24",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21OSVZEaEZPSEppZGpsb2FrVklWSGxpYXpOQ05WRRAB",
+      "author": "Alex Ramirez Aguilar",
+      "rating": "5.0",
+      "date": "2026-08-24",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tacmJVTnRhbVZsUmxwTmRUSXlkRXRwTURKU2FXYxAB",
+      "author": "Joachim Kreß",
+      "rating": "4.0",
+      "date": "2026-08-24",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xGQ2VuVlhWREYxWWpCU2NrWXdZazB6V0RkQ2FHYxAB",
+      "author": "Miaojuan Zhu",
+      "rating": "5.0",
+      "date": "2026-08-24",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21RM1kxSnRPV0oyTkRrMFkwdEVOVXR1Y1RoYVMwRRAB",
+      "author": "Ana Maria440",
+      "rating": "5.0",
+      "date": "2026-07-25",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25oU1VHRkJiemg2UW5acWQybHFNMHRsTlVObVRsRRAB",
+      "author": "ZEMING LI",
+      "rating": "5.0",
+      "date": "2026-07-25",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xwMlMybFdhR1UxVDB4NVRFSnJTa0U0V0hCMk1HYxAB",
+      "author": "David Rodriguez",
+      "rating": "5.0",
+      "date": "2026-07-25",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tkTFp6WnlNRjlJU0VOdlR6Vk9TMmRIY0VKUmNXYxAB",
+      "author": "Yolanda Codina Gracia",
+      "rating": "5.0",
+      "date": "2026-07-25",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xoRlVXVmtTSE5SY3poNU5rVXdNWFZ3ZVRGQldFRRAB",
+      "author": "Lurdes Ribera lopez",
+      "rating": "5.0",
+      "date": "2026-07-25",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21aQ1NHTlRZMEZ5TVdoMWVFSldiWGhMU1d0WlNsRRAB",
+      "author": "Lizzy Zheng",
+      "rating": "5.0",
+      "date": "2026-07-25",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25KVmFFczJkbmN0TmpOd1ZGSkRWbXRuVVV4TGJtYxAB",
+      "author": "David Biosca Almendros",
+      "rating": "4.0",
+      "date": "2026-07-25",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25SdmRHcHpTbVYzUTAxbmJGaFZSbE5hVTNOWVFWRRAB",
+      "author": "Judith Diaz",
+      "rating": "5.0",
+      "date": "2026-06-25",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pSV1JucFNMVlpUWkc1cVExRmhOMGxaTFMxdFFuYxAB",
+      "author": "Jefren Mendoza",
+      "rating": "1.0",
+      "date": "2026-06-25",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xaaGNHbDVOR3h5ZFRGNlFWRmtRbFJMTjBORVpWRRAB",
+      "author": "Sergi López Pérez",
+      "rating": "5.0",
+      "date": "2026-06-25",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT20xUGRHMUxZbkJqUkRWVWNHaFZRUzF4T0V0b2RWRRAB",
+      "author": "Mireia diaz valenzuela",
+      "rating": "5.0",
+      "date": "2026-06-25",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2poNE0xVjJaa2xGUkdGRlRXNHlkSEJ4Um5ReWFXYxAB",
+      "author": "Erika Vanessa Giraldo Gómez",
+      "rating": "5.0",
+      "date": "2026-06-25",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25OV1FWVTVOVFJoYld4alYwMVdNSHBOUjFoaFZVRRAB",
+      "author": "长安",
+      "rating": "5.0",
+      "date": "2026-06-25",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xsVFdqbGlXVTVOZEhWblNVbDFSeTE2TXpGWGFsRRAB",
+      "author": "Jacques Minard",
+      "rating": "1.0",
+      "date": "2026-06-25",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21aV1lWVk9WMFozVEdjdGRsZFRORkl0WW1JeVFVRRAB",
+      "author": "Dani R R",
+      "rating": "2.0",
+      "date": "2026-05-26",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pkbVRrVlRZMEk1UVdWM1dGZFZjWFp2TFhwaVNIYxAB",
+      "author": "Raul Rodriguez Cano",
+      "rating": "5.0",
+      "date": "2026-04-26",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tkdVpITkJVa1JQVTBFNWFrTkxja1ZuTURsRExVRRAB",
+      "author": "Max Andrés Sagastume Leiva",
+      "rating": "5.0",
+      "date": "2026-04-26",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tWbFUwOXJlRUpvVEhsNVFUWjVVVUpRTTBWalJHYxAB",
+      "author": "Pablo Fiorentini",
+      "rating": "3.0",
+      "date": "2026-02-25",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2s1TmFHOVpiVmxFVVVKNlZIRTFWR1o1UjFoRlduYxAB",
+      "author": "Adriana Vomir",
+      "rating": "1.0",
+      "date": "2026-02-25",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21wUmNrbENUVWd0VW05cFlXcENTRGRLVkhsV2FIYxAB",
+      "author": "Jesus Heredia",
+      "rating": "5.0",
+      "date": "2026-02-25",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT201RFdHNXBObGxxUTJSR1NWTkZNbVpDUVZObWRsRRAB",
+      "author": "maikelot warriors",
+      "rating": "5.0",
+      "date": "2026-02-25",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21wWWJuSkVSRTExT0hWMFJYVnlhR1JhU0ZsclZVRRAB",
+      "author": "TF W",
+      "rating": "5.0",
+      "date": "2026-01-26",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pjd1lWUmZNV3MzVUVsdWEwRTJiek14V0hsMlZuYxAB",
+      "author": "Chen Ps5",
+      "rating": "5.0",
+      "date": "2026-01-26",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21OQmRFeFFTa2N0ZG01dU1VdHVhVlJSTUdKelNsRRAB",
+      "author": "rfosman RFM",
+      "rating": "5.0",
+      "date": "2025-12-27",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tOVGNETjRNRFZWZGxKNlMyNXhMVk5tUVhsdVVWRRAB",
+      "author": "叶金妹",
+      "rating": "5.0",
+      "date": "2025-12-27",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xkMlIyVnJWM1kwTkRFdE1uVjVRbGMxWlRkcGRtYxAB",
+      "author": "Ramon Gomez",
+      "rating": "5.0",
+      "date": "2025-12-27",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT210SVNrVkRjbEZEU25OelpFRlZiak53YjBOS1ZXYxAB",
+      "author": "Miguel Vilcapuma",
+      "rating": "5.0",
+      "date": "2025-11-22",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pRMGRuQlpXbm90YVZRMFFXVkVhM0ZsZEMxU1NuYxAB",
+      "author": "Jose Luis Torbado",
+      "rating": "5.0",
+      "date": "2025-11-22",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xST2RsVk1ZMFJVVEV0RVRHWmljMEZ1VDFwQmNXYxAB",
+      "author": "nicolas herraiz",
+      "rating": "5.0",
+      "date": "2025-11-22",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25CYVpHRmpaVEp6Vm1rM1NGOUVXVjh6WTIwd0xVRRAB",
+      "author": "Errol John",
+      "rating": "5.0",
+      "date": "2025-11-22",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xKb1pFVjVXVGhMUms1UFgxSlVibGw1Ym1WSE1GRRAB",
+      "author": "Alejandro",
+      "rating": "4.0",
+      "date": "2025-11-22",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xCUGJUZFRkRWRHTm1kWFNuTXlNM3BHTkd4dmMyYxAB",
+      "author": "David Coll",
+      "rating": "3.0",
+      "date": "2025-11-22",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21sNlRDMTFha0ZxTWxrdGMwWlRiRmR0WHpSWU9GRRAB",
+      "author": "david diaz guerrero",
+      "rating": "5.0",
+      "date": "2025-11-22",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xob016Um9ZM056UkhNd1FVSmFPR2sxYzJkUGExRRAB",
+      "author": "Urania Guadalupe Arias Posada",
+      "rating": "1.0",
+      "date": "2025-11-22",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25oSFozaGpabFJtVURORE9UbHdVM1p0U1hGeFYwRRAB",
+      "author": "Marian",
+      "rating": "1.0",
+      "date": "2025-11-22",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25CbFRtaHROemhhZUdsWlUwOUtTM0l5WTIxcGNYYxAB",
+      "author": "Nick Putilin",
+      "rating": "5.0",
+      "date": "2025-11-22",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "ChZDSUhNMG9nS0VQX215OVBUaDVUZktBEAE",
+      "author": "Angie Silva Vlogs",
+      "rating": "5.0",
+      "date": "2025-11-22",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "ChZDSUhNMG9nS0VORFktTkhvOC1fSk93EAE",
+      "author": "laura videla",
+      "rating": "5.0",
+      "date": "2025-11-22",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "ChdDSUhNMG9nS0VMeU95TGJMa3REU3JnRRAB",
+      "author": "Claudio B",
+      "rating": "1.0",
+      "date": "2025-11-22",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "ChdDSUhNMG9nS0VJQ0FnTUNvcGFTUHdBRRAB",
+      "author": "Eleonora Spinelli",
+      "rating": "5.0",
+      "date": "2025-11-22",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "ChZDSUhNMG9nS0VJQ0FnTUNvM2NyTkdBEAE",
+      "author": "sin w",
+      "rating": "1.0",
+      "date": "2025-11-22",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "ChdDSUhNMG9nS0VJQ0FnTUN3d3I2WXBRRRAB",
+      "author": "lifen zhu",
+      "rating": "5.0",
+      "date": "2025-11-22",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "ChdDSUhNMG9nS0VJQ0FnTUN3cEotYnlBRRAB",
+      "author": "Maria",
+      "rating": "5.0",
+      "date": "2025-11-22",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pjNFdEaEZiV0pVVDNwTk1tbG5VRXhIYXpaVE5GRRAB",
+      "author": "Eudald Clotet Caparros",
+      "rating": "5.0",
+      "date": "2026-11-22",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25Gck9YSjVURGM0ZHpBMVdYUnlPREpqVkdoUU9IYxAB",
+      "author": "Judith Santos",
+      "rating": "4.0",
+      "date": "2026-11-22",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2kxaFJFbGtlVk5XY0VNNVFtcHlOeTFNWDJ4VGJGRRAB",
+      "author": "Oriol Botella Llobet",
+      "rating": "5.0",
+      "date": "2026-10-23",
+      "text": "¡Muchas gracias por tu apoyo y por confiar en BURGER NUKENZI! ❤️ ¡Esperamos verte pronto!",
+      "owner_response": "¡Muchas gracias por tu apoyo y por confiar en BURGER NUKENZI! ❤️ ¡Esperamos verte pronto!"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pNelNtOW9ZekJLYUdGS1JVZDJMVXhRUVZoMVYyYxAB",
+      "author": "Amr Mkarem",
+      "rating": "5.0",
+      "date": "2026-07-25",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tKamJrNHpOblpuV2xSS0xVUTRTR1ZJV0RJMk5XYxAB",
+      "author": "joan luis perez",
+      "rating": "3.0",
+      "date": "2026-07-25",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21wcVVIWXhabXRET0Zoek1HRjJhbkZ2TWxoUFFWRRAB",
+      "author": "Marta Sanchez",
+      "rating": "5.0",
+      "date": "2026-06-25",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2t0cWVHWklUbVZ1VDJsbGRGcENkMjUzYTBVNGRtYxAB",
+      "author": "judith valencia",
+      "rating": "4.0",
+      "date": "2026-04-26",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2toV2JYQjRiRVoyUlRGTFIyeERiRkZTWlRCeFJXYxAB",
+      "author": "。。。。。。",
+      "rating": "1.0",
+      "date": "2026-03-27",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25oYVdUVkpPWGx4YjNBd1JsSnZVRXg1YkRrNWEzYxAB",
+      "author": "Carlos Molina",
+      "rating": "1.0",
+      "date": "2026-03-27",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2kxdVdVTkVZbWh3ZGpkR2NtRm9OVGQzYldoSGNFRRAB",
+      "author": "Alex 006",
+      "rating": "5.0",
+      "date": "2025-11-22",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "ChdDSUhNMG9nS0VLLVY1T2JRbWJpbXh3RRAB",
+      "author": "Stefany Shen",
+      "rating": "5.0",
+      "date": "2025-11-22",
+      "text": "",
+      "owner_response": ""
+    },
+    {
+      "review_id": "ChZDSUhNMG9nS0VJQ0FnTURRaElQRkdBEAE",
+      "author": "Jeimy barahona",
+      "rating": "1.0",
+      "date": "2025-11-22",
+      "text": "",
+      "owner_response": ""
+    }
+  ]
+}
