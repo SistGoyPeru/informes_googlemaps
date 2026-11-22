@@ -6,8 +6,9 @@ from unittest.mock import patch
 from django.test import TestCase
 from django.urls import reverse
 from django.utils import timezone
+from reportlab.lib import colors
 
-from . import analytics, briefs, services
+from . import analytics, briefs, reports, services
 from .models import Client, Review
 
 
@@ -119,6 +120,13 @@ class DashboardTests(TestCase):
         self.assertIn("ASUNTO:", content)
         self.assertIn("COMENTARIO SUGERIDO PARA EL ARCHIVO:", content)
         self.assertIn(self.client_obj.name, content)
+
+    def test_pdf_table_headers_use_white_text(self):
+        styles = reports._styles()
+        table = reports._table([{"KPI": "Valor"}], styles)
+        self.assertEqual(table._cellvalues[0][0].style.textColor, colors.white)
+        actions = reports._recommendation_table([{"priority": "Alta", "title": "Acción", "detail": "Detalle", "kpi": "KPI"}], styles)
+        self.assertEqual(actions._cellvalues[0][0].style.textColor, colors.white)
 
     def test_pdf_general_year_month_and_package(self):
         for query in ({}, {"anio": self.year}, {"mes": self.month}):

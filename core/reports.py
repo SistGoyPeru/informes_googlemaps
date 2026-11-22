@@ -99,6 +99,7 @@ def _styles():
         "h3": ParagraphStyle("H3Es", parent=base["Heading3"], fontSize=10.5, leading=13, textColor=NAVY, spaceBefore=4, spaceAfter=5),
         "body": ParagraphStyle("BodyEs", parent=base["BodyText"], fontSize=9, leading=13),
         "small": ParagraphStyle("SmallEs", parent=base["BodyText"], fontSize=7.4, leading=9.4),
+        "table_header": ParagraphStyle("TableHeaderEs", parent=base["BodyText"], fontName="Helvetica-Bold", fontSize=7.4, leading=9.4, textColor=colors.white),
         "note": ParagraphStyle("NoteEs", parent=base["BodyText"], fontSize=8, leading=11, textColor=colors.HexColor("#475569"), backColor=colors.HexColor("#F5F8FC"), borderPadding=5, spaceBefore=3),
         "center": ParagraphStyle("CenterEs", parent=base["BodyText"], alignment=TA_CENTER, fontSize=9, leading=12, textColor=BLUE),
         "good": ParagraphStyle("GoodEs", parent=base["BodyText"], fontSize=9, leading=13, textColor=colors.HexColor("#065F46")),
@@ -136,7 +137,7 @@ def _table(records, styles, col_widths=None, max_rows=None):
     if not records:
         return _para("Sin datos para este periodo.", styles["body"])
     rows = records[:max_rows] if max_rows else records
-    header = [_para(key, styles["small"]) for key in rows[0].keys()]
+    header = [_para(key, styles["table_header"]) for key in rows[0].keys()]
     body = [[_para(value, styles["small"]) for value in row.values()] for row in rows]
     table = Table([header] + body, colWidths=col_widths, repeatRows=1, hAlign="LEFT")
     style = [
@@ -211,7 +212,7 @@ def _recommendation_table(actions, styles):
          _para(action.get("kpi", ""), styles["small"])]
         for action in actions
     ]
-    data = [[_para("Prioridad", styles["small"]), _para("Acción", styles["small"]), _para("Cómo hacerlo", styles["small"]), _para("KPI objetivo", styles["small"])]] + rows
+    data = [[_para("Prioridad", styles["table_header"]), _para("Acción", styles["table_header"]), _para("Cómo hacerlo", styles["table_header"]), _para("KPI objetivo", styles["table_header"])]] + rows
     table = Table(data, colWidths=[18 * mm, 40 * mm, 80 * mm, 38 * mm], repeatRows=1)
     table.setStyle(TableStyle([
         ("BACKGROUND", (0, 0), (-1, 0), NAVY),
