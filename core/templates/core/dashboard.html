@@ -9,7 +9,7 @@
       <div>
         <div class="eyebrow">Panel principal de cartera</div>
         <h1>Ranking de clientes y reputación</h1>
-        <p>{{ total_clients }} clientes conectados · General y anual hasta {{ last_complete }}{% if excluded_month %} · {{ excluded_month }} solo en informe mensual{% endif %}</p>
+        <p>{{ total_clients }} clientes conectados · Datos actualizados de Google Maps</p>
       </div>
     </div>
     <div class="score-box">
@@ -28,7 +28,7 @@
   <div class="kpi"><small>Rating global</small><strong>{{ portfolio_kpis.average|floatformat:2 }}★</strong><span>Sobre 5 estrellas</span></div>
   <div class="kpi good"><small>Satisfacción</small><strong>{{ portfolio_kpis.satisfaction|floatformat:1 }}%</strong><span>Rating convertido</span></div>
   <div class="kpi good"><small>Excelencia 5★</small><strong>{{ portfolio_kpis.five_rate|floatformat:1 }}%</strong><span>{{ portfolio_kpis.five }} reseñas</span></div>
-  <div class="kpi"><small>Reseñas válidas</small><strong>{{ portfolio_kpis.total }}</strong><span>Hasta el último mes completo</span></div>
+  <div class="kpi"><small>Reseñas válidas</small><strong>{{ portfolio_kpis.total }}</strong><span>Reseñas guardadas</span></div>
   <div class="kpi bad"><small>Incidencias</small><strong>{{ portfolio_kpis.negative }}</strong><span>{{ portfolio_kpis.negative_rate|floatformat:1 }}% del total</span></div>
   <div class="kpi warn"><small>Respondidas</small><strong>{{ portfolio_kpis.response_rate|floatformat:1 }}%</strong><span>{{ portfolio_kpis.responses }} contestadas</span></div>
   <div class="kpi bad"><small>Respuesta a 1-2★</small><strong>{{ portfolio_kpis.negative_response_rate|floatformat:1 }}%</strong><span>Oportunidad de venta</span></div>

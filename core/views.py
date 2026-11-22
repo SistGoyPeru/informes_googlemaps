@@ -74,8 +74,6 @@ def _portfolio_context():
     frame = analytics.report_frame(Review.objects.all())
     kpis = analytics.reputation_kpis(frame)
     score = insights.scorecard(kpis)
-    current_month = datetime.now().strftime("%Y-%m")
-    last_complete = analytics.last_complete_month()
     guide = [
         {"name": "Rating medio", "why": "La nota general que ve cualquiera en Google. Se mide sobre 5 estrellas."},
         {"name": "Satisfacción", "why": "Es el rating convertido a porcentaje. 4,5★ equivale al 90% de satisfacción."},
@@ -91,8 +89,6 @@ def _portfolio_context():
         "ranking_chart": charts.client_ranking(rows),
         "guide": guide,
         "total_clients": len(rows),
-        "last_complete": analytics.month_label(last_complete),
-        "excluded_month": analytics.month_label(current_month) if current_month > last_complete else "",
         "new_client_url": reverse("new_client"),
     }
 
@@ -225,8 +221,6 @@ def client_report(request, pk):
     context = {
         "client": client,
         "clients": clients,
-        "last_complete_label": analytics.month_label(last_complete),
-        "excluded_label": analytics.month_label(current_month) if current_month > last_complete else "",
         "vista": vista,
         "vista_label": period_labels[vista],
         "year": year,

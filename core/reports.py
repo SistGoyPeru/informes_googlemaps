@@ -276,8 +276,7 @@ def _scope(frame, month=None, year=None):
     note = f" · Datos hasta {analytics.month_label(cutoff)}"
     if month:
         subset = frame[frame["mes"] == month]
-        month_note = " · Mes en curso: pueden faltar días" if month > cutoff else note
-        return subset, subset, "mensual", analytics.month_label(month) + month_note, f"Informe mensual · {analytics.month_label(month)}"
+        return subset, subset, "mensual", analytics.month_label(month), f"Informe mensual · {analytics.month_label(month)}"
     if year:
         subset = frame[frame["anio"] == year]
         return subset, subset, "anual", f"Año {year}{note}", f"Informe anual · {year}"
@@ -316,7 +315,7 @@ def export_brief(client, frame, month=None, year=None, filename=None):
         {"Archivo": "00_FICHA_DE_ENVIO.pdf", "Contenido": "Este resumen con el texto sugerido"},
         {"Archivo": "01_informe_general.pdf", "Contenido": "Historial completo hasta el último mes cerrado"},
         {"Archivo": "02_anio_*.pdf", "Contenido": "Informe por cada año"},
-        {"Archivo": "03_mes_*.pdf", "Contenido": "Informe mensual, incluido el mes en curso"},
+        {"Archivo": "03_mes_*.pdf", "Contenido": "Informe mensual de cada mes"},
     ], styles, col_widths=[55 * mm, 121 * mm]))
     story.append(Spacer(1, 10))
     cta = Table([[

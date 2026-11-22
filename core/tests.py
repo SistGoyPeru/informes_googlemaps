@@ -7,7 +7,7 @@ from django.test import TestCase
 from django.urls import reverse
 from django.utils import timezone
 
-from . import analytics, services
+from . import analytics, briefs, services
 from .models import Client, Review
 
 
@@ -62,6 +62,7 @@ class DashboardTests(TestCase):
         self.assertContains(response, "Cómo leer este informe")
         self.assertContains(response, "Reportes PDF profesionales")
         self.assertContains(response, "Ficha para enviar por correo")
+        self.assertNotIn("faltan días", response.content.decode("utf-8"))
 
     def test_incomplete_current_month_is_excluded(self):
         current = datetime.now().strftime("%Y-%m")
@@ -100,6 +101,9 @@ class DashboardTests(TestCase):
             self.assertTrue(any(f"03_mes_{current}.pdf" in name for name in archive.namelist()))
 
     def test_email_brief_pdf(self):
+        data = briefs.email_brief(self.client_obj, analytics.report_frame(self.client_obj.reviews.all()))
+        self.assertNotIn("en curso", data["comment"])
+        self.assertNotIn("falt", data["comment"].lower())
         response = self.client.get(reverse("export_brief", args=[self.client_obj.pk]))
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response["Content-Type"], "application/pdf")

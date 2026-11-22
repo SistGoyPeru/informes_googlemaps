@@ -8,19 +8,15 @@ EMAIL = "alexgoyzueta2018@gmail.com"
 
 def email_brief(client, frame, month=None, year=None):
     cutoff = analytics.last_complete_month()
-    current_note = ""
     if month:
         subset = frame[frame["mes"] == month]
         period = analytics.month_label(month)
-        if month > cutoff:
-            current_note = "Este mes está en curso, por lo que aún pueden faltar días de reseñas."
     elif year:
         subset = frame[frame["anio"] == year]
         period = f"año {year}"
     else:
         subset = analytics.complete_months(frame)
         period = f"histórico hasta {analytics.month_label(cutoff)}"
-        current_note = "El informe general y anual llega hasta el último mes completo."
 
     kpis = analytics.reputation_kpis(subset)
     score = insights.scorecard(kpis)
@@ -47,7 +43,7 @@ def email_brief(client, frame, month=None, year=None):
     comment = (
         f"Adjunto el informe de reputación de {client.name} ({period}). Incluye rating real, satisfechos vs incidencias, "
         "comentarios verificables y un plan de mejora con acciones concretas. "
-        f"Si te parece, lo revisamos juntos y definimos el siguiente paso. {current_note}"
+        "Si te parece, lo revisamos juntos y definimos el siguiente paso."
     ).strip()
     body_lines = [
         f"Hola,",
@@ -63,7 +59,7 @@ def email_brief(client, frame, month=None, year=None):
         "Qué encontrarás en el archivo:",
         "- Informe general histórico.",
         "- Informe por año.",
-        "- Informe mensual, incluido el mes en curso cuando tiene reseñas.",
+        "- Informe mensual de cada mes.",
         "- Gráficos explicados y plan de mejora en cada PDF.",
         "",
         "Si quieres, lo revisamos en 10 minutos y dejamos cerrado el plan del próximo mes.",
@@ -83,5 +79,4 @@ def email_brief(client, frame, month=None, year=None):
         "focus": focus,
         "action_title": action["title"],
         "action_detail": action["detail"],
-        "last_complete": analytics.month_label(cutoff),
     }
