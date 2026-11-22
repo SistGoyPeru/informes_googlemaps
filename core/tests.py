@@ -81,7 +81,7 @@ class DashboardTests(TestCase):
             self.assertNotIn(current, frame["mes"].tolist())
             self.assertIn(self.month, frame["mes"].tolist())
 
-    def test_monthly_pdf_includes_incomplete_current_month(self):
+    def test_monthly_pdf_excludes_incomplete_current_month(self):
         current = datetime.now().strftime("%Y-%m")
         last_complete = analytics.last_complete_month()
         if current > last_complete:
@@ -95,11 +95,12 @@ class DashboardTests(TestCase):
                 owner_response="Gracias",
             )
             response = self.client.get(reverse("export_pdf", args=[self.client_obj.pk]), {"mes": current})
-            self.assertEqual(response.status_code, 200)
-            self.assertEqual(response["Content-Type"], "application/pdf")
+            self.assertEqual(response.status_code, 404)
+            page = self.client.get(reverse("client_report", args=[self.client_obj.pk]))
+            self.assertNotContains(page, f"?mes={current}")
             package = self.client.get(reverse("export_pdf_package", args=[self.client_obj.pk]))
             archive = zipfile.ZipFile(BytesIO(b"".join(package.streaming_content)))
-            self.assertTrue(any(f"03_mes_{current}.pdf" in name for name in archive.namelist()))
+            self.assertFalse(any(f"03_mes_{current}.pdf" in name for name in archive.namelist()))
 
     def test_email_brief_pdf(self):
         data = briefs.email_brief(self.client_obj, analytics.report_frame(self.client_obj.reviews.all()))

@@ -464,16 +464,15 @@ def export_pdf(client, frame, month=None, year=None, filename=None):
     return path
 
 
-def export_pdf_package(client, frame, monthly_frame=None):
+def export_pdf_package(client, frame):
     root = _client_folder(client)
-    monthly_frame = monthly_frame if monthly_frame is not None else frame
     files = []
     files.append(export_brief(client, frame, filename="00_FICHA_DE_ENVIO.pdf"))
     files.append(export_pdf(client, frame, filename="01_informe_general.pdf"))
     for year in sorted(frame["anio"].unique().tolist(), reverse=True) if not frame.empty else []:
         files.append(export_pdf(client, frame, year=int(year), filename=f"02_anio_{int(year)}.pdf"))
-    for month in sorted(monthly_frame["mes"].unique().tolist()) if not monthly_frame.empty else []:
-        files.append(export_pdf(client, monthly_frame, month=month, filename=f"03_mes_{month}.pdf"))
+    for month in sorted(frame["mes"].unique().tolist()) if not frame.empty else []:
+        files.append(export_pdf(client, frame, month=month, filename=f"03_mes_{month}.pdf"))
     zip_path = root / f"PAQUETE_PDF_{slugify(client.name)}.zip"
     with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED) as archive:
         archive.writestr(

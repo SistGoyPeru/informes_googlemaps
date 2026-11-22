@@ -1,4 +1,3 @@
-from datetime import datetime
 from urllib.parse import urlencode
 
 from django.contrib import messages
@@ -38,6 +37,17 @@ def _review_rows(source, limit=6):
         }
         for _, row in ordered.iterrows()
     ]
+
+
+def _complete_frame(client):
+    return analytics.complete_months(analytics.enrich(analytics.to_frame(client.reviews.all())))
+
+
+def _validate_period(frame, month=None, year=None):
+    if month and (frame.empty or month not in frame["mes"].tolist()):
+        raise Http404("Mes sin datos completos.")
+    if year and (frame.empty or int(year) not in frame["anio"].tolist()):
+        raise Http404("Año sin datos.")
 
 
 def _portfolio_context():
@@ -122,30 +132,21 @@ def update_client(request, pk):
 
 def client_report(request, pk):
     client = get_object_or_404(Client, pk=pk)
-    last_complete = analytics.last_complete_month()
-    current_month = datetime.now().strftime("%Y-%m")
-    raw_frame = analytics.enrich(analytics.to_frame(client.reviews.all()))
-    frame = analytics.complete_months(raw_frame)
+    frame = _complete_frame(client)
     requested_month = request.GET.get("month") or ""
-    active_frame = raw_frame if requested_month and requested_month > last_complete else frame
 
-    years = sorted(raw_frame["anio"].unique().tolist(), reverse=True) if not raw_frame.empty else []
+    years = sorted(frame["anio"].unique().tolist(), reverse=True) if not frame.empty else []
     try:
         year = int(request.GET.get("year") or (years[0] if years else 0))
     except (TypeError, ValueError):
         year = years[0] if years else 0
-    frame_year = active_frame[active_frame["anio"] == year] if year else active_frame
-    frame_complete_year = frame[frame["anio"] == year] if year else frame
+    frame_year = frame[frame["anio"] == year] if year else frame
+    frame_complete_year = frame_year
 
     months = sorted(frame_year["mes"].unique().tolist()) if not frame_year.empty else []
-    if current_month > last_complete and current_month.startswith(str(year)) and current_month not in months:
-        months.append(current_month)
     month = requested_month or (months[-1] if months else "")
     if month not in months:
         month = months[-1] if months else ""
-    if month and month > last_complete:
-        active_frame = raw_frame
-        frame_year = active_frame[active_frame["anio"] == year] if year else active_frame
     frame_month = frame_year[frame_year["mes"] == month] if month else frame_year
 
     weeks = analytics.week_options(frame_month, month) if month else []
@@ -202,7 +203,7 @@ def client_report(request, pk):
     brief_txt_url = reverse("export_brief_txt", args=[pk]) + brief_period
     brief = briefs.email_brief(
         client,
-        raw_frame,
+        frame,
         month if vista in ("mes", "semana", "dia") else None,
         year if vista == "anio" else None,
     )
@@ -217,7 +218,7 @@ def client_report(request, pk):
             "url": f"{pdf_base}?mes={value}",
             "active": value == month,
         }
-        for value in sorted(raw_frame["mes"].unique().tolist()) if not raw_frame.empty
+        for value in sorted(frame["mes"].unique().tolist()) if not frame.empty
     ]
     context = {
         "client": client,
@@ -292,8 +293,9 @@ def export_brief(request, pk):
     client = get_object_or_404(Client, pk=pk)
     month = request.GET.get("mes") or None
     year = request.GET.get("anio") or None
-    raw_frame = analytics.enrich(analytics.to_frame(client.reviews.all()))
-    path = reports.export_brief(client, raw_frame, month, year)
+    frame = _complete_frame(client)
+    _validate_period(frame, month, year)
+    path = reports.export_brief(client, frame, month, year)
     return FileResponse(path.open("rb"), as_attachment=True, filename=path.name, content_type="application/pdf")
 
 
@@ -301,7 +303,8 @@ def export_brief_txt(request, pk):
     client = get_object_or_404(Client, pk=pk)
     month = request.GET.get("mes") or None
     year = request.GET.get("anio") or None
-    frame = analytics.enrich(analytics.to_frame(client.reviews.all()))
+    frame = _complete_frame(client)
+    _validate_period(frame, month, year)
     data = briefs.email_brief(client, frame, month, year)
     content = (
         f"ASUNTO:\n{data['subject']}\n\n"
@@ -317,15 +320,14 @@ def export_pdf(request, pk):
     client = get_object_or_404(Client, pk=pk)
     month = request.GET.get("mes") or None
     year = request.GET.get("anio") or None
-    raw_frame = analytics.enrich(analytics.to_frame(client.reviews.all()))
-    frame = raw_frame if month else analytics.complete_months(raw_frame)
+    frame = _complete_frame(client)
+    _validate_period(frame, month, year)
     path = reports.export_pdf(client, frame, month, year)
     return FileResponse(path.open("rb"), as_attachment=True, filename=path.name, content_type="application/pdf")
 
 
 def export_pdf_package(request, pk):
     client = get_object_or_404(Client, pk=pk)
-    raw_frame = analytics.enrich(analytics.to_frame(client.reviews.all()))
-    frame = analytics.complete_months(raw_frame)
-    path, _ = reports.export_pdf_package(client, frame, raw_frame)
+    frame = _complete_frame(client)
+    path, _ = reports.export_pdf_package(client, frame)
     return FileResponse(path.open("rb"), as_attachment=True, filename=path.name, content_type="application/zip")
