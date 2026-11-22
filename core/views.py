@@ -65,11 +65,15 @@ def _validate_period(frame, month=None, year=None):
 
 
 def _portfolio_context():
+    portfolio_frame = analytics.report_frame(Review.objects.all())
+    portfolio_kpis = analytics.reputation_kpis(portfolio_frame)
+    portfolio_score = insights.scorecard(portfolio_kpis, prior=portfolio_kpis)
+
     rows = []
     for item in Client.objects.all():
         frame = analytics.report_frame(item.reviews.all())
         kpis = analytics.reputation_kpis(frame)
-        score = insights.scorecard(kpis)
+        score = insights.scorecard(kpis, prior=portfolio_kpis)
         rhythm = insights.review_rhythm(frame)
         monthly = analytics.monthly_table(frame)
         best = monthly.sort_values("Rating", ascending=False).iloc[0] if not monthly.empty else None
@@ -85,6 +89,9 @@ def _portfolio_context():
             "score": score["score"],
             "label": score["label"],
             "color": score["color"],
+            "confidence": score["confidence"],
+            "weighted_rating": score["weighted_rating"],
+            "volume_bonus": score["volume_bonus"],
             "total": kpis["total"],
             "positive_rate": kpis["positive_rate"],
             "five_rate": kpis["five_rate"],
@@ -128,9 +135,6 @@ def _portfolio_context():
             "summary": group_summary([row for zone in zones for row in zone["rows"]]),
         })
 
-    frame = analytics.report_frame(Review.objects.all())
-    kpis = analytics.reputation_kpis(frame)
-    score = insights.scorecard(kpis)
     guide = [
         {"name": "Rating medio", "why": "La nota general que ve cualquiera en Google. Se mide sobre 5 estrellas."},
         {"name": "Satisfacción", "why": "Es el rating convertido a porcentaje. 4,5★ equivale al 90% de satisfacción."},
@@ -138,14 +142,16 @@ def _portfolio_context():
         {"name": "Saldo neto", "why": "Positivas menos incidencias. Si baja, el negocio pierde confianza aunque tenga muchas reseñas."},
         {"name": "Respuesta a 1-2★", "why": "Muestra si el cliente enfadado recibe una solución. Es la palanca más rápida."},
         {"name": "Ritmo de reseñas", "why": "Reseñas nuevas por día en los últimos 30 días. Sin ritmo, la ficha se enfría."},
+        {"name": "Índice ajustado", "why": "Mezcla calidad y volumen: 20 reseñas 5★ no superan a 500 reseñas 4,7★."},
+        {"name": "Confianza", "why": "Peso del volumen en el índice. 100% significa 200 reseñas o más."},
     ]
     return {
         "rows": rows,
         "locations": locations,
         "country_count": len(locations),
         "zone_count": sum(len(item["zones"]) for item in locations),
-        "portfolio_kpis": kpis,
-        "portfolio_score": score,
+        "portfolio_kpis": portfolio_kpis,
+        "portfolio_score": portfolio_score,
         "ranking_chart": charts.client_ranking(rows),
         "guide": guide,
         "total_clients": len(rows),

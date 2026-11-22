@@ -56,6 +56,8 @@ class DashboardTests(TestCase):
         self.assertContains(response, "Ranking de clientes")
         self.assertContains(response, "KPIs que recomiendo vigilar")
         self.assertContains(response, "Clientes por país y zona")
+        self.assertContains(response, "Índice ajustado por volumen")
+        self.assertContains(response, "Confianza")
 
     def test_home_groups_clients_by_country_and_zone(self):
         Client.objects.create(
@@ -112,6 +114,27 @@ class DashboardTests(TestCase):
         country, zone = services.infer_location("Barcelona", "")
         self.assertEqual(country, "España")
         self.assertEqual(zone, "Barcelona")
+
+    def test_scorecard_rewards_review_volume(self):
+        small = {
+            "total": 10,
+            "average": 5.0,
+            "positive_rate": 100.0,
+            "negative_rate": 0.0,
+            "response_rate": 100.0,
+        }
+        large = {
+            "total": 500,
+            "average": 4.6,
+            "positive_rate": 92.0,
+            "negative_rate": 4.0,
+            "response_rate": 90.0,
+        }
+        small_score = insights.scorecard(small)
+        large_score = insights.scorecard(large)
+        self.assertGreater(large_score["score"], small_score["score"])
+        self.assertGreater(large_score["confidence"], small_score["confidence"])
+        self.assertGreater(large_score["weighted_rating"], small_score["weighted_rating"])
 
     def test_ai_agent_gives_free_local_analysis(self):
         answer, source = agent.answer_client_question(self.client_obj, "¿Cómo consigo más valoraciones positivas?")

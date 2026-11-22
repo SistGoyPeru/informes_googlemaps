@@ -18,14 +18,44 @@ def review_rhythm(frame):
     }
 
 
-def scorecard(kpis):
+DEFAULT_PRIOR = {
+    "average": 4.2,
+    "positive_rate": 84.0,
+    "negative_rate": 6.0,
+    "response_rate": 80.0,
+}
+
+
+def _shrink(value, total, prior, strength):
+    return (float(value) * total + float(prior) * strength) / (total + strength)
+
+
+def scorecard(kpis, prior=None, strength=50):
+    empty = {
+        "score": 0,
+        "label": "Sin datos",
+        "color": "#64748B",
+        "confidence": 0,
+        "weighted_rating": 0,
+        "volume_bonus": 0,
+    }
     if not kpis.get("total"):
-        return {"score": 0, "label": "Sin datos", "color": "#64748B"}
+        return empty
+
+    baseline = dict(DEFAULT_PRIOR)
+    baseline.update(prior or {})
+    total = float(kpis.get("total") or 0)
+    average = _shrink(kpis.get("average") or 0, total, baseline["average"], strength)
+    positive_rate = _shrink(kpis.get("positive_rate") or 0, total, baseline["positive_rate"], strength)
+    negative_rate = _shrink(kpis.get("negative_rate") or 0, total, baseline["negative_rate"], strength)
+    response_rate = _shrink(kpis.get("response_rate") or 0, total, baseline["response_rate"], strength)
+    volume_bonus = min(6.0, total / 100 * 1.5)
     score = (
-        kpis["average"] / 5 * 58
-        + kpis["positive_rate"] * 0.22
-        + (100 - kpis["negative_rate"]) * 0.12
-        + kpis["response_rate"] * 0.08
+        average / 5 * 58
+        + positive_rate * 0.22
+        + (100 - negative_rate) * 0.12
+        + response_rate * 0.08
+        + volume_bonus
     )
     score = round(min(score, 100), 1)
     if score >= 90:
@@ -40,7 +70,14 @@ def scorecard(kpis):
     else:
         label = "Atención urgente"
         color = "#EF4444"
-    return {"score": score, "label": label, "color": color}
+    return {
+        "score": score,
+        "label": label,
+        "color": color,
+        "confidence": round(min(100.0, total / 200 * 100), 1),
+        "weighted_rating": round(average, 2),
+        "volume_bonus": round(volume_bonus, 1),
+    }
 
 
 def growth_playbook(kpis, themes, low_volume, recent_per_day):

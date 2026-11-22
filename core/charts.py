@@ -96,18 +96,18 @@ def distribution(frame):
 def client_ranking(rows):
     if not rows:
         return ""
-    ordered = sorted(rows, key=lambda item: item["average"], reverse=True)
-    figure, axes = _base("Ranking de rating por cliente", 3.1)
-    labels = [item["name"][:24] for item in ordered]
-    values = [item["average"] for item in ordered]
+    ordered = sorted(rows, key=lambda item: item.get("score", item.get("average", 0)), reverse=True)
+    figure, axes = _base("Ranking ajustado por volumen", 3.1)
+    labels = [f"{item['name'][:20]} ({item.get('total', 0)})" for item in ordered]
+    values = [item.get("score", item.get("average", 0) * 20) for item in ordered]
     positions = list(range(len(labels)))
     bars = axes.barh(positions, values, color=CHART_COLORS["volume"], height=0.58)
     axes.set_yticks(positions)
     axes.set_yticklabels(labels, fontsize=9)
     axes.invert_yaxis()
-    axes.set_xlim(0, 5.2)
-    axes.set_xlabel("Rating medio")
-    axes.bar_label(bars, labels=[f"{value:.2f}★" for value in values], padding=4, fontsize=9)
+    axes.set_xlim(0, 100)
+    axes.set_xlabel("Índice ajustado")
+    axes.bar_label(bars, labels=[f"{value:.0f}" for value in values], padding=4, fontsize=9)
     figure.tight_layout()
     return _encode(figure)
 

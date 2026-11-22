@@ -185,6 +185,7 @@ def get_styles():
 def _kpi_table(kpis, score):
     rows = [
         ["Rating medio", f"{kpis['average']:.2f}★", "Índice reputación", f"{score['score']:.0f} · {score['label']}"],
+        ["Rating ajustado", f"{score.get('weighted_rating', kpis['average']):.2f}★", "Confianza por volumen", f"{score.get('confidence', 0):.0f}%"],
         ["Satisfacción", f"{kpis['satisfaction']:.1f}%", "Reseñas analizadas", kpis["total"]],
         ["Excelencia 5★", f"{kpis['five_rate']:.1f}%", "Positivas 4-5★", f"{kpis['positive_rate']:.1f}%"],
         ["Incidencias 1-2★", kpis["negative"], "Respuesta a 1-2★", f"{kpis['negative_response_rate']:.1f}%"],
