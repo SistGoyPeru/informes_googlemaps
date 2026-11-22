@@ -64,6 +64,7 @@ class DashboardTests(TestCase):
         self.assertContains(response, "Reportes PDF profesionales")
         self.assertContains(response, "Ficha para enviar por correo")
         self.assertContains(response, "Descargar TXT para correo")
+        self.assertContains(response, "?v=")
         self.assertNotIn("faltan días", response.content.decode("utf-8"))
 
     def test_incomplete_current_month_is_excluded(self):
@@ -133,6 +134,7 @@ class DashboardTests(TestCase):
             response = self.client.get(reverse("export_pdf", args=[self.client_obj.pk]), query)
             self.assertEqual(response.status_code, 200)
             self.assertEqual(response["Content-Type"], "application/pdf")
+            self.assertIn("no-store", response["Cache-Control"])
             self.assertTrue(b"%PDF" in b"".join(response.streaming_content)[:1024])
         response = self.client.get(reverse("export_pdf_package", args=[self.client_obj.pk]))
         self.assertEqual(response.status_code, 200)

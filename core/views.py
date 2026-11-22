@@ -1,3 +1,4 @@
+from time import time
 from urllib.parse import urlencode
 
 from django.contrib import messages
@@ -21,6 +22,18 @@ def _report_url(pk, vista="total", year=None, month=None, week=None, day=None):
     if day:
         params["day"] = day
     return f"{reverse('client_report', args=[pk])}?{urlencode(params)}"
+
+
+def _no_cache(response):
+    response["Cache-Control"] = "no-store, no-cache, must-revalidate, max-age=0"
+    response["Pragma"] = "no-cache"
+    response["Expires"] = "0"
+    return response
+
+
+def _stamped(url):
+    separator = "&" if "?" in url else "?"
+    return f"{url}{separator}v={int(time())}"
 
 
 def _review_rows(source, limit=6):
@@ -199,8 +212,8 @@ def client_report(request, pk):
     ]
     pdf_base = reverse("export_pdf", args=[pk])
     brief_period = f"?mes={month}" if vista in ("mes", "semana", "dia") and month else (f"?anio={year}" if vista == "anio" and year else "")
-    brief_pdf_url = reverse("export_brief", args=[pk]) + brief_period
-    brief_txt_url = reverse("export_brief_txt", args=[pk]) + brief_period
+    brief_pdf_url = _stamped(reverse("export_brief", args=[pk]) + brief_period)
+    brief_txt_url = _stamped(reverse("export_brief_txt", args=[pk]) + brief_period)
     brief = briefs.email_brief(
         client,
         frame,
@@ -208,14 +221,14 @@ def client_report(request, pk):
         year if vista == "anio" else None,
     )
     pdf_years = [
-        {"year": int(value), "url": f"{pdf_base}?anio={int(value)}", "active": int(value) == year}
+        {"year": int(value), "url": _stamped(f"{pdf_base}?anio={int(value)}"), "active": int(value) == year}
         for value in (frame["anio"].unique().tolist() if not frame.empty else [])
     ]
     pdf_months = [
         {
             "month": value,
             "label": analytics.month_label(value),
-            "url": f"{pdf_base}?mes={value}",
+            "url": _stamped(f"{pdf_base}?mes={value}"),
             "active": value == month,
         }
         for value in sorted(frame["mes"].unique().tolist()) if not frame.empty
@@ -262,18 +275,18 @@ def client_report(request, pk):
         "reviews": _review_rows(subset if vista == "dia" else frame, 6),
         "positive_quotes": analytics.verbatims(subset, True),
         "negative_quotes": analytics.verbatims(subset, False),
-        "pdf_url": pdf_base + (f"?mes={month}" if month else (f"?anio={year}" if vista == "anio" else "")),
-        "pdf_general_url": pdf_base,
-        "pdf_year_url": pdf_base + (f"?anio={year}" if year else ""),
-        "pdf_month_url": pdf_base + (f"?mes={month}" if month else ""),
-        "pdf_package_url": reverse("export_pdf_package", args=[pk]),
+        "pdf_url": _stamped(pdf_base + (f"?mes={month}" if month else (f"?anio={year}" if vista == "anio" else ""))),
+        "pdf_general_url": _stamped(pdf_base),
+        "pdf_year_url": _stamped(pdf_base + (f"?anio={year}" if year else "")),
+        "pdf_month_url": _stamped(pdf_base + (f"?mes={month}" if month else "")),
+        "pdf_package_url": _stamped(reverse("export_pdf_package", args=[pk])),
         "brief": brief,
         "brief_pdf_url": brief_pdf_url,
         "brief_txt_url": brief_txt_url,
         "pdf_years": pdf_years,
         "pdf_months": pdf_months,
-        "csv_resumen": reverse("export_csv", args=[pk]) + "?tipo=resumen",
-        "csv_resenas": reverse("export_csv", args=[pk]) + "?tipo=resenas",
+        "csv_resumen": _stamped(reverse("export_csv", args=[pk]) + "?tipo=resumen"),
+        "csv_resenas": _stamped(reverse("export_csv", args=[pk]) + "?tipo=resenas"),
     }
     return render(request, "core/report.html", context)
 
@@ -286,7 +299,7 @@ def export_csv(request, pk):
         raise Http404("Tipo de CSV no válido")
     frame = analytics.report_frame(client.reviews.all())
     path = reports.export_csv(client, kind, frame)
-    return FileResponse(path.open("rb"), as_attachment=True, filename=path.name, content_type="text/csv; charset=utf-8")
+    return _no_cache(FileResponse(path.open("rb"), as_attachment=True, filename=path.name, content_type="text/csv; charset=utf-8"))
 
 
 def export_brief(request, pk):
@@ -296,7 +309,7 @@ def export_brief(request, pk):
     frame = _complete_frame(client)
     _validate_period(frame, month, year)
     path = reports.export_brief(client, frame, month, year)
-    return FileResponse(path.open("rb"), as_attachment=True, filename=path.name, content_type="application/pdf")
+    return _no_cache(FileResponse(path.open("rb"), as_attachment=True, filename=path.name, content_type="application/pdf"))
 
 
 def export_brief_txt(request, pk):
@@ -313,7 +326,7 @@ def export_brief_txt(request, pk):
     )
     response = HttpResponse(content, content_type="text/plain; charset=utf-8")
     response["Content-Disposition"] = f'attachment; filename="ficha_correo_cliente_{pk}.txt"'
-    return response
+    return _no_cache(response)
 
 
 def export_pdf(request, pk):
@@ -323,11 +336,11 @@ def export_pdf(request, pk):
     frame = _complete_frame(client)
     _validate_period(frame, month, year)
     path = reports.export_pdf(client, frame, month, year)
-    return FileResponse(path.open("rb"), as_attachment=True, filename=path.name, content_type="application/pdf")
+    return _no_cache(FileResponse(path.open("rb"), as_attachment=True, filename=path.name, content_type="application/pdf"))
 
 
 def export_pdf_package(request, pk):
     client = get_object_or_404(Client, pk=pk)
     frame = _complete_frame(client)
     path, _ = reports.export_pdf_package(client, frame)
-    return FileResponse(path.open("rb"), as_attachment=True, filename=path.name, content_type="application/zip")
+    return _no_cache(FileResponse(path.open("rb"), as_attachment=True, filename=path.name, content_type="application/zip"))
