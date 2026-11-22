@@ -33,14 +33,20 @@ def _volume_rating(labels, volume, rating, title):
     if not len(labels):
         return ""
     figure, axes = _base(title)
-    positions = range(len(labels))
-    axes.bar(positions, volume, color=CHART_COLORS["volume"], width=0.58, label="Reseñas")
-    axes.set_xticks(list(positions))
-    axes.set_xticklabels(labels, rotation=28, ha="right", fontsize=8)
+    positions = list(range(len(labels)))
+    bars = axes.bar(positions, volume, color=CHART_COLORS["volume"], width=0.58, label="Reseñas")
+    step = max(1, (len(labels) - 1) // 7 + 1)
+    axes.set_xticks(positions[::step])
+    axes.set_xticklabels([labels[index] for index in positions[::step]], rotation=24, ha="right", fontsize=8)
     axes.set_ylabel("Reseñas", color=CHART_COLORS["volume"])
+    if len(labels) <= 12:
+        axes.bar_label(bars, fmt="%d", padding=2, fontsize=8)
     secondary = axes.twinx()
     secondary.plot(positions, rating, color=CHART_COLORS["rating"], marker="o", linewidth=2.4, label="Rating")
-    secondary.set_ylim(1, 5.2)
+    if len(labels) <= 12:
+        for position, value in zip(positions, rating):
+            secondary.annotate(f"{value:.2f}", (position, value), textcoords="offset points", xytext=(0, 6), ha="center", fontsize=7)
+    secondary.set_ylim(1, 5.5)
     secondary.set_ylabel("Rating", color=CHART_COLORS["rating"])
     secondary.spines["top"].set_visible(False)
     figure.tight_layout()

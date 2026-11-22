@@ -13,6 +13,7 @@ from reportlab.lib.enums import TA_CENTER
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.lib.units import mm
+from reportlab.lib.utils import ImageReader
 from reportlab.platypus import Image, KeepTogether, PageBreak, Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
 
 from . import analytics, charts, insights
@@ -251,10 +252,14 @@ def _talk_script(diagnosis, kpis, styles):
     ]
 
 
-def _image(value):
+def _image(value, width=440):
     if not value:
         return None
-    return Image(io.BytesIO(base64.b64decode(value)), width=455)
+    data = base64.b64decode(value)
+    reader = ImageReader(io.BytesIO(data))
+    pixel_width, pixel_height = reader.getSize()
+    height = width * pixel_height / pixel_width
+    return Image(io.BytesIO(data), width=width, height=height)
 
 
 def _chart_block(title, value, note, styles):
@@ -271,7 +276,8 @@ def _scope(frame, month=None, year=None):
     note = f" · Datos hasta {analytics.month_label(cutoff)}"
     if month:
         subset = frame[frame["mes"] == month]
-        return subset, subset, "mensual", analytics.month_label(month) + note, f"Informe mensual · {analytics.month_label(month)}"
+        month_note = " · Mes en curso: pueden faltar días" if month > cutoff else note
+        return subset, subset, "mensual", analytics.month_label(month) + month_note, f"Informe mensual · {analytics.month_label(month)}"
     if year:
         subset = frame[frame["anio"] == year]
         return subset, subset, "anual", f"Año {year}{note}", f"Informe anual · {year}"
@@ -397,14 +403,15 @@ def export_pdf(client, frame, month=None, year=None, filename=None):
     return path
 
 
-def export_pdf_package(client, frame):
+def export_pdf_package(client, frame, monthly_frame=None):
     root = _client_folder(client)
+    monthly_frame = monthly_frame if monthly_frame is not None else frame
     files = []
     files.append(export_pdf(client, frame, filename="01_informe_general.pdf"))
     for year in sorted(frame["anio"].unique().tolist(), reverse=True) if not frame.empty else []:
         files.append(export_pdf(client, frame, year=int(year), filename=f"02_anio_{int(year)}.pdf"))
-    for month in sorted(frame["mes"].unique().tolist()) if not frame.empty else []:
-        files.append(export_pdf(client, frame, month=month, filename=f"03_mes_{month}.pdf"))
+    for month in sorted(monthly_frame["mes"].unique().tolist()) if not monthly_frame.empty else []:
+        files.append(export_pdf(client, monthly_frame, month=month, filename=f"03_mes_{month}.pdf"))
     zip_path = root / f"PAQUETE_PDF_{slugify(client.name)}.zip"
     with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED) as archive:
         archive.writestr(

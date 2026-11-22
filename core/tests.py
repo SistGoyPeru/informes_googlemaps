@@ -78,6 +78,26 @@ class DashboardTests(TestCase):
             self.assertNotIn(current, frame["mes"].tolist())
             self.assertIn(self.month, frame["mes"].tolist())
 
+    def test_monthly_pdf_includes_incomplete_current_month(self):
+        current = datetime.now().strftime("%Y-%m")
+        last_complete = analytics.last_complete_month()
+        if current > last_complete:
+            Review.objects.create(
+                client=self.client_obj,
+                review_id="r4",
+                author="Mes actual",
+                rating=4,
+                date=date(int(current[:4]), int(current[5:]), 1),
+                text="Reseña del mes en curso.",
+                owner_response="Gracias",
+            )
+            response = self.client.get(reverse("export_pdf", args=[self.client_obj.pk]), {"mes": current})
+            self.assertEqual(response.status_code, 200)
+            self.assertEqual(response["Content-Type"], "application/pdf")
+            package = self.client.get(reverse("export_pdf_package", args=[self.client_obj.pk]))
+            archive = zipfile.ZipFile(BytesIO(b"".join(package.streaming_content)))
+            self.assertTrue(any(f"03_mes_{current}.pdf" in name for name in archive.namelist()))
+
     def test_pdf_general_year_month_and_package(self):
         for query in ({}, {"anio": self.year}, {"mes": self.month}):
             response = self.client.get(reverse("export_pdf", args=[self.client_obj.pk]), query)

@@ -126,19 +126,30 @@ def update_client(request, pk):
 
 def client_report(request, pk):
     client = get_object_or_404(Client, pk=pk)
-    frame = analytics.report_frame(client.reviews.all())
+    last_complete = analytics.last_complete_month()
+    current_month = datetime.now().strftime("%Y-%m")
+    raw_frame = analytics.enrich(analytics.to_frame(client.reviews.all()))
+    frame = analytics.complete_months(raw_frame)
+    requested_month = request.GET.get("month") or ""
+    active_frame = raw_frame if requested_month and requested_month > last_complete else frame
 
-    years = sorted(frame["anio"].unique().tolist(), reverse=True) if not frame.empty else []
+    years = sorted(raw_frame["anio"].unique().tolist(), reverse=True) if not raw_frame.empty else []
     try:
         year = int(request.GET.get("year") or (years[0] if years else 0))
     except (TypeError, ValueError):
         year = years[0] if years else 0
-    frame_year = frame[frame["anio"] == year] if year else frame
+    frame_year = active_frame[active_frame["anio"] == year] if year else active_frame
+    frame_complete_year = frame[frame["anio"] == year] if year else frame
 
     months = sorted(frame_year["mes"].unique().tolist()) if not frame_year.empty else []
-    month = request.GET.get("month") or (months[-1] if months else "")
+    if current_month > last_complete and current_month.startswith(str(year)) and current_month not in months:
+        months.append(current_month)
+    month = requested_month or (months[-1] if months else "")
     if month not in months:
         month = months[-1] if months else ""
+    if month and month > last_complete:
+        active_frame = raw_frame
+        frame_year = active_frame[active_frame["anio"] == year] if year else active_frame
     frame_month = frame_year[frame_year["mes"] == month] if month else frame_year
 
     weeks = analytics.week_options(frame_month, month) if month else []
@@ -159,7 +170,7 @@ def client_report(request, pk):
     vista = request.GET.get("vista", "total")
     views_map = {
         "total": frame,
-        "anio": frame_year,
+        "anio": frame_complete_year,
         "mes": frame_month,
         "semana": frame_week,
         "dia": frame_day,
@@ -168,7 +179,7 @@ def client_report(request, pk):
         vista = "total"
     subset = views_map[vista]
 
-    chart_source = frame_year if vista in ("anio", "mes", "semana", "dia") else frame
+    chart_source = frame_complete_year if vista == "anio" else (frame_year if vista in ("mes", "semana", "dia") else frame)
     period_labels = {
         "total": f"Histórico completo · {frame['mes'].min() if not frame.empty else 'sin datos'} a {frame['mes'].max() if not frame.empty else 'sin datos'}",
         "anio": f"Año {year}" if year else "Año sin datos",
@@ -190,8 +201,6 @@ def client_report(request, pk):
         for item in Client.objects.all()
     ]
     pdf_base = reverse("export_pdf", args=[pk])
-    last_complete = analytics.last_complete_month()
-    current_month = datetime.now().strftime("%Y-%m")
     pdf_years = [
         {"year": int(value), "url": f"{pdf_base}?anio={int(value)}", "active": int(value) == year}
         for value in (frame["anio"].unique().tolist() if not frame.empty else [])
@@ -203,7 +212,7 @@ def client_report(request, pk):
             "url": f"{pdf_base}?mes={value}",
             "active": value == month,
         }
-        for value in sorted(frame["mes"].unique().tolist()) if not frame.empty
+        for value in sorted(raw_frame["mes"].unique().tolist()) if not raw_frame.empty
     ]
     context = {
         "client": client,
@@ -275,15 +284,17 @@ def export_csv(request, pk):
 
 def export_pdf(request, pk):
     client = get_object_or_404(Client, pk=pk)
-    frame = analytics.report_frame(client.reviews.all())
     month = request.GET.get("mes") or None
     year = request.GET.get("anio") or None
+    raw_frame = analytics.enrich(analytics.to_frame(client.reviews.all()))
+    frame = raw_frame if month else analytics.complete_months(raw_frame)
     path = reports.export_pdf(client, frame, month, year)
     return FileResponse(path.open("rb"), as_attachment=True, filename=path.name, content_type="application/pdf")
 
 
 def export_pdf_package(request, pk):
     client = get_object_or_404(Client, pk=pk)
-    frame = analytics.report_frame(client.reviews.all())
-    path, _ = reports.export_pdf_package(client, frame)
+    raw_frame = analytics.enrich(analytics.to_frame(client.reviews.all()))
+    frame = analytics.complete_months(raw_frame)
+    path, _ = reports.export_pdf_package(client, frame, raw_frame)
     return FileResponse(path.open("rb"), as_attachment=True, filename=path.name, content_type="application/zip")
