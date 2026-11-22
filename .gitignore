@@ -6,6 +6,7 @@ db.sqlite3
 .env
 media/exports/
 data/chrome_profile/
+data/chrome_profile_basic/
 data/clients/
 .DS_Store
 Thumbs.db
