@@ -1,8 +1,10 @@
 import base64
 import csv
 import io
+import zipfile
 from datetime import datetime
 from pathlib import Path
+from xml.sax.saxutils import escape
 
 from django.conf import settings
 from django.utils.text import slugify
@@ -11,13 +13,25 @@ from reportlab.lib.enums import TA_CENTER
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.lib.units import mm
-from reportlab.platypus import Image, PageBreak, Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
+from reportlab.platypus import Image, KeepTogether, PageBreak, Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
 
-from . import analytics, charts
+from . import analytics, charts, insights
 from .models import Review
 
 BASE_DIR = Path(__file__).resolve().parents[1]
 LOGO = BASE_DIR / "static" / "assets" / "logo.jpg"
+BRAND = "INFORMES GOOGLE MAPS"
+AUTHOR = "Alex Goyzueta"
+WHATSAPP = "+34 624 59 23 98"
+WHATSAPP_URL = "https://wa.me/34624592398"
+EMAIL = "alexgoyzueta2018@gmail.com"
+NAVY = colors.HexColor("#240C48")
+BLUE = colors.HexColor("#395B84")
+LIGHT_BLUE = colors.HexColor("#EEF2F8")
+GRID = colors.HexColor("#D7DEEA")
+GOOD = colors.HexColor("#10B981")
+BAD = colors.HexColor("#EF4444")
+WARN = colors.HexColor("#F59E0B")
 
 
 def _client_folder(client):
@@ -78,34 +92,163 @@ def export_csv(client, kind, frame=None):
 def _styles():
     base = getSampleStyleSheet()
     return {
-        "title": ParagraphStyle("TitleEs", parent=base["Title"], fontSize=20, leading=24, textColor=colors.HexColor("#240C48")),
-        "h2": ParagraphStyle("H2Es", parent=base["Heading2"], fontSize=13, leading=16, textColor=colors.HexColor("#395B84"), spaceBefore=10, spaceAfter=5),
+        "title": ParagraphStyle("TitleEs", parent=base["Title"], fontSize=22, leading=26, textColor=NAVY, spaceAfter=2),
+        "subtitle": ParagraphStyle("SubEs", parent=base["Normal"], fontSize=10, leading=14, textColor=BLUE, spaceAfter=8),
+        "h2": ParagraphStyle("H2Es", parent=base["Heading2"], fontSize=13, leading=16, textColor=BLUE, spaceBefore=10, spaceAfter=5),
+        "h3": ParagraphStyle("H3Es", parent=base["Heading3"], fontSize=10.5, leading=13, textColor=NAVY, spaceBefore=4, spaceAfter=5),
         "body": ParagraphStyle("BodyEs", parent=base["BodyText"], fontSize=9, leading=13),
         "small": ParagraphStyle("SmallEs", parent=base["BodyText"], fontSize=7.4, leading=9.4),
-        "center": ParagraphStyle("CenterEs", parent=base["BodyText"], alignment=TA_CENTER, fontSize=9, leading=12),
-        "bad": ParagraphStyle("BadEs", parent=base["BodyText"], fontSize=9, leading=13, textColor=colors.HexColor("#B91C1C")),
+        "note": ParagraphStyle("NoteEs", parent=base["BodyText"], fontSize=8, leading=11, textColor=colors.HexColor("#475569"), backColor=colors.HexColor("#F5F8FC"), borderPadding=5, spaceBefore=3),
+        "center": ParagraphStyle("CenterEs", parent=base["BodyText"], alignment=TA_CENTER, fontSize=9, leading=12, textColor=BLUE),
+        "good": ParagraphStyle("GoodEs", parent=base["BodyText"], fontSize=9, leading=13, textColor=colors.HexColor("#065F46")),
+        "bad": ParagraphStyle("BadEs", parent=base["BodyText"], fontSize=9, leading=13, textColor=colors.HexColor("#991B1B")),
+        "white": ParagraphStyle("WhiteEs", parent=base["BodyText"], fontSize=9, leading=12, textColor=colors.white),
     }
 
 
-def _table(records, styles, max_rows=None):
+def _para(text, style):
+    return Paragraph(escape(str(text)), style)
+
+
+def _decorate(canvas, doc, client, period):
+    width, height = A4
+    canvas.saveState()
+    canvas.setFillColor(NAVY)
+    canvas.rect(0, height - 22 * mm, width, 22 * mm, fill=1, stroke=0)
+    if LOGO.exists():
+        canvas.drawImage(str(LOGO), 14 * mm, height - 18 * mm, 14 * mm, 14 * mm, preserveAspectRatio=True)
+    canvas.setFillColor(colors.white)
+    canvas.setFont("Helvetica-Bold", 9.5)
+    canvas.drawString(32 * mm, height - 10 * mm, BRAND)
+    canvas.setFont("Helvetica", 7.5)
+    canvas.drawString(32 * mm, height - 15 * mm, f"{client.name[:62]} · {period[:62]}")
+    canvas.setStrokeColor(GRID)
+    canvas.line(16 * mm, 15 * mm, width - 16 * mm, 15 * mm)
+    canvas.setFillColor(colors.HexColor("#64748B"))
+    canvas.setFont("Helvetica", 7)
+    canvas.drawString(16 * mm, 10 * mm, f"WhatsApp {WHATSAPP} · {EMAIL}")
+    canvas.drawRightString(width - 16 * mm, 10 * mm, f"Página {doc.page}")
+    canvas.restoreState()
+
+
+def _table(records, styles, col_widths=None, max_rows=None):
     if not records:
-        return Paragraph("Sin datos para este periodo.", styles["body"])
+        return _para("Sin datos para este periodo.", styles["body"])
     rows = records[:max_rows] if max_rows else records
-    header = [Paragraph(f"<b>{key}</b>", styles["small"]) for key in rows[0].keys()]
-    body = [[Paragraph(str(value), styles["small"]) for value in row.values()] for row in rows]
-    table = Table([header] + body, repeatRows=1, hAlign="LEFT")
-    table.setStyle(TableStyle([
-        ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#240C48")),
+    header = [_para(key, styles["small"]) for key in rows[0].keys()]
+    body = [[_para(value, styles["small"]) for value in row.values()] for row in rows]
+    table = Table([header] + body, colWidths=col_widths, repeatRows=1, hAlign="LEFT")
+    style = [
+        ("BACKGROUND", (0, 0), (-1, 0), NAVY),
         ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
-        ("GRID", (0, 0), (-1, -1), 0.4, colors.HexColor("#D7DEEA")),
+        ("GRID", (0, 0), (-1, -1), 0.4, GRID),
         ("ROWBACKGROUNDS", (0, 1), (-1, -1), [colors.white, colors.HexColor("#F5F8FC")]),
         ("VALIGN", (0, 0), (-1, -1), "TOP"),
         ("LEFTPADDING", (0, 0), (-1, -1), 4),
         ("RIGHTPADDING", (0, 0), (-1, -1), 4),
         ("TOPPADDING", (0, 0), (-1, -1), 3),
         ("BOTTOMPADDING", (0, 0), (-1, -1), 3),
+    ]
+    table.setStyle(TableStyle(style))
+    return table
+
+
+def _profile_table(client):
+    rows = [
+        ["Local", client.name],
+        ["Categoría", client.category or "Google Business Profile"],
+        ["Dirección", client.address or "No disponible"],
+        ["Teléfono", client.phone or "No disponible"],
+        ["Google", f"{client.rating or 0:.2f}★ · {client.review_total} reseñas · {client.photo_total} fotos · {client.customer_photos} de clientes"],
+        ["Ficha", client.source_url],
+        ["Actualizado", client.last_scraped.strftime("%d/%m/%Y %H:%M") if client.last_scraped else "Sin fecha"],
+    ]
+    table = Table([[_para(key, get_styles()["small"]), _para(value, get_styles()["small"])] for key, value in rows], colWidths=[30 * mm, 146 * mm])
+    table.setStyle(TableStyle([
+        ("BACKGROUND", (0, 0), (0, -1), LIGHT_BLUE),
+        ("GRID", (0, 0), (-1, -1), 0.4, GRID),
+        ("VALIGN", (0, 0), (-1, -1), "TOP"),
+        ("LEFTPADDING", (0, 0), (-1, -1), 5),
+        ("RIGHTPADDING", (0, 0), (-1, -1), 5),
+        ("TOPPADDING", (0, 0), (-1, -1), 4),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
     ]))
     return table
+
+
+def get_styles():
+    return _styles()
+
+
+def _kpi_table(kpis, score):
+    rows = [
+        ["Rating medio", f"{kpis['average']:.2f}★", "Índice reputación", f"{score['score']:.0f} · {score['label']}"],
+        ["Satisfacción", f"{kpis['satisfaction']:.1f}%", "Reseñas analizadas", kpis["total"]],
+        ["Excelencia 5★", f"{kpis['five_rate']:.1f}%", "Positivas 4-5★", f"{kpis['positive_rate']:.1f}%"],
+        ["Incidencias 1-2★", kpis["negative"], "Respuesta a 1-2★", f"{kpis['negative_response_rate']:.1f}%"],
+        ["Saldo neto", f"+{kpis['balance']:.1f}", "Respuestas", f"{kpis['response_rate']:.1f}%"],
+    ]
+    styles = _styles()
+    data = [[_para(left, styles["small"]), _para(right, styles["small"]), _para(left2, styles["small"]), _para(right2, styles["small"])] for left, right, left2, right2 in rows]
+    table = Table(data, colWidths=[35 * mm, 40 * mm, 42 * mm, 59 * mm])
+    table.setStyle(TableStyle([
+        ("GRID", (0, 0), (-1, -1), 0.5, GRID),
+        ("BACKGROUND", (0, 0), (0, -1), LIGHT_BLUE),
+        ("BACKGROUND", (2, 0), (2, -1), LIGHT_BLUE),
+        ("VALIGN", (0, 0), (-1, -1), "MIDDLE"),
+        ("TOPPADDING", (0, 0), (-1, -1), 5),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 5),
+    ]))
+    return table
+
+
+def _recommendation_table(actions, styles):
+    rows = [
+        [_para(action.get("priority", ""), styles["small"]),
+         _para(action.get("title", ""), styles["small"]),
+         _para(action.get("detail", ""), styles["small"]),
+         _para(action.get("kpi", ""), styles["small"])]
+        for action in actions
+    ]
+    data = [[_para("Prioridad", styles["small"]), _para("Acción", styles["small"]), _para("Cómo hacerlo", styles["small"]), _para("KPI objetivo", styles["small"])]] + rows
+    table = Table(data, colWidths=[18 * mm, 40 * mm, 80 * mm, 38 * mm], repeatRows=1)
+    table.setStyle(TableStyle([
+        ("BACKGROUND", (0, 0), (-1, 0), NAVY),
+        ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
+        ("GRID", (0, 0), (-1, -1), 0.4, GRID),
+        ("ROWBACKGROUNDS", (0, 1), (-1, -1), [colors.white, colors.HexColor("#F5F8FC")]),
+        ("VALIGN", (0, 0), (-1, -1), "TOP"),
+        ("LEFTPADDING", (0, 0), (-1, -1), 4),
+        ("RIGHTPADDING", (0, 0), (-1, -1), 4),
+        ("TOPPADDING", (0, 0), (-1, -1), 4),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
+    ]))
+    return table
+
+
+def _glossary_table(styles):
+    rows = [
+        {"KPI": "Rating medio", "Qué significa": "Nota de 1 a 5 estrellas que ve el cliente en Google", "Por qué importa": "Es la primera impresión del negocio"},
+        {"KPI": "Satisfacción", "Qué significa": "El rating convertido a porcentaje; 4,5★ son 90%", "Por qué importa": "Permite comparar meses aunque cambie el volumen"},
+        {"KPI": "Excelencia 5★", "Qué significa": "Porcentaje de clientes que dan la máxima nota", "Por qué importa": "Mide clientes encantados, no solo conformes"},
+        {"KPI": "Saldo neto", "Qué significa": "Positivas (4-5★) menos incidencias (1-2★)", "Por qué importa": "Resume si la reputación suma o pierde confianza"},
+        {"KPI": "Respuesta a 1-2★", "Qué significa": "Porcentaje de reseñas negativas contestadas", "Por qué importa": "Es la acción más rápida para recuperar cliente"},
+        {"KPI": "Ritmo de reseñas", "Qué significa": "Reseñas nuevas por día en los últimos 30 días", "Por qué importa": "Sin entradas nuevas, la ficha pierde frescura"},
+    ]
+    return _table(rows, styles, col_widths=[34 * mm, 80 * mm, 62 * mm])
+
+
+def _talk_script(diagnosis, kpis, styles):
+    actions = diagnosis.get("actions", [])
+    return [
+        _para("Paso 1 · Qué pasó", styles["h3"]),
+        _para(diagnosis["headline"], styles["body"]),
+        _para("Paso 2 · Por qué pasó", styles["h3"]),
+        _para(f"Las reseñas positivas se concentran en {diagnosis.get('strengths', ['el servicio'])[0].lower()} " if diagnosis.get("strengths") else "No hay suficientes comentarios para explicar la causa. ", styles["body"]),
+        _para(f"Las incidencias y la baja respuesta explican la parte débil: se contesta el {kpis['negative_response_rate']:.1f}% de los comentarios de 1-2★.", styles["body"]),
+        _para("Paso 3 · Qué hacemos ahora", styles["h3"]),
+        _para(actions[0]["detail"] if actions else "Mantener el nivel actual y revisar el informe del próximo mes.", styles["body"]),
+    ]
 
 
 def _image(value):
@@ -114,108 +257,160 @@ def _image(value):
     return Image(io.BytesIO(base64.b64decode(value)), width=455)
 
 
-def export_pdf(client, frame, month=None):
-    folder = _client_folder(client)
-    suffix = month or "general"
-    path = folder / f"informe_{suffix}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.pdf"
+def _chart_block(title, value, note, styles):
+    items = [_para(title, styles["h3"])]
+    image = _image(value)
+    if image:
+        items.append(image)
+    items.append(_para(note, styles["note"]))
+    return KeepTogether(items)
+
+
+def _scope(frame, month=None, year=None):
+    cutoff = analytics.last_complete_month()
+    note = f" · Datos hasta {analytics.month_label(cutoff)}"
+    if month:
+        subset = frame[frame["mes"] == month]
+        return subset, subset, "mensual", analytics.month_label(month) + note, f"Informe mensual · {analytics.month_label(month)}"
+    if year:
+        subset = frame[frame["anio"] == year]
+        return subset, subset, "anual", f"Año {year}{note}", f"Informe anual · {year}"
+    return frame, frame, "general", "Histórico completo" + note, "Informe general de reputación"
+
+
+def export_pdf(client, frame, month=None, year=None, filename=None):
+    subset, chart_source, kind, period, title = _scope(frame, month, year)
     styles = _styles()
-    story = []
-    if LOGO.exists():
-        story.append(Image(str(LOGO), width=48, height=48))
-    story.append(Spacer(1, 4))
-    story.append(Paragraph(f"{client.name} · Informe de reputación", styles["title"]))
-    period = analytics.month_label(month) if month else "Histórico completo"
-    story.append(Paragraph(f"Periodo: {period} · Generado: {datetime.now().strftime('%d/%m/%Y %H:%M')}", styles["center"]))
-    story.append(Paragraph("WhatsApp +34 624 59 23 98 · alexgoyzueta2018@gmail.com", styles["center"]))
-    story.append(Spacer(1, 10))
-
-    subset = frame[frame["mes"] == month] if month else frame
     kpis = analytics.reputation_kpis(subset)
-    kpi_rows = [
-        ["Rating medio", f"{kpis['average']:.2f}★", "Satisfacción", f"{kpis['satisfaction']:.1f}%"],
-        ["Reseñas", kpis["total"], "Excelencia 5★", f"{kpis['five_rate']:.1f}%"],
-        ["Positivas 4-5★", f"{kpis['positive_rate']:.1f}%", "Incidencias 1-2★", kpis["negative"]],
-        ["Saldo reputacional", f"+{kpis['balance']:.1f}", "Respuestas", f"{kpis['response_rate']:.1f}%"],
+    score = insights.scorecard(kpis)
+    diagnosis = insights.client_diagnosis(subset, client)
+    notes = insights.chart_notes(kind, chart_source, subset, kpis)
+    themes = analytics.themes(subset)
+
+    root = _client_folder(client)
+    subdir = {"mensual": "pdf_mensuales", "anual": "pdf_anuales", "general": "general"}[kind]
+    folder = root / subdir
+    folder.mkdir(parents=True, exist_ok=True)
+    if not filename:
+        stamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        filename = f"informe_{kind}_{stamp}.pdf"
+    path = folder / filename
+
+    story = [
+        Spacer(1, 4),
+        _para(title, styles["title"]),
+        _para(f"{client.name} · Generado el {datetime.now().strftime('%d/%m/%Y %H:%M')} · Fuente: Google Maps", styles["subtitle"]),
+        _profile_table(client),
+        Spacer(1, 8),
+        _para("1. Cómo leer este informe", styles["h2"]),
+        _para("Mire primero el rating y la satisfacción. Después vea cuántos clientes dan 5 estrellas y cuántas incidencias aparecen. "
+              "El gráfico de satisfechos vs incidencias resume el estado del negocio en un solo vistazo.", styles["body"]),
+        Spacer(1, 4),
+        _glossary_table(styles),
+        Spacer(1, 8),
+        _para("2. Resumen ejecutivo", styles["h2"]),
+        _para(diagnosis["headline"], styles["body"]),
+        Spacer(1, 4),
+        _kpi_table(kpis, score),
+        Spacer(1, 8),
+        _para("3. Lo bueno y lo que hay que corregir", styles["h2"]),
+        _para("Lo que funciona", styles["h3"]),
     ]
-    kpi_table = Table(kpi_rows, colWidths=[42 * mm, 35 * mm, 42 * mm, 35 * mm])
-    kpi_table.setStyle(TableStyle([
-        ("GRID", (0, 0), (-1, -1), 0.5, colors.HexColor("#D7DEEA")),
-        ("BACKGROUND", (0, 0), (0, -1), colors.HexColor("#EEF2F8")),
-        ("BACKGROUND", (2, 0), (2, -1), colors.HexColor("#EEF2F8")),
-        ("FONTNAME", (0, 0), (-1, -1), "Helvetica-Bold"),
-        ("FONTSIZE", (0, 0), (-1, -1), 8.5),
-        ("TOPPADDING", (0, 0), (-1, -1), 5),
-        ("BOTTOMPADDING", (0, 0), (-1, -1), 5),
-    ]))
-    story.append(kpi_table)
+    for item in diagnosis["strengths"][:4]:
+        story.append(_para(item, styles["good"]))
+    story.append(_para("Lo que frena el crecimiento", styles["h3"]))
+    for item in diagnosis["risks"][:4]:
+        story.append(_para(item, styles["bad"]))
+    story.append(_para(f"Lo que destacaron: {themes['good_text']}", styles["body"]))
+    story.append(_para(f"Lo que hay que corregir: {themes['bad_text']}", styles["bad"]))
+    story.append(Spacer(1, 8))
+    story.append(_para("4. Guion para explicarlo al cliente", styles["h2"]))
+    for item in _talk_script(diagnosis, kpis, styles):
+        story.append(item)
 
-    info = analytics.themes(subset)
-    story.append(Paragraph("1. Lectura ejecutiva", styles["h2"]))
-    story.append(Paragraph(f"<b>Lo que destacaron:</b> {info['good_text']}", styles["body"]))
-    story.append(Paragraph(f"<b>Lo que gusta:</b> {info['strength']}", styles["body"]))
-    story.append(Paragraph(f"<b>Lo que hay que corregir:</b> {info['bad_text']}", styles["bad"]))
-    story.append(Paragraph(info["correction"], styles["bad"]))
-    story.append(Paragraph(f"<b>Oportunidad comercial:</b> solo se responde el {kpis['negative_response_rate']:.1f}% de las reseñas de 1-2★. Contestarlas es la acción de mayor retorno reputacional.", styles["body"]))
-
-    story.append(Paragraph("2. Evolución visual", styles["h2"]))
-    image = _image(charts.monthly(frame))
-    if image:
-        story.append(image)
-    image = _image(charts.distribution(subset))
-    if image:
-        story.append(image)
-    image = _image(charts.response_by_rating(frame))
-    if image:
-        story.append(image)
+    story.append(_para("5. Gráficos con lectura", styles["h2"]))
+    if kind in ("general", "anual"):
+        story.append(_chart_block("Evolución mensual", charts.monthly(chart_source), notes["monthly"], styles))
+        story.append(_chart_block("Días de la semana", charts.weekday(chart_source), notes["weekday"], styles))
+    story.append(_chart_block("Distribución de valoraciones", charts.distribution(subset), notes["distribution"], styles))
+    story.append(_chart_block("Satisfechos vs incidencias", charts.sentiment(subset), notes["sentiment"], styles))
+    story.append(_chart_block("Respuesta del propietario", charts.response_by_rating(chart_source), notes["response"], styles))
+    if kind == "mensual":
+        story.append(_chart_block("Semanas del mes", charts.weekly(subset), notes["weekly"], styles))
+        story.append(_chart_block("Actividad diaria", charts.daily(subset), notes["daily"], styles))
 
     story.append(PageBreak())
-    story.append(Paragraph("3. Análisis temporal", styles["h2"]))
-    story.append(Paragraph("Resumen mensual", styles["h2"]))
-    story.append(_table(analytics.records(analytics.monthly_table(frame)), styles, max_rows=20))
-    if month:
-        image = _image(charts.weekly(subset))
-        if image:
-            story.append(image)
-        story.append(Paragraph("Resumen semanal", styles["h2"]))
+    story.append(_para("6. Análisis temporal", styles["h2"]))
+    if kind == "mensual":
+        story.append(_para("Resumen semanal", styles["h3"]))
         story.append(_table(analytics.records(analytics.weekly_table(subset)), styles))
-        image = _image(charts.daily(subset))
-        if image:
-            story.append(image)
-        story.append(Paragraph("Resumen diario", styles["h2"]))
-        story.append(_table(analytics.records(analytics.daily_table(subset)), styles, max_rows=25))
+        story.append(Spacer(1, 6))
+        story.append(_para("Detalle diario", styles["h3"]))
+        story.append(_table(analytics.records(analytics.daily_table(subset)), styles, max_rows=30))
     else:
-        story.append(Paragraph("Resumen anual", styles["h2"]))
+        story.append(_para("Resumen mensual", styles["h3"]))
+        story.append(_table(analytics.records(analytics.monthly_table(chart_source)), styles, max_rows=24))
+        story.append(Spacer(1, 6))
+        story.append(_para("Comparativa anual", styles["h3"]))
         story.append(_table(analytics.records(analytics.yearly_table(frame)), styles))
-        image = _image(charts.weekday(frame))
-        if image:
-            story.append(image)
 
-    story.append(Paragraph("4. Comentarios verificables", styles["h2"]))
+    story.append(Spacer(1, 8))
+    story.append(_para("7. Comentarios verificables", styles["h2"]))
     for item in analytics.verbatims(subset, True):
-        story.append(Paragraph(f"<b>{item['date']} · {item['author']} · {item['rating']}★</b><br/>{item['text']}", styles["body"]))
-    story.append(Paragraph("Incidencias", styles["h2"]))
+        story.append(_para(f"{item['date']} · {item['author']} · {item['rating']}★", styles["h3"]))
+        story.append(_para(item["text"], styles["good"]))
+    story.append(_para("Incidencias a atender", styles["h3"]))
     for item in analytics.verbatims(subset, False):
-        story.append(Paragraph(f"<b>{item['date']} · {item['author']} · {item['rating']}★</b><br/>{item['text']}", styles["bad"]))
+        story.append(_para(f"{item['date']} · {item['author']} · {item['rating']}★", styles["h3"]))
+        story.append(_para(item["text"], styles["bad"]))
 
-    story.append(Paragraph("5. Plan de acción 30 días", styles["h2"]))
-    actions = [
-        "Responder en menos de 24 h todas las reseñas de 1-3★ con disculpa concreta y compensación privada.",
-        "Revisar esperas y errores de pedido en los días con peor rating.",
-        "Revisar raciones percibidas y añadir al menos dos opciones veganas/vegetarianas.",
-        "Campaña de fotos de clientes con QR en mesa y objetivo de 4,70★.",
-    ]
-    for index, action in enumerate(actions, 1):
-        story.append(Paragraph(f"{index}. {action}", styles["body"]))
+    story.append(Spacer(1, 8))
+    story.append(_para("8. Plan de mejora recomendado", styles["h2"]))
+    story.append(_recommendation_table(diagnosis["actions"], styles))
+
+    story.append(Spacer(1, 10))
+    story.append(_para("9. Cierre comercial", styles["h2"]))
+    cta = Table([[
+        _para("Este informe se actualiza, no se rehace", styles["white"]),
+        _para(f"La URL y el histórico quedan guardados. Siguiente paso: {WHATSAPP_URL} · {EMAIL}", styles["white"]),
+    ]], colWidths=[70 * mm, 106 * mm])
+    cta.setStyle(TableStyle([
+        ("BACKGROUND", (0, 0), (-1, -1), NAVY),
+        ("LEFTPADDING", (0, 0), (-1, -1), 10),
+        ("RIGHTPADDING", (0, 0), (-1, -1), 10),
+        ("TOPPADDING", (0, 0), (-1, -1), 10),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 10),
+    ]))
+    story.append(cta)
 
     doc = SimpleDocTemplate(
         str(path),
         pagesize=A4,
-        rightMargin=14 * mm,
-        leftMargin=14 * mm,
-        topMargin=14 * mm,
-        bottomMargin=14 * mm,
-        title=f"Informe {client.name} {period}",
-        author="Informes Google Maps",
+        rightMargin=16 * mm,
+        leftMargin=16 * mm,
+        topMargin=28 * mm,
+        bottomMargin=20 * mm,
+        title=f"{title} · {client.name}",
+        author=f"{AUTHOR} · {BRAND}",
     )
-    doc.build(story)
+    doc.build(story, onFirstPage=lambda canvas, document: _decorate(canvas, document, client, period), onLaterPages=lambda canvas, document: _decorate(canvas, document, client, period))
     return path
+
+
+def export_pdf_package(client, frame):
+    root = _client_folder(client)
+    files = []
+    files.append(export_pdf(client, frame, filename="01_informe_general.pdf"))
+    for year in sorted(frame["anio"].unique().tolist(), reverse=True) if not frame.empty else []:
+        files.append(export_pdf(client, frame, year=int(year), filename=f"02_anio_{int(year)}.pdf"))
+    for month in sorted(frame["mes"].unique().tolist()) if not frame.empty else []:
+        files.append(export_pdf(client, frame, month=month, filename=f"03_mes_{month}.pdf"))
+    zip_path = root / f"PAQUETE_PDF_{slugify(client.name)}.zip"
+    with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED) as archive:
+        archive.writestr(
+            "LEEME.txt",
+            f"{BRAND}\n{AUTHOR}\nWhatsApp: {WHATSAPP}\nEmail: {EMAIL}\nCliente: {client.name}\nURL: {client.source_url}\nGenerado: {datetime.now().strftime('%d/%m/%Y %H:%M')}\n",
+        )
+        for path in files:
+            archive.write(path, str(path.relative_to(root)).replace("\\", "/"))
+    return zip_path, files

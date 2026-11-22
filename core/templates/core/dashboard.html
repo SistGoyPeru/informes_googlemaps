@@ -1,0 +1,81 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% block title %}Panel principal · Ranking de clientes{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="hero-inner">
+    <div class="brand-line">
+      <img src="{% static 'assets/logo.jpg' %}" alt="Logo">
+      <div>
+        <div class="eyebrow">Panel principal de cartera</div>
+        <h1>Ranking de clientes y reputación</h1>
+        <p>{{ total_clients }} clientes conectados · Datos hasta {{ last_complete }}{% if excluded_month %} · {{ excluded_month }} queda fuera hasta cerrar el mes{% endif %}</p>
+      </div>
+    </div>
+    <div class="score-box">
+      <div class="score-ring" style="--score:{{ portfolio_score.score|floatformat:0 }};--color:{{ portfolio_score.color }}"><span>{{ portfolio_score.score|floatformat:0 }}</span></div>
+      <div><strong>{{ portfolio_score.label }}</strong><small>Índice global de la cartera</small></div>
+    </div>
+  </div>
+  <div class="actions">
+    <a class="btn light" href="{{ new_client_url }}">+ Nuevo cliente</a>
+    <a class="btn ghost" href="https://wa.me/34624592398" target="_blank">Compartir resultados</a>
+  </div>
+</section>
+
+<section class="grid cards">
+  <div class="kpi"><small>Clientes</small><strong>{{ total_clients }}</strong><span>Fichas conectadas</span></div>
+  <div class="kpi"><small>Rating global</small><strong>{{ portfolio_kpis.average|floatformat:2 }}★</strong><span>Sobre 5 estrellas</span></div>
+  <div class="kpi good"><small>Satisfacción</small><strong>{{ portfolio_kpis.satisfaction|floatformat:1 }}%</strong><span>Rating convertido</span></div>
+  <div class="kpi good"><small>Excelencia 5★</small><strong>{{ portfolio_kpis.five_rate|floatformat:1 }}%</strong><span>{{ portfolio_kpis.five }} reseñas</span></div>
+  <div class="kpi"><small>Reseñas válidas</small><strong>{{ portfolio_kpis.total }}</strong><span>Hasta el último mes completo</span></div>
+  <div class="kpi bad"><small>Incidencias</small><strong>{{ portfolio_kpis.negative }}</strong><span>{{ portfolio_kpis.negative_rate|floatformat:1 }}% del total</span></div>
+  <div class="kpi warn"><small>Respondidas</small><strong>{{ portfolio_kpis.response_rate|floatformat:1 }}%</strong><span>{{ portfolio_kpis.responses }} contestadas</span></div>
+  <div class="kpi bad"><small>Respuesta a 1-2★</small><strong>{{ portfolio_kpis.negative_response_rate|floatformat:1 }}%</strong><span>Oportunidad de venta</span></div>
+</section>
+
+<section class="panel">
+  <div class="section-head"><h2>1. Ranking de clientes</h2><span>Ordenado por índice de reputación</span></div>
+  {% if ranking_chart %}<div class="chart-card"><img src="data:image/png;base64,{{ ranking_chart }}" alt="Ranking de rating por cliente"></div>{% endif %}
+  <div class="table-wrap" style="margin-top:14px">
+    <table>
+      <thead><tr><th>#</th><th>Cliente</th><th>Rating</th><th>Índice</th><th>Reseñas</th><th>Satisfacción</th><th>5★</th><th>Incidencias</th><th>Respondidas</th><th>Ritmo/día</th><th>Mejor mes</th><th>Acción</th></tr></thead>
+      <tbody>
+        {% for row in rows %}
+        <tr>
+          <td><strong>{{ row.rank }}</strong></td>
+          <td><strong>{{ row.name }}</strong><br><span class="muted">{{ row.place_id }}</span></td>
+          <td><strong>{{ row.average|floatformat:2 }}★</strong></td>
+          <td><span class="pill" style="background:{{ row.color }}22;color:{{ row.color }}">{{ row.score|floatformat:0 }} · {{ row.label }}</span></td>
+          <td>{{ row.total }}</td>
+          <td>{{ row.positive_rate|floatformat:1 }}%</td>
+          <td>{{ row.five_rate|floatformat:1 }}%</td>
+          <td>{{ row.negative }} ({{ row.negative_rate|floatformat:1 }}%)</td>
+          <td>{{ row.response_rate|floatformat:1 }}%</td>
+          <td>{{ row.rhythm|floatformat:1 }}</td>
+          <td>{{ row.best_month }}</td>
+          <td><a class="btn" href="{{ row.url }}">Ver informe</a></td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="12">Todavía no hay clientes. Pega la URL del primero.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="panel">
+  <div class="section-head"><h2>2. KPIs que recomiendo vigilar</h2><span>Qué significan y por qué importan</span></div>
+  <div class="grid cards">
+    {% for item in guide %}
+      <div class="kpi"><small>{{ item.name }}</small><strong style="font-size:13px;line-height:1.3">{{ item.name }}</strong><span>{{ item.why }}</span></div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="cta-band">
+  <h2>Convierte el ranking en una conversación de venta</h2>
+  <p>Muestra al cliente dónde está, qué le frena y qué acción concreta le vas a entregar este mes.</p>
+  <a class="btn good" href="{{ new_client_url }}">Añadir otro cliente</a>
+</section>
+{% endblock %}

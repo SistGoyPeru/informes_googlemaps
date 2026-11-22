@@ -1,0 +1,17 @@
+<div class="panel">
+  <div class="section-head"><h2>{{ title }}</h2>{% if caption %}<span>{{ caption }}</span>{% endif %}</div>
+  {% if rows %}
+    <div class="table-wrap">
+      <table>
+        <thead><tr>{% for key, value in rows.0.items %}<th>{{ key }}</th>{% endfor %}</tr></thead>
+        <tbody>
+          {% for row in rows %}
+            <tr>{% for key, value in row.items %}<td>{{ value }}</td>{% endfor %}</tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  {% else %}
+    <p class="muted">Sin datos para este periodo.</p>
+  {% endif %}
+</div>

@@ -1,0 +1,38 @@
+{% extends "core/base.html" %}
+{% block title %}Nuevo cliente · Informes Google Maps{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="eyebrow">Nuevo informe</div>
+      <h1>Pega la URL del cliente</h1>
+      <p>Extraemos reseñas, fotos, valoraciones, dirección, teléfono y horario. Después solo pulsas Actualizar.</p>
+    </div>
+    <div class="score-box"><strong>1 URL</strong><small>Todo el histórico en un dashboard</small></div>
+  </div>
+</section>
+<section class="panel">
+  <form method="post">
+    {% csrf_token %}
+    <div class="filters">
+      <div class="field">
+        <label for="id_url">URL de Google Maps</label>
+        {{ form.url }}
+        <span class="help">{{ form.url.help_text }}</span>
+        {{ form.url.errors }}
+      </div>
+      <div class="field" style="flex:0 1 180px">
+        <label for="id_limit">Máximo de reseñas</label>
+        {{ form.limit }}
+        {{ form.limit.errors }}
+      </div>
+      <button class="btn good" type="submit">Generar informe</button>
+    </div>
+  </form>
+</section>
+<section class="grid three">
+  <div class="panel"><h3>1. Extraer</h3><p class="muted">La URL se guarda. No vuelves a buscar el local a mano.</p></div>
+  <div class="panel"><h3>2. Analizar</h3><p class="muted">KPIs, gráficos, fortalezas, riesgos y plan de mejora.</p></div>
+  <div class="panel"><h3>3. Exportar</h3><p class="muted">PDF y CSV listos para entregar o seguir de forma interna.</p></div>
+</section>
+{% endblock %}

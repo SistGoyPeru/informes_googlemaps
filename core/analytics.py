@@ -1,4 +1,5 @@
-from datetime import datetime
+import calendar
+from datetime import date, datetime
 
 import pandas as pd
 
@@ -54,6 +55,28 @@ def month_label(month):
         return f"{MONTH_NAMES[int(number)]} {year}"
     except (ValueError, KeyError, AttributeError):
         return str(month)
+
+
+def last_complete_month(today=None):
+    today = today or date.today()
+    year, month = today.year, today.month
+    if today.day < calendar.monthrange(year, month)[1]:
+        month -= 1
+        if month == 0:
+            year -= 1
+            month = 12
+    return f"{year:04d}-{month:02d}"
+
+
+def complete_months(frame, today=None):
+    if frame.empty:
+        return frame
+    cutoff = last_complete_month(today)
+    return frame[frame["mes"] <= cutoff].copy()
+
+
+def report_frame(reviews, today=None):
+    return complete_months(enrich(to_frame(reviews)), today)
 
 
 def to_frame(reviews):
@@ -179,6 +202,19 @@ def week_options(frame, month):
     subset = frame[frame["mes"] == month] if not frame.empty else frame
     numbers = sorted(subset["semana_num"].unique()) if not subset.empty else []
     return [{"number": int(number), "label": f"Semana {number} ({WEEK_RANGES.get(number, '29-31')})"} for number in numbers]
+
+
+def day_options(frame, month, week=None):
+    subset = frame[frame["mes"] == month] if not frame.empty else frame
+    if week and not subset.empty:
+        subset = subset[subset["semana_num"] == week]
+    if subset.empty:
+        return []
+    dates = sorted(subset["date"].unique())
+    return [
+        {"value": value.strftime("%Y-%m-%d"), "label": value.strftime("%d/%m/%Y")}
+        for value in dates
+    ]
 
 
 def _categorized(frame, positive):

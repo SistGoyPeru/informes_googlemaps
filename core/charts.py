@@ -87,6 +87,52 @@ def distribution(frame):
     return _encode(figure)
 
 
+def client_ranking(rows):
+    if not rows:
+        return ""
+    ordered = sorted(rows, key=lambda item: item["average"], reverse=True)
+    figure, axes = _base("Ranking de rating por cliente", 3.1)
+    labels = [item["name"][:24] for item in ordered]
+    values = [item["average"] for item in ordered]
+    positions = list(range(len(labels)))
+    bars = axes.barh(positions, values, color=CHART_COLORS["volume"], height=0.58)
+    axes.set_yticks(positions)
+    axes.set_yticklabels(labels, fontsize=9)
+    axes.invert_yaxis()
+    axes.set_xlim(0, 5.2)
+    axes.set_xlabel("Rating medio")
+    axes.bar_label(bars, labels=[f"{value:.2f}★" for value in values], padding=4, fontsize=9)
+    figure.tight_layout()
+    return _encode(figure)
+
+
+def sentiment(frame):
+    if frame.empty:
+        return ""
+    satisfied = int((frame["rating"] >= 4).sum())
+    neutral = int((frame["rating"] == 3).sum())
+    incidents = int((frame["rating"] <= 2).sum())
+    figure, axes = plt.subplots(figsize=(8.2, 3.4), dpi=130)
+    axes.set_title("Satisfechos vs incidencias", color=CHART_COLORS["text"], fontsize=12, fontweight="bold", pad=12)
+    values = [satisfied, neutral, incidents]
+    labels = [f"Satisfechos 4-5★ ({satisfied})", f"Neutros 3★ ({neutral})", f"Incidencias 1-2★ ({incidents})"]
+    colors = [CHART_COLORS["positive"], CHART_COLORS["neutral"], CHART_COLORS["negative"]]
+    axes.pie(
+        values,
+        labels=labels,
+        colors=colors,
+        autopct=lambda percent: f"{percent:.0f}%",
+        startangle=90,
+        counterclock=False,
+        wedgeprops={"width": 0.42, "edgecolor": "white"},
+        textprops={"fontsize": 9},
+        pctdistance=0.77,
+    )
+    axes.axis("equal")
+    figure.tight_layout()
+    return _encode(figure)
+
+
 def response_by_rating(frame):
     if frame.empty:
         return ""
@@ -98,19 +144,5 @@ def response_by_rating(frame):
     axes.bar_label(bars, labels=[f"{value * 100:.0f}%" for value in values], padding=3, fontsize=9)
     axes.set_ylim(0, 105)
     axes.set_ylabel("% respondidas")
-    figure.tight_layout()
-    return _encode(figure)
-
-
-def cumulative(frame):
-    if frame.empty:
-        return ""
-    ordered = frame.sort_values("date")
-    values = list(range(1, len(ordered) + 1))
-    figure, axes = _base("Crecimiento acumulado de reseñas", 3.1)
-    axes.fill_between(range(len(values)), values, color=CHART_COLORS["volume"], alpha=0.14)
-    axes.plot(range(len(values)), values, color=CHART_COLORS["volume"], linewidth=2.3)
-    axes.set_ylabel("Reseñas acumuladas")
-    axes.set_xlabel("Cronología")
     figure.tight_layout()
     return _encode(figure)
