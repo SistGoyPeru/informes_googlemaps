@@ -4,6 +4,7 @@ import hashlib
 import json
 import re
 import struct
+import subprocess
 import sys
 import time
 from datetime import datetime, timedelta
@@ -109,6 +110,26 @@ def _context_options(headless):
     }
 
 
+def _close_profile_chrome():
+    command = (
+        "$procs=Get-CimInstance Win32_Process -Filter \"name = 'chrome.exe'\"; "
+        "$procs | Where-Object { $_.CommandLine -like '*chrome_profile*' } | "
+        "ForEach-Object { Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue }"
+    )
+    try:
+        subprocess.run(["powershell", "-NoProfile", "-Command", command], capture_output=True, text=True, timeout=20)
+    except (OSError, subprocess.SubprocessError):
+        pass
+
+
+def _launch_profile(playwright, profile, headless):
+    try:
+        return playwright.chromium.launch_persistent_context(str(profile), **_context_options(headless))
+    except PlaywrightError:
+        _close_profile_chrome()
+        return playwright.chromium.launch_persistent_context(str(profile), **_context_options(headless))
+
+
 def _max_photo_index(page):
     labels = page.evaluate("() => [...document.querySelectorAll('[aria-label^=\"Foto \"]')].map(e => e.getAttribute('aria-label'))")
     values = []
@@ -147,7 +168,7 @@ def scrape_basic(url=DEFAULT_URL, headless=True):
     profile = DATA_DIR / "chrome_profile_basic"
     profile.mkdir(parents=True, exist_ok=True)
     with sync_playwright() as playwright:
-        context = playwright.chromium.launch_persistent_context(str(profile), **_context_options(headless))
+        context = _launch_profile(playwright, profile, headless)
         try:
             page = context.pages[0] if context.pages else context.new_page()
             page.goto(url, wait_until="domcontentloaded", timeout=60000)
@@ -264,7 +285,7 @@ def scrape_reviews(url=DEFAULT_URL, user_data_dir=None, limit=100, wait_seconds=
     collected = {}
 
     with sync_playwright() as playwright:
-        context = playwright.chromium.launch_persistent_context(str(profile), **_context_options(headless))
+        context = _launch_profile(playwright, profile, headless)
         page = context.pages[0] if context.pages else context.new_page()
         page.goto(url, wait_until="domcontentloaded", timeout=60000)
         _handle_consent(page)
