@@ -13,7 +13,6 @@ class Client(models.Model):
     customer_photos = models.PositiveIntegerField(default=0)
     address = models.TextField(blank=True)
     phone = models.CharField(max_length=120, blank=True)
-    email = models.EmailField(blank=True)
     hours = models.TextField(blank=True)
     rating_counts = models.JSONField(default=dict, blank=True)
     photos = models.JSONField(default=list, blank=True)

@@ -1,5 +1,3 @@
-from django.conf import settings
-
 from . import analytics, insights
 
 AUTHOR = "Alex Goyzueta"
@@ -73,8 +71,6 @@ def email_brief(client, frame, month=None, year=None):
     ]
     return {
         "client": client.name,
-        "client_email": client.email or "",
-        "from_email": settings.DEFAULT_FROM_EMAIL,
         "period": period,
         "subject": subject,
         "comment": comment,

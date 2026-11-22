@@ -31,7 +31,6 @@ class Command(BaseCommand):
             "customer_photos": int(place.get("customer_photos") or summary.get("customer_photos") or 0),
             "address": place.get("address") or summary.get("address", ""),
             "phone": place.get("phone") or summary.get("phone", ""),
-            "email": summary.get("email") or "dongwj2004@gmail.com",
             "hours": place.get("hours") or summary.get("hours", ""),
             "rating_counts": place.get("rating_counts") or summary.get("rating_counts") or {},
             "photos": place.get("photos") or [],
