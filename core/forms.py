@@ -14,3 +14,13 @@ class ClientUrlForm(forms.Form):
         max_value=5000,
         widget=forms.NumberInput(attrs={"class": "limit-input"}),
     )
+    email = forms.EmailField(
+        label="Correo del cliente",
+        required=False,
+        widget=forms.EmailInput(attrs={"placeholder": "cliente@ejemplo.com", "class": "email-input"}),
+        help_text="Se guarda para poder enviar el informe directamente a su correo.",
+    )
+
+
+class ClientEmailForm(forms.Form):
+    email = forms.EmailField(label="Correo del cliente", required=False)

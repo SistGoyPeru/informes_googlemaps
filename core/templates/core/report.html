@@ -22,6 +22,7 @@
     <a class="btn light" href="{{ pdf_url }}">PDF del periodo</a>
     <a class="btn good" href="{{ pdf_package_url }}">Paquete PDF completo</a>
     <a class="btn ghost" href="{{ brief_pdf_url }}">Ficha para email</a>
+    <a class="btn light" href="{{ email_review_url }}">Enviar por correo</a>
     <a class="btn ghost" href="{{ csv_resumen }}">CSV resumen</a>
     <a class="btn ghost" href="{{ csv_resenas }}">CSV reseñas</a>
     <a class="btn ghost" href="{{ client.source_url }}" target="_blank">Ver ficha</a>
@@ -204,6 +205,7 @@
     <button class="btn" type="button" onclick="copyBrief('brief-body')">Copiar correo completo</button>
     <a class="btn ghost" href="{{ brief_pdf_url }}">Descargar ficha PDF</a>
     <a class="btn light" href="{{ brief_txt_url }}">Descargar TXT para correo</a>
+    <a class="btn good" href="{{ email_review_url }}">Revisar y enviar por correo</a>
   </div>
   <p class="muted" style="margin-bottom:0">Periodo de la ficha: {{ brief.period }}.</p>
 </section>

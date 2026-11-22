@@ -3,7 +3,7 @@ from datetime import date, datetime
 from io import BytesIO
 from unittest.mock import patch
 
-from django.test import TestCase
+from django.test import TestCase, override_settings
 from django.urls import reverse
 from django.utils import timezone
 
@@ -22,6 +22,7 @@ class DashboardTests(TestCase):
             name="Local Prueba",
             source_url="https://www.google.com/maps/place/Local+Prueba/data=!1s0x1:0xabc",
             place_id="ChIJPrueba001",
+            email="dongwj2004@gmail.com",
             rating=4.5,
             review_total=485,
             photo_total=166,
@@ -139,9 +140,33 @@ class DashboardTests(TestCase):
     def test_new_client_form(self):
         url = "https://www.google.com/maps/place/Otro+Local/data=!1s0x2:0xdef"
         with patch("core.views.services.sync_client", return_value=self.client_obj) as sync:
-            response = self.client.post(reverse("new_client"), {"url": url, "limit": 200})
-        sync.assert_called_once_with(url, 200)
+            response = self.client.post(reverse("new_client"), {"url": url, "limit": 200, "email": "nuevo@correo.com"})
+        sync.assert_called_once_with(url, 200, "nuevo@correo.com")
         self.assertRedirects(response, reverse("client_report", args=[self.client_obj.pk]) + "?vista=total")
+
+    def test_email_review_shows_preview_and_saves_email(self):
+        url = reverse("email_review", args=[self.client_obj.pk])
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "alexgoyzueta2018@gmail.com")
+        self.assertContains(response, "dongwj2004@gmail.com")
+        self.assertContains(response, "Paquete completo de PDF")
+        self.assertContains(response, "Ficha de envío")
+        response = self.client.post(url, {"email": "nuevo@correo.com"})
+        self.assertRedirects(response, url)
+        self.client_obj.refresh_from_db()
+        self.assertEqual(self.client_obj.email, "nuevo@correo.com")
+
+    @override_settings(EMAIL_READY=True)
+    def test_send_report_email_uses_gmail_sender(self):
+        data = {"subject": "Asunto de prueba", "body": "Cuerpo de prueba"}
+        attachments = [{"name": "paquete.zip"}]
+        with patch("core.views.mailer.prepare_preview", return_value=(data, [])), \
+             patch("core.views.mailer.prepare_attachments", return_value=attachments), \
+             patch("core.views.mailer.send_report_email") as send:
+            response = self.client.post(reverse("send_report_email", args=[self.client_obj.pk]))
+        self.assertRedirects(response, reverse("email_review", args=[self.client_obj.pk]))
+        send.assert_called_once_with(self.client_obj, "Asunto de prueba", "Cuerpo de prueba", attachments)
 
     def test_normalize_url_adds_hl(self):
         normalized = services.normalize_url("https://www.google.com/maps/place/Local+Prueba")

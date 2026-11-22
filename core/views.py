@@ -1,13 +1,14 @@
 from datetime import datetime
 from urllib.parse import urlencode
 
+from django.conf import settings
 from django.contrib import messages
 from django.http import FileResponse, Http404, HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 
-from . import analytics, briefs, charts, insights, reports, services
-from .forms import ClientUrlForm
+from . import analytics, briefs, charts, insights, mailer, reports, services
+from .forms import ClientEmailForm, ClientUrlForm
 from .models import Client, Review
 
 
@@ -101,7 +102,11 @@ def new_client(request):
     form = ClientUrlForm(request.POST or None)
     if request.method == "POST" and form.is_valid():
         try:
-            client = services.sync_client(form.cleaned_data["url"], form.cleaned_data["limit"])
+            client = services.sync_client(
+                form.cleaned_data["url"],
+                form.cleaned_data["limit"],
+                form.cleaned_data.get("email", ""),
+            )
             messages.success(request, f"Datos de {client.name} importados y guardados correctamente.")
             return redirect(_report_url(client.pk))
         except Exception as error:
@@ -269,6 +274,7 @@ def client_report(request, pk):
         "brief": brief,
         "brief_pdf_url": brief_pdf_url,
         "brief_txt_url": brief_txt_url,
+        "email_review_url": reverse("email_review", args=[pk]),
         "pdf_years": pdf_years,
         "pdf_months": pdf_months,
         "csv_resumen": reverse("export_csv", args=[pk]) + "?tipo=resumen",
@@ -286,6 +292,43 @@ def export_csv(request, pk):
     frame = analytics.report_frame(client.reviews.all())
     path = reports.export_csv(client, kind, frame)
     return FileResponse(path.open("rb"), as_attachment=True, filename=path.name, content_type="text/csv; charset=utf-8")
+
+
+def email_review(request, pk):
+    client = get_object_or_404(Client, pk=pk)
+    if request.method == "POST":
+        form = ClientEmailForm(request.POST)
+        if form.is_valid():
+            client.email = form.cleaned_data["email"]
+            client.save(update_fields=["email"])
+            messages.success(request, "Correo del cliente guardado.")
+        return redirect("email_review", pk=pk)
+    data, attachments = mailer.prepare_preview(client)
+    return render(request, "core/email_review.html", {
+        "client": client,
+        "form": ClientEmailForm(initial={"email": client.email}),
+        "data": data,
+        "attachments": attachments,
+        "from_email": settings.DEFAULT_FROM_EMAIL,
+        "email_ready": settings.EMAIL_READY,
+    })
+
+
+def send_report_email(request, pk):
+    client = get_object_or_404(Client, pk=pk)
+    if request.method != "POST":
+        raise Http404("Método no permitido.")
+    if not client.email:
+        messages.error(request, "Guarda primero el correo del cliente.")
+        return redirect("email_review", pk=pk)
+    data, _ = mailer.prepare_preview(client)
+    try:
+        attachments = mailer.prepare_attachments(client)
+        mailer.send_report_email(client, data["subject"], data["body"], attachments)
+        messages.success(request, f"Informe enviado a {client.email}.")
+    except Exception as error:
+        messages.error(request, f"No se pudo enviar: {error}")
+    return redirect("email_review", pk=pk)
 
 
 def export_brief(request, pk):

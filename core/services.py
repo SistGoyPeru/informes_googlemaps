@@ -85,7 +85,7 @@ def save_snapshot(client, place, reviews):
     return folder
 
 
-def sync_client(url, limit=500):
+def sync_client(url, limit=500, email=""):
     url, place, reviews = scrape_client(url, limit)
     place_id = place.get("place_id") or maps_scraper.fallback_key(url)
     defaults = {
@@ -100,6 +100,7 @@ def sync_client(url, limit=500):
         "address": place.get("address", ""),
         "phone": place.get("phone", ""),
         "hours": place.get("hours", ""),
+        **({"email": email} if email else {}),
         "rating_counts": place.get("rating_counts") or {},
         "photos": place.get("photos") or [],
         "login_required": bool(place.get("login_required")),
