@@ -1,6 +1,7 @@
 import csv
 import json
 import re
+import unicodedata
 from datetime import datetime
 from pathlib import Path
 from urllib.error import URLError
@@ -46,6 +47,76 @@ COUNTRY_TLDS = {
     "pt": "Portugal", "us": "Estados Unidos",
 }
 
+ZONE_CANONICAL = {
+    "ancon": "Ancón",
+    "bocanegra": "Bocanegra",
+    "barcelona": "Barcelona",
+    "callao": "Callao",
+    "chorrillos": "Chorrillos",
+    "comas": "Comas",
+    "lima": "Lima",
+    "miraflores": "Miraflores",
+    "san isidro": "San Isidro",
+    "surco": "Surco",
+}
+
+ZONE_COUNTRY = {
+    "ancon": "Perú",
+    "bocanegra": "Perú",
+    "callao": "Perú",
+    "chorrillos": "Perú",
+    "comas": "Perú",
+    "lima": "Perú",
+    "miraflores": "Perú",
+    "san isidro": "Perú",
+    "surco": "Perú",
+    "barcelona": "España",
+    "bilbao": "España",
+    "madrid": "España",
+    "malaga": "España",
+    "sevilla": "España",
+    "valencia": "España",
+}
+
+
+def _fold(value):
+    normalized = unicodedata.normalize("NFKD", value or "").lower()
+    return "".join(char for char in normalized if not unicodedata.combining(char)).strip()
+
+
+def normalize_country(value):
+    text = (value or "").strip()
+    folded = _fold(text)
+    if not folded or folded in ("sin pais", "sin pais."):
+        return "Sin país"
+    for name, aliases in COUNTRY_ALIASES.items():
+        if folded == _fold(name) or any(folded == _fold(alias) for alias in aliases):
+            return name
+    return text
+
+
+def normalize_zone(value):
+    text = (value or "").strip()
+    if not text:
+        return "Sin zona"
+    text = re.sub(r"\s+(mz|lt|urb)\b.*$", "", text, flags=re.IGNORECASE)
+    text = re.sub(r"^\s*(av|avenida|calle|cra|carrera)\.?\s+", "", text, flags=re.IGNORECASE)
+    text = re.sub(r"\s+\d{4,6}$", "", text).strip(" .,-")
+    if not text:
+        return "Sin zona"
+    folded = _fold(text)
+    if folded in ZONE_CANONICAL:
+        return ZONE_CANONICAL[folded]
+    return text.title() if text.islower() or text.isupper() else text
+
+
+def normalize_location(country, zone):
+    normalized_zone = normalize_zone(zone)
+    normalized_country = normalize_country(country)
+    if normalized_country == "Sin país":
+        normalized_country = ZONE_COUNTRY.get(_fold(normalized_zone), normalized_country)
+    return normalized_country, normalized_zone
+
 
 def _clean_zone_part(part):
     return re.sub(r"^\d{4,6}[-\s]+", "", part.strip()).strip(" .-")
@@ -69,8 +140,7 @@ def infer_location(address="", source_url=""):
     parts = [part for part in parts if part]
     country_aliases = tuple(alias for aliases in COUNTRY_ALIASES.values() for alias in aliases)
     parts = [part for part in parts if not any(alias in part.lower() for alias in country_aliases)]
-    zone = parts[-1] if parts else "Sin zona"
-    return country, zone
+    return normalize_location(country, parts[-1] if parts else "Sin zona")
 
 
 def _is_google_short(url):
@@ -184,8 +254,9 @@ def sync_client(url, country="", zone=""):
     }
     existing = Client.objects.filter(place_id=place_id).first()
     inferred_country, inferred_zone = infer_location(defaults["address"], url)
-    defaults["country"] = country or (existing.country if existing and existing.country else inferred_country)
-    defaults["zone"] = zone or (existing.zone if existing and existing.zone else inferred_zone)
+    raw_country = country or (existing.country if existing and existing.country else inferred_country)
+    raw_zone = zone or (existing.zone if existing and existing.zone else inferred_zone)
+    defaults["country"], defaults["zone"] = normalize_location(raw_country, raw_zone)
     client, _ = Client.objects.update_or_create(place_id=place_id, defaults=defaults)
     for row in reviews:
         review_id = row.get("review_id") or maps_scraper.fallback_key(

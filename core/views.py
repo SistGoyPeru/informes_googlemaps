@@ -73,13 +73,14 @@ def _portfolio_context():
         rhythm = insights.review_rhythm(frame)
         monthly = analytics.monthly_table(frame)
         best = monthly.sort_values("Rating", ascending=False).iloc[0] if not monthly.empty else None
+        country, zone = services.normalize_location(item.country, item.zone)
         rows.append({
             "pk": item.pk,
             "name": item.name,
             "url": _report_url(item.pk),
             "place_id": item.place_id,
-            "country": item.country or "Sin país",
-            "zone": item.zone or "Sin zona",
+            "country": country,
+            "zone": zone,
             "average": kpis["average"],
             "score": score["score"],
             "label": score["label"],

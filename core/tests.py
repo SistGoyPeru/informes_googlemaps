@@ -65,20 +65,51 @@ class DashboardTests(TestCase):
             country="Perú",
             zone="Lima",
         )
+        Client.objects.create(
+            name="Local Ancon",
+            source_url="https://www.google.com/maps/place/Ancon/data=!1s0x2:0xancon",
+            place_id="ChIJAncon001",
+            country="peru",
+            zone="ancon",
+        )
+        Client.objects.create(
+            name="Local Barcelona",
+            source_url="https://www.google.com/maps/place/Barcelona/data=!1s0x2:0xbcn",
+            place_id="ChIJBCN001",
+            country="Sin país",
+            zone="Barcelona",
+        )
         response = self.client.get(reverse("home"))
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "Sin país")
         self.assertContains(response, "Sin zona")
         self.assertContains(response, "Perú")
-        self.assertContains(response, "Lima")
-        self.assertEqual(response.context["country_count"], 2)
-        self.assertEqual(response.context["zone_count"], 2)
+        self.assertContains(response, "Ancón")
+        self.assertContains(response, "España")
+        self.assertNotContains(response, "Ancón 15123")
+        self.assertEqual(response.context["country_count"], 3)
+        self.assertEqual(response.context["zone_count"], 4)
+
+    def test_normalize_location_merges_duplicates(self):
+        self.assertEqual(
+            services.normalize_location("peru", "Ancón 15123"),
+            ("Perú", "Ancón"),
+        )
+        self.assertEqual(
+            services.normalize_location("Sin país", "Barcelona"),
+            ("España", "Barcelona"),
+        )
 
     def test_infer_location_from_address(self):
         country, zone = services.infer_location(
             "Carrer de Mallorca, 123, 08008 Barcelona, España",
             "https://www.google.com/maps/place/Barcelona",
         )
+        self.assertEqual(country, "España")
+        self.assertEqual(zone, "Barcelona")
+
+    def test_infer_country_from_known_zone(self):
+        country, zone = services.infer_location("Barcelona", "")
         self.assertEqual(country, "España")
         self.assertEqual(zone, "Barcelona")
 
