@@ -6,7 +6,7 @@ from django.http import FileResponse, Http404
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 
-from . import analytics, charts, insights, reports, services
+from . import analytics, briefs, charts, insights, reports, services
 from .forms import ClientUrlForm
 from .models import Client, Review
 
@@ -201,6 +201,14 @@ def client_report(request, pk):
         for item in Client.objects.all()
     ]
     pdf_base = reverse("export_pdf", args=[pk])
+    brief_period = f"?mes={month}" if vista in ("mes", "semana", "dia") and month else (f"?anio={year}" if vista == "anio" and year else "")
+    brief_pdf_url = reverse("export_brief", args=[pk]) + brief_period
+    brief = briefs.email_brief(
+        client,
+        raw_frame,
+        month if vista in ("mes", "semana", "dia") else None,
+        year if vista == "anio" else None,
+    )
     pdf_years = [
         {"year": int(value), "url": f"{pdf_base}?anio={int(value)}", "active": int(value) == year}
         for value in (frame["anio"].unique().tolist() if not frame.empty else [])
@@ -263,6 +271,8 @@ def client_report(request, pk):
         "pdf_year_url": pdf_base + (f"?anio={year}" if year else ""),
         "pdf_month_url": pdf_base + (f"?mes={month}" if month else ""),
         "pdf_package_url": reverse("export_pdf_package", args=[pk]),
+        "brief": brief,
+        "brief_pdf_url": brief_pdf_url,
         "pdf_years": pdf_years,
         "pdf_months": pdf_months,
         "csv_resumen": reverse("export_csv", args=[pk]) + "?tipo=resumen",
@@ -280,6 +290,15 @@ def export_csv(request, pk):
     frame = analytics.report_frame(client.reviews.all())
     path = reports.export_csv(client, kind, frame)
     return FileResponse(path.open("rb"), as_attachment=True, filename=path.name, content_type="text/csv; charset=utf-8")
+
+
+def export_brief(request, pk):
+    client = get_object_or_404(Client, pk=pk)
+    month = request.GET.get("mes") or None
+    year = request.GET.get("anio") or None
+    raw_frame = analytics.enrich(analytics.to_frame(client.reviews.all()))
+    path = reports.export_brief(client, raw_frame, month, year)
+    return FileResponse(path.open("rb"), as_attachment=True, filename=path.name, content_type="application/pdf")
 
 
 def export_pdf(request, pk):

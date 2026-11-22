@@ -16,7 +16,7 @@ from reportlab.lib.units import mm
 from reportlab.lib.utils import ImageReader
 from reportlab.platypus import Image, KeepTogether, PageBreak, Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
 
-from . import analytics, charts, insights
+from . import analytics, charts, briefs, insights
 from .models import Review
 
 BASE_DIR = Path(__file__).resolve().parents[1]
@@ -284,6 +284,68 @@ def _scope(frame, month=None, year=None):
     return frame, frame, "general", "Histórico completo" + note, "Informe general de reputación"
 
 
+def export_brief(client, frame, month=None, year=None, filename=None):
+    data = briefs.email_brief(client, frame, month, year)
+    styles = _styles()
+    folder = _client_folder(client) / "fichas"
+    folder.mkdir(parents=True, exist_ok=True)
+    path = folder / (filename or f"ficha_envio_{datetime.now().strftime('%Y%m%d_%H%M%S')}.pdf")
+
+    story = [
+        Spacer(1, 4),
+        _para("Ficha para enviar por correo", styles["title"]),
+        _para(f"{client.name} · {data['period']} · Preparada por {briefs.AUTHOR}", styles["subtitle"]),
+        _profile_table(client),
+        Spacer(1, 8),
+        _para("Asunto sugerido", styles["h2"]),
+        _para(data["subject"], styles["note"]),
+        Spacer(1, 6),
+        _para("Comentario para el archivo adjunto", styles["h2"]),
+        _para(data["comment"], styles["note"]),
+        Spacer(1, 6),
+        _para("Texto listo para copiar en el correo", styles["h2"]),
+    ]
+    for line in data["body"].split("\n"):
+        if line:
+            story.append(_para(line, styles["body"]))
+        else:
+            story.append(Spacer(1, 4))
+    story.append(Spacer(1, 8))
+    story.append(_para("Archivos que acompañan esta ficha", styles["h2"]))
+    story.append(_table([
+        {"Archivo": "00_FICHA_DE_ENVIO.pdf", "Contenido": "Este resumen con el texto sugerido"},
+        {"Archivo": "01_informe_general.pdf", "Contenido": "Historial completo hasta el último mes cerrado"},
+        {"Archivo": "02_anio_*.pdf", "Contenido": "Informe por cada año"},
+        {"Archivo": "03_mes_*.pdf", "Contenido": "Informe mensual, incluido el mes en curso"},
+    ], styles, col_widths=[55 * mm, 121 * mm]))
+    story.append(Spacer(1, 10))
+    cta = Table([[
+        _para("Siguiente paso", styles["white"]),
+        _para(f"Revisar el informe con el cliente y confirmar el plan de mejora. {briefs.WHATSAPP_URL} · {briefs.EMAIL}", styles["white"]),
+    ]], colWidths=[35 * mm, 141 * mm])
+    cta.setStyle(TableStyle([
+        ("BACKGROUND", (0, 0), (-1, -1), NAVY),
+        ("LEFTPADDING", (0, 0), (-1, -1), 10),
+        ("RIGHTPADDING", (0, 0), (-1, -1), 10),
+        ("TOPPADDING", (0, 0), (-1, -1), 10),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 10),
+    ]))
+    story.append(cta)
+
+    doc = SimpleDocTemplate(
+        str(path),
+        pagesize=A4,
+        rightMargin=16 * mm,
+        leftMargin=16 * mm,
+        topMargin=28 * mm,
+        bottomMargin=20 * mm,
+        title=f"Ficha de envío · {client.name}",
+        author=f"{briefs.AUTHOR} · {BRAND}",
+    )
+    doc.build(story, onFirstPage=lambda canvas, document: _decorate(canvas, document, client, data["period"]), onLaterPages=lambda canvas, document: _decorate(canvas, document, client, data["period"]))
+    return path
+
+
 def export_pdf(client, frame, month=None, year=None, filename=None):
     subset, chart_source, kind, period, title = _scope(frame, month, year)
     styles = _styles()
@@ -407,6 +469,7 @@ def export_pdf_package(client, frame, monthly_frame=None):
     root = _client_folder(client)
     monthly_frame = monthly_frame if monthly_frame is not None else frame
     files = []
+    files.append(export_brief(client, frame, filename="00_FICHA_DE_ENVIO.pdf"))
     files.append(export_pdf(client, frame, filename="01_informe_general.pdf"))
     for year in sorted(frame["anio"].unique().tolist(), reverse=True) if not frame.empty else []:
         files.append(export_pdf(client, frame, year=int(year), filename=f"02_anio_{int(year)}.pdf"))

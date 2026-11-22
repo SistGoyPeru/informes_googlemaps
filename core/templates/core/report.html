@@ -21,6 +21,7 @@
     <form method="post" action="{% url 'update_client' client.pk %}">{% csrf_token %}<button class="btn good" type="submit">Actualizar datos</button></form>
     <a class="btn light" href="{{ pdf_url }}">PDF del periodo</a>
     <a class="btn good" href="{{ pdf_package_url }}">Paquete PDF completo</a>
+    <a class="btn ghost" href="{{ brief_pdf_url }}">Ficha para email</a>
     <a class="btn ghost" href="{{ csv_resumen }}">CSV resumen</a>
     <a class="btn ghost" href="{{ csv_resenas }}">CSV reseñas</a>
     <a class="btn ghost" href="{{ client.source_url }}" target="_blank">Ver ficha</a>
@@ -190,6 +191,22 @@
   </div>
 </section>
 
+<section class="panel">
+  <div class="section-head"><h2>12. Ficha para enviar por correo</h2><span>Texto sugerido con datos reales</span></div>
+  <span class="brief-label">Asunto sugerido</span>
+  <textarea id="brief-subject" readonly>{{ brief.subject }}</textarea>
+  <span class="brief-label">Comentario corto para el archivo que adjuntas</span>
+  <textarea id="brief-comment" readonly>{{ brief.comment }}</textarea>
+  <span class="brief-label">Correo completo listo para copiar</span>
+  <textarea id="brief-body" readonly style="min-height:220px">{{ brief.body }}</textarea>
+  <div class="actions">
+    <button class="btn good" type="button" onclick="copyBrief('brief-comment')">Copiar comentario</button>
+    <button class="btn" type="button" onclick="copyBrief('brief-body')">Copiar correo completo</button>
+    <a class="btn ghost" href="{{ brief_pdf_url }}">Descargar ficha PDF</a>
+  </div>
+  <p class="muted" style="margin-bottom:0">Periodo de la ficha: {{ brief.period }}. Último mes completo: {{ brief.last_complete }}.</p>
+</section>
+
 <section class="cta-band">
   <h2>Este reporte se actualiza, no se rehace</h2>
   <p>La URL y el histórico quedan guardados. Cada mes solo pulsas Actualizar y entregas el PDF/CSV.</p>
@@ -199,5 +216,6 @@
 {% block scripts %}
 <script>
 function chooseVista(value){document.getElementById('id_vista').value=value;document.getElementById('filter-form').submit();}
+function copyBrief(id){var field=document.getElementById(id);field.select();document.execCommand('copy');field.setSelectionRange(0,0);}
 </script>
 {% endblock %}

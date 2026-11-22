@@ -61,6 +61,7 @@ class DashboardTests(TestCase):
         self.assertContains(response, "2. Lo que funciona")
         self.assertContains(response, "Cómo leer este informe")
         self.assertContains(response, "Reportes PDF profesionales")
+        self.assertContains(response, "Ficha para enviar por correo")
 
     def test_incomplete_current_month_is_excluded(self):
         current = datetime.now().strftime("%Y-%m")
@@ -98,6 +99,12 @@ class DashboardTests(TestCase):
             archive = zipfile.ZipFile(BytesIO(b"".join(package.streaming_content)))
             self.assertTrue(any(f"03_mes_{current}.pdf" in name for name in archive.namelist()))
 
+    def test_email_brief_pdf(self):
+        response = self.client.get(reverse("export_brief", args=[self.client_obj.pk]))
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response["Content-Type"], "application/pdf")
+        self.assertTrue(b"%PDF" in b"".join(response.streaming_content)[:1024])
+
     def test_pdf_general_year_month_and_package(self):
         for query in ({}, {"anio": self.year}, {"mes": self.month}):
             response = self.client.get(reverse("export_pdf", args=[self.client_obj.pk]), query)
@@ -110,6 +117,7 @@ class DashboardTests(TestCase):
         archive = zipfile.ZipFile(BytesIO(b"".join(response.streaming_content)))
         names = archive.namelist()
         self.assertIn("LEEME.txt", names)
+        self.assertTrue(any("00_FICHA_DE_ENVIO.pdf" in name for name in names))
         self.assertTrue(any("01_informe_general.pdf" in name for name in names))
         self.assertTrue(any(f"02_anio_{self.year}.pdf" in name for name in names))
         self.assertTrue(any(f"03_mes_{self.month}.pdf" in name for name in names))
